@@ -1,13 +1,19 @@
-2 OCTAVE MIDI CONTROLLER FIRMWARE 
+2 OCTAVE MIDI CONTROLLER FIRMWARE
+
 PIC18F4680 FIRMWARE v1.0
+
 FOR PCB v1.0
 
 Copyright 2021 Bill Smaldon
+
 Licensed under the GNU GPL Version 3.
+
 email: billsmaldon@gmail.com
 
 The code of encoder.c and encoder.h is a derivative work of the code from
+
 Buxtronix, hich is licensed GPL v3. This code therefore is also licensed
+
 under the terms of the GNU Public License, verison 3.
 
 https://github.com/buxtronix/arduino/tree/master/libraries/Rotary
