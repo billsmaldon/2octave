@@ -22,7 +22,9 @@ Note: new versions of MPLAB X and the XC8 compiler do not work!
 Please use the following ide, compiler and the necessary peripheral library
 
 MPLAB X v4.05
+
 XC8 v1.45
+
 PIC18F Legacy Peripheral Libraries v2.0
 
 After installing all of these, you will have to link the peripheral library.
