@@ -2,7 +2,7 @@
 
 PIC18F4680 FIRMWARE v1.0 FOR PCB v1.0
 
-Copyright 2021 Bill Smaldon
+Copyright © 2021 Bill Smaldon
 
 Licensed under the GNU GPL Version 3.
 
