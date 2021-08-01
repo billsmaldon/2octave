@@ -194,8 +194,8 @@ void programChange (unsigned char channel, unsigned char data1,  unsigned char d
     sendOut(data1);
     __delay_ms(2);
     //__delay_us(320);
-    sendOut(data2);
-    __delay_ms(2);
+    //sendOut(data2); //2 byte message!
+    //__delay_ms(2);
     //__delay_us(320);    
     
 }
