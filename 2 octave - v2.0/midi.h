@@ -183,6 +183,7 @@ enum controllerNumber{
 //modify to full range of midi pitch (0 - 127)?
 enum generalMIDIdrums {
     
+    /*
     DRUM_0 = 36,        //BASS DRUM
     DRUM_1 = 40,        //ELECTRIC SNARE
     DRUM_2 = 42,        //CLOSED HI-HAT
@@ -192,6 +193,29 @@ enum generalMIDIdrums {
     DRUM_5 = 40,        //ELECTRIC SNARE
     DRUM_6 = 42,        //CLOSED HI-HAT
     DRUM_7 = 49,        //CRASH CYMBAL
+    */
+    
+    /*
+    DRUM_0 = 36,
+    DRUM_1 = 40,
+    DRUM_2 = 41,
+    DRUM_3 = 43,
+    
+    DRUM_4 = 42,
+    DRUM_5 = 44,
+    DRUM_6 = 46,
+    DRUM_7 = 51,
+    */
+    
+DRUM_0 = 36,            //C1 Bass Drum 1
+DRUM_1 = 38,            //D1 Acoustic Snare
+DRUM_2 = 39,            //Eb1 Hand Clap
+DRUM_3 = 40,            //E1 Electric Snare
+
+DRUM_4 = 42,            //F#1 Closed Hi Hat
+DRUM_5 = 44,            //Ab1 Pedal Hi-Hat
+DRUM_6 = 46,            //Bb1 Open Hi-Hat
+DRUM_7 = 49,            //C#2 Crash Cymbal 1
     
 };
 
