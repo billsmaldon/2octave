@@ -6,7 +6,7 @@ PIC18F4680 FIRMWARE v2.0 FOR PCB v2.0
 
 TEENSY LC FIRMWARE FOR PCB v2.0
 
-Copyright © 2021 Bill Smaldon
+Copyright © 2022 Bill Smaldon
 
 Licensed under the GNU GPL Version 3.
 
