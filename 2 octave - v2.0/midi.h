@@ -213,9 +213,9 @@ DRUM_2 = 39,            //Eb1 Hand Clap
 DRUM_3 = 40,            //E1 Electric Snare
 
 DRUM_4 = 42,            //F#1 Closed Hi Hat
-DRUM_5 = 44,            //Ab1 Pedal Hi-Hat
-DRUM_6 = 46,            //Bb1 Open Hi-Hat
-DRUM_7 = 49,            //C#2 Crash Cymbal 1
+DRUM_5 = 46,            //Bb1 Open Hi-Hat
+DRUM_6 = 49,            //C#2 Crash Cymbal 1
+DRUM_7 = 54,            //F#2 Tambourine
     
 };
 
