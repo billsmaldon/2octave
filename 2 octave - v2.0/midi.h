@@ -175,48 +175,24 @@ enum controllerNumber{
     all_notes_off = 123,
     omni_mode_off = 124,
     omni_mode_on = 125,
-    mono_operaton = 126,
+    mono_operation = 126,
     poly_operation = 127
 };
 
 //enum of General MIDI drums (pitch 35 - pitch 81)
 //modify to full range of midi pitch (0 - 127)?
 enum generalMIDIdrums {
-    
-    /*
-    DRUM_0 = 36,        //BASS DRUM
-    DRUM_1 = 40,        //ELECTRIC SNARE
-    DRUM_2 = 42,        //CLOSED HI-HAT
-    DRUM_3 = 49,        //CRASH CYMBAL
-    
-    DRUM_4 = 36,        //BASS DRUM
-    DRUM_5 = 40,        //ELECTRIC SNARE
-    DRUM_6 = 42,        //CLOSED HI-HAT
-    DRUM_7 = 49,        //CRASH CYMBAL
-    */
-    
-    /*
-    DRUM_0 = 36,
-    DRUM_1 = 40,
-    DRUM_2 = 41,
-    DRUM_3 = 43,
-    
-    DRUM_4 = 42,
-    DRUM_5 = 44,
-    DRUM_6 = 46,
-    DRUM_7 = 51,
-    */
-    
-DRUM_0 = 36,            //C1 Bass Drum 1
-DRUM_1 = 38,            //D1 Acoustic Snare
-DRUM_2 = 39,            //Eb1 Hand Clap
-DRUM_3 = 40,            //E1 Electric Snare
+ 
+    DRUM_0 = 36,            //C1 Bass Drum 1
+    DRUM_1 = 38,            //D1 Acoustic Snare
+    DRUM_2 = 39,            //Eb1 Hand Clap
+    DRUM_3 = 40,            //E1 Electric Snare
 
-DRUM_4 = 42,            //F#1 Closed Hi Hat
-DRUM_5 = 46,            //Bb1 Open Hi-Hat
-DRUM_6 = 49,            //C#2 Crash Cymbal 1
-DRUM_7 = 54,            //F#2 Tambourine
-    
+    DRUM_4 = 42,            //F#1 Closed Hi Hat
+    DRUM_5 = 46,            //Bb1 Open Hi-Hat
+    DRUM_6 = 49,            //C#2 Crash Cymbal 1
+    DRUM_7 = 54,            //F#2 Tambourine
+
 };
 
 #endif
