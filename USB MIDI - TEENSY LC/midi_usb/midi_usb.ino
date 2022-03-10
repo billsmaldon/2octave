@@ -1,3 +1,5 @@
+#include <MIDI.h>
+
 int clockPin = 2;
 int dataPin = 3;
 int messageReady = 4;
@@ -93,7 +95,7 @@ void loop() {
       LSB = midiMessage[1];
       MSB = midiMessage[2];
       pitchBend = (MSB << 7) - 8192;
-      Serial.println(pitchBend, DEC);
+      //Serial.println(pitchBend, DEC);
       usbMIDI.sendPitchBend(pitchBend, channel);
       break;
     default:
