@@ -24,6 +24,22 @@
 #ifndef ENCODER_H_INCLUDED
 #define ENCODER_H_INCLUDED
 
+//select polarity of rotary encoder
+#define DIGIKEY_ENCODER
+//#define EBAY_ENCODER
+
+//this polarity for encoders in the parts list with a digi-key part number
+#ifdef DIGIKEY_ENCODER
+#define encoderA (RB4)
+#define encoderB (RB5)
+#endif
+
+//this polarity for encoders sourced on ebay
+#ifdef EBAY_ENCODER
+#define encoderA (RB5)
+#define encoderB (RB4)
+#endif
+
 #include <xc.h>
 #include "menu.h"
 

@@ -25,8 +25,18 @@
 
 //read encoder bits
 void encoderInputsBuxton(void) {
+    
+    //old version of reading pinstate 
+    /*
     unsigned char pinstate = PORTB & 0b00110000;
     pinstate = (pinstate >> 4);
+    */
+
+    //new version of reading pinstate
+    unsigned char tempA = encoderA << 1;
+    unsigned char tempB = encoderB;
+    unsigned char pinstate = tempA | tempB;
+    
     state = ttable[state & 0xf][pinstate]; // Determine new state from the pins and state table.
     encoder_direction = state & 0x30;  // Return emit bits, ie the generated event.
 }
