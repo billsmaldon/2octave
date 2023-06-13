@@ -4,9 +4,25 @@ PIC18F4680 FIRMWARE v1.0 FOR PCB v1.0
 
 PIC18F4680 FIRMWARE v2.0 FOR PCB v2.0
 
-TEENSY LC FIRMWARE FOR PCB v2.0
+*NEW* MIDI Arpeggiator update for all PCB versions
 
-Copyright © 2022 Bill Smaldon
+PIC18F4680 FIRMWARE v1.0a FOR PCB v1.0
+
+PIC18F4680 FIRMWARE v2.0a FOR PCB v2.0 & v2.1
+
+TEENSY LC FIRMWARE FOR PCB v2.0 & v2.1
+
+What's new?
+
+1. Firmware can be compiled for any PCB version
+2. 7 segment display flicker fixed
+3. Potentiometer latency can be adjusted
+4. Rotary encoder polarity
+5. Pentatonic Major and Pentatonic Minor scales
+6. Quick transpose
+7. MIDI Arpeggiator
+
+Copyright © 2023 Bill Smaldon
 
 Licensed under the GNU GPL Version 3.
 
