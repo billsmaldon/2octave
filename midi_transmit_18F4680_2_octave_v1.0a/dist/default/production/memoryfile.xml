@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production\midi_transmit_18F4680_2_octave_v1.0a.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>65536</length>
+      <used>44334</used>
+      <free>21202</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>3328</length>
+      <used>867</used>
+      <free>2461</free>
+    </memory>
+  </executable>
+</project>
