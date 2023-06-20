@@ -54,3 +54,9 @@ After installing all of these, you will have to link the peripheral library.
 3) under "XC8 global options", select "XC8 linker"
 4) scroll down and check "Link in Peripheral Library"
 5) the program should compile now
+
+For full instructions on compiling or flashing the PIC, see:
+
+How to flash the PIC.txt
+How to compile the source.txt
+How to compile for board version.txt
