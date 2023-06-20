@@ -1,0 +1,112 @@
+To Compile the source:
+
+First, the project folder will be added to the project github to save the time of doing all the steps below.
+
+But for anyone wanting to compile the project from the source code alone, follow these instructions:
+
+
+1) Install the MPLAB IDE
+
+- MPLABX-v4.05-windows-installer (on project DVD in the folder 'mplab')
+
+2) Install the xc8 compiler
+
+- xc8-v1.45-full-install-windows-installer (on project DVD in the folder 'mplab')
+
+3) Install the PIC18 peripheral libraries
+
+- peripheral-libraries-for-pic18-v2.00rc3-windows-installer (on project DVD in the folder 'mplab')
+
+4) Create a blank project
+
+Click File, New Project
+Select 'Categories: Microchip Embedded' and then 'Projects: Standalone Project'
+Click 'Next >'
+
+Set 'Device' to PIC18F4680
+Click 'Next >'
+
+'Hardware Tools' should be set to PICkit3
+Click 'Next >'
+
+'Compiler Toolchains' should be set to 'XC8 (v1.45)'
+If the XC8 compiler is not available, check that it has been installed
+Click 'Next >'
+
+Type a project name (Example: 'Two octave MIDI controller')
+Click 'Finish'
+
+5) Add all of the source code
+
+Add the .h
+
+- Right click on 'Header Files'
+- Click 'Add existing item'
+- Find the folder your source code (from github) is located
+- Select 'Files of type:', 'Header Files'
+- Select all of the .h files by clicking on the first item, holding SHIFT and clicking on the last item
+- Check 'Copy'
+- Click 'Select'
+- All of your .h files are now added!
+
+Add the .c
+
+- Scroll down to 'Source Files'
+- Right click on 'Source Files'
+- Click 'Add existing item'
+- Find the folder your source code (from github) is located
+- Select 'Files of type:', 'C Source Files'
+- Select all of the .c files by clicking on the first item, holding SHIFT and clicking on the last item
+- Check 'Copy'
+- Click 'Select'
+- All of your .c files are now added!
+
+Click 'Save All'
+
+Now, there are a few more steps to get your code to compile
+
+6) Link the peripheral library
+
+- You will have to link the peripheral library.
+
+- Right click the project name
+- Select 'Properties'
+- Under 'XC8 global options', select 'XC8 linker' and then 'Option Categories' - Runtime
+- Scroll down and check "Link in Peripheral Library"
+- Click 'Ok'
+
+7) Set floats to 32 bits
+
+- You will have to set floats to 32 bits
+
+- Right click the project name
+- Select 'Properties'
+- Under 'XC8 global options', select 'XC8 linker' and then 'Option Categories' - Memory model
+- set 'Size of Double' and 'Size of Float' to 32 bit
+- Click 'Ok'
+
+8) Set the compiler warning level
+
+- To prevent your output screen from excessive scrolling with compiler warnings, you need to set the 'warning level'
+
+- Right click the project name
+- Select 'Properties'
+- Under 'XC8 global options' click 'XC8 compiler'
+- Set 'Warning level' to 9
+- Click 'Ok'
+
+The program should compile now!
+
+9) Click 'Clean and Build Main Project'
+
+- If successful, the output screen should print 'BUILD SUCCESSFUL'
+
+- Your .HEX should be in the folder (for Windows 7):
+
+C:\Users\<your user name>\MPLABXProjects\Two octave MIDI controller.X\dist\default\production
+
+- The name of the .HEX should be:
+
+Two_octave_MIDI_controller.X.production.hex
+
+10) Flash the PIC with the .hex (see 'How to flash the PIC.txt)

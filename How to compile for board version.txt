@@ -1,0 +1,19 @@
+How to compile for a specific board version:
+
+In 'main.h', comment in/out the following lines of code:
+
+/******************************************************/
+
+//To compile for board version number 1.0
+
+#define MIDI_V_1_0_BOARD    //for v1.0 boards
+//#define MIDI_V_2_0_BOARD  //for v2.0, v2.1 boards
+
+/******************************************************/
+
+//To compile for board version number 2.0, 2.1
+
+//#define MIDI_V_1_0_BOARD    //for v1.0 boards
+#define MIDI_V_2_0_BOARD      //for v2.0, v2.1 boards
+
+/******************************************************/
