@@ -58,5 +58,7 @@ After installing all of these, you will have to link the peripheral library.
 For full instructions on compiling or flashing the PIC, see:
 
 How to flash the PIC.txt
+
 How to compile the source.txt
+
 How to compile for board version.txt
