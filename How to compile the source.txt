@@ -33,7 +33,14 @@ Click 'Next >'
 If the XC8 compiler is not available, check that it has been installed
 Click 'Next >'
 
-Type a project name (Example: 'Two octave MIDI controller')
+Type a project name
+
+(Bad example: 'Two octave MIDI controller') will get a compiler warning
+
+Some of the files in this Project "Two octave MIDI controller" contain spaces or odd characters in their name or their path. This could potentially cause issues during the build process. This is a limitation of GNU Make tool that we use as part of our build process. Removing spaces from all file and folder names included in this project will eliminate this potential issue.
+
+(Good Example: 'Two_octave_MIDI_controller') will clear up the compiler warning.
+
 Click 'Finish'
 
 5) Add all of the source code
