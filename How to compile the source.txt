@@ -110,10 +110,10 @@ The program should compile now!
 
 - Your .HEX should be in the folder (for Windows 7):
 
-C:\Users\<your user name>\MPLABXProjects\Two octave MIDI controller.X\dist\default\production
+C:\Users\<your user name>\MPLABXProjects\Two_octave_MIDI_controller.X\dist\default\production
 
 - The name of the .HEX should be:
 
 Two_octave_MIDI_controller.X.production.hex
 
-10) Flash the PIC with the .hex (see 'How to flash the PIC.txt)
+10) Flash the PIC with the .hex (see 'How to flash the PIC.txt')
