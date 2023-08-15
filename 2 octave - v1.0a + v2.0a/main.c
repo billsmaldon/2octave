@@ -505,7 +505,16 @@ int main(void) {
     
     //eeprom slot settings (on boot-up)
     initializeSaveSlotsOnce();  //set Slot1 = Slot2 = Slot3 = Slot4 *once* (after programming)
-    selectSlotOnBoot();         //select save slot to load on boot-up    
+    selectSlotOnBoot();         //select save slot to load on boot-up
+    
+    //*must* set startingDirection if ARPEGGIO_TYPE set to DOWN or DOWN_UP arpeggio at compile time!
+    if((ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) || (ARPEGGIO_TYPE == AS_PRESSED)){
+        startingDirection = UP;
+    }
+    
+    if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP)){
+        startingDirection = DOWN;
+    }        
 
     displayTest();  //test the 7 segment display
     

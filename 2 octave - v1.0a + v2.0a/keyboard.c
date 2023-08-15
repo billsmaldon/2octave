@@ -73,6 +73,15 @@ void playThisNotePentatonic(unsigned char pitch, unsigned char index) {
             }
 
             add_notes_to_arpeggio(temp_pitch);
+            //add_notes_to_arpeggio(pentatonic_major_key[index]);
+            
+            
+            //if(KEYBOARD_MODE == PENTATONIC_MAJOR) {
+            //    add_notes_to_arpeggio(pentatonic_major_key[index]);
+            //}
+            //if(KEYBOARD_MODE == PENTATONIC_MINOR) {
+            //    add_notes_to_arpeggio(pentatonic_minor_key[index]);
+            //}            
 
             //for auto-latch
             if(LATCH == 0) {latch_was_pressed = 0;}            
@@ -97,6 +106,14 @@ void playThisNotePentatonic(unsigned char pitch, unsigned char index) {
             }
 
             delete_notes_from_arpeggio(temp_pitch);
+            //delete_notes_from_arpeggio(pentatonic_major_key[index]);
+
+            //if(KEYBOARD_MODE == PENTATONIC_MAJOR) {
+            //    delete_notes_from_arpeggio(pentatonic_major_key[index]);
+            //}
+            //if(KEYBOARD_MODE == PENTATONIC_MINOR) {
+            //    delete_notes_from_arpeggio(pentatonic_minor_key[index]);
+            //}             
 
             if(temp_pitch == parallel){NUM_NOTES_PRESSED = 0;} // changed from 'pitch' to 'temp_pitch'
 
@@ -525,7 +542,7 @@ void playThisNote(unsigned char pitch){
             delete_notes_from_arpeggio(pitch);
             
             //if pitch = last key pressed, turn off arpeggiator
-            if(pitch == parallel){NUM_NOTES_PRESSED = 0;}
+            if(pitch == parallel){NUM_NOTES_PRESSED = 0;} //comment this out!
             
             // 'auto latch' if single key releases and one or more notes are still playing
             // set LATCH = 1 automatically, to keep adding notes to arpeggio (after deleting a note)

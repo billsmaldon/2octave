@@ -140,6 +140,7 @@ __bit AUTO_RANDOMIZE;
 //ARPEGGIO TYPE
 unsigned char ARPEGGIO_TYPE = UP;
 //STARTING DIRECTION OF ARPEGGIO
+// *must* set startingDirection if ARPEGGIO_TYPE set to DOWN or DOWN_UP arpeggio at compile time!
 unsigned char startingDirection;
 //SKIP FIRST AND LAST NOTES OF ARPEGGIO
 __bit skipFirstLast;
@@ -191,7 +192,7 @@ unsigned char ARRAY_INDEX = 0;          //keeps track of number of notes in the 
 
 //commented this out!
 //unsigned char ARPEGGIO[MAX_NUM_NOTES] = {C,D,E,F,G,A,B,C2}; //array of notes in the arpeggio (as pressed)
-//unsigned char ARPEGGIO_SORTED[\MAX_NUM_NOTES] = {C,D,E,F,G,A,B,C2}; //sorted array
+//unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {C,D,E,F,G,A,B,C2}; //sorted array
 //unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {C,D,E,F,G,A,B,C2}; //random array
 
 //commented this in!

@@ -38,14 +38,21 @@ void wait_one_pulse (unsigned char mode){
 
 void add_notes_to_arpeggio(unsigned char pitch){
     
-    //assign pitch to ARPEGGIO[ARRAY_INDEX]
-    ARPEGGIO[ARRAY_INDEX] = pitch;
-    //next array index
-    ARRAY_INDEX++;            
-
-    //reset array index if past end of array (last overwrites first)
-    if(ARRAY_INDEX > (MAX_NUM_NOTES - 1)){ARRAY_INDEX = 0;}
+    /* ADD NOTES TO ARPEGGIO HERE */
     
+    if(ARRAY_INDEX > (MAX_NUM_NOTES - 1)){
+        ARRAY_INDEX = MAX_NUM_NOTES - 1;
+        rotateArrayLeft(0);
+        ARPEGGIO[MAX_NUM_NOTES - 1] = pitch;
+    }    
+    
+    if(ARRAY_INDEX <= (MAX_NUM_NOTES - 1)){
+        //assign pitch to ARPEGGIO[ARRAY_INDEX]
+        ARPEGGIO[ARRAY_INDEX] = pitch;
+        //next array index
+        ARRAY_INDEX++;
+    }
+
     //increase number of notes pressed
     NUM_NOTES_PRESSED++;         
     //limit num notes pressed to max num notes
@@ -78,7 +85,11 @@ void delete_notes_from_arpeggio(unsigned char pitch) {
     if(NUM_NOTES_PRESSED == 0) {ARRAY_INDEX = 0;} //comment out this one?
     
     //decrease ARRAY_INDEX
-    if(ARRAY_INDEX > 0){ARRAY_INDEX--;}
+    if(ARRAY_INDEX > 0){ARRAY_INDEX--;} //commented out!
+    
+    // !!! this later !!!
+    //if(ARRAY_INDEX >= (MAX_NUM_NOTES - 1)){ARRAY_INDEX = (MAX_NUM_NOTES - 1);}
+    //else {ARRAY_INDEX--;}
     
     //printThisNumber(ARRAY_INDEX);
     
@@ -586,9 +597,17 @@ void rotateArrayLeft (unsigned char array_index){
     // MODIFIED BLOCK OF CODE:
     //shifts array LEFT once AT A STARTING INDEX!
     //for(unsigned char i=array_index; i < (NUM_NOTES_PRESSED) ;i++)
-    for(unsigned char i=array_index; i < (MAX_NUM_NOTES - 1) ;i++)
+    
+    //added this (rotate)
+    //static unsigned char temp;
+    //temp = ARPEGGIO[0];
+    
+    for(unsigned char i=array_index; i < (MAX_NUM_NOTES - 1) ;i++) //changed to -2!!!
     {
         ARPEGGIO[i]=ARPEGGIO[i+1];
     }
+    
+    //added this (rotate)
+    //ARPEGGIO[MAX_NUM_NOTES - 1]=temp;
     
 }

@@ -185,56 +185,60 @@ void keyboardTranspose(void) {
     }
 }
 
-//sets octave/semitone
-void processOctave(void) {
+void doTheLatch(void){
+    LATCH = 1;
+    latch_was_pressed = 1; //added this!
+    DISPLAY_MODE = STRING;
+    strcpy(string_to_display, "HoLd");    
+}
+
+void doTheUnLatch(void){
     
-    // THIS BLOCK OF CODE ---> SHIFT AND DRUM BUTTONS
-    // only set/clear LATCH and other arpeggiator functions if the ARPEGGIATOR is ON
-    // makes room for other use of SHIFT + DRUM buttons (if ARPEGGIATOR is OFF)
-    if(ARPEGGIO_ON == 1) {
-    
-        // *** LATCH ON ***
-        //if((button_state_now | drum_button_state_now ) == (BUTTON_27 | DRUM_BUTTON_0))
-        if((button_state_now & BUTTON_27) && (drum_button_state_now & DRUM_BUTTON_0))        
-        {
-            LATCH = 1;
-            latch_was_pressed = 1; //added this!
-            DISPLAY_MODE = STRING;
-            strcpy(string_to_display, "HoLd");
-        }
-    
-        // *** LATCH OFF ***
-        //if((button_state_now | drum_button_state_now ) == (BUTTON_27 | DRUM_BUTTON_1))
-        if((button_state_now & BUTTON_27) && (drum_button_state_now & DRUM_BUTTON_1))
-        {
             LATCH = 0;
             ON_OFF = 0;
-    
-            
-            //setupArpeggio(); //ADDED THIS!!!
-            
-            //must call playThisNote() for un-latch
-        
-            //CHROMATIC SCALE, TRIADS, SEVENTH CHORDS    
-            if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH) {
-                if(NUM_NOTES_PRESSED > 0) {playThisNote(0);}
-            }
-            //MAJOR SCALE, MINOR SCALE, MODES, DIATONIC TRIADS, DIATONIC 7TH CHORDS
-            if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR)) {
-                if(NUM_NOTES_PRESSED > 0) {playThisNote8(0,0);}
-            }
-            //PENTATONIC MAJOR/MINOR
-            if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || KEYBOARD_MODE == PENTATONIC_MINOR) {
-                if(NUM_NOTES_PRESSED > 0) {playThisNotePentatonic(0,0);}
-            }
-            
-            
-            
+
+            //must call playThisNote(), playThisNote8(), playThisNotePentatonic() *for un-latch*
+                
+                if(NUM_NOTES_PRESSED > 0) {
+
+                    static __bit once;  //need this bit to only call playThisNote() *once*
+
+                    parallel = 25; //must set parallel out of keyboard range!
+                    
+                    //CHROMATIC SCALE, TRIADS, SEVENTH CHORDS
+                    if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH){
+
+                        if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) && (once == 0)){
+                            playThisNote(ARPEGGIO[0]);
+                            once = 1;
+                        }
+                        if((ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN) && (once == 0)){                
+                            playThisNote(ARPEGGIO_SORTED[0]);
+                            once = 1;
+                        }
+                        if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP) && (once == 0)){
+                            playThisNote(ARPEGGIO_SORTED[NUM_NOTES_PRESSED - 1]);
+                            once = 1;
+                        }
+                    }
+                    //MAJOR SCALE, MINOR SCALE, MODES, DIATONIC TRIADS, DIATONIC 7TH CHORDS
+                    if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR) && (once == 0)) {
+                        playThisNote8(0,0);
+                        once = 1;
+                    }
+                    //PENTATONIC_MAJOR, PENTATONIC_MINOR
+                    if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || (KEYBOARD_MODE == PENTATONIC_MINOR) && (once == 0)){
+                        playThisNotePentatonic(0,0);
+                        once = 1;
+                    }                    
+                    
+                    once = 0; //clear this bit here!
+                }
+                
             //delete note from arpeggio
             if((UN_LATCH_MODE == ONE_AT_A_TIME) && (latch_was_pressed == 1) && (NUM_NOTES_PRESSED > 1)){
                 DISPLAY_MODE = STRING;
                 strcpy(string_to_display, " dEL");
-                
             }
             
             //last note remaining in arpeggio
@@ -249,7 +253,112 @@ void processOctave(void) {
             if((AUTO_LATCH == 1) && (latch_was_pressed == 1) && ((UN_LATCH_MODE == ALL) || (UN_LATCH_MODE == ONE_AT_A_TIME)) && (NUM_NOTES_PRESSED == 0)){
                 NUM_NOTES_PRESSED = 0;
                 ARRAY_INDEX = 0;              
-                //LATCH = 1;
+                //LATCH = 1; //leave this commented out!
+                DISPLAY_MODE = STRING;
+                strcpy(string_to_display, "Auto");
+            }
+
+            //MIGHT NEED TO OR WITH 'ONE_AT_A_TIME'
+            //if(((UN_LATCH_MODE == ALL) || (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1) && (NUM_NOTES_PRESSED == 0)){
+            
+            //LATCH is OFF
+            //added latch_was_pressed == 0
+            if((LATCH == 0) && ((UN_LATCH_MODE == ALL) || (UN_LATCH_MODE == ONE_AT_A_TIME)) && (NUM_NOTES_PRESSED == 0)){
+                NUM_NOTES_PRESSED = 0;
+                ARRAY_INDEX = 0;
+                DISPLAY_MODE = STRING;
+                strcpy(string_to_display, " oFF");
+            }    
+}
+
+//sets octave/semitone
+void processOctave(void) {
+    
+    // THIS BLOCK OF CODE ---> SHIFT AND DRUM BUTTONS
+    // only set/clear LATCH and other arpeggiator functions if the ARPEGGIATOR is ON
+    // makes room for other use of SHIFT + DRUM buttons (if ARPEGGIATOR is OFF)
+    if(ARPEGGIO_ON == 1) {
+    
+        // *** LATCH ON ***
+        //if((button_state_now | drum_button_state_now ) == (BUTTON_27 | DRUM_BUTTON_0))
+        if((button_state_now & BUTTON_27) && (drum_button_state_now & DRUM_BUTTON_0))        
+        {
+            /*
+            LATCH = 1;
+            latch_was_pressed = 1; //added this!
+            DISPLAY_MODE = STRING;
+            strcpy(string_to_display, "HoLd");
+            */
+            doTheLatch();
+        }
+    
+        // *** LATCH OFF ***
+        //if((button_state_now | drum_button_state_now ) == (BUTTON_27 | DRUM_BUTTON_1))
+        if((button_state_now & BUTTON_27) && (drum_button_state_now & DRUM_BUTTON_1)) {
+            
+            doTheUnLatch();
+            
+            /*
+            LATCH = 0;
+            ON_OFF = 0;
+
+            //must call playThisNote(), playThisNote8(), playThisNotePentatonic() *for un-latch*
+                
+                if(NUM_NOTES_PRESSED > 0) {
+
+                    static __bit once;  //need this bit to only call playThisNote() *once*
+
+                    parallel = 25; //must set parallel out of keyboard range!
+                    
+                    //CHROMATIC SCALE, TRIADS, SEVENTH CHORDS
+                    if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH){
+
+                        if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) && (once == 0)){
+                            playThisNote(ARPEGGIO[0]);
+                            once = 1;
+                        }
+                        if((ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN) && (once == 0)){                
+                            playThisNote(ARPEGGIO_SORTED[0]);
+                            once = 1;
+                        }
+                        if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP) && (once == 0)){
+                            playThisNote(ARPEGGIO_SORTED[NUM_NOTES_PRESSED - 1]);
+                            once = 1;
+                        }
+                    }
+                    //MAJOR SCALE, MINOR SCALE, MODES, DIATONIC TRIADS, DIATONIC 7TH CHORDS
+                    if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR) && (once == 0)) {
+                        playThisNote8(0,0);
+                        once = 1;
+                    }
+                    //PENTATONIC_MAJOR, PENTATONIC_MINOR
+                    if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || (KEYBOARD_MODE == PENTATONIC_MINOR) && (once == 0)){
+                        playThisNotePentatonic(0,0);
+                        once = 1;
+                    }                    
+                    
+                    once = 0; //clear this bit here!
+                }
+                
+            //delete note from arpeggio
+            if((UN_LATCH_MODE == ONE_AT_A_TIME) && (latch_was_pressed == 1) && (NUM_NOTES_PRESSED > 1)){
+                DISPLAY_MODE = STRING;
+                strcpy(string_to_display, " dEL");
+            }
+            
+            //last note remaining in arpeggio
+            //if((UN_LATCH_MODE == ONE_AT_A_TIME) && (latch_was_pressed == 0) && (NUM_NOTES_PRESSED == 1)){
+            if((UN_LATCH_MODE == ONE_AT_A_TIME) && (NUM_NOTES_PRESSED == 1)){
+                DISPLAY_MODE = STRING;
+                strcpy(string_to_display, "LaSt");
+            }            
+            
+            //auto latch is ON
+            //if((AUTO_LATCH == 1) && (latch_was_pressed == 1)){
+            if((AUTO_LATCH == 1) && (latch_was_pressed == 1) && ((UN_LATCH_MODE == ALL) || (UN_LATCH_MODE == ONE_AT_A_TIME)) && (NUM_NOTES_PRESSED == 0)){
+                NUM_NOTES_PRESSED = 0;
+                ARRAY_INDEX = 0;              
+                //LATCH = 1; //leave this commented out!
                 DISPLAY_MODE = STRING;
                 strcpy(string_to_display, "Auto");
             }
@@ -265,6 +374,7 @@ void processOctave(void) {
                 DISPLAY_MODE = STRING;
                 strcpy(string_to_display, " oFF");
             }
+            */
         }
     
         // *** RE-RANDOMIZE the ARPEGGIO ***
