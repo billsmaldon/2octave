@@ -1121,11 +1121,12 @@ void Function_H_4 (void) {
     
     ARPEGGIO_TYPE = arpeggiatorTypeMenu.selector;
     
-    if((ARPEGGIO_TYPE == AS_PRESSED) | (ARPEGGIO_TYPE == UP) | (ARPEGGIO_TYPE == UP_DOWN) | (ARPEGGIO_TYPE == RANDOM) | (ARPEGGIO_TYPE == RANDOM_NON_REPEATING)) {
+    //changed to logical OR
+    if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING)) {
         startingDirection = UP;
     }
-    
-    if((ARPEGGIO_TYPE == DOWN) | (ARPEGGIO_TYPE == DOWN_UP)) {
+    //changed to logical OR
+    if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP)) {
         startingDirection = DOWN;
     }
         
@@ -1194,30 +1195,62 @@ void Function_H_6_1(void){
     LATCH = arpeggiatorLatchOnOffMenu.selector;
     
     if(LATCH == 1){
+        /*
         latch_was_pressed = 1; //added this!
         DISPLAY_MODE = STRING;
         strcpy(string_to_display, "HoLd");
+        */
+        
+        doTheLatch();
     }
-    
+
     if(LATCH == 0){
-        DISPLAY_MODE = STRING;
-        strcpy(string_to_display, " oFF");        
-        ON_OFF = 0;
+    
+        UN_LATCH_MODE = ALL;    // UN_LATCH_MODE always 'ALL'!
+        doTheUnLatch();
+        
+        /*
+        //DISPLAY_MODE = STRING;
+        //strcpy(string_to_display, " oFF");        
     
         //must call playThisNote() for un-latch!
+        
+        ON_OFF = 0; //for key release
 
-        //CHROMATIC SCALE, TRIADS, SEVENTH CHORDS    
-        if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH) {
-            if(NUM_NOTES_PRESSED > 0) {playThisNote(0);}
+        // COPY THIS BLOCK OF CODE OVER TO octave.c (more efficient!)
+        if(NUM_NOTES_PRESSED > 0) {
+        
+            //CHROMATIC SCALE, TRIADS, SEVENTH CHORDS
+            if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH){
+                //playThisNote(0);
+                if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING)){
+                    playThisNote(ARPEGGIO[0]);
+                }
+                if((ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN)){                
+                    playThisNote(ARPEGGIO_SORTED[0]);
+                }
+                if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP)){
+                    playThisNote(ARPEGGIO_SORTED[NUM_NOTES_PRESSED - 1]);
+                }
+            }
+            
+            //MAJOR SCALE, MINOR SCALE, MODES, DIATONIC TRIADS, DIATONIC 7TH CHORDS
+            if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR)) {
+                playThisNote8(0,0);
+            }
+            //PENTATONIC_MAJOR, PENTATONIC_MINOR
+            if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || (KEYBOARD_MODE == PENTATONIC_MINOR)){
+                playThisNotePentatonic(0,0);
+            }         
+            
         }
-        //MAJOR SCALE, MINOR SCALE, MODES, DIATONIC TRIADS, DIATONIC 7TH CHORDS
-        if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR)) {
-            if(NUM_NOTES_PRESSED > 0) {playThisNote8(0,0);}
-        }
-        //PENTATONIC_MAJOR, PENTATONIC_MINOR
-        if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || (KEYBOARD_MODE == PENTATONIC_MINOR)){
-            if(NUM_NOTES_PRESSED > 0) {playThisNotePentatonic(0,0);}
-        }         
+        
+        //all notes off, reset array index
+        NUM_NOTES_PRESSED = 0;
+        ARRAY_INDEX = 0;
+        DISPLAY_MODE = STRING;
+        strcpy(string_to_display, " oFF");
+        */
         
     }
 }

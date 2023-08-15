@@ -16937,6 +16937,11 @@ void printThisNumber(signed int n);
 void keyboardTranspose(void);
 
 
+void doTheLatch(void);
+
+void doTheUnLatch(void);
+
+
 
 
 __bit TRANSPOSE_MODE;
@@ -17321,6 +17326,7 @@ __bit AUTO_RANDOMIZE;
 
 unsigned char ARPEGGIO_TYPE = UP;
 
+
 unsigned char startingDirection;
 
 __bit skipFirstLast;
@@ -17328,7 +17334,7 @@ __bit skipFirstLast;
 
 void wait_one_pulse (unsigned char mode);
 
-# 154
+# 155
 __bit lastNoteMode;
 
 __bit LAST_NOTE_MODE_KEY_PRESS;
@@ -17367,7 +17373,7 @@ const unsigned char MAX_NUM_NOTES = 16;
 unsigned char NUM_NOTES_PRESSED = 0;
 unsigned char ARRAY_INDEX = 0;
 
-# 200
+# 201
 unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
 unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
 unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
@@ -17545,51 +17551,60 @@ keyPress = 0;
 }
 }
 
-
-void processOctave(void) {
-
-
-
-
-if(ARPEGGIO_ON == 1) {
-
-
-
-if((button_state_now & 0x08000000) && (drum_button_state_now & 0x01))
-{
+void doTheLatch(void){
 LATCH = 1;
 latch_was_pressed = 1;
 DISPLAY_MODE = 1;
 strcpy(string_to_display, "HoLd");
 }
 
+void doTheUnLatch(void){
 
-
-if((button_state_now & 0x08000000) && (drum_button_state_now & 0x02))
-{
 LATCH = 0;
 ON_OFF = 0;
 
-# 219
-if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH) {
-if(NUM_NOTES_PRESSED > 0) {playThisNote(0);}
+
+
+if(NUM_NOTES_PRESSED > 0) {
+
+static __bit once;
+
+parallel = 25;
+
+
+if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH){
+
+if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) && (once == 0)){
+playThisNote(ARPEGGIO[0]);
+once = 1;
+}
+if((ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN) && (once == 0)){
+playThisNote(ARPEGGIO_SORTED[0]);
+once = 1;
+}
+if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP) && (once == 0)){
+playThisNote(ARPEGGIO_SORTED[NUM_NOTES_PRESSED - 1]);
+once = 1;
+}
 }
 
-if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR)) {
-if(NUM_NOTES_PRESSED > 0) {playThisNote8(0,0);}
+if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR) && (once == 0)) {
+playThisNote8(0,0);
+once = 1;
 }
 
-if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || KEYBOARD_MODE == PENTATONIC_MINOR) {
-if(NUM_NOTES_PRESSED > 0) {playThisNotePentatonic(0,0);}
+if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || (KEYBOARD_MODE == PENTATONIC_MINOR) && (once == 0)){
+playThisNotePentatonic(0,0);
+once = 1;
 }
 
-
+once = 0;
+}
 
 
 if((UN_LATCH_MODE == 1) && (latch_was_pressed == 1) && (NUM_NOTES_PRESSED > 1)){
 DISPLAY_MODE = 1;
 strcpy(string_to_display, " dEL");
-
 }
 
 
@@ -17609,13 +17624,39 @@ DISPLAY_MODE = 1;
 strcpy(string_to_display, "Auto");
 }
 
-# 262
+# 266
 if((LATCH == 0) && ((UN_LATCH_MODE == 0) || (UN_LATCH_MODE == 1)) && (NUM_NOTES_PRESSED == 0)){
 NUM_NOTES_PRESSED = 0;
 ARRAY_INDEX = 0;
 DISPLAY_MODE = 1;
 strcpy(string_to_display, " oFF");
 }
+}
+
+
+void processOctave(void) {
+
+
+
+
+if(ARPEGGIO_ON == 1) {
+
+
+
+if((button_state_now & 0x08000000) && (drum_button_state_now & 0x01))
+{
+
+# 292
+doTheLatch();
+}
+
+
+
+if((button_state_now & 0x08000000) && (drum_button_state_now & 0x02)) {
+
+doTheUnLatch();
+
+# 378
 }
 
 
@@ -17709,7 +17750,7 @@ printThisNumber(octave);
 }
 }
 
-# 365
+# 475
 if(button_state_now == (0x04000000 | 0x08000000)){
 
 if ((octave * 12 + semitone) < 72) {

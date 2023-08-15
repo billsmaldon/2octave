@@ -17206,6 +17206,11 @@ void printThisNumber(signed int n);
 void keyboardTranspose(void);
 
 
+void doTheLatch(void);
+
+void doTheUnLatch(void);
+
+
 
 
 __bit TRANSPOSE_MODE;
@@ -17321,6 +17326,7 @@ __bit AUTO_RANDOMIZE;
 
 unsigned char ARPEGGIO_TYPE = UP;
 
+
 unsigned char startingDirection;
 
 __bit skipFirstLast;
@@ -17328,7 +17334,7 @@ __bit skipFirstLast;
 
 void wait_one_pulse (unsigned char mode);
 
-# 154
+# 155
 __bit lastNoteMode;
 
 __bit LAST_NOTE_MODE_KEY_PRESS;
@@ -17367,7 +17373,7 @@ const unsigned char MAX_NUM_NOTES = 16;
 unsigned char NUM_NOTES_PRESSED = 0;
 unsigned char ARRAY_INDEX = 0;
 
-# 200
+# 201
 unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
 unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
 unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
@@ -17400,12 +17406,19 @@ while(finishLastNote == 1){;}
 void add_notes_to_arpeggio(unsigned char pitch){
 
 
+
+if(ARRAY_INDEX > (MAX_NUM_NOTES - 1)){
+ARRAY_INDEX = MAX_NUM_NOTES - 1;
+rotateArrayLeft(0);
+ARPEGGIO[MAX_NUM_NOTES - 1] = pitch;
+}
+
+if(ARRAY_INDEX <= (MAX_NUM_NOTES - 1)){
+
 ARPEGGIO[ARRAY_INDEX] = pitch;
 
 ARRAY_INDEX++;
-
-
-if(ARRAY_INDEX > (MAX_NUM_NOTES - 1)){ARRAY_INDEX = 0;}
+}
 
 
 NUM_NOTES_PRESSED++;
@@ -17419,7 +17432,7 @@ void delete_notes_from_arpeggio(unsigned char pitch) {
 
 signed char INDEX_TO_SHIFT_LEFT_AT = findArrayIndex(pitch);
 
-# 70
+# 77
 rotateArrayLeft(INDEX_TO_SHIFT_LEFT_AT);
 
 
@@ -17433,8 +17446,7 @@ if(NUM_NOTES_PRESSED == 0) {ARRAY_INDEX = 0;}
 
 if(ARRAY_INDEX > 0){ARRAY_INDEX--;}
 
-
-
+# 96
 }
 
 void finish_arpeggio_setup(void) {
@@ -17489,7 +17501,7 @@ TMR0ON = 1;
 
 unsigned short calculate_pulse_length(void) {
 
-# 144
+# 155
 double s_tick = 1.0 / ((BPM * PPQN) / 60.0);
 return (unsigned short) ((65535.0 - (s_tick * 20000000.0) / ( 4.0 * PRESCALER)) + 0.5);
 }
@@ -17530,7 +17542,7 @@ copy_array();
 if(ARPEGGIO_TYPE == RANDOM) {random_pitches();}
 if(ARPEGGIO_TYPE == RANDOM_NON_REPEATING) {random_pitches_non_repeating();}
 
-# 191
+# 202
 if(ARPEGGIO_TYPE == AS_PRESSED){arpeggioPtr = ARPEGGIO;}
 if(ARPEGGIO_TYPE == UP | ARPEGGIO_TYPE == UP_DOWN){arpeggioPtr = ARPEGGIO_SORTED;}
 if(ARPEGGIO_TYPE == DOWN | ARPEGGIO_TYPE == DOWN_UP){arpeggioPtr = ARPEGGIO_SORTED;}
@@ -17557,7 +17569,7 @@ unsigned char a;
 for(unsigned char i = 0; i < NUM_NOTES_PRESSED; ++i){
 for(unsigned char j = i + 1; j < NUM_NOTES_PRESSED; ++j){
 
-# 221
+# 232
 if(SORT_DIRECTION == 0) {
 if(ARPEGGIO_SORTED[i] > ARPEGGIO_SORTED[j]){
 a = ARPEGGIO_SORTED[i];
@@ -17606,7 +17618,7 @@ void playArpeggio(void){
 
 if(NUM_NOTES_PRESSED == 0){return;}
 
-# 275
+# 286
 if(ARPEGGIO_TYPE == UP | ARPEGGIO_TYPE == UP_DOWN | ARPEGGIO_TYPE == AS_PRESSED) {
 
 if(startingDirection == UP){
@@ -17777,7 +17789,7 @@ last_note = *(arpeggioPtr + which_note);
 which_note++;
 suppress_note_off = 0;
 
-# 455
+# 466
 if((ARPEGGIO_TYPE == UP) | (ARPEGGIO_TYPE == UP_DOWN) | (ARPEGGIO_TYPE == RANDOM) | (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) | ARPEGGIO_TYPE == AS_PRESSED) {
 
 if(which_note >= (NUM_NOTES_PRESSED)){
@@ -17839,7 +17851,7 @@ else{;}
 
 void shiftTheArray(unsigned char array_index){
 
-# 525
+# 536
 if (array_index == 0) {
 ARPEGGIO[0] = ARPEGGIO[1];
 ARPEGGIO[1] = ARPEGGIO[2];
@@ -17888,10 +17900,13 @@ ARPEGGIO[6] = ARPEGGIO[7];
 
 void rotateArrayLeft (unsigned char array_index){
 
-# 589
+# 605
 for(unsigned char i=array_index; i < (MAX_NUM_NOTES - 1) ;i++)
 {
 ARPEGGIO[i]=ARPEGGIO[i+1];
 }
+
+
+
 
 }

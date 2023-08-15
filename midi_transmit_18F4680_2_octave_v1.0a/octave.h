@@ -31,6 +31,11 @@ void printThisNumber(signed int n);
 //shift + keyboard transpose
 void keyboardTranspose(void);
 
+//for press shift + latch
+void doTheLatch(void);
+//for press shift + un-latch
+void doTheUnLatch(void);
+
 //TRANSPOSE MODE
 #define HALF_STEP 0         // +/- one semitone
 #define CIRCLE_OF_FIFTHS 1  // +/- 7 semitones

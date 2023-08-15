@@ -33,14 +33,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [s S1124 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1124 . SW1 SW2 SW3 SW4 SW5 SW6 SW7 SW8 ]
 "103 arpeggio.h
-[c E14358 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
-[n E14358 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
+[c E14362 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
+[n E14362 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
 "141
-[c E14348 0 1 2 3 4 5 6 .. ]
-[n E14348 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
+[c E14352 0 1 2 3 4 5 6 .. ]
+[n E14352 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
 "146 menu.h
-[c E14528 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 .. ]
-[n E14528 . BLANK SEG MAIN_MENU KEYBOARD_MENU TRANSPOSE_MENU DRUM_MENU POTENTIOMETER_MENU MIDI_CHANNEL_MENU PROGRAM_CHANGE_MENU MODES_MENU TRIADS_MENU SEVENTHS_MENU DRUMS_CC_TYPE_MENU DRUMS_NN_MENU DRUMS_CC_MENU POTS_RES_MENU POTS_ALPHA_MENU POTS_CC_MENU SLIDEPOTS_CC_MENU JOYSTICK_CC_MENU MAIN_CH_MENU DRUM_CH_MENU EEPROM_MENU SAVES_MENU ENCODER_POLARITY_MENU ARPEGGIATOR_MENU ARPEGGIATOR_ON_OFF_MENU ARPEGGIATOR_TEMPO_MENU ARPEGGIATOR_OCTAVES_MENU ARPEGGIATOR_ARPEGGIO_TYPE_MENU ARPEGGIATOR_NOTE_LENGTH_MENU ARPEGGIATOR_LATCH_MENU ARPEGGIATOR_LATCH_ON_OFF_MENU ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU ARPEGGIATOR_UN_LATCH_MODE_MENU ARPEGGIATOR_RANDOMIZE_SKIP_MENU ARPEGGIATOR_RANDOMIZE_TYPE_MENU ARPEGGIATOR_SKIP_FIRST_LAST_MENU ARPEGGIATOR_LAST_NOTE_MODE_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU  ]
+[c E14532 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 .. ]
+[n E14532 . BLANK SEG MAIN_MENU KEYBOARD_MENU TRANSPOSE_MENU DRUM_MENU POTENTIOMETER_MENU MIDI_CHANNEL_MENU PROGRAM_CHANGE_MENU MODES_MENU TRIADS_MENU SEVENTHS_MENU DRUMS_CC_TYPE_MENU DRUMS_NN_MENU DRUMS_CC_MENU POTS_RES_MENU POTS_ALPHA_MENU POTS_CC_MENU SLIDEPOTS_CC_MENU JOYSTICK_CC_MENU MAIN_CH_MENU DRUM_CH_MENU EEPROM_MENU SAVES_MENU ENCODER_POLARITY_MENU ARPEGGIATOR_MENU ARPEGGIATOR_ON_OFF_MENU ARPEGGIATOR_TEMPO_MENU ARPEGGIATOR_OCTAVES_MENU ARPEGGIATOR_ARPEGGIO_TYPE_MENU ARPEGGIATOR_NOTE_LENGTH_MENU ARPEGGIATOR_LATCH_MENU ARPEGGIATOR_LATCH_ON_OFF_MENU ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU ARPEGGIATOR_UN_LATCH_MODE_MENU ARPEGGIATOR_RANDOMIZE_SKIP_MENU ARPEGGIATOR_RANDOMIZE_TYPE_MENU ARPEGGIATOR_SKIP_FIRST_LAST_MENU ARPEGGIATOR_LAST_NOTE_MODE_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU  ]
 "149
 [s S1125 `uc 1 `uc 1 `uc 1 ]
 [n S1125 menuItem number address selector ]
@@ -13985,9 +13985,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;octave.h: 26: void panic_button(void);
 [; ;octave.h: 29: void printThisNumber(signed int n);
 [; ;octave.h: 32: void keyboardTranspose(void);
-"37 octave.h
+[; ;octave.h: 35: void doTheLatch(void);
+[; ;octave.h: 37: void doTheUnLatch(void);
+"42 octave.h
 [v _TRANSPOSE_MODE `b ~T0 @X0 1 e ]
-[; ;octave.h: 37: __bit TRANSPOSE_MODE;
+[; ;octave.h: 42: __bit TRANSPOSE_MODE;
 [; ;arpeggio.h: 29: unsigned short calculate_pulse_length(void);
 [; ;arpeggio.h: 31: void resetArpeggio(void);
 [; ;arpeggio.h: 33: void setupArpeggio(void);
@@ -14037,22 +14039,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _NOTE_LENGTH_PULSES_ARRAY
 :U ..
 "103
--> . `E14358 0 `uc
--> . `E14358 1 `uc
--> . `E14358 2 `uc
+-> . `E14362 0 `uc
+-> . `E14362 1 `uc
+-> . `E14362 2 `uc
 "104
--> . `E14358 3 `uc
--> . `E14358 4 `uc
--> . `E14358 5 `uc
+-> . `E14362 3 `uc
+-> . `E14362 4 `uc
+-> . `E14362 5 `uc
 "105
--> . `E14358 6 `uc
--> . `E14358 7 `uc
--> . `E14358 8 `uc
+-> . `E14362 6 `uc
+-> . `E14362 7 `uc
+-> . `E14362 8 `uc
 "106
--> . `E14358 9 `uc
--> . `E14358 10 `uc
+-> . `E14362 9 `uc
+-> . `E14362 10 `uc
 "107
--> . `E14358 11 `uc
+-> . `E14362 11 `uc
 ..
 ]
 [; ;arpeggio.h: 101: unsigned char NOTE_LENGTH_PULSES_ARRAY[12] =
@@ -14089,7 +14091,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "113
 [v _NOTE_LENGTH_PULSES `uc ~T0 @X0 1 e ]
 [i _NOTE_LENGTH_PULSES
--> . `E14358 6 `uc
+-> . `E14362 6 `uc
 ]
 [; ;arpeggio.h: 113: unsigned char NOTE_LENGTH_PULSES = SIXTEENTH;
 "116
@@ -14116,145 +14118,145 @@ Version 3.2 HI-TECH Software Intermediate Code
 "141
 [v _ARPEGGIO_TYPE `uc ~T0 @X0 1 e ]
 [i _ARPEGGIO_TYPE
--> . `E14348 0 `uc
+-> . `E14352 0 `uc
 ]
 [; ;arpeggio.h: 141: unsigned char ARPEGGIO_TYPE = UP;
-"143
+"144
 [v _startingDirection `uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 143: unsigned char startingDirection;
-"145
+[; ;arpeggio.h: 144: unsigned char startingDirection;
+"146
 [v _skipFirstLast `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 145: __bit skipFirstLast;
-[; ;arpeggio.h: 148: void wait_one_pulse (unsigned char mode);
-"154
+[; ;arpeggio.h: 146: __bit skipFirstLast;
+[; ;arpeggio.h: 149: void wait_one_pulse (unsigned char mode);
+"155
 [v _lastNoteMode `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 154: __bit lastNoteMode;
-"156
+[; ;arpeggio.h: 155: __bit lastNoteMode;
+"157
 [v _LAST_NOTE_MODE_KEY_PRESS `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 156: __bit LAST_NOTE_MODE_KEY_PRESS;
-"158
+[; ;arpeggio.h: 157: __bit LAST_NOTE_MODE_KEY_PRESS;
+"159
 [v _LAST_NOTE_MODE_KEY_RELEASE `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 158: __bit LAST_NOTE_MODE_KEY_RELEASE;
-"160
+[; ;arpeggio.h: 159: __bit LAST_NOTE_MODE_KEY_RELEASE;
+"161
 [v _LAST_NOTE_MODE_TRANSPOSE `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 160: __bit LAST_NOTE_MODE_TRANSPOSE;
-"162
+[; ;arpeggio.h: 161: __bit LAST_NOTE_MODE_TRANSPOSE;
+"163
 [v _LAST_NOTE_MODE_RESET `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 162: __bit LAST_NOTE_MODE_RESET;
-"165
-[v _finishLastNote `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 165: __bit finishLastNote;
+[; ;arpeggio.h: 163: __bit LAST_NOTE_MODE_RESET;
 "166
-[v _suppress_note_on `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 166: __bit suppress_note_on;
+[v _finishLastNote `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 166: __bit finishLastNote;
 "167
+[v _suppress_note_on `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 167: __bit suppress_note_on;
+"168
 [v _suppress_note_off `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 167: __bit suppress_note_off;
-"170
+[; ;arpeggio.h: 168: __bit suppress_note_off;
+"171
 [v _which_note `uc ~T0 @X0 1 e ]
 [i _which_note
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 170: unsigned char which_note = 0;
-"171
+[; ;arpeggio.h: 171: unsigned char which_note = 0;
+"172
 [v _last_note `uc ~T0 @X0 1 e ]
 [i _last_note
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 171: unsigned char last_note = 0;
-"172
+[; ;arpeggio.h: 172: unsigned char last_note = 0;
+"173
 [v _which_octave `c ~T0 @X0 1 e ]
 [i _which_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 172: signed char which_octave = 0;
-"173
+[; ;arpeggio.h: 173: signed char which_octave = 0;
+"174
 [v _last_octave `c ~T0 @X0 1 e ]
 [i _last_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 173: signed char last_octave = 0;
-"174
-[v _overflow `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 174: __bit overflow;
+[; ;arpeggio.h: 174: signed char last_octave = 0;
 "175
+[v _overflow `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 175: __bit overflow;
+"176
 [v _octave_overflow `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 175: __bit octave_overflow;
-"177
+[; ;arpeggio.h: 176: __bit octave_overflow;
+"178
 [v _stored_octave `c ~T0 @X0 1 e ]
 [i _stored_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 177: signed char stored_octave = 0;
-"178
+[; ;arpeggio.h: 178: signed char stored_octave = 0;
+"179
 [v _parallel `c ~T0 @X0 1 e ]
 [i _parallel
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 178: signed char parallel = 0;
-"180
+[; ;arpeggio.h: 179: signed char parallel = 0;
+"181
 [v _note_off_was_sent `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 180: __bit note_off_was_sent;
-"182
-[v _flag1 `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 182: __bit flag1;
+[; ;arpeggio.h: 181: __bit note_off_was_sent;
 "183
+[v _flag1 `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 183: __bit flag1;
+"184
 [v _flag2 `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 183: __bit flag2;
-"186
+[; ;arpeggio.h: 184: __bit flag2;
+"187
 [v _DISPLAY_STEP_NUMBER `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 186: __bit DISPLAY_STEP_NUMBER;
-"188
+[; ;arpeggio.h: 187: __bit DISPLAY_STEP_NUMBER;
+"189
 [v _MAX_NUM_NOTES `Cuc ~T0 @X0 1 e ]
 [i _MAX_NUM_NOTES
 -> -> 16 `i `uc
 ]
-[; ;arpeggio.h: 188: const unsigned char MAX_NUM_NOTES = 16;
-"189
+[; ;arpeggio.h: 189: const unsigned char MAX_NUM_NOTES = 16;
+"190
 [v _NUM_NOTES_PRESSED `uc ~T0 @X0 1 e ]
 [i _NUM_NOTES_PRESSED
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 189: unsigned char NUM_NOTES_PRESSED = 0;
-"190
+[; ;arpeggio.h: 190: unsigned char NUM_NOTES_PRESSED = 0;
+"191
 [v _ARRAY_INDEX `uc ~T0 @X0 1 e ]
 [i _ARRAY_INDEX
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 190: unsigned char ARRAY_INDEX = 0;
-"200
+[; ;arpeggio.h: 191: unsigned char ARRAY_INDEX = 0;
+"201
 [v _ARPEGGIO `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 200: unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
-"201
+[; ;arpeggio.h: 201: unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
+"202
 [v _ARPEGGIO_SORTED `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO_SORTED
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 201: unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
-"202
+[; ;arpeggio.h: 202: unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
+"203
 [v _ARPEGGIO_RANDOM `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO_RANDOM
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 202: unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
-"204
+[; ;arpeggio.h: 203: unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
+"205
 [v _arpeggioPtr `*uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 204: unsigned char *arpeggioPtr;
-"206
-[v _TIMER_PRELOAD `us ~T0 @X0 1 e ]
-[; ;arpeggio.h: 206: unsigned short TIMER_PRELOAD;
+[; ;arpeggio.h: 205: unsigned char *arpeggioPtr;
 "207
+[v _TIMER_PRELOAD `us ~T0 @X0 1 e ]
+[; ;arpeggio.h: 207: unsigned short TIMER_PRELOAD;
+"208
 [v _TIMER_OVERFLOWS `uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 207: unsigned char TIMER_OVERFLOWS;
+[; ;arpeggio.h: 208: unsigned char TIMER_OVERFLOWS;
 [; ;menu.h: 30: void initializeMenuArray(void);
 [; ;menu.h: 31: void clear_row1(void);
 [; ;menu.h: 32: void clear_row2(void);
@@ -14363,7 +14365,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "146
 [v _which_screen `uc ~T0 @X0 1 e ]
 [i _which_screen
--> . `E14528 2 `uc
+-> . `E14532 2 `uc
 ]
 [; ;menu.h: 146: unsigned char which_screen = MAIN_MENU;
 [; ;menu.h: 149: typedef struct menuItem {
@@ -14644,9 +14646,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "46
 [v _encoder_click `b ~T0 @X0 1 e ]
 [; ;encoder.h: 46: __bit encoder_click;
-[v F14633 `Cuc ~T0 @X0 -> 4 `i t ]
+[v F14637 `Cuc ~T0 @X0 -> 4 `i t ]
 "62
-[v _ttable `F14633 ~T0 @X0 -> 7 `i e ]
+[v _ttable `F14637 ~T0 @X0 -> 7 `i e ]
 [i _ttable
 :U ..
 :U ..
@@ -14709,9 +14711,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.h: 74: {0x6, 0x5, 0x0, 0x0 | 0x20},
 [; ;encoder.h: 76: {0x6, 0x5, 0x4, 0x0},
 [; ;encoder.h: 77: };
-[v F14635 `Cuc ~T0 @X0 -> 17 `i t ]
+[v F14639 `Cuc ~T0 @X0 -> 17 `i t ]
 "22 ascii.h
-[v _LCD_STRINGS `F14635 ~T0 @X0 -> 0 `x s ]
+[v _LCD_STRINGS `F14639 ~T0 @X0 -> 0 `x s ]
 [i _LCD_STRINGS
 :U ..
 :U ..
@@ -17100,9 +17102,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1138 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-[v F14683 `(v ~T0 @X0 1 tf ]
+[v F14687 `(v ~T0 @X0 1 tf ]
 "310
-[v _ISR `IF14683 ~T0 @X0 1 e ]
+[v _ISR `IF14687 ~T0 @X0 1 e ]
 {
 [; ;main.c: 310: void interrupt ISR (void) {
 [e :U _ISR ]
@@ -17175,7 +17177,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;main.c: 345: if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == UP_DOWN) || (ARPEGGIO_TYPE == DOWN_UP)){
 "345
-[e $ ! || || || || == -> _ARPEGGIO_TYPE `i -> . `E14348 6 `i == -> _ARPEGGIO_TYPE `i -> . `E14348 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14348 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14348 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14348 3 `i 1148  ]
+[e $ ! || || || || == -> _ARPEGGIO_TYPE `i -> . `E14352 6 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 3 `i 1148  ]
 {
 [; ;main.c: 346: stored_octave = which_octave;
 "346
@@ -17216,7 +17218,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag2 -> -> 0 `i `b ]
 [; ;main.c: 374: if((ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING)) {
 "374
-[e $ ! || == -> _ARPEGGIO_TYPE `i -> . `E14348 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14348 4 `i 1151  ]
+[e $ ! || == -> _ARPEGGIO_TYPE `i -> . `E14352 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 4 `i 1151  ]
 {
 [; ;main.c: 375: stored_octave = which_octave;
 "375
@@ -17352,7 +17354,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _POT_MODE -> -> 0 `i `b ]
 [; ;main.c: 452: which_screen = MAIN_MENU;
 "452
-[e = _which_screen -> . `E14528 2 `uc ]
+[e = _which_screen -> . `E14532 2 `uc ]
 [; ;main.c: 453: menu_lcd();
 "453
 [e ( _menu_lcd ..  ]
@@ -17434,46 +17436,68 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 508: selectSlotOnBoot();
 "508
 [e ( _selectSlotOnBoot ..  ]
-[; ;main.c: 510: displayTest();
-"510
-[e ( _displayTest ..  ]
-[; ;main.c: 513: while(1) {
-"513
-[e :U 1162 ]
+[; ;main.c: 511: if((ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) || (ARPEGGIO_TYPE == AS_PRESSED)){
+"511
+[e $ ! || || || || == -> _ARPEGGIO_TYPE `i -> . `E14352 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 4 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 6 `i 1161  ]
 {
-[; ;main.c: 514: digitalInputs();
-"514
-[e ( _digitalInputs ..  ]
-[; ;main.c: 515: analogInputs();
-"515
-[e ( _analogInputs ..  ]
-[; ;main.c: 516: processEncoderBuxton();
-"516
-[e ( _processEncoderBuxton ..  ]
-[; ;main.c: 519: TMR2ON = 0;
-"519
-[e = _TMR2ON -> -> 0 `i `b ]
-[; ;main.c: 520: PORTC &= 0xF0;
-"520
-[e =& _PORTC -> -> 240 `i `uc ]
-[; ;main.c: 521: menu_lcd();
-"521
-[e ( _menu_lcd ..  ]
-[; ;main.c: 522: TMR2ON = 1;
-"522
-[e = _TMR2ON -> -> 1 `i `b ]
-"523
+[; ;main.c: 512: startingDirection = UP;
+"512
+[e = _startingDirection -> . `E14352 0 `uc ]
+"513
 }
 [e :U 1161 ]
-"513
-[e $U 1162  ]
-[e :U 1163 ]
-[; ;main.c: 523: }
-[; ;main.c: 525: return 0;
+[; ;main.c: 513: }
+[; ;main.c: 515: if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP)){
+"515
+[e $ ! || == -> _ARPEGGIO_TYPE `i -> . `E14352 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14352 3 `i 1162  ]
+{
+[; ;main.c: 516: startingDirection = DOWN;
+"516
+[e = _startingDirection -> . `E14352 1 `uc ]
+"517
+}
+[e :U 1162 ]
+[; ;main.c: 517: }
+[; ;main.c: 519: displayTest();
+"519
+[e ( _displayTest ..  ]
+[; ;main.c: 522: while(1) {
+"522
+[e :U 1164 ]
+{
+[; ;main.c: 523: digitalInputs();
+"523
+[e ( _digitalInputs ..  ]
+[; ;main.c: 524: analogInputs();
+"524
+[e ( _analogInputs ..  ]
+[; ;main.c: 525: processEncoderBuxton();
 "525
+[e ( _processEncoderBuxton ..  ]
+[; ;main.c: 528: TMR2ON = 0;
+"528
+[e = _TMR2ON -> -> 0 `i `b ]
+[; ;main.c: 529: PORTC &= 0xF0;
+"529
+[e =& _PORTC -> -> 240 `i `uc ]
+[; ;main.c: 530: menu_lcd();
+"530
+[e ( _menu_lcd ..  ]
+[; ;main.c: 531: TMR2ON = 1;
+"531
+[e = _TMR2ON -> -> 1 `i `b ]
+"532
+}
+[e :U 1163 ]
+"522
+[e $U 1164  ]
+[e :U 1165 ]
+[; ;main.c: 532: }
+[; ;main.c: 534: return 0;
+"534
 [e ) -> 0 `i ]
 [e $UE 1160  ]
-[; ;main.c: 526: }
-"526
+[; ;main.c: 535: }
+"535
 [e :UE 1160 ]
 }

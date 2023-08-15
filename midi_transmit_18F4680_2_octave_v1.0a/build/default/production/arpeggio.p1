@@ -39,17 +39,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [s S1121 `uc 1 `uc 1 `uc 1 ]
 [n S1121 menuItem number address selector ]
 "103 arpeggio.h
-[c E14455 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
-[n E14455 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
+[c E14459 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
+[n E14459 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
 "141
-[c E14445 0 1 2 3 4 5 6 .. ]
-[n E14445 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
+[c E14449 0 1 2 3 4 5 6 .. ]
+[n E14449 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
 "36893 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f4680.h
 [v _TMR0ON `Vb ~T0 @X0 0 e@32431 ]
-"58 arpeggio.h
-[v _findArrayIndex `(c ~T0 @X0 0 ef1`uc ]
-"63
+"63 arpeggio.h
 [v _rotateArrayLeft `(v ~T0 @X0 0 ef1`uc ]
+"58
+[v _findArrayIndex `(c ~T0 @X0 0 ef1`uc ]
 "31
 [v _resetArpeggio `(v ~T0 @X0 0 ef ]
 "33
@@ -62,7 +62,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _random_pitches `(v ~T0 @X0 0 ef ]
 "52
 [v _random_pitches_non_repeating `(v ~T0 @X0 0 ef ]
-"246 arpeggio.c
+"257 arpeggio.c
 [v _rand `(i ~T0 @X0 0 ef ]
 "41 midi.h
 [v _noteOn `(v ~T0 @X0 0 ef3`uc`uc`uc ]
@@ -14204,9 +14204,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;octave.h: 26: void panic_button(void);
 [; ;octave.h: 29: void printThisNumber(signed int n);
 [; ;octave.h: 32: void keyboardTranspose(void);
-"37 octave.h
+[; ;octave.h: 35: void doTheLatch(void);
+[; ;octave.h: 37: void doTheUnLatch(void);
+"42 octave.h
 [v _TRANSPOSE_MODE `b ~T0 @X0 1 e ]
-[; ;octave.h: 37: __bit TRANSPOSE_MODE;
+[; ;octave.h: 42: __bit TRANSPOSE_MODE;
 [; ;arpeggio.h: 29: unsigned short calculate_pulse_length(void);
 [; ;arpeggio.h: 31: void resetArpeggio(void);
 [; ;arpeggio.h: 33: void setupArpeggio(void);
@@ -14256,22 +14258,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _NOTE_LENGTH_PULSES_ARRAY
 :U ..
 "103
--> . `E14455 0 `uc
--> . `E14455 1 `uc
--> . `E14455 2 `uc
+-> . `E14459 0 `uc
+-> . `E14459 1 `uc
+-> . `E14459 2 `uc
 "104
--> . `E14455 3 `uc
--> . `E14455 4 `uc
--> . `E14455 5 `uc
+-> . `E14459 3 `uc
+-> . `E14459 4 `uc
+-> . `E14459 5 `uc
 "105
--> . `E14455 6 `uc
--> . `E14455 7 `uc
--> . `E14455 8 `uc
+-> . `E14459 6 `uc
+-> . `E14459 7 `uc
+-> . `E14459 8 `uc
 "106
--> . `E14455 9 `uc
--> . `E14455 10 `uc
+-> . `E14459 9 `uc
+-> . `E14459 10 `uc
 "107
--> . `E14455 11 `uc
+-> . `E14459 11 `uc
 ..
 ]
 [; ;arpeggio.h: 101: unsigned char NOTE_LENGTH_PULSES_ARRAY[12] =
@@ -14308,7 +14310,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "113
 [v _NOTE_LENGTH_PULSES `uc ~T0 @X0 1 e ]
 [i _NOTE_LENGTH_PULSES
--> . `E14455 6 `uc
+-> . `E14459 6 `uc
 ]
 [; ;arpeggio.h: 113: unsigned char NOTE_LENGTH_PULSES = SIXTEENTH;
 "116
@@ -14335,145 +14337,145 @@ Version 3.2 HI-TECH Software Intermediate Code
 "141
 [v _ARPEGGIO_TYPE `uc ~T0 @X0 1 e ]
 [i _ARPEGGIO_TYPE
--> . `E14445 0 `uc
+-> . `E14449 0 `uc
 ]
 [; ;arpeggio.h: 141: unsigned char ARPEGGIO_TYPE = UP;
-"143
+"144
 [v _startingDirection `uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 143: unsigned char startingDirection;
-"145
+[; ;arpeggio.h: 144: unsigned char startingDirection;
+"146
 [v _skipFirstLast `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 145: __bit skipFirstLast;
-[; ;arpeggio.h: 148: void wait_one_pulse (unsigned char mode);
-"154
+[; ;arpeggio.h: 146: __bit skipFirstLast;
+[; ;arpeggio.h: 149: void wait_one_pulse (unsigned char mode);
+"155
 [v _lastNoteMode `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 154: __bit lastNoteMode;
-"156
+[; ;arpeggio.h: 155: __bit lastNoteMode;
+"157
 [v _LAST_NOTE_MODE_KEY_PRESS `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 156: __bit LAST_NOTE_MODE_KEY_PRESS;
-"158
+[; ;arpeggio.h: 157: __bit LAST_NOTE_MODE_KEY_PRESS;
+"159
 [v _LAST_NOTE_MODE_KEY_RELEASE `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 158: __bit LAST_NOTE_MODE_KEY_RELEASE;
-"160
+[; ;arpeggio.h: 159: __bit LAST_NOTE_MODE_KEY_RELEASE;
+"161
 [v _LAST_NOTE_MODE_TRANSPOSE `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 160: __bit LAST_NOTE_MODE_TRANSPOSE;
-"162
+[; ;arpeggio.h: 161: __bit LAST_NOTE_MODE_TRANSPOSE;
+"163
 [v _LAST_NOTE_MODE_RESET `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 162: __bit LAST_NOTE_MODE_RESET;
-"165
-[v _finishLastNote `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 165: __bit finishLastNote;
+[; ;arpeggio.h: 163: __bit LAST_NOTE_MODE_RESET;
 "166
-[v _suppress_note_on `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 166: __bit suppress_note_on;
+[v _finishLastNote `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 166: __bit finishLastNote;
 "167
+[v _suppress_note_on `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 167: __bit suppress_note_on;
+"168
 [v _suppress_note_off `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 167: __bit suppress_note_off;
-"170
+[; ;arpeggio.h: 168: __bit suppress_note_off;
+"171
 [v _which_note `uc ~T0 @X0 1 e ]
 [i _which_note
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 170: unsigned char which_note = 0;
-"171
+[; ;arpeggio.h: 171: unsigned char which_note = 0;
+"172
 [v _last_note `uc ~T0 @X0 1 e ]
 [i _last_note
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 171: unsigned char last_note = 0;
-"172
+[; ;arpeggio.h: 172: unsigned char last_note = 0;
+"173
 [v _which_octave `c ~T0 @X0 1 e ]
 [i _which_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 172: signed char which_octave = 0;
-"173
+[; ;arpeggio.h: 173: signed char which_octave = 0;
+"174
 [v _last_octave `c ~T0 @X0 1 e ]
 [i _last_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 173: signed char last_octave = 0;
-"174
-[v _overflow `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 174: __bit overflow;
+[; ;arpeggio.h: 174: signed char last_octave = 0;
 "175
+[v _overflow `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 175: __bit overflow;
+"176
 [v _octave_overflow `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 175: __bit octave_overflow;
-"177
+[; ;arpeggio.h: 176: __bit octave_overflow;
+"178
 [v _stored_octave `c ~T0 @X0 1 e ]
 [i _stored_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 177: signed char stored_octave = 0;
-"178
+[; ;arpeggio.h: 178: signed char stored_octave = 0;
+"179
 [v _parallel `c ~T0 @X0 1 e ]
 [i _parallel
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 178: signed char parallel = 0;
-"180
+[; ;arpeggio.h: 179: signed char parallel = 0;
+"181
 [v _note_off_was_sent `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 180: __bit note_off_was_sent;
-"182
-[v _flag1 `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 182: __bit flag1;
+[; ;arpeggio.h: 181: __bit note_off_was_sent;
 "183
+[v _flag1 `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 183: __bit flag1;
+"184
 [v _flag2 `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 183: __bit flag2;
-"186
+[; ;arpeggio.h: 184: __bit flag2;
+"187
 [v _DISPLAY_STEP_NUMBER `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 186: __bit DISPLAY_STEP_NUMBER;
-"188
+[; ;arpeggio.h: 187: __bit DISPLAY_STEP_NUMBER;
+"189
 [v _MAX_NUM_NOTES `Cuc ~T0 @X0 1 e ]
 [i _MAX_NUM_NOTES
 -> -> 16 `i `uc
 ]
-[; ;arpeggio.h: 188: const unsigned char MAX_NUM_NOTES = 16;
-"189
+[; ;arpeggio.h: 189: const unsigned char MAX_NUM_NOTES = 16;
+"190
 [v _NUM_NOTES_PRESSED `uc ~T0 @X0 1 e ]
 [i _NUM_NOTES_PRESSED
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 189: unsigned char NUM_NOTES_PRESSED = 0;
-"190
+[; ;arpeggio.h: 190: unsigned char NUM_NOTES_PRESSED = 0;
+"191
 [v _ARRAY_INDEX `uc ~T0 @X0 1 e ]
 [i _ARRAY_INDEX
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 190: unsigned char ARRAY_INDEX = 0;
-"200
+[; ;arpeggio.h: 191: unsigned char ARRAY_INDEX = 0;
+"201
 [v _ARPEGGIO `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 200: unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
-"201
+[; ;arpeggio.h: 201: unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
+"202
 [v _ARPEGGIO_SORTED `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO_SORTED
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 201: unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
-"202
+[; ;arpeggio.h: 202: unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
+"203
 [v _ARPEGGIO_RANDOM `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO_RANDOM
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 202: unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
-"204
+[; ;arpeggio.h: 203: unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
+"205
 [v _arpeggioPtr `*uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 204: unsigned char *arpeggioPtr;
-"206
-[v _TIMER_PRELOAD `us ~T0 @X0 1 e ]
-[; ;arpeggio.h: 206: unsigned short TIMER_PRELOAD;
+[; ;arpeggio.h: 205: unsigned char *arpeggioPtr;
 "207
+[v _TIMER_PRELOAD `us ~T0 @X0 1 e ]
+[; ;arpeggio.h: 207: unsigned short TIMER_PRELOAD;
+"208
 [v _TIMER_OVERFLOWS `uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 207: unsigned char TIMER_OVERFLOWS;
+[; ;arpeggio.h: 208: unsigned char TIMER_OVERFLOWS;
 "20 arpeggio.c
 [v _wait_one_pulse `(v ~T0 @X0 1 ef1`uc ]
 {
@@ -14535,1343 +14537,1324 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _add_notes_to_arpeggio ]
 [v _pitch `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;arpeggio.c: 42: ARPEGGIO[ARRAY_INDEX] = pitch;
-"42
-[e = *U + &U _ARPEGGIO * -> _ARRAY_INDEX `ux -> -> # *U &U _ARPEGGIO `ui `ux _pitch ]
-[; ;arpeggio.c: 44: ARRAY_INDEX++;
-"44
-[e ++ _ARRAY_INDEX -> -> 1 `i `uc ]
-[; ;arpeggio.c: 47: if(ARRAY_INDEX > (MAX_NUM_NOTES - 1)){ARRAY_INDEX = 0;}
-"47
+[; ;arpeggio.c: 43: if(ARRAY_INDEX > (MAX_NUM_NOTES - 1)){
+"43
 [e $ ! > -> _ARRAY_INDEX `i - -> _MAX_NUM_NOTES `i -> 1 `i 1129  ]
 {
-[e = _ARRAY_INDEX -> -> 0 `i `uc ]
+[; ;arpeggio.c: 44: ARRAY_INDEX = MAX_NUM_NOTES - 1;
+"44
+[e = _ARRAY_INDEX -> - -> _MAX_NUM_NOTES `i -> 1 `i `uc ]
+[; ;arpeggio.c: 45: rotateArrayLeft(0);
+"45
+[e ( _rotateArrayLeft (1 -> -> 0 `i `uc ]
+[; ;arpeggio.c: 46: ARPEGGIO[MAX_NUM_NOTES - 1] = pitch;
+"46
+[e = *U + &U _ARPEGGIO * -> -> - -> _MAX_NUM_NOTES `i -> 1 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux _pitch ]
+"47
 }
 [e :U 1129 ]
-[; ;arpeggio.c: 50: NUM_NOTES_PRESSED++;
-"50
-[e ++ _NUM_NOTES_PRESSED -> -> 1 `i `uc ]
-[; ;arpeggio.c: 52: if(NUM_NOTES_PRESSED > MAX_NUM_NOTES){NUM_NOTES_PRESSED = MAX_NUM_NOTES;}
-"52
-[e $ ! > -> _NUM_NOTES_PRESSED `i -> _MAX_NUM_NOTES `i 1130  ]
+[; ;arpeggio.c: 47: }
+[; ;arpeggio.c: 49: if(ARRAY_INDEX <= (MAX_NUM_NOTES - 1)){
+"49
+[e $ ! <= -> _ARRAY_INDEX `i - -> _MAX_NUM_NOTES `i -> 1 `i 1130  ]
 {
-[e = _NUM_NOTES_PRESSED _MAX_NUM_NOTES ]
+[; ;arpeggio.c: 51: ARPEGGIO[ARRAY_INDEX] = pitch;
+"51
+[e = *U + &U _ARPEGGIO * -> _ARRAY_INDEX `ux -> -> # *U &U _ARPEGGIO `ui `ux _pitch ]
+[; ;arpeggio.c: 53: ARRAY_INDEX++;
+"53
+[e ++ _ARRAY_INDEX -> -> 1 `i `uc ]
+"54
 }
 [e :U 1130 ]
 [; ;arpeggio.c: 54: }
-"54
+[; ;arpeggio.c: 57: NUM_NOTES_PRESSED++;
+"57
+[e ++ _NUM_NOTES_PRESSED -> -> 1 `i `uc ]
+[; ;arpeggio.c: 59: if(NUM_NOTES_PRESSED > MAX_NUM_NOTES){NUM_NOTES_PRESSED = MAX_NUM_NOTES;}
+"59
+[e $ ! > -> _NUM_NOTES_PRESSED `i -> _MAX_NUM_NOTES `i 1131  ]
+{
+[e = _NUM_NOTES_PRESSED _MAX_NUM_NOTES ]
+}
+[e :U 1131 ]
+[; ;arpeggio.c: 61: }
+"61
 [e :UE 1128 ]
 }
-"56
+"63
 [v _delete_notes_from_arpeggio `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;arpeggio.c: 56: void delete_notes_from_arpeggio(unsigned char pitch) {
+[; ;arpeggio.c: 63: void delete_notes_from_arpeggio(unsigned char pitch) {
 [e :U _delete_notes_from_arpeggio ]
 [v _pitch `uc ~T0 @X0 1 r1 ]
 [f ]
-"59
+"66
 [v _INDEX_TO_SHIFT_LEFT_AT `c ~T0 @X0 1 a ]
-[; ;arpeggio.c: 59: signed char INDEX_TO_SHIFT_LEFT_AT = findArrayIndex(pitch);
+[; ;arpeggio.c: 66: signed char INDEX_TO_SHIFT_LEFT_AT = findArrayIndex(pitch);
 [e = _INDEX_TO_SHIFT_LEFT_AT ( _findArrayIndex (1 _pitch ]
-[; ;arpeggio.c: 70: rotateArrayLeft(INDEX_TO_SHIFT_LEFT_AT);
-"70
+[; ;arpeggio.c: 77: rotateArrayLeft(INDEX_TO_SHIFT_LEFT_AT);
+"77
 [e ( _rotateArrayLeft (1 -> _INDEX_TO_SHIFT_LEFT_AT `uc ]
-[; ;arpeggio.c: 73: if(NUM_NOTES_PRESSED > 0) {NUM_NOTES_PRESSED--;}
-"73
-[e $ ! > -> _NUM_NOTES_PRESSED `i -> 0 `i 1132  ]
+[; ;arpeggio.c: 80: if(NUM_NOTES_PRESSED > 0) {NUM_NOTES_PRESSED--;}
+"80
+[e $ ! > -> _NUM_NOTES_PRESSED `i -> 0 `i 1133  ]
 {
 [e -- _NUM_NOTES_PRESSED -> -> 1 `i `uc ]
 }
-[e :U 1132 ]
-[; ;arpeggio.c: 78: if(NUM_NOTES_PRESSED == 0) {ARRAY_INDEX = 0;}
-"78
-[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1133  ]
+[e :U 1133 ]
+[; ;arpeggio.c: 85: if(NUM_NOTES_PRESSED == 0) {ARRAY_INDEX = 0;}
+"85
+[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1134  ]
 {
 [e = _ARRAY_INDEX -> -> 0 `i `uc ]
 }
-[e :U 1133 ]
-[; ;arpeggio.c: 81: if(ARRAY_INDEX > 0){ARRAY_INDEX--;}
-"81
-[e $ ! > -> _ARRAY_INDEX `i -> 0 `i 1134  ]
+[e :U 1134 ]
+[; ;arpeggio.c: 88: if(ARRAY_INDEX > 0){ARRAY_INDEX--;}
+"88
+[e $ ! > -> _ARRAY_INDEX `i -> 0 `i 1135  ]
 {
 [e -- _ARRAY_INDEX -> -> 1 `i `uc ]
 }
-[e :U 1134 ]
-[; ;arpeggio.c: 85: }
-"85
-[e :UE 1131 ]
+[e :U 1135 ]
+[; ;arpeggio.c: 96: }
+"96
+[e :UE 1132 ]
 }
-"87
+"98
 [v _finish_arpeggio_setup `(v ~T0 @X0 1 ef ]
 {
-[; ;arpeggio.c: 87: void finish_arpeggio_setup(void) {
+[; ;arpeggio.c: 98: void finish_arpeggio_setup(void) {
 [e :U _finish_arpeggio_setup ]
 [f ]
-[; ;arpeggio.c: 90: if((ON_OFF == 1) && (RESET_ON_KEY_PRESS == 1)){resetArpeggio();}
-"90
-[e $ ! && == -> _ON_OFF `i -> 1 `i == -> _RESET_ON_KEY_PRESS `i -> 1 `i 1136  ]
-{
-[e ( _resetArpeggio ..  ]
-}
-[e :U 1136 ]
-[; ;arpeggio.c: 91: if((ON_OFF == 0) && (RESET_ON_KEY_RELEASE == 1)){resetArpeggio();}
-"91
-[e $ ! && == -> _ON_OFF `i -> 0 `i == -> _RESET_ON_KEY_RELEASE `i -> 1 `i 1137  ]
+[; ;arpeggio.c: 101: if((ON_OFF == 1) && (RESET_ON_KEY_PRESS == 1)){resetArpeggio();}
+"101
+[e $ ! && == -> _ON_OFF `i -> 1 `i == -> _RESET_ON_KEY_PRESS `i -> 1 `i 1137  ]
 {
 [e ( _resetArpeggio ..  ]
 }
 [e :U 1137 ]
-[; ;arpeggio.c: 94: setupArpeggio();
-"94
-[e ( _setupArpeggio ..  ]
-[; ;arpeggio.c: 96: TIMER_OVERFLOWS = 0;
-"96
-[e = _TIMER_OVERFLOWS -> -> 0 `i `uc ]
-[; ;arpeggio.c: 97: }
-"97
-[e :UE 1135 ]
+[; ;arpeggio.c: 102: if((ON_OFF == 0) && (RESET_ON_KEY_RELEASE == 1)){resetArpeggio();}
+"102
+[e $ ! && == -> _ON_OFF `i -> 0 `i == -> _RESET_ON_KEY_RELEASE `i -> 1 `i 1138  ]
+{
+[e ( _resetArpeggio ..  ]
 }
-"99
+[e :U 1138 ]
+[; ;arpeggio.c: 105: setupArpeggio();
+"105
+[e ( _setupArpeggio ..  ]
+[; ;arpeggio.c: 107: TIMER_OVERFLOWS = 0;
+"107
+[e = _TIMER_OVERFLOWS -> -> 0 `i `uc ]
+[; ;arpeggio.c: 108: }
+"108
+[e :UE 1136 ]
+}
+"110
 [v _key_press_release_note_off `(v ~T0 @X0 1 ef ]
 {
-[; ;arpeggio.c: 99: void key_press_release_note_off(void) {
+[; ;arpeggio.c: 110: void key_press_release_note_off(void) {
 [e :U _key_press_release_note_off ]
 [f ]
-[; ;arpeggio.c: 102: if((startingDirection == UP) && (ARPEGGIO_TYPE == DOWN_UP)){stored_octave += (OCTAVES - 1);}
-"102
-[e $ ! && == -> _startingDirection `i -> . `E14445 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 3 `i 1139  ]
+[; ;arpeggio.c: 113: if((startingDirection == UP) && (ARPEGGIO_TYPE == DOWN_UP)){stored_octave += (OCTAVES - 1);}
+"113
+[e $ ! && == -> _startingDirection `i -> . `E14449 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 3 `i 1140  ]
 {
 [e =+ _stored_octave -> - -> _OCTAVES `i -> 1 `i `c ]
 }
-[e :U 1139 ]
-[; ;arpeggio.c: 104: if((startingDirection == DOWN) && (ARPEGGIO_TYPE == UP_DOWN)){stored_octave -= (OCTAVES - 1);}
-"104
-[e $ ! && == -> _startingDirection `i -> . `E14445 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 2 `i 1140  ]
+[e :U 1140 ]
+[; ;arpeggio.c: 115: if((startingDirection == DOWN) && (ARPEGGIO_TYPE == UP_DOWN)){stored_octave -= (OCTAVES - 1);}
+"115
+[e $ ! && == -> _startingDirection `i -> . `E14449 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 2 `i 1141  ]
 {
 [e =- _stored_octave -> - -> _OCTAVES `i -> 1 `i `c ]
 }
-[e :U 1140 ]
-[; ;arpeggio.c: 106: TMR0ON = 0;
-"106
+[e :U 1141 ]
+[; ;arpeggio.c: 117: TMR0ON = 0;
+"117
 [e = _TMR0ON -> -> 0 `i `b ]
-"109
-[v F14521 `c ~T0 @X0 1 s temp ]
-[; ;arpeggio.c: 109: static signed char temp;
-[; ;arpeggio.c: 110: temp = last_note;
-"110
-[e = F14521 -> _last_note `c ]
-[; ;arpeggio.c: 113: if((last_note != 0)){
-"113
-[e $ ! != -> _last_note `i -> 0 `i 1141  ]
+"120
+[v F14525 `c ~T0 @X0 1 s temp ]
+[; ;arpeggio.c: 120: static signed char temp;
+[; ;arpeggio.c: 121: temp = last_note;
+"121
+[e = F14525 -> _last_note `c ]
+[; ;arpeggio.c: 124: if((last_note != 0)){
+"124
+[e $ ! != -> _last_note `i -> 0 `i 1142  ]
 {
-[; ;arpeggio.c: 114: if(stored_octave == -3){noteOff(channel, temp - ((OCTAVES - (OCTAVES - 3)) * 12), velocity);}
-"114
-[e $ ! == -> _stored_octave `i -U -> 3 `i 1142  ]
+[; ;arpeggio.c: 125: if(stored_octave == -3){noteOff(channel, temp - ((OCTAVES - (OCTAVES - 3)) * 12), velocity);}
+"125
+[e $ ! == -> _stored_octave `i -U -> 3 `i 1143  ]
 {
-[e ( _noteOff (3 , , _channel -> - -> F14521 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 3 `i -> 12 `i `uc _velocity ]
-}
-[e :U 1142 ]
-[; ;arpeggio.c: 115: if(stored_octave == -2){noteOff(channel, temp - ((OCTAVES - (OCTAVES - 2)) * 12), velocity);}
-"115
-[e $ ! == -> _stored_octave `i -U -> 2 `i 1143  ]
-{
-[e ( _noteOff (3 , , _channel -> - -> F14521 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 2 `i -> 12 `i `uc _velocity ]
+[e ( _noteOff (3 , , _channel -> - -> F14525 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 3 `i -> 12 `i `uc _velocity ]
 }
 [e :U 1143 ]
-[; ;arpeggio.c: 116: if(stored_octave == -1){noteOff(channel, temp - ((OCTAVES - (OCTAVES - 1)) * 12), velocity);}
-"116
-[e $ ! == -> _stored_octave `i -U -> 1 `i 1144  ]
+[; ;arpeggio.c: 126: if(stored_octave == -2){noteOff(channel, temp - ((OCTAVES - (OCTAVES - 2)) * 12), velocity);}
+"126
+[e $ ! == -> _stored_octave `i -U -> 2 `i 1144  ]
 {
-[e ( _noteOff (3 , , _channel -> - -> F14521 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 1 `i -> 12 `i `uc _velocity ]
+[e ( _noteOff (3 , , _channel -> - -> F14525 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 2 `i -> 12 `i `uc _velocity ]
 }
 [e :U 1144 ]
-[; ;arpeggio.c: 118: if(stored_octave == 0){
-"118
-[e $ ! == -> _stored_octave `i -> 0 `i 1145  ]
+[; ;arpeggio.c: 127: if(stored_octave == -1){noteOff(channel, temp - ((OCTAVES - (OCTAVES - 1)) * 12), velocity);}
+"127
+[e $ ! == -> _stored_octave `i -U -> 1 `i 1145  ]
 {
-[; ;arpeggio.c: 119: noteOff(channel, temp, velocity);
-"119
-[e ( _noteOff (3 , , _channel -> F14521 `uc _velocity ]
-"120
+[e ( _noteOff (3 , , _channel -> - -> F14525 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 1 `i -> 12 `i `uc _velocity ]
 }
 [e :U 1145 ]
-[; ;arpeggio.c: 120: }
-[; ;arpeggio.c: 122: if(stored_octave == 1){noteOff(channel, temp + ((OCTAVES - (OCTAVES - 1)) * 12), velocity);}
-"122
-[e $ ! == -> _stored_octave `i -> 1 `i 1146  ]
+[; ;arpeggio.c: 129: if(stored_octave == 0){
+"129
+[e $ ! == -> _stored_octave `i -> 0 `i 1146  ]
 {
-[e ( _noteOff (3 , , _channel -> + -> F14521 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 1 `i -> 12 `i `uc _velocity ]
+[; ;arpeggio.c: 130: noteOff(channel, temp, velocity);
+"130
+[e ( _noteOff (3 , , _channel -> F14525 `uc _velocity ]
+"131
 }
 [e :U 1146 ]
-[; ;arpeggio.c: 123: if(stored_octave == 2){noteOff(channel, temp + ((OCTAVES - (OCTAVES - 2)) * 12), velocity);}
-"123
-[e $ ! == -> _stored_octave `i -> 2 `i 1147  ]
+[; ;arpeggio.c: 131: }
+[; ;arpeggio.c: 133: if(stored_octave == 1){noteOff(channel, temp + ((OCTAVES - (OCTAVES - 1)) * 12), velocity);}
+"133
+[e $ ! == -> _stored_octave `i -> 1 `i 1147  ]
 {
-[e ( _noteOff (3 , , _channel -> + -> F14521 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 2 `i -> 12 `i `uc _velocity ]
+[e ( _noteOff (3 , , _channel -> + -> F14525 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 1 `i -> 12 `i `uc _velocity ]
 }
 [e :U 1147 ]
-[; ;arpeggio.c: 124: if(stored_octave == 3){noteOff(channel, temp + ((OCTAVES - (OCTAVES - 3)) * 12), velocity);}
-"124
-[e $ ! == -> _stored_octave `i -> 3 `i 1148  ]
+[; ;arpeggio.c: 134: if(stored_octave == 2){noteOff(channel, temp + ((OCTAVES - (OCTAVES - 2)) * 12), velocity);}
+"134
+[e $ ! == -> _stored_octave `i -> 2 `i 1148  ]
 {
-[e ( _noteOff (3 , , _channel -> + -> F14521 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 3 `i -> 12 `i `uc _velocity ]
+[e ( _noteOff (3 , , _channel -> + -> F14525 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 2 `i -> 12 `i `uc _velocity ]
 }
 [e :U 1148 ]
-[; ;arpeggio.c: 126: note_off_was_sent = 1;
-"126
-[e = _note_off_was_sent -> -> 1 `i `b ]
-"127
-}
-[e :U 1141 ]
-[; ;arpeggio.c: 127: }
-[; ;arpeggio.c: 130: if((last_note == 0) && (note_off_was_sent == 0) && (keyboard.SW1 == 1)){noteOff(channel, stored_octave * 12, velocity);note_off_was_sent = 1;}
-"130
-[e $ ! && && == -> _last_note `i -> 0 `i == -> _note_off_was_sent `i -> 0 `i == -> . _keyboard 0 `i -> 1 `i 1149  ]
+[; ;arpeggio.c: 135: if(stored_octave == 3){noteOff(channel, temp + ((OCTAVES - (OCTAVES - 3)) * 12), velocity);}
+"135
+[e $ ! == -> _stored_octave `i -> 3 `i 1149  ]
 {
-[e ( _noteOff (3 , , _channel -> * -> _stored_octave `i -> 12 `i `uc _velocity ]
-[e = _note_off_was_sent -> -> 1 `i `b ]
+[e ( _noteOff (3 , , _channel -> + -> F14525 `i * - -> _OCTAVES `i - -> _OCTAVES `i -> 3 `i -> 12 `i `uc _velocity ]
 }
 [e :U 1149 ]
-[; ;arpeggio.c: 131: if((last_note == 0) && (note_off_was_sent == 0)){noteOff(channel, stored_octave * 12, velocity);note_off_was_sent = 1;}
-"131
-[e $ ! && == -> _last_note `i -> 0 `i == -> _note_off_was_sent `i -> 0 `i 1150  ]
+[; ;arpeggio.c: 137: note_off_was_sent = 1;
+"137
+[e = _note_off_was_sent -> -> 1 `i `b ]
+"138
+}
+[e :U 1142 ]
+[; ;arpeggio.c: 138: }
+[; ;arpeggio.c: 141: if((last_note == 0) && (note_off_was_sent == 0) && (keyboard.SW1 == 1)){noteOff(channel, stored_octave * 12, velocity);note_off_was_sent = 1;}
+"141
+[e $ ! && && == -> _last_note `i -> 0 `i == -> _note_off_was_sent `i -> 0 `i == -> . _keyboard 0 `i -> 1 `i 1150  ]
 {
 [e ( _noteOff (3 , , _channel -> * -> _stored_octave `i -> 12 `i `uc _velocity ]
 [e = _note_off_was_sent -> -> 1 `i `b ]
 }
 [e :U 1150 ]
-[; ;arpeggio.c: 133: TMR0ON = 1;
-"133
-[e = _TMR0ON -> -> 1 `i `b ]
-[; ;arpeggio.c: 134: }
-"134
-[e :UE 1138 ]
+[; ;arpeggio.c: 142: if((last_note == 0) && (note_off_was_sent == 0)){noteOff(channel, stored_octave * 12, velocity);note_off_was_sent = 1;}
+"142
+[e $ ! && == -> _last_note `i -> 0 `i == -> _note_off_was_sent `i -> 0 `i 1151  ]
+{
+[e ( _noteOff (3 , , _channel -> * -> _stored_octave `i -> 12 `i `uc _velocity ]
+[e = _note_off_was_sent -> -> 1 `i `b ]
 }
-"137
+[e :U 1151 ]
+[; ;arpeggio.c: 144: TMR0ON = 1;
+"144
+[e = _TMR0ON -> -> 1 `i `b ]
+[; ;arpeggio.c: 145: }
+"145
+[e :UE 1139 ]
+}
+"148
 [v _calculate_pulse_length `(us ~T0 @X0 1 ef ]
 {
-[; ;arpeggio.c: 137: unsigned short calculate_pulse_length(void) {
+[; ;arpeggio.c: 148: unsigned short calculate_pulse_length(void) {
 [e :U _calculate_pulse_length ]
 [f ]
-"144
-[v _s_tick `d ~T0 @X0 1 a ]
-[; ;arpeggio.c: 144: double s_tick = 1.0 / ((BPM * PPQN) / 60.0);
-[e = _s_tick / .1.0 / -> * -> _BPM `i -> _PPQN `i `d .60.0 ]
-[; ;arpeggio.c: 145: return (unsigned short) ((65535.0 - (s_tick * 20000000.0) / ( 4.0 * PRESCALER)) + 0.5);
-"145
-[e ) -> + - .65535.0 / * _s_tick .20000000.0 * .4.0 -> _PRESCALER `d .0.5 `us ]
-[e $UE 1151  ]
-[; ;arpeggio.c: 146: }
-"146
-[e :UE 1151 ]
-}
-"149
-[v _resetArpeggio `(v ~T0 @X0 1 ef ]
-{
-[; ;arpeggio.c: 149: void resetArpeggio(void){
-[e :U _resetArpeggio ]
-[f ]
-[; ;arpeggio.c: 151: which_note = 0;
-"151
-[e = _which_note -> -> 0 `i `uc ]
-[; ;arpeggio.c: 152: which_octave = 0;
-"152
-[e = _which_octave -> -> 0 `i `c ]
-[; ;arpeggio.c: 153: last_note = 0;
-"153
-[e = _last_note -> -> 0 `i `uc ]
-[; ;arpeggio.c: 154: last_octave = 0;
-"154
-[e = _last_octave -> -> 0 `i `c ]
-[; ;arpeggio.c: 155: overflow = 0;
 "155
-[e = _overflow -> -> 0 `i `b ]
-[; ;arpeggio.c: 156: octave_overflow = 0;
+[v _s_tick `d ~T0 @X0 1 a ]
+[; ;arpeggio.c: 155: double s_tick = 1.0 / ((BPM * PPQN) / 60.0);
+[e = _s_tick / .1.0 / -> * -> _BPM `i -> _PPQN `i `d .60.0 ]
+[; ;arpeggio.c: 156: return (unsigned short) ((65535.0 - (s_tick * 20000000.0) / ( 4.0 * PRESCALER)) + 0.5);
 "156
-[e = _octave_overflow -> -> 0 `i `b ]
-[; ;arpeggio.c: 159: if(ARPEGGIO_TYPE == UP_DOWN && startingDirection == DOWN){
-"159
-[e $ ! && == -> _ARPEGGIO_TYPE `i -> . `E14445 2 `i == -> _startingDirection `i -> . `E14445 1 `i 1153  ]
-{
-[; ;arpeggio.c: 160: ARPEGGIO_TYPE = DOWN_UP;
-"160
-[e = _ARPEGGIO_TYPE -> . `E14445 3 `uc ]
-"161
-}
-[e :U 1153 ]
-[; ;arpeggio.c: 161: }
-[; ;arpeggio.c: 163: if(ARPEGGIO_TYPE == DOWN_UP && startingDirection == UP){
-"163
-[e $ ! && == -> _ARPEGGIO_TYPE `i -> . `E14445 3 `i == -> _startingDirection `i -> . `E14445 0 `i 1154  ]
-{
-[; ;arpeggio.c: 164: ARPEGGIO_TYPE = UP_DOWN;
-"164
-[e = _ARPEGGIO_TYPE -> . `E14445 2 `uc ]
-"165
-}
-[e :U 1154 ]
-[; ;arpeggio.c: 165: }
-[; ;arpeggio.c: 167: }
-"167
+[e ) -> + - .65535.0 / * _s_tick .20000000.0 * .4.0 -> _PRESCALER `d .0.5 `us ]
+[e $UE 1152  ]
+[; ;arpeggio.c: 157: }
+"157
 [e :UE 1152 ]
 }
+"160
+[v _resetArpeggio `(v ~T0 @X0 1 ef ]
+{
+[; ;arpeggio.c: 160: void resetArpeggio(void){
+[e :U _resetArpeggio ]
+[f ]
+[; ;arpeggio.c: 162: which_note = 0;
+"162
+[e = _which_note -> -> 0 `i `uc ]
+[; ;arpeggio.c: 163: which_octave = 0;
+"163
+[e = _which_octave -> -> 0 `i `c ]
+[; ;arpeggio.c: 164: last_note = 0;
+"164
+[e = _last_note -> -> 0 `i `uc ]
+[; ;arpeggio.c: 165: last_octave = 0;
+"165
+[e = _last_octave -> -> 0 `i `c ]
+[; ;arpeggio.c: 166: overflow = 0;
+"166
+[e = _overflow -> -> 0 `i `b ]
+[; ;arpeggio.c: 167: octave_overflow = 0;
+"167
+[e = _octave_overflow -> -> 0 `i `b ]
+[; ;arpeggio.c: 170: if(ARPEGGIO_TYPE == UP_DOWN && startingDirection == DOWN){
 "170
+[e $ ! && == -> _ARPEGGIO_TYPE `i -> . `E14449 2 `i == -> _startingDirection `i -> . `E14449 1 `i 1154  ]
+{
+[; ;arpeggio.c: 171: ARPEGGIO_TYPE = DOWN_UP;
+"171
+[e = _ARPEGGIO_TYPE -> . `E14449 3 `uc ]
+"172
+}
+[e :U 1154 ]
+[; ;arpeggio.c: 172: }
+[; ;arpeggio.c: 174: if(ARPEGGIO_TYPE == DOWN_UP && startingDirection == UP){
+"174
+[e $ ! && == -> _ARPEGGIO_TYPE `i -> . `E14449 3 `i == -> _startingDirection `i -> . `E14449 0 `i 1155  ]
+{
+[; ;arpeggio.c: 175: ARPEGGIO_TYPE = UP_DOWN;
+"175
+[e = _ARPEGGIO_TYPE -> . `E14449 2 `uc ]
+"176
+}
+[e :U 1155 ]
+[; ;arpeggio.c: 176: }
+[; ;arpeggio.c: 178: }
+"178
+[e :UE 1153 ]
+}
+"181
 [v _setupArpeggio `(v ~T0 @X0 1 ef ]
 {
-[; ;arpeggio.c: 170: void setupArpeggio(void){
+[; ;arpeggio.c: 181: void setupArpeggio(void){
 [e :U _setupArpeggio ]
 [f ]
-[; ;arpeggio.c: 175: if(NUM_NOTES_PRESSED == 0){return;}
-"175
-[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1156  ]
+[; ;arpeggio.c: 186: if(NUM_NOTES_PRESSED == 0){return;}
+"186
+[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1157  ]
 {
-[e $UE 1155  ]
+[e $UE 1156  ]
 }
-[e :U 1156 ]
-[; ;arpeggio.c: 178: copy_array();
-"178
+[e :U 1157 ]
+[; ;arpeggio.c: 189: copy_array();
+"189
 [e ( _copy_array ..  ]
-[; ;arpeggio.c: 181: if(ARPEGGIO_TYPE == RANDOM) {random_pitches();}
-"181
-[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14445 5 `i 1157  ]
+[; ;arpeggio.c: 192: if(ARPEGGIO_TYPE == RANDOM) {random_pitches();}
+"192
+[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14449 5 `i 1158  ]
 {
 [e ( _random_pitches ..  ]
 }
-[e :U 1157 ]
-[; ;arpeggio.c: 182: if(ARPEGGIO_TYPE == RANDOM_NON_REPEATING) {random_pitches_non_repeating();}
-"182
-[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14445 4 `i 1158  ]
+[e :U 1158 ]
+[; ;arpeggio.c: 193: if(ARPEGGIO_TYPE == RANDOM_NON_REPEATING) {random_pitches_non_repeating();}
+"193
+[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14449 4 `i 1159  ]
 {
 [e ( _random_pitches_non_repeating ..  ]
 }
-[e :U 1158 ]
-[; ;arpeggio.c: 191: if(ARPEGGIO_TYPE == AS_PRESSED){arpeggioPtr = ARPEGGIO;}
-"191
-[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14445 6 `i 1159  ]
+[e :U 1159 ]
+[; ;arpeggio.c: 202: if(ARPEGGIO_TYPE == AS_PRESSED){arpeggioPtr = ARPEGGIO;}
+"202
+[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14449 6 `i 1160  ]
 {
 [e = _arpeggioPtr &U _ARPEGGIO ]
 }
-[e :U 1159 ]
-[; ;arpeggio.c: 192: if(ARPEGGIO_TYPE == UP | ARPEGGIO_TYPE == UP_DOWN){arpeggioPtr = ARPEGGIO_SORTED;}
-"192
-[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14445 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 2 `i 1160  ]
-{
-[e = _arpeggioPtr &U _ARPEGGIO_SORTED ]
-}
 [e :U 1160 ]
-[; ;arpeggio.c: 193: if(ARPEGGIO_TYPE == DOWN | ARPEGGIO_TYPE == DOWN_UP){arpeggioPtr = ARPEGGIO_SORTED;}
-"193
-[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14445 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 3 `i 1161  ]
+[; ;arpeggio.c: 203: if(ARPEGGIO_TYPE == UP | ARPEGGIO_TYPE == UP_DOWN){arpeggioPtr = ARPEGGIO_SORTED;}
+"203
+[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14449 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 2 `i 1161  ]
 {
 [e = _arpeggioPtr &U _ARPEGGIO_SORTED ]
 }
 [e :U 1161 ]
-[; ;arpeggio.c: 194: if(ARPEGGIO_TYPE == RANDOM | ARPEGGIO_TYPE == RANDOM_NON_REPEATING){arpeggioPtr = ARPEGGIO_RANDOM;}
-"194
-[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14445 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 4 `i 1162  ]
+[; ;arpeggio.c: 204: if(ARPEGGIO_TYPE == DOWN | ARPEGGIO_TYPE == DOWN_UP){arpeggioPtr = ARPEGGIO_SORTED;}
+"204
+[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14449 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 3 `i 1162  ]
+{
+[e = _arpeggioPtr &U _ARPEGGIO_SORTED ]
+}
+[e :U 1162 ]
+[; ;arpeggio.c: 205: if(ARPEGGIO_TYPE == RANDOM | ARPEGGIO_TYPE == RANDOM_NON_REPEATING){arpeggioPtr = ARPEGGIO_RANDOM;}
+"205
+[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14449 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 4 `i 1163  ]
 {
 [e = _arpeggioPtr &U _ARPEGGIO_RANDOM ]
 }
-[e :U 1162 ]
-[; ;arpeggio.c: 195: }
-"195
-[e :UE 1155 ]
+[e :U 1163 ]
+[; ;arpeggio.c: 206: }
+"206
+[e :UE 1156 ]
 }
-"197
+"208
 [v _copy_array `(v ~T0 @X0 1 ef ]
 {
-[; ;arpeggio.c: 197: void copy_array(void){
+[; ;arpeggio.c: 208: void copy_array(void){
 [e :U _copy_array ]
 [f ]
-[; ;arpeggio.c: 199: if(NUM_NOTES_PRESSED == 0){return;}
-"199
-[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1164  ]
+[; ;arpeggio.c: 210: if(NUM_NOTES_PRESSED == 0){return;}
+"210
+[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1165  ]
 {
-[e $UE 1163  ]
+[e $UE 1164  ]
 }
-[e :U 1164 ]
-[; ;arpeggio.c: 202: for(unsigned char i = 0; i < NUM_NOTES_PRESSED; i++){
-"202
+[e :U 1165 ]
+[; ;arpeggio.c: 213: for(unsigned char i = 0; i < NUM_NOTES_PRESSED; i++){
+"213
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 1168  ]
-[e :U 1165 ]
-{
-[; ;arpeggio.c: 203: ARPEGGIO_SORTED[i] = ARPEGGIO[i];
-"203
-[e = *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux *U + &U _ARPEGGIO * -> _i `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 204: ARPEGGIO_RANDOM[i] = ARPEGGIO[i];
-"204
-[e = *U + &U _ARPEGGIO_RANDOM * -> _i `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux *U + &U _ARPEGGIO * -> _i `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-"205
-}
-"202
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 1168 ]
-[e $ < -> _i `i -> _NUM_NOTES_PRESSED `i 1165  ]
+[e $U 1169  ]
 [e :U 1166 ]
-"205
+{
+[; ;arpeggio.c: 214: ARPEGGIO_SORTED[i] = ARPEGGIO[i];
+"214
+[e = *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux *U + &U _ARPEGGIO * -> _i `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 215: ARPEGGIO_RANDOM[i] = ARPEGGIO[i];
+"215
+[e = *U + &U _ARPEGGIO_RANDOM * -> _i `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux *U + &U _ARPEGGIO * -> _i `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+"216
 }
-[; ;arpeggio.c: 205: }
-[; ;arpeggio.c: 207: }
-"207
-[e :UE 1163 ]
+"213
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 1169 ]
+[e $ < -> _i `i -> _NUM_NOTES_PRESSED `i 1166  ]
+[e :U 1167 ]
+"216
 }
-"209
+[; ;arpeggio.c: 216: }
+[; ;arpeggio.c: 218: }
+"218
+[e :UE 1164 ]
+}
+"220
 [v _sort_pitches `(v ~T0 @X0 1 ef ]
 {
-[; ;arpeggio.c: 209: void sort_pitches(void) {
+[; ;arpeggio.c: 220: void sort_pitches(void) {
 [e :U _sort_pitches ]
 [f ]
-[; ;arpeggio.c: 211: if(NUM_NOTES_PRESSED == 0){return;}
-"211
-[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1170  ]
+[; ;arpeggio.c: 222: if(NUM_NOTES_PRESSED == 0){return;}
+"222
+[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1171  ]
 {
-[e $UE 1169  ]
+[e $UE 1170  ]
 }
-[e :U 1170 ]
-"213
+[e :U 1171 ]
+"224
 [v _a `uc ~T0 @X0 1 a ]
-[; ;arpeggio.c: 213: unsigned char a;
-[; ;arpeggio.c: 214: for(unsigned char i = 0; i < NUM_NOTES_PRESSED; ++i){
-"214
+[; ;arpeggio.c: 224: unsigned char a;
+[; ;arpeggio.c: 225: for(unsigned char i = 0; i < NUM_NOTES_PRESSED; ++i){
+"225
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 1174  ]
-[e :U 1171 ]
+[e $U 1175  ]
+[e :U 1172 ]
 {
-[; ;arpeggio.c: 215: for(unsigned char j = i + 1; j < NUM_NOTES_PRESSED; ++j){
-"215
+[; ;arpeggio.c: 226: for(unsigned char j = i + 1; j < NUM_NOTES_PRESSED; ++j){
+"226
 {
 [v _j `uc ~T0 @X0 1 a ]
 [e = _j -> + -> _i `i -> 1 `i `uc ]
-[e $U 1178  ]
-[e :U 1175 ]
+[e $U 1179  ]
+[e :U 1176 ]
 {
-[; ;arpeggio.c: 221: if(SORT_DIRECTION == 0) {
-"221
-[e $ ! == -> _SORT_DIRECTION `i -> 0 `i 1179  ]
-{
-[; ;arpeggio.c: 222: if(ARPEGGIO_SORTED[i] > ARPEGGIO_SORTED[j]){
-"222
-[e $ ! > -> *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux `i -> *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux `i 1180  ]
-{
-[; ;arpeggio.c: 223: a = ARPEGGIO_SORTED[i];
-"223
-[e = _a *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux ]
-[; ;arpeggio.c: 224: ARPEGGIO_SORTED[i] = ARPEGGIO_SORTED[j];
-"224
-[e = *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux ]
-[; ;arpeggio.c: 225: ARPEGGIO_SORTED[j] = a;
-"225
-[e = *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux _a ]
-"226
-}
-[e :U 1180 ]
-"227
-}
-[e :U 1179 ]
-[; ;arpeggio.c: 226: }
-[; ;arpeggio.c: 227: }
-[; ;arpeggio.c: 229: if(SORT_DIRECTION == 1) {
-"229
-[e $ ! == -> _SORT_DIRECTION `i -> 1 `i 1181  ]
-{
-[; ;arpeggio.c: 230: if(ARPEGGIO_SORTED[i] < ARPEGGIO_SORTED[j]){
-"230
-[e $ ! < -> *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux `i -> *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux `i 1182  ]
-{
-[; ;arpeggio.c: 231: a = ARPEGGIO_SORTED[i];
-"231
-[e = _a *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux ]
-[; ;arpeggio.c: 232: ARPEGGIO_SORTED[i] = ARPEGGIO_SORTED[j];
+[; ;arpeggio.c: 232: if(SORT_DIRECTION == 0) {
 "232
-[e = *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux ]
-[; ;arpeggio.c: 233: ARPEGGIO_SORTED[j] = a;
+[e $ ! == -> _SORT_DIRECTION `i -> 0 `i 1180  ]
+{
+[; ;arpeggio.c: 233: if(ARPEGGIO_SORTED[i] > ARPEGGIO_SORTED[j]){
 "233
-[e = *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux _a ]
+[e $ ! > -> *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux `i -> *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux `i 1181  ]
+{
+[; ;arpeggio.c: 234: a = ARPEGGIO_SORTED[i];
 "234
-}
-[e :U 1182 ]
+[e = _a *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux ]
+[; ;arpeggio.c: 235: ARPEGGIO_SORTED[i] = ARPEGGIO_SORTED[j];
 "235
+[e = *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux ]
+[; ;arpeggio.c: 236: ARPEGGIO_SORTED[j] = a;
+"236
+[e = *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux _a ]
+"237
 }
 [e :U 1181 ]
-"236
+"238
 }
-"215
-[e =+ _j -> -> 1 `i `uc ]
-[e :U 1178 ]
-[e $ < -> _j `i -> _NUM_NOTES_PRESSED `i 1175  ]
-[e :U 1176 ]
-"236
-}
-"237
-}
-"214
-[e =+ _i -> -> 1 `i `uc ]
-[e :U 1174 ]
-[e $ < -> _i `i -> _NUM_NOTES_PRESSED `i 1171  ]
-[e :U 1172 ]
-"237
-}
-[; ;arpeggio.c: 234: }
-[; ;arpeggio.c: 235: }
-[; ;arpeggio.c: 236: }
+[e :U 1180 ]
 [; ;arpeggio.c: 237: }
 [; ;arpeggio.c: 238: }
-"238
-[e :UE 1169 ]
-}
+[; ;arpeggio.c: 240: if(SORT_DIRECTION == 1) {
+"240
+[e $ ! == -> _SORT_DIRECTION `i -> 1 `i 1182  ]
+{
+[; ;arpeggio.c: 241: if(ARPEGGIO_SORTED[i] < ARPEGGIO_SORTED[j]){
 "241
-[v _random_pitches `(v ~T0 @X0 1 ef ]
+[e $ ! < -> *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux `i -> *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux `i 1183  ]
 {
-[; ;arpeggio.c: 241: void random_pitches(void){
-[e :U _random_pitches ]
-[f ]
-[; ;arpeggio.c: 243: if(NUM_NOTES_PRESSED == 0){return;}
+[; ;arpeggio.c: 242: a = ARPEGGIO_SORTED[i];
+"242
+[e = _a *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux ]
+[; ;arpeggio.c: 243: ARPEGGIO_SORTED[i] = ARPEGGIO_SORTED[j];
 "243
-[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1184  ]
-{
-[e $UE 1183  ]
-}
-[e :U 1184 ]
-[; ;arpeggio.c: 245: for (unsigned char i = 0; i < NUM_NOTES_PRESSED; i++){
+[e = *U + &U _ARPEGGIO_SORTED * -> _i `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux ]
+[; ;arpeggio.c: 244: ARPEGGIO_SORTED[j] = a;
+"244
+[e = *U + &U _ARPEGGIO_SORTED * -> _j `ux -> -> # *U &U _ARPEGGIO_SORTED `ui `ux _a ]
 "245
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 1188  ]
-[e :U 1185 ]
-{
+}
+[e :U 1183 ]
 "246
-[v _random_array_index `uc ~T0 @X0 1 a ]
-[; ;arpeggio.c: 246: unsigned char random_array_index = rand() % (NUM_NOTES_PRESSED);
-[e = _random_array_index -> % ( _rand ..  -> _NUM_NOTES_PRESSED `i `uc ]
-[; ;arpeggio.c: 247: ARPEGGIO_RANDOM[i] = ARPEGGIO[random_array_index];
+}
+[e :U 1182 ]
 "247
-[e = *U + &U _ARPEGGIO_RANDOM * -> _i `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux *U + &U _ARPEGGIO * -> _random_array_index `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+}
+"226
+[e =+ _j -> -> 1 `i `uc ]
+[e :U 1179 ]
+[e $ < -> _j `i -> _NUM_NOTES_PRESSED `i 1176  ]
+[e :U 1177 ]
+"247
+}
 "248
 }
-"245
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 1188 ]
-[e $ < -> _i `i -> _NUM_NOTES_PRESSED `i 1185  ]
-[e :U 1186 ]
+"225
+[e =+ _i -> -> 1 `i `uc ]
+[e :U 1175 ]
+[e $ < -> _i `i -> _NUM_NOTES_PRESSED `i 1172  ]
+[e :U 1173 ]
 "248
 }
+[; ;arpeggio.c: 245: }
+[; ;arpeggio.c: 246: }
+[; ;arpeggio.c: 247: }
 [; ;arpeggio.c: 248: }
 [; ;arpeggio.c: 249: }
 "249
-[e :UE 1183 ]
+[e :UE 1170 ]
 }
 "252
-[v _random_pitches_non_repeating `(v ~T0 @X0 1 ef ]
+[v _random_pitches `(v ~T0 @X0 1 ef ]
 {
-[; ;arpeggio.c: 252: void random_pitches_non_repeating(void){
-[e :U _random_pitches_non_repeating ]
+[; ;arpeggio.c: 252: void random_pitches(void){
+[e :U _random_pitches ]
 [f ]
 [; ;arpeggio.c: 254: if(NUM_NOTES_PRESSED == 0){return;}
 "254
-[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1190  ]
+[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1185  ]
 {
-[e $UE 1189  ]
+[e $UE 1184  ]
 }
-[e :U 1190 ]
-[; ;arpeggio.c: 256: for(unsigned char i = 0; i < NUM_NOTES_PRESSED; i++) {
+[e :U 1185 ]
+[; ;arpeggio.c: 256: for (unsigned char i = 0; i < NUM_NOTES_PRESSED; i++){
 "256
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 1194  ]
-[e :U 1191 ]
+[e $U 1189  ]
+[e :U 1186 ]
 {
 "257
-[v _temp `uc ~T0 @X0 1 a ]
-[; ;arpeggio.c: 257: unsigned char temp = ARPEGGIO_RANDOM[i];
-[e = _temp *U + &U _ARPEGGIO_RANDOM * -> _i `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux ]
+[v _random_array_index `uc ~T0 @X0 1 a ]
+[; ;arpeggio.c: 257: unsigned char random_array_index = rand() % (NUM_NOTES_PRESSED);
+[e = _random_array_index -> % ( _rand ..  -> _NUM_NOTES_PRESSED `i `uc ]
+[; ;arpeggio.c: 258: ARPEGGIO_RANDOM[i] = ARPEGGIO[random_array_index];
 "258
-[v _randomIndex `uc ~T0 @X0 1 a ]
-[; ;arpeggio.c: 258: unsigned char randomIndex = rand() % NUM_NOTES_PRESSED;
-[e = _randomIndex -> % ( _rand ..  -> _NUM_NOTES_PRESSED `i `uc ]
-[; ;arpeggio.c: 259: ARPEGGIO_RANDOM[i] = ARPEGGIO_RANDOM[randomIndex];
+[e = *U + &U _ARPEGGIO_RANDOM * -> _i `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux *U + &U _ARPEGGIO * -> _random_array_index `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
 "259
-[e = *U + &U _ARPEGGIO_RANDOM * -> _i `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux *U + &U _ARPEGGIO_RANDOM * -> _randomIndex `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux ]
-[; ;arpeggio.c: 260: ARPEGGIO_RANDOM[randomIndex] = temp;
-"260
-[e = *U + &U _ARPEGGIO_RANDOM * -> _randomIndex `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux _temp ]
-"261
 }
 "256
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 1194 ]
-[e $ < -> _i `i -> _NUM_NOTES_PRESSED `i 1191  ]
+[e :U 1189 ]
+[e $ < -> _i `i -> _NUM_NOTES_PRESSED `i 1186  ]
+[e :U 1187 ]
+"259
+}
+[; ;arpeggio.c: 259: }
+[; ;arpeggio.c: 260: }
+"260
+[e :UE 1184 ]
+}
+"263
+[v _random_pitches_non_repeating `(v ~T0 @X0 1 ef ]
+{
+[; ;arpeggio.c: 263: void random_pitches_non_repeating(void){
+[e :U _random_pitches_non_repeating ]
+[f ]
+[; ;arpeggio.c: 265: if(NUM_NOTES_PRESSED == 0){return;}
+"265
+[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1191  ]
+{
+[e $UE 1190  ]
+}
+[e :U 1191 ]
+[; ;arpeggio.c: 267: for(unsigned char i = 0; i < NUM_NOTES_PRESSED; i++) {
+"267
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 1195  ]
 [e :U 1192 ]
-"261
+{
+"268
+[v _temp `uc ~T0 @X0 1 a ]
+[; ;arpeggio.c: 268: unsigned char temp = ARPEGGIO_RANDOM[i];
+[e = _temp *U + &U _ARPEGGIO_RANDOM * -> _i `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux ]
+"269
+[v _randomIndex `uc ~T0 @X0 1 a ]
+[; ;arpeggio.c: 269: unsigned char randomIndex = rand() % NUM_NOTES_PRESSED;
+[e = _randomIndex -> % ( _rand ..  -> _NUM_NOTES_PRESSED `i `uc ]
+[; ;arpeggio.c: 270: ARPEGGIO_RANDOM[i] = ARPEGGIO_RANDOM[randomIndex];
+"270
+[e = *U + &U _ARPEGGIO_RANDOM * -> _i `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux *U + &U _ARPEGGIO_RANDOM * -> _randomIndex `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux ]
+[; ;arpeggio.c: 271: ARPEGGIO_RANDOM[randomIndex] = temp;
+"271
+[e = *U + &U _ARPEGGIO_RANDOM * -> _randomIndex `ux -> -> # *U &U _ARPEGGIO_RANDOM `ui `ux _temp ]
+"272
 }
-[; ;arpeggio.c: 261: }
-[; ;arpeggio.c: 262: }
-"262
-[e :UE 1189 ]
+"267
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 1195 ]
+[e $ < -> _i `i -> _NUM_NOTES_PRESSED `i 1192  ]
+[e :U 1193 ]
+"272
 }
-"264
+[; ;arpeggio.c: 272: }
+[; ;arpeggio.c: 273: }
+"273
+[e :UE 1190 ]
+}
+"275
 [v _playArpeggio `(v ~T0 @X0 1 ef ]
 {
-[; ;arpeggio.c: 264: void playArpeggio(void){
+[; ;arpeggio.c: 275: void playArpeggio(void){
 [e :U _playArpeggio ]
 [f ]
-[; ;arpeggio.c: 267: if(NUM_NOTES_PRESSED == 0){return;}
-"267
-[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1196  ]
+[; ;arpeggio.c: 278: if(NUM_NOTES_PRESSED == 0){return;}
+"278
+[e $ ! == -> _NUM_NOTES_PRESSED `i -> 0 `i 1197  ]
 {
-[e $UE 1195  ]
+[e $UE 1196  ]
 }
-[e :U 1196 ]
-[; ;arpeggio.c: 275: if(ARPEGGIO_TYPE == UP | ARPEGGIO_TYPE == UP_DOWN | ARPEGGIO_TYPE == AS_PRESSED) {
-"275
-[e $ ! | | == -> _ARPEGGIO_TYPE `i -> . `E14445 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 6 `i 1197  ]
+[e :U 1197 ]
+[; ;arpeggio.c: 286: if(ARPEGGIO_TYPE == UP | ARPEGGIO_TYPE == UP_DOWN | ARPEGGIO_TYPE == AS_PRESSED) {
+"286
+[e $ ! | | == -> _ARPEGGIO_TYPE `i -> . `E14449 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 6 `i 1198  ]
 {
-[; ;arpeggio.c: 277: if(startingDirection == UP){
-"277
-[e $ ! == -> _startingDirection `i -> . `E14445 0 `i 1198  ]
+[; ;arpeggio.c: 288: if(startingDirection == UP){
+"288
+[e $ ! == -> _startingDirection `i -> . `E14449 0 `i 1199  ]
 {
-[; ;arpeggio.c: 279: if((overflow == 1) && (which_octave > 0) && (octave_overflow == 0) && (flag1 == 0)){
-"279
-[e $ ! && && && == -> _overflow `i -> 1 `i > -> _which_octave `i -> 0 `i == -> _octave_overflow `i -> 0 `i == -> _flag1 `i -> 0 `i 1199  ]
-{
-[; ;arpeggio.c: 282: noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((which_octave - 1) * 12),velocity);
-"282
-[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * - -> _which_octave `i -> 1 `i -> 12 `i `uc _velocity ]
-[; ;arpeggio.c: 283: overflow = 0;
-"283
-[e = _overflow -> -> 0 `i `b ]
-"284
-}
-[e :U 1199 ]
-"285
-}
-[e :U 1198 ]
-[; ;arpeggio.c: 284: }
-[; ;arpeggio.c: 285: }
-[; ;arpeggio.c: 287: if(startingDirection == DOWN){
-"287
-[e $ ! == -> _startingDirection `i -> . `E14445 1 `i 1200  ]
-{
-[; ;arpeggio.c: 289: if((overflow == 1) && (which_octave > 0) && (octave_overflow == 0) && (flag1 == 0)){
-"289
-[e $ ! && && && == -> _overflow `i -> 1 `i > -> _which_octave `i -> 0 `i == -> _octave_overflow `i -> 0 `i == -> _flag1 `i -> 0 `i 1201  ]
-{
-[; ;arpeggio.c: 290: noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((which_octave - OCTAVES) * 12),velocity);
+[; ;arpeggio.c: 290: if((overflow == 1) && (which_octave > 0) && (octave_overflow == 0) && (flag1 == 0)){
 "290
-[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * - -> _which_octave `i -> _OCTAVES `i -> 12 `i `uc _velocity ]
-[; ;arpeggio.c: 291: overflow = 0;
-"291
-[e = _overflow -> -> 0 `i `b ]
-"292
-}
-[e :U 1201 ]
+[e $ ! && && && == -> _overflow `i -> 1 `i > -> _which_octave `i -> 0 `i == -> _octave_overflow `i -> 0 `i == -> _flag1 `i -> 0 `i 1200  ]
+{
+[; ;arpeggio.c: 293: noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((which_octave - 1) * 12),velocity);
 "293
+[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * - -> _which_octave `i -> 1 `i -> 12 `i `uc _velocity ]
+[; ;arpeggio.c: 294: overflow = 0;
+"294
+[e = _overflow -> -> 0 `i `b ]
+"295
 }
 [e :U 1200 ]
-[; ;arpeggio.c: 292: }
-[; ;arpeggio.c: 293: }
-[; ;arpeggio.c: 295: if(octave_overflow == 1){
-"295
-[e $ ! == -> _octave_overflow `i -> 1 `i 1202  ]
-{
-[; ;arpeggio.c: 296: if(startingDirection == UP) {
 "296
-[e $ ! == -> _startingDirection `i -> . `E14445 0 `i 1203  ]
-{
-[; ;arpeggio.c: 298: if(flag2 == 0) {noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((OCTAVES - 1) * 12),velocity);}
+}
+[e :U 1199 ]
+[; ;arpeggio.c: 295: }
+[; ;arpeggio.c: 296: }
+[; ;arpeggio.c: 298: if(startingDirection == DOWN){
 "298
-[e $ ! == -> _flag2 `i -> 0 `i 1204  ]
+[e $ ! == -> _startingDirection `i -> . `E14449 1 `i 1201  ]
+{
+[; ;arpeggio.c: 300: if((overflow == 1) && (which_octave > 0) && (octave_overflow == 0) && (flag1 == 0)){
+"300
+[e $ ! && && && == -> _overflow `i -> 1 `i > -> _which_octave `i -> 0 `i == -> _octave_overflow `i -> 0 `i == -> _flag1 `i -> 0 `i 1202  ]
+{
+[; ;arpeggio.c: 301: noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((which_octave - OCTAVES) * 12),velocity);
+"301
+[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * - -> _which_octave `i -> _OCTAVES `i -> 12 `i `uc _velocity ]
+[; ;arpeggio.c: 302: overflow = 0;
+"302
+[e = _overflow -> -> 0 `i `b ]
+"303
+}
+[e :U 1202 ]
+"304
+}
+[e :U 1201 ]
+[; ;arpeggio.c: 303: }
+[; ;arpeggio.c: 304: }
+[; ;arpeggio.c: 306: if(octave_overflow == 1){
+"306
+[e $ ! == -> _octave_overflow `i -> 1 `i 1203  ]
+{
+[; ;arpeggio.c: 307: if(startingDirection == UP) {
+"307
+[e $ ! == -> _startingDirection `i -> . `E14449 0 `i 1204  ]
+{
+[; ;arpeggio.c: 309: if(flag2 == 0) {noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((OCTAVES - 1) * 12),velocity);}
+"309
+[e $ ! == -> _flag2 `i -> 0 `i 1205  ]
 {
 [e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * - -> _OCTAVES `i -> 1 `i -> 12 `i `uc _velocity ]
 }
-[e :U 1204 ]
-[; ;arpeggio.c: 299: octave_overflow = 0;
-"299
+[e :U 1205 ]
+[; ;arpeggio.c: 310: octave_overflow = 0;
+"310
 [e = _octave_overflow -> -> 0 `i `b ]
-"300
+"311
 }
-[e :U 1203 ]
-[; ;arpeggio.c: 300: }
-[; ;arpeggio.c: 302: if(startingDirection == DOWN){
-"302
-[e $ ! == -> _startingDirection `i -> . `E14445 1 `i 1205  ]
+[e :U 1204 ]
+[; ;arpeggio.c: 311: }
+[; ;arpeggio.c: 313: if(startingDirection == DOWN){
+"313
+[e $ ! == -> _startingDirection `i -> . `E14449 1 `i 1206  ]
 {
-[; ;arpeggio.c: 304: if(flag2 == 0) {noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)),velocity);}
-"304
-[e $ ! == -> _flag2 `i -> 0 `i 1206  ]
+[; ;arpeggio.c: 315: if(flag2 == 0) {noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)),velocity);}
+"315
+[e $ ! == -> _flag2 `i -> 0 `i 1207  ]
 {
 [e ( _noteOff (3 , , _channel *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x _velocity ]
 }
-[e :U 1206 ]
-[; ;arpeggio.c: 305: octave_overflow = 0;
-"305
+[e :U 1207 ]
+[; ;arpeggio.c: 316: octave_overflow = 0;
+"316
 [e = _octave_overflow -> -> 0 `i `b ]
-"306
+"317
 }
-[e :U 1205 ]
-[; ;arpeggio.c: 306: }
-[; ;arpeggio.c: 310: if(skipFirstLast == 1){
-"310
-[e $ ! == -> _skipFirstLast `i -> 1 `i 1207  ]
-{
-[; ;arpeggio.c: 311: if(NUM_NOTES_PRESSED > 1){
-"311
-[e $ ! > -> _NUM_NOTES_PRESSED `i -> 1 `i 1208  ]
-{
-[; ;arpeggio.c: 312: which_note = 1;
-"312
-[e = _which_note -> -> 1 `i `uc ]
-[; ;arpeggio.c: 313: suppress_note_off = 1;
-"313
-[e = _suppress_note_off -> -> 1 `i `b ]
-"314
-}
-[e :U 1208 ]
-[; ;arpeggio.c: 314: }
-[; ;arpeggio.c: 318: if((NUM_NOTES_PRESSED == 1) && (OCTAVES > 1)){
-"318
-[e $ ! && == -> _NUM_NOTES_PRESSED `i -> 1 `i > -> _OCTAVES `i -> 1 `i 1209  ]
-{
-[; ;arpeggio.c: 319: flag1 = 1;
-"319
-[e = _flag1 -> -> 1 `i `b ]
-[; ;arpeggio.c: 321: which_note = 0;
+[e :U 1206 ]
+[; ;arpeggio.c: 317: }
+[; ;arpeggio.c: 321: if(skipFirstLast == 1){
 "321
-[e = _which_note -> -> 0 `i `uc ]
-[; ;arpeggio.c: 322: which_octave--;
+[e $ ! == -> _skipFirstLast `i -> 1 `i 1208  ]
+{
+[; ;arpeggio.c: 322: if(NUM_NOTES_PRESSED > 1){
 "322
-[e -- _which_octave -> -> 1 `i `c ]
-[; ;arpeggio.c: 323: stored_octave = which_octave;
+[e $ ! > -> _NUM_NOTES_PRESSED `i -> 1 `i 1209  ]
+{
+[; ;arpeggio.c: 323: which_note = 1;
 "323
-[e = _stored_octave _which_octave ]
+[e = _which_note -> -> 1 `i `uc ]
+[; ;arpeggio.c: 324: suppress_note_off = 1;
 "324
-}
-[e :U 1209 ]
+[e = _suppress_note_off -> -> 1 `i `b ]
 "325
 }
-[e :U 1207 ]
-[; ;arpeggio.c: 324: }
+[e :U 1209 ]
 [; ;arpeggio.c: 325: }
-[; ;arpeggio.c: 328: if(ARPEGGIO_TYPE == UP_DOWN) {ARPEGGIO_TYPE = DOWN_UP;}
-"328
-[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14445 2 `i 1210  ]
+[; ;arpeggio.c: 329: if((NUM_NOTES_PRESSED == 1) && (OCTAVES > 1)){
+"329
+[e $ ! && == -> _NUM_NOTES_PRESSED `i -> 1 `i > -> _OCTAVES `i -> 1 `i 1210  ]
 {
-[e = _ARPEGGIO_TYPE -> . `E14445 3 `uc ]
+[; ;arpeggio.c: 330: flag1 = 1;
+"330
+[e = _flag1 -> -> 1 `i `b ]
+[; ;arpeggio.c: 332: which_note = 0;
+"332
+[e = _which_note -> -> 0 `i `uc ]
+[; ;arpeggio.c: 333: which_octave--;
+"333
+[e -- _which_octave -> -> 1 `i `c ]
+[; ;arpeggio.c: 334: stored_octave = which_octave;
+"334
+[e = _stored_octave _which_octave ]
+"335
 }
 [e :U 1210 ]
-"329
+"336
 }
-[e :U 1202 ]
-"330
-}
-[e :U 1197 ]
-[; ;arpeggio.c: 329: }
-[; ;arpeggio.c: 330: }
-[; ;arpeggio.c: 333: if(ARPEGGIO_TYPE == DOWN | ARPEGGIO_TYPE == DOWN_UP) {
-"333
-[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14445 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 3 `i 1211  ]
-{
-[; ;arpeggio.c: 335: if(startingDirection == UP){
-"335
-[e $ ! == -> _startingDirection `i -> . `E14445 0 `i 1212  ]
-{
-[; ;arpeggio.c: 337: if((overflow == 1) && (which_octave < 0) && (octave_overflow == 0) && (flag1 == 0)){
-"337
-[e $ ! && && && == -> _overflow `i -> 1 `i < -> _which_octave `i -> 0 `i == -> _octave_overflow `i -> 0 `i == -> _flag1 `i -> 0 `i 1213  ]
-{
-[; ;arpeggio.c: 338: noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((OCTAVES + which_octave) * 12),velocity);
-"338
-[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * + -> _OCTAVES `i -> _which_octave `i -> 12 `i `uc _velocity ]
-[; ;arpeggio.c: 339: overflow = 0;
+[e :U 1208 ]
+[; ;arpeggio.c: 335: }
+[; ;arpeggio.c: 336: }
+[; ;arpeggio.c: 339: if(ARPEGGIO_TYPE == UP_DOWN) {ARPEGGIO_TYPE = DOWN_UP;}
 "339
-[e = _overflow -> -> 0 `i `b ]
+[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14449 2 `i 1211  ]
+{
+[e = _ARPEGGIO_TYPE -> . `E14449 3 `uc ]
+}
+[e :U 1211 ]
 "340
 }
-[e :U 1213 ]
+[e :U 1203 ]
 "341
 }
-[e :U 1212 ]
+[e :U 1198 ]
 [; ;arpeggio.c: 340: }
 [; ;arpeggio.c: 341: }
-[; ;arpeggio.c: 343: if(startingDirection == DOWN) {
-"343
-[e $ ! == -> _startingDirection `i -> . `E14445 1 `i 1214  ]
+[; ;arpeggio.c: 344: if(ARPEGGIO_TYPE == DOWN | ARPEGGIO_TYPE == DOWN_UP) {
+"344
+[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14449 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 3 `i 1212  ]
 {
-[; ;arpeggio.c: 345: if((overflow == 1) && (which_octave < 0) && (octave_overflow == 0) && (flag1 == 0)){
-"345
-[e $ ! && && && == -> _overflow `i -> 1 `i < -> _which_octave `i -> 0 `i == -> _octave_overflow `i -> 0 `i == -> _flag1 `i -> 0 `i 1215  ]
-{
-[; ;arpeggio.c: 346: noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((which_octave + 1) * 12),velocity);
+[; ;arpeggio.c: 346: if(startingDirection == UP){
 "346
-[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * + -> _which_octave `i -> 1 `i -> 12 `i `uc _velocity ]
-[; ;arpeggio.c: 347: overflow = 0;
-"347
-[e = _overflow -> -> 0 `i `b ]
+[e $ ! == -> _startingDirection `i -> . `E14449 0 `i 1213  ]
+{
+[; ;arpeggio.c: 348: if((overflow == 1) && (which_octave < 0) && (octave_overflow == 0) && (flag1 == 0)){
 "348
-}
-[e :U 1215 ]
+[e $ ! && && && == -> _overflow `i -> 1 `i < -> _which_octave `i -> 0 `i == -> _octave_overflow `i -> 0 `i == -> _flag1 `i -> 0 `i 1214  ]
+{
+[; ;arpeggio.c: 349: noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((OCTAVES + which_octave) * 12),velocity);
 "349
+[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * + -> _OCTAVES `i -> _which_octave `i -> 12 `i `uc _velocity ]
+[; ;arpeggio.c: 350: overflow = 0;
+"350
+[e = _overflow -> -> 0 `i `b ]
+"351
 }
 [e :U 1214 ]
-[; ;arpeggio.c: 348: }
-[; ;arpeggio.c: 349: }
-[; ;arpeggio.c: 351: if(octave_overflow == 1){
-"351
-[e $ ! == -> _octave_overflow `i -> 1 `i 1216  ]
+"352
+}
+[e :U 1213 ]
+[; ;arpeggio.c: 351: }
+[; ;arpeggio.c: 352: }
+[; ;arpeggio.c: 354: if(startingDirection == DOWN) {
+"354
+[e $ ! == -> _startingDirection `i -> . `E14449 1 `i 1215  ]
 {
-[; ;arpeggio.c: 353: if(startingDirection == UP){
-"353
-[e $ ! == -> _startingDirection `i -> . `E14445 0 `i 1217  ]
+[; ;arpeggio.c: 356: if((overflow == 1) && (which_octave < 0) && (octave_overflow == 0) && (flag1 == 0)){
+"356
+[e $ ! && && && == -> _overflow `i -> 1 `i < -> _which_octave `i -> 0 `i == -> _octave_overflow `i -> 0 `i == -> _flag1 `i -> 0 `i 1216  ]
 {
-[; ;arpeggio.c: 355: if(flag2 == 0) {noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + (((OCTAVES * - 1) + OCTAVES) * 12),velocity);}
-"355
-[e $ ! == -> _flag2 `i -> 0 `i 1218  ]
+[; ;arpeggio.c: 357: noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + ((which_octave + 1) * 12),velocity);
+"357
+[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * + -> _which_octave `i -> 1 `i -> 12 `i `uc _velocity ]
+[; ;arpeggio.c: 358: overflow = 0;
+"358
+[e = _overflow -> -> 0 `i `b ]
+"359
+}
+[e :U 1216 ]
+"360
+}
+[e :U 1215 ]
+[; ;arpeggio.c: 359: }
+[; ;arpeggio.c: 360: }
+[; ;arpeggio.c: 362: if(octave_overflow == 1){
+"362
+[e $ ! == -> _octave_overflow `i -> 1 `i 1217  ]
+{
+[; ;arpeggio.c: 364: if(startingDirection == UP){
+"364
+[e $ ! == -> _startingDirection `i -> . `E14449 0 `i 1218  ]
+{
+[; ;arpeggio.c: 366: if(flag2 == 0) {noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + (((OCTAVES * - 1) + OCTAVES) * 12),velocity);}
+"366
+[e $ ! == -> _flag2 `i -> 0 `i 1219  ]
 {
 [e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * + * -> _OCTAVES `i -U -> 1 `i -> _OCTAVES `i -> 12 `i `uc _velocity ]
 }
-[e :U 1218 ]
-[; ;arpeggio.c: 356: octave_overflow = 0;
-"356
+[e :U 1219 ]
+[; ;arpeggio.c: 367: octave_overflow = 0;
+"367
 [e = _octave_overflow -> -> 0 `i `b ]
-"357
+"368
 }
-[e :U 1217 ]
-[; ;arpeggio.c: 357: }
-[; ;arpeggio.c: 359: if(startingDirection == DOWN){
-"359
-[e $ ! == -> _startingDirection `i -> . `E14445 1 `i 1219  ]
+[e :U 1218 ]
+[; ;arpeggio.c: 368: }
+[; ;arpeggio.c: 370: if(startingDirection == DOWN){
+"370
+[e $ ! == -> _startingDirection `i -> . `E14449 1 `i 1220  ]
 {
-[; ;arpeggio.c: 361: if(flag2 == 0) {noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + (((OCTAVES * - 1) + 1) * 12),velocity);}
-"361
-[e $ ! == -> _flag2 `i -> 0 `i 1220  ]
+[; ;arpeggio.c: 372: if(flag2 == 0) {noteOff(channel,*(arpeggioPtr + (NUM_NOTES_PRESSED - 1)) + (((OCTAVES * - 1) + 1) * 12),velocity);}
+"372
+[e $ ! == -> _flag2 `i -> 0 `i 1221  ]
 {
 [e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _NUM_NOTES_PRESSED `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * + * -> _OCTAVES `i -U -> 1 `i -> 1 `i -> 12 `i `uc _velocity ]
 }
-[e :U 1220 ]
-[; ;arpeggio.c: 362: octave_overflow = 0;
-"362
+[e :U 1221 ]
+[; ;arpeggio.c: 373: octave_overflow = 0;
+"373
 [e = _octave_overflow -> -> 0 `i `b ]
-"363
+"374
 }
-[e :U 1219 ]
-[; ;arpeggio.c: 363: }
-[; ;arpeggio.c: 367: if(skipFirstLast == 1){
-"367
-[e $ ! == -> _skipFirstLast `i -> 1 `i 1221  ]
-{
-[; ;arpeggio.c: 368: if(NUM_NOTES_PRESSED > 1){
-"368
-[e $ ! > -> _NUM_NOTES_PRESSED `i -> 1 `i 1222  ]
-{
-[; ;arpeggio.c: 369: which_note = 1;
-"369
-[e = _which_note -> -> 1 `i `uc ]
-[; ;arpeggio.c: 370: suppress_note_off = 1;
-"370
-[e = _suppress_note_off -> -> 1 `i `b ]
-"371
-}
-[e :U 1222 ]
-[; ;arpeggio.c: 371: }
-[; ;arpeggio.c: 375: if((NUM_NOTES_PRESSED == 1) && (OCTAVES > 1)){
-"375
-[e $ ! && == -> _NUM_NOTES_PRESSED `i -> 1 `i > -> _OCTAVES `i -> 1 `i 1223  ]
-{
-[; ;arpeggio.c: 376: flag1 = 1;
-"376
-[e = _flag1 -> -> 1 `i `b ]
-[; ;arpeggio.c: 378: which_note = 0;
+[e :U 1220 ]
+[; ;arpeggio.c: 374: }
+[; ;arpeggio.c: 378: if(skipFirstLast == 1){
 "378
-[e = _which_note -> -> 0 `i `uc ]
-[; ;arpeggio.c: 379: which_octave++;
+[e $ ! == -> _skipFirstLast `i -> 1 `i 1222  ]
+{
+[; ;arpeggio.c: 379: if(NUM_NOTES_PRESSED > 1){
 "379
-[e ++ _which_octave -> -> 1 `i `c ]
-[; ;arpeggio.c: 380: stored_octave = which_octave;
+[e $ ! > -> _NUM_NOTES_PRESSED `i -> 1 `i 1223  ]
+{
+[; ;arpeggio.c: 380: which_note = 1;
 "380
-[e = _stored_octave _which_octave ]
+[e = _which_note -> -> 1 `i `uc ]
+[; ;arpeggio.c: 381: suppress_note_off = 1;
 "381
-}
-[e :U 1223 ]
+[e = _suppress_note_off -> -> 1 `i `b ]
 "382
 }
-[e :U 1221 ]
-[; ;arpeggio.c: 381: }
+[e :U 1223 ]
 [; ;arpeggio.c: 382: }
-[; ;arpeggio.c: 384: if(ARPEGGIO_TYPE == DOWN_UP) {ARPEGGIO_TYPE = UP_DOWN;}
-"384
-[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14445 3 `i 1224  ]
+[; ;arpeggio.c: 386: if((NUM_NOTES_PRESSED == 1) && (OCTAVES > 1)){
+"386
+[e $ ! && == -> _NUM_NOTES_PRESSED `i -> 1 `i > -> _OCTAVES `i -> 1 `i 1224  ]
 {
-[e = _ARPEGGIO_TYPE -> . `E14445 2 `uc ]
+[; ;arpeggio.c: 387: flag1 = 1;
+"387
+[e = _flag1 -> -> 1 `i `b ]
+[; ;arpeggio.c: 389: which_note = 0;
+"389
+[e = _which_note -> -> 0 `i `uc ]
+[; ;arpeggio.c: 390: which_octave++;
+"390
+[e ++ _which_octave -> -> 1 `i `c ]
+[; ;arpeggio.c: 391: stored_octave = which_octave;
+"391
+[e = _stored_octave _which_octave ]
+"392
 }
 [e :U 1224 ]
-"385
-}
-[e :U 1216 ]
-"386
-}
-[e :U 1211 ]
-[; ;arpeggio.c: 385: }
-[; ;arpeggio.c: 386: }
-[; ;arpeggio.c: 389: if(ARPEGGIO_TYPE == RANDOM | ARPEGGIO_TYPE == RANDOM_NON_REPEATING){
-"389
-[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14445 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 4 `i 1225  ]
-{
-[; ;arpeggio.c: 391: last_octave = which_octave;
-"391
-[e = _last_octave _which_octave ]
-[; ;arpeggio.c: 393: if((overflow == 1) && (flag1 == 0)){
 "393
-[e $ ! && == -> _overflow `i -> 1 `i == -> _flag1 `i -> 0 `i 1226  ]
-{
-[; ;arpeggio.c: 394: noteOff(channel,last_note + (last_octave * 12),velocity);
-"394
-[e ( _noteOff (3 , , _channel -> + -> _last_note `i * -> _last_octave `i -> 12 `i `uc _velocity ]
-[; ;arpeggio.c: 395: overflow = 0;
+}
+[e :U 1222 ]
+[; ;arpeggio.c: 392: }
+[; ;arpeggio.c: 393: }
+[; ;arpeggio.c: 395: if(ARPEGGIO_TYPE == DOWN_UP) {ARPEGGIO_TYPE = UP_DOWN;}
 "395
-[e = _overflow -> -> 0 `i `b ]
-"396
-}
-[e :U 1226 ]
-[; ;arpeggio.c: 396: }
-[; ;arpeggio.c: 398: if((which_note > 0) && (suppress_note_off == 0)){noteOff(channel,*(arpeggioPtr + (which_note - 1)) + (which_octave * 12),velocity);}
-"398
-[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1227  ]
+[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14449 3 `i 1225  ]
 {
-[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _which_note `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * -> _which_octave `i -> 12 `i `uc _velocity ]
-}
-[e :U 1227 ]
-[; ;arpeggio.c: 399: which_octave = rand() % OCTAVES;
-"399
-[e = _which_octave -> % ( _rand ..  -> _OCTAVES `i `c ]
-[; ;arpeggio.c: 400: if(suppress_note_on == 0){noteOn(channel,*(arpeggioPtr + which_note) + (which_octave * 12),velocity);}
-"400
-[e $ ! == -> _suppress_note_on `i -> 0 `i 1228  ]
-{
-[e ( _noteOn (3 , , _channel -> + -> *U + _arpeggioPtr * -> _which_note `ux -> -> # *U _arpeggioPtr `ui `ux `i * -> _which_octave `i -> 12 `i `uc _velocity ]
-}
-[e :U 1228 ]
-"401
+[e = _ARPEGGIO_TYPE -> . `E14449 2 `uc ]
 }
 [e :U 1225 ]
-[; ;arpeggio.c: 401: }
-[; ;arpeggio.c: 403: if((ARPEGGIO_TYPE == UP) | (ARPEGGIO_TYPE == UP_DOWN | ARPEGGIO_TYPE == AS_PRESSED)) {
-"403
-[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14445 0 `i | == -> _ARPEGGIO_TYPE `i -> . `E14445 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 6 `i 1229  ]
+"396
+}
+[e :U 1217 ]
+"397
+}
+[e :U 1212 ]
+[; ;arpeggio.c: 396: }
+[; ;arpeggio.c: 397: }
+[; ;arpeggio.c: 400: if(ARPEGGIO_TYPE == RANDOM | ARPEGGIO_TYPE == RANDOM_NON_REPEATING){
+"400
+[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14449 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 4 `i 1226  ]
 {
-[; ;arpeggio.c: 405: SORT_DIRECTION = 0;
+[; ;arpeggio.c: 402: last_octave = which_octave;
+"402
+[e = _last_octave _which_octave ]
+[; ;arpeggio.c: 404: if((overflow == 1) && (flag1 == 0)){
+"404
+[e $ ! && == -> _overflow `i -> 1 `i == -> _flag1 `i -> 0 `i 1227  ]
+{
+[; ;arpeggio.c: 405: noteOff(channel,last_note + (last_octave * 12),velocity);
 "405
-[e = _SORT_DIRECTION -> -> 0 `i `b ]
-[; ;arpeggio.c: 406: sort_pitches();
+[e ( _noteOff (3 , , _channel -> + -> _last_note `i * -> _last_octave `i -> 12 `i `uc _velocity ]
+[; ;arpeggio.c: 406: overflow = 0;
 "406
-[e ( _sort_pitches ..  ]
-[; ;arpeggio.c: 408: if(startingDirection == UP){
-"408
-[e $ ! == -> _startingDirection `i -> . `E14445 0 `i 1230  ]
-{
-[; ;arpeggio.c: 410: if((which_note > 0) && (suppress_note_off == 0)) {noteOff(channel,*(arpeggioPtr + (which_note - 1)) + (which_octave * 12),velocity);}
-"410
-[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1231  ]
+[e = _overflow -> -> 0 `i `b ]
+"407
+}
+[e :U 1227 ]
+[; ;arpeggio.c: 407: }
+[; ;arpeggio.c: 409: if((which_note > 0) && (suppress_note_off == 0)){noteOff(channel,*(arpeggioPtr + (which_note - 1)) + (which_octave * 12),velocity);}
+"409
+[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1228  ]
 {
 [e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _which_note `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * -> _which_octave `i -> 12 `i `uc _velocity ]
 }
-[e :U 1231 ]
+[e :U 1228 ]
+[; ;arpeggio.c: 410: which_octave = rand() % OCTAVES;
+"410
+[e = _which_octave -> % ( _rand ..  -> _OCTAVES `i `c ]
 [; ;arpeggio.c: 411: if(suppress_note_on == 0){noteOn(channel,*(arpeggioPtr + which_note) + (which_octave * 12),velocity);}
 "411
-[e $ ! == -> _suppress_note_on `i -> 0 `i 1232  ]
+[e $ ! == -> _suppress_note_on `i -> 0 `i 1229  ]
 {
 [e ( _noteOn (3 , , _channel -> + -> *U + _arpeggioPtr * -> _which_note `ux -> -> # *U _arpeggioPtr `ui `ux `i * -> _which_octave `i -> 12 `i `uc _velocity ]
 }
-[e :U 1232 ]
+[e :U 1229 ]
 "412
 }
-[e :U 1230 ]
+[e :U 1226 ]
 [; ;arpeggio.c: 412: }
-[; ;arpeggio.c: 414: if(startingDirection == DOWN) {
+[; ;arpeggio.c: 414: if((ARPEGGIO_TYPE == UP) | (ARPEGGIO_TYPE == UP_DOWN | ARPEGGIO_TYPE == AS_PRESSED)) {
 "414
-[e $ ! == -> _startingDirection `i -> . `E14445 1 `i 1233  ]
+[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14449 0 `i | == -> _ARPEGGIO_TYPE `i -> . `E14449 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 6 `i 1230  ]
 {
-[; ;arpeggio.c: 416: if((which_note > 0) && (suppress_note_off == 0)) {noteOff(channel,*(arpeggioPtr + (which_note - 1)) + ((which_octave - (OCTAVES - 1)) * 12),velocity);}
+[; ;arpeggio.c: 416: SORT_DIRECTION = 0;
 "416
-[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1234  ]
+[e = _SORT_DIRECTION -> -> 0 `i `b ]
+[; ;arpeggio.c: 417: sort_pitches();
+"417
+[e ( _sort_pitches ..  ]
+[; ;arpeggio.c: 419: if(startingDirection == UP){
+"419
+[e $ ! == -> _startingDirection `i -> . `E14449 0 `i 1231  ]
+{
+[; ;arpeggio.c: 421: if((which_note > 0) && (suppress_note_off == 0)) {noteOff(channel,*(arpeggioPtr + (which_note - 1)) + (which_octave * 12),velocity);}
+"421
+[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1232  ]
+{
+[e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _which_note `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * -> _which_octave `i -> 12 `i `uc _velocity ]
+}
+[e :U 1232 ]
+[; ;arpeggio.c: 422: if(suppress_note_on == 0){noteOn(channel,*(arpeggioPtr + which_note) + (which_octave * 12),velocity);}
+"422
+[e $ ! == -> _suppress_note_on `i -> 0 `i 1233  ]
+{
+[e ( _noteOn (3 , , _channel -> + -> *U + _arpeggioPtr * -> _which_note `ux -> -> # *U _arpeggioPtr `ui `ux `i * -> _which_octave `i -> 12 `i `uc _velocity ]
+}
+[e :U 1233 ]
+"423
+}
+[e :U 1231 ]
+[; ;arpeggio.c: 423: }
+[; ;arpeggio.c: 425: if(startingDirection == DOWN) {
+"425
+[e $ ! == -> _startingDirection `i -> . `E14449 1 `i 1234  ]
+{
+[; ;arpeggio.c: 427: if((which_note > 0) && (suppress_note_off == 0)) {noteOff(channel,*(arpeggioPtr + (which_note - 1)) + ((which_octave - (OCTAVES - 1)) * 12),velocity);}
+"427
+[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1235  ]
 {
 [e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _which_note `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * - -> _which_octave `i - -> _OCTAVES `i -> 1 `i -> 12 `i `uc _velocity ]
 }
-[e :U 1234 ]
-[; ;arpeggio.c: 417: if(suppress_note_on == 0){noteOn(channel,*(arpeggioPtr + which_note) + ((which_octave - (OCTAVES - 1)) * 12),velocity);}
-"417
-[e $ ! == -> _suppress_note_on `i -> 0 `i 1235  ]
+[e :U 1235 ]
+[; ;arpeggio.c: 428: if(suppress_note_on == 0){noteOn(channel,*(arpeggioPtr + which_note) + ((which_octave - (OCTAVES - 1)) * 12),velocity);}
+"428
+[e $ ! == -> _suppress_note_on `i -> 0 `i 1236  ]
 {
 [e ( _noteOn (3 , , _channel -> + -> *U + _arpeggioPtr * -> _which_note `ux -> -> # *U _arpeggioPtr `ui `ux `i * - -> _which_octave `i - -> _OCTAVES `i -> 1 `i -> 12 `i `uc _velocity ]
 }
-[e :U 1235 ]
-"418
+[e :U 1236 ]
+"429
 }
-[e :U 1233 ]
-"419
-}
-[e :U 1229 ]
-[; ;arpeggio.c: 418: }
-[; ;arpeggio.c: 419: }
-[; ;arpeggio.c: 421: if((ARPEGGIO_TYPE == DOWN) | (ARPEGGIO_TYPE == DOWN_UP)) {
-"421
-[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14445 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 3 `i 1236  ]
-{
-[; ;arpeggio.c: 423: SORT_DIRECTION = 1;
-"423
-[e = _SORT_DIRECTION -> -> 1 `i `b ]
-[; ;arpeggio.c: 424: sort_pitches();
-"424
-[e ( _sort_pitches ..  ]
-[; ;arpeggio.c: 426: suppress_note_on = 0;
-"426
-[e = _suppress_note_on -> -> 0 `i `b ]
-[; ;arpeggio.c: 428: if(startingDirection == UP){
-"428
-[e $ ! == -> _startingDirection `i -> . `E14445 0 `i 1237  ]
-{
-[; ;arpeggio.c: 430: if((which_note > 0) && (suppress_note_off == 0)) {noteOff(channel,*(arpeggioPtr + (which_note - 1)) + ((which_octave + (OCTAVES - 1)) * 12),velocity);}
+[e :U 1234 ]
 "430
-[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1238  ]
+}
+[e :U 1230 ]
+[; ;arpeggio.c: 429: }
+[; ;arpeggio.c: 430: }
+[; ;arpeggio.c: 432: if((ARPEGGIO_TYPE == DOWN) | (ARPEGGIO_TYPE == DOWN_UP)) {
+"432
+[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14449 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 3 `i 1237  ]
+{
+[; ;arpeggio.c: 434: SORT_DIRECTION = 1;
+"434
+[e = _SORT_DIRECTION -> -> 1 `i `b ]
+[; ;arpeggio.c: 435: sort_pitches();
+"435
+[e ( _sort_pitches ..  ]
+[; ;arpeggio.c: 437: suppress_note_on = 0;
+"437
+[e = _suppress_note_on -> -> 0 `i `b ]
+[; ;arpeggio.c: 439: if(startingDirection == UP){
+"439
+[e $ ! == -> _startingDirection `i -> . `E14449 0 `i 1238  ]
+{
+[; ;arpeggio.c: 441: if((which_note > 0) && (suppress_note_off == 0)) {noteOff(channel,*(arpeggioPtr + (which_note - 1)) + ((which_octave + (OCTAVES - 1)) * 12),velocity);}
+"441
+[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1239  ]
 {
 [e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _which_note `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * + -> _which_octave `i - -> _OCTAVES `i -> 1 `i -> 12 `i `uc _velocity ]
 }
-[e :U 1238 ]
-[; ;arpeggio.c: 431: if(suppress_note_on == 0){noteOn(channel,*(arpeggioPtr + which_note) + ((which_octave + (OCTAVES - 1)) * 12),velocity);}
-"431
-[e $ ! == -> _suppress_note_on `i -> 0 `i 1239  ]
+[e :U 1239 ]
+[; ;arpeggio.c: 442: if(suppress_note_on == 0){noteOn(channel,*(arpeggioPtr + which_note) + ((which_octave + (OCTAVES - 1)) * 12),velocity);}
+"442
+[e $ ! == -> _suppress_note_on `i -> 0 `i 1240  ]
 {
 [e ( _noteOn (3 , , _channel -> + -> *U + _arpeggioPtr * -> _which_note `ux -> -> # *U _arpeggioPtr `ui `ux `i * + -> _which_octave `i - -> _OCTAVES `i -> 1 `i -> 12 `i `uc _velocity ]
 }
-[e :U 1239 ]
-"432
+[e :U 1240 ]
+"443
 }
-[e :U 1237 ]
-[; ;arpeggio.c: 432: }
-[; ;arpeggio.c: 434: if(startingDirection == DOWN){
-"434
-[e $ ! == -> _startingDirection `i -> . `E14445 1 `i 1240  ]
+[e :U 1238 ]
+[; ;arpeggio.c: 443: }
+[; ;arpeggio.c: 445: if(startingDirection == DOWN){
+"445
+[e $ ! == -> _startingDirection `i -> . `E14449 1 `i 1241  ]
 {
-[; ;arpeggio.c: 436: if((which_note > 0) && (suppress_note_off == 0)) {noteOff(channel,*(arpeggioPtr + (which_note - 1)) + ((which_octave) * 12),velocity);}
-"436
-[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1241  ]
+[; ;arpeggio.c: 447: if((which_note > 0) && (suppress_note_off == 0)) {noteOff(channel,*(arpeggioPtr + (which_note - 1)) + ((which_octave) * 12),velocity);}
+"447
+[e $ ! && > -> _which_note `i -> 0 `i == -> _suppress_note_off `i -> 0 `i 1242  ]
 {
 [e ( _noteOff (3 , , _channel -> + -> *U + _arpeggioPtr * -> - -> _which_note `i -> 1 `i `x -> -> # *U _arpeggioPtr `i `x `i * -> _which_octave `i -> 12 `i `uc _velocity ]
 }
-[e :U 1241 ]
-[; ;arpeggio.c: 437: if(suppress_note_on == 0){noteOn(channel,*(arpeggioPtr + which_note) + (which_octave * 12),velocity);}
-"437
-[e $ ! == -> _suppress_note_on `i -> 0 `i 1242  ]
+[e :U 1242 ]
+[; ;arpeggio.c: 448: if(suppress_note_on == 0){noteOn(channel,*(arpeggioPtr + which_note) + (which_octave * 12),velocity);}
+"448
+[e $ ! == -> _suppress_note_on `i -> 0 `i 1243  ]
 {
 [e ( _noteOn (3 , , _channel -> + -> *U + _arpeggioPtr * -> _which_note `ux -> -> # *U _arpeggioPtr `ui `ux `i * -> _which_octave `i -> 12 `i `uc _velocity ]
 }
-[e :U 1242 ]
-"438
+[e :U 1243 ]
+"449
 }
-[e :U 1240 ]
-"439
+[e :U 1241 ]
+"450
 }
-[e :U 1236 ]
-[; ;arpeggio.c: 438: }
-[; ;arpeggio.c: 439: }
-[; ;arpeggio.c: 441: last_note = *(arpeggioPtr + which_note);
-"441
+[e :U 1237 ]
+[; ;arpeggio.c: 449: }
+[; ;arpeggio.c: 450: }
+[; ;arpeggio.c: 452: last_note = *(arpeggioPtr + which_note);
+"452
 [e = _last_note *U + _arpeggioPtr * -> _which_note `ux -> -> # *U _arpeggioPtr `ui `ux ]
-[; ;arpeggio.c: 442: which_note++;
-"442
+[; ;arpeggio.c: 453: which_note++;
+"453
 [e ++ _which_note -> -> 1 `i `uc ]
-[; ;arpeggio.c: 443: suppress_note_off = 0;
-"443
+[; ;arpeggio.c: 454: suppress_note_off = 0;
+"454
 [e = _suppress_note_off -> -> 0 `i `b ]
-[; ;arpeggio.c: 455: if((ARPEGGIO_TYPE == UP) | (ARPEGGIO_TYPE == UP_DOWN) | (ARPEGGIO_TYPE == RANDOM) | (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) | ARPEGGIO_TYPE == AS_PRESSED) {
-"455
-[e $ ! | | | | == -> _ARPEGGIO_TYPE `i -> . `E14445 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 4 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 6 `i 1243  ]
-{
-[; ;arpeggio.c: 457: if(which_note >= (NUM_NOTES_PRESSED)){
-"457
-[e $ ! >= -> _which_note `i -> _NUM_NOTES_PRESSED `i 1244  ]
-{
-[; ;arpeggio.c: 459: which_note = 0;
-"459
-[e = _which_note -> -> 0 `i `uc ]
-[; ;arpeggio.c: 462: if((ARPEGGIO_TYPE == UP) | (ARPEGGIO_TYPE == UP_DOWN) | ARPEGGIO_TYPE == AS_PRESSED) {
-"462
-[e $ ! | | == -> _ARPEGGIO_TYPE `i -> . `E14445 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 6 `i 1245  ]
-{
-[; ;arpeggio.c: 463: which_octave++;
-"463
-[e ++ _which_octave -> -> 1 `i `c ]
-"464
-}
-[e :U 1245 ]
-[; ;arpeggio.c: 464: }
-[; ;arpeggio.c: 466: overflow = 1;
+[; ;arpeggio.c: 466: if((ARPEGGIO_TYPE == UP) | (ARPEGGIO_TYPE == UP_DOWN) | (ARPEGGIO_TYPE == RANDOM) | (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) | ARPEGGIO_TYPE == AS_PRESSED) {
 "466
-[e = _overflow -> -> 1 `i `b ]
-[; ;arpeggio.c: 467: flag1 = 0;
-"467
-[e = _flag1 -> -> 0 `i `b ]
-[; ;arpeggio.c: 470: if(ARPEGGIO_TYPE == RANDOM) {
-"470
-[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14445 5 `i 1246  ]
+[e $ ! | | | | == -> _ARPEGGIO_TYPE `i -> . `E14449 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 4 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 6 `i 1244  ]
 {
-[; ;arpeggio.c: 471: if(AUTO_RANDOMIZE == 0) {random_pitches();}
-"471
-[e $ ! == -> _AUTO_RANDOMIZE `i -> 0 `i 1247  ]
+[; ;arpeggio.c: 468: if(which_note >= (NUM_NOTES_PRESSED)){
+"468
+[e $ ! >= -> _which_note `i -> _NUM_NOTES_PRESSED `i 1245  ]
+{
+[; ;arpeggio.c: 470: which_note = 0;
+"470
+[e = _which_note -> -> 0 `i `uc ]
+[; ;arpeggio.c: 473: if((ARPEGGIO_TYPE == UP) | (ARPEGGIO_TYPE == UP_DOWN) | ARPEGGIO_TYPE == AS_PRESSED) {
+"473
+[e $ ! | | == -> _ARPEGGIO_TYPE `i -> . `E14449 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 6 `i 1246  ]
+{
+[; ;arpeggio.c: 474: which_octave++;
+"474
+[e ++ _which_octave -> -> 1 `i `c ]
+"475
+}
+[e :U 1246 ]
+[; ;arpeggio.c: 475: }
+[; ;arpeggio.c: 477: overflow = 1;
+"477
+[e = _overflow -> -> 1 `i `b ]
+[; ;arpeggio.c: 478: flag1 = 0;
+"478
+[e = _flag1 -> -> 0 `i `b ]
+[; ;arpeggio.c: 481: if(ARPEGGIO_TYPE == RANDOM) {
+"481
+[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14449 5 `i 1247  ]
+{
+[; ;arpeggio.c: 482: if(AUTO_RANDOMIZE == 0) {random_pitches();}
+"482
+[e $ ! == -> _AUTO_RANDOMIZE `i -> 0 `i 1248  ]
 {
 [e ( _random_pitches ..  ]
 }
-[e :U 1247 ]
-"472
+[e :U 1248 ]
+"483
 }
-[e :U 1246 ]
-[; ;arpeggio.c: 472: }
-[; ;arpeggio.c: 473: if(ARPEGGIO_TYPE == RANDOM_NON_REPEATING) {
-"473
-[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14445 4 `i 1248  ]
+[e :U 1247 ]
+[; ;arpeggio.c: 483: }
+[; ;arpeggio.c: 484: if(ARPEGGIO_TYPE == RANDOM_NON_REPEATING) {
+"484
+[e $ ! == -> _ARPEGGIO_TYPE `i -> . `E14449 4 `i 1249  ]
 {
-[; ;arpeggio.c: 474: if(AUTO_RANDOMIZE == 0) {random_pitches_non_repeating();}
-"474
-[e $ ! == -> _AUTO_RANDOMIZE `i -> 0 `i 1249  ]
+[; ;arpeggio.c: 485: if(AUTO_RANDOMIZE == 0) {random_pitches_non_repeating();}
+"485
+[e $ ! == -> _AUTO_RANDOMIZE `i -> 0 `i 1250  ]
 {
 [e ( _random_pitches_non_repeating ..  ]
 }
-[e :U 1249 ]
-"475
-}
-[e :U 1248 ]
-"476
-}
-[e :U 1244 ]
-[; ;arpeggio.c: 475: }
-[; ;arpeggio.c: 476: }
-[; ;arpeggio.c: 478: if(which_octave>=OCTAVES) {
-"478
-[e $ ! >= -> _which_octave `i -> _OCTAVES `i 1250  ]
-{
-[; ;arpeggio.c: 479: which_octave = 0;
-"479
-[e = _which_octave -> -> 0 `i `c ]
-[; ;arpeggio.c: 480: octave_overflow = 1;
-"480
-[e = _octave_overflow -> -> 1 `i `b ]
-[; ;arpeggio.c: 481: flag2 = 0;
-"481
-[e = _flag2 -> -> 0 `i `b ]
-"482
-}
 [e :U 1250 ]
-"483
-}
-[e :U 1243 ]
-[; ;arpeggio.c: 482: }
-[; ;arpeggio.c: 483: }
-[; ;arpeggio.c: 486: if((ARPEGGIO_TYPE == DOWN) | (ARPEGGIO_TYPE == DOWN_UP)) {
 "486
-[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14445 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14445 3 `i 1251  ]
-{
-[; ;arpeggio.c: 488: if(which_note>=(NUM_NOTES_PRESSED)){
-"488
-[e $ ! >= -> _which_note `i -> _NUM_NOTES_PRESSED `i 1252  ]
-{
-[; ;arpeggio.c: 489: which_note = 0;
+}
+[e :U 1249 ]
+"487
+}
+[e :U 1245 ]
+[; ;arpeggio.c: 486: }
+[; ;arpeggio.c: 487: }
+[; ;arpeggio.c: 489: if(which_octave>=OCTAVES) {
 "489
-[e = _which_note -> -> 0 `i `uc ]
-[; ;arpeggio.c: 490: which_octave--;
+[e $ ! >= -> _which_octave `i -> _OCTAVES `i 1251  ]
+{
+[; ;arpeggio.c: 490: which_octave = 0;
 "490
-[e -- _which_octave -> -> 1 `i `c ]
-[; ;arpeggio.c: 491: overflow = 1;
+[e = _which_octave -> -> 0 `i `c ]
+[; ;arpeggio.c: 491: octave_overflow = 1;
 "491
-[e = _overflow -> -> 1 `i `b ]
-[; ;arpeggio.c: 492: flag1 = 0;
+[e = _octave_overflow -> -> 1 `i `b ]
+[; ;arpeggio.c: 492: flag2 = 0;
 "492
-[e = _flag1 -> -> 0 `i `b ]
+[e = _flag2 -> -> 0 `i `b ]
 "493
 }
-[e :U 1252 ]
-[; ;arpeggio.c: 493: }
-[; ;arpeggio.c: 494: if(which_octave <= (OCTAVES * -1)) {
+[e :U 1251 ]
 "494
-[e $ ! <= -> _which_octave `i * -> _OCTAVES `i -U -> 1 `i 1253  ]
-{
-[; ;arpeggio.c: 495: which_octave = 0;
-"495
-[e = _which_octave -> -> 0 `i `c ]
-[; ;arpeggio.c: 496: octave_overflow = 1;
-"496
-[e = _octave_overflow -> -> 1 `i `b ]
-[; ;arpeggio.c: 497: flag2 = 0;
+}
+[e :U 1244 ]
+[; ;arpeggio.c: 493: }
+[; ;arpeggio.c: 494: }
+[; ;arpeggio.c: 497: if((ARPEGGIO_TYPE == DOWN) | (ARPEGGIO_TYPE == DOWN_UP)) {
 "497
-[e = _flag2 -> -> 0 `i `b ]
-"498
+[e $ ! | == -> _ARPEGGIO_TYPE `i -> . `E14449 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14449 3 `i 1252  ]
+{
+[; ;arpeggio.c: 499: if(which_note>=(NUM_NOTES_PRESSED)){
+"499
+[e $ ! >= -> _which_note `i -> _NUM_NOTES_PRESSED `i 1253  ]
+{
+[; ;arpeggio.c: 500: which_note = 0;
+"500
+[e = _which_note -> -> 0 `i `uc ]
+[; ;arpeggio.c: 501: which_octave--;
+"501
+[e -- _which_octave -> -> 1 `i `c ]
+[; ;arpeggio.c: 502: overflow = 1;
+"502
+[e = _overflow -> -> 1 `i `b ]
+[; ;arpeggio.c: 503: flag1 = 0;
+"503
+[e = _flag1 -> -> 0 `i `b ]
+"504
 }
 [e :U 1253 ]
-"499
+[; ;arpeggio.c: 504: }
+[; ;arpeggio.c: 505: if(which_octave <= (OCTAVES * -1)) {
+"505
+[e $ ! <= -> _which_octave `i * -> _OCTAVES `i -U -> 1 `i 1254  ]
+{
+[; ;arpeggio.c: 506: which_octave = 0;
+"506
+[e = _which_octave -> -> 0 `i `c ]
+[; ;arpeggio.c: 507: octave_overflow = 1;
+"507
+[e = _octave_overflow -> -> 1 `i `b ]
+[; ;arpeggio.c: 508: flag2 = 0;
+"508
+[e = _flag2 -> -> 0 `i `b ]
+"509
 }
-[e :U 1251 ]
-[; ;arpeggio.c: 498: }
-[; ;arpeggio.c: 499: }
-[; ;arpeggio.c: 500: }
-"500
-[e :UE 1195 ]
+[e :U 1254 ]
+"510
 }
-"503
+[e :U 1252 ]
+[; ;arpeggio.c: 509: }
+[; ;arpeggio.c: 510: }
+[; ;arpeggio.c: 511: }
+"511
+[e :UE 1196 ]
+}
+"514
 [v _findArrayIndex `(c ~T0 @X0 1 ef1`uc ]
 {
-[; ;arpeggio.c: 503: signed char findArrayIndex(unsigned char pitch_of_key_release){
+[; ;arpeggio.c: 514: signed char findArrayIndex(unsigned char pitch_of_key_release){
 [e :U _findArrayIndex ]
 [v _pitch_of_key_release `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;arpeggio.c: 505: for (unsigned char i=0;i<MAX_NUM_NOTES;i++){
-"505
+[; ;arpeggio.c: 516: for (unsigned char i=0;i<MAX_NUM_NOTES;i++){
+"516
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> _MAX_NUM_NOTES `i 1255  ]
-[e $U 1256  ]
-[e :U 1255 ]
+[e $ < -> _i `i -> _MAX_NUM_NOTES `i 1256  ]
+[e $U 1257  ]
+[e :U 1256 ]
 {
-[; ;arpeggio.c: 506: if(ARPEGGIO[i] == pitch_of_key_release){return i;}
-"506
-[e $ ! == -> *U + &U _ARPEGGIO * -> _i `ux -> -> # *U &U _ARPEGGIO `ui `ux `i -> _pitch_of_key_release `i 1258  ]
+[; ;arpeggio.c: 517: if(ARPEGGIO[i] == pitch_of_key_release){return i;}
+"517
+[e $ ! == -> *U + &U _ARPEGGIO * -> _i `ux -> -> # *U &U _ARPEGGIO `ui `ux `i -> _pitch_of_key_release `i 1259  ]
 {
 [e ) -> _i `c ]
-[e $UE 1254  ]
+[e $UE 1255  ]
 }
-[e $U 1259  ]
-"507
-[e :U 1258 ]
-[; ;arpeggio.c: 507: else{;}
+[e $U 1260  ]
+"518
+[e :U 1259 ]
+[; ;arpeggio.c: 518: else{;}
 {
 }
-[e :U 1259 ]
-"508
+[e :U 1260 ]
+"519
 }
-"505
+"516
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> _MAX_NUM_NOTES `i 1255  ]
-[e :U 1256 ]
-"508
+[e $ < -> _i `i -> _MAX_NUM_NOTES `i 1256  ]
+[e :U 1257 ]
+"519
 }
-[; ;arpeggio.c: 508: }
-[; ;arpeggio.c: 509: }
-"509
-[e :UE 1254 ]
+[; ;arpeggio.c: 519: }
+[; ;arpeggio.c: 520: }
+"520
+[e :UE 1255 ]
 }
-"514
+"525
 [v _shiftTheArray `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;arpeggio.c: 514: void shiftTheArray(unsigned char array_index){
+[; ;arpeggio.c: 525: void shiftTheArray(unsigned char array_index){
 [e :U _shiftTheArray ]
 [v _array_index `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;arpeggio.c: 525: if (array_index == 0) {
-"525
-[e $ ! == -> _array_index `i -> 0 `i 1261  ]
-{
-[; ;arpeggio.c: 526: ARPEGGIO[0] = ARPEGGIO[1];
-"526
-[e = *U + &U _ARPEGGIO * -> -> -> 0 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 1 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 527: ARPEGGIO[1] = ARPEGGIO[2];
-"527
-[e = *U + &U _ARPEGGIO * -> -> -> 1 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 528: ARPEGGIO[2] = ARPEGGIO[3];
-"528
-[e = *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 529: ARPEGGIO[3] = ARPEGGIO[4];
-"529
-[e = *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 530: ARPEGGIO[4] = ARPEGGIO[5];
-"530
-[e = *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 531: ARPEGGIO[5] = ARPEGGIO[6];
-"531
-[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 532: ARPEGGIO[6] = ARPEGGIO[7];
-"532
-[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-"533
-}
-[e :U 1261 ]
-[; ;arpeggio.c: 533: }
-[; ;arpeggio.c: 534: if (array_index == 1) {
-"534
-[e $ ! == -> _array_index `i -> 1 `i 1262  ]
-{
-[; ;arpeggio.c: 535: ARPEGGIO[1] = ARPEGGIO[2];
-"535
-[e = *U + &U _ARPEGGIO * -> -> -> 1 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 536: ARPEGGIO[2] = ARPEGGIO[3];
+[; ;arpeggio.c: 536: if (array_index == 0) {
 "536
-[e = *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 537: ARPEGGIO[3] = ARPEGGIO[4];
+[e $ ! == -> _array_index `i -> 0 `i 1262  ]
+{
+[; ;arpeggio.c: 537: ARPEGGIO[0] = ARPEGGIO[1];
 "537
-[e = *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 538: ARPEGGIO[4] = ARPEGGIO[5];
+[e = *U + &U _ARPEGGIO * -> -> -> 0 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 1 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 538: ARPEGGIO[1] = ARPEGGIO[2];
 "538
-[e = *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 539: ARPEGGIO[5] = ARPEGGIO[6];
+[e = *U + &U _ARPEGGIO * -> -> -> 1 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 539: ARPEGGIO[2] = ARPEGGIO[3];
 "539
-[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 540: ARPEGGIO[6] = ARPEGGIO[7];
+[e = *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 540: ARPEGGIO[3] = ARPEGGIO[4];
 "540
-[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[e = *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 541: ARPEGGIO[4] = ARPEGGIO[5];
 "541
+[e = *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 542: ARPEGGIO[5] = ARPEGGIO[6];
+"542
+[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 543: ARPEGGIO[6] = ARPEGGIO[7];
+"543
+[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+"544
 }
 [e :U 1262 ]
-[; ;arpeggio.c: 541: }
-[; ;arpeggio.c: 542: if (array_index == 2) {
-"542
-[e $ ! == -> _array_index `i -> 2 `i 1263  ]
-{
-[; ;arpeggio.c: 543: ARPEGGIO[2] = ARPEGGIO[3];
-"543
-[e = *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 544: ARPEGGIO[3] = ARPEGGIO[4];
-"544
-[e = *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 545: ARPEGGIO[4] = ARPEGGIO[5];
+[; ;arpeggio.c: 544: }
+[; ;arpeggio.c: 545: if (array_index == 1) {
 "545
-[e = *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 546: ARPEGGIO[5] = ARPEGGIO[6];
+[e $ ! == -> _array_index `i -> 1 `i 1263  ]
+{
+[; ;arpeggio.c: 546: ARPEGGIO[1] = ARPEGGIO[2];
 "546
-[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 547: ARPEGGIO[6] = ARPEGGIO[7];
+[e = *U + &U _ARPEGGIO * -> -> -> 1 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 547: ARPEGGIO[2] = ARPEGGIO[3];
 "547
-[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[e = *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 548: ARPEGGIO[3] = ARPEGGIO[4];
 "548
+[e = *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 549: ARPEGGIO[4] = ARPEGGIO[5];
+"549
+[e = *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 550: ARPEGGIO[5] = ARPEGGIO[6];
+"550
+[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 551: ARPEGGIO[6] = ARPEGGIO[7];
+"551
+[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+"552
 }
 [e :U 1263 ]
-[; ;arpeggio.c: 548: }
-[; ;arpeggio.c: 549: if (array_index == 3) {
-"549
-[e $ ! == -> _array_index `i -> 3 `i 1264  ]
-{
-[; ;arpeggio.c: 550: ARPEGGIO[3] = ARPEGGIO[4];
-"550
-[e = *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 551: ARPEGGIO[4] = ARPEGGIO[5];
-"551
-[e = *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 552: ARPEGGIO[5] = ARPEGGIO[6];
-"552
-[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 553: ARPEGGIO[6] = ARPEGGIO[7];
+[; ;arpeggio.c: 552: }
+[; ;arpeggio.c: 553: if (array_index == 2) {
 "553
-[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-"554
-}
-[e :U 1264 ]
-[; ;arpeggio.c: 554: }
-[; ;arpeggio.c: 555: if (array_index == 4) {
-"555
-[e $ ! == -> _array_index `i -> 4 `i 1265  ]
+[e $ ! == -> _array_index `i -> 2 `i 1264  ]
 {
+[; ;arpeggio.c: 554: ARPEGGIO[2] = ARPEGGIO[3];
+"554
+[e = *U + &U _ARPEGGIO * -> -> -> 2 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 555: ARPEGGIO[3] = ARPEGGIO[4];
+"555
+[e = *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
 [; ;arpeggio.c: 556: ARPEGGIO[4] = ARPEGGIO[5];
 "556
 [e = *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
@@ -15883,68 +15866,105 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
 "559
 }
-[e :U 1265 ]
+[e :U 1264 ]
 [; ;arpeggio.c: 559: }
-[; ;arpeggio.c: 560: if (array_index == 5) {
+[; ;arpeggio.c: 560: if (array_index == 3) {
 "560
-[e $ ! == -> _array_index `i -> 5 `i 1266  ]
+[e $ ! == -> _array_index `i -> 3 `i 1265  ]
 {
-[; ;arpeggio.c: 561: ARPEGGIO[5] = ARPEGGIO[6];
+[; ;arpeggio.c: 561: ARPEGGIO[3] = ARPEGGIO[4];
 "561
-[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-[; ;arpeggio.c: 562: ARPEGGIO[6] = ARPEGGIO[7];
+[e = *U + &U _ARPEGGIO * -> -> -> 3 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 562: ARPEGGIO[4] = ARPEGGIO[5];
 "562
-[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[e = *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 563: ARPEGGIO[5] = ARPEGGIO[6];
 "563
+[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 564: ARPEGGIO[6] = ARPEGGIO[7];
+"564
+[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+"565
+}
+[e :U 1265 ]
+[; ;arpeggio.c: 565: }
+[; ;arpeggio.c: 566: if (array_index == 4) {
+"566
+[e $ ! == -> _array_index `i -> 4 `i 1266  ]
+{
+[; ;arpeggio.c: 567: ARPEGGIO[4] = ARPEGGIO[5];
+"567
+[e = *U + &U _ARPEGGIO * -> -> -> 4 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 568: ARPEGGIO[5] = ARPEGGIO[6];
+"568
+[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 569: ARPEGGIO[6] = ARPEGGIO[7];
+"569
+[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+"570
 }
 [e :U 1266 ]
-[; ;arpeggio.c: 563: }
-[; ;arpeggio.c: 564: if (array_index == 6) {
-"564
-[e $ ! == -> _array_index `i -> 6 `i 1267  ]
+[; ;arpeggio.c: 570: }
+[; ;arpeggio.c: 571: if (array_index == 5) {
+"571
+[e $ ! == -> _array_index `i -> 5 `i 1267  ]
 {
-[; ;arpeggio.c: 565: ARPEGGIO[6] = ARPEGGIO[7];
-"565
+[; ;arpeggio.c: 572: ARPEGGIO[5] = ARPEGGIO[6];
+"572
+[e = *U + &U _ARPEGGIO * -> -> -> 5 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+[; ;arpeggio.c: 573: ARPEGGIO[6] = ARPEGGIO[7];
+"573
 [e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-"566
+"574
 }
 [e :U 1267 ]
-[; ;arpeggio.c: 566: }
-[; ;arpeggio.c: 568: }
-"568
-[e :UE 1260 ]
+[; ;arpeggio.c: 574: }
+[; ;arpeggio.c: 575: if (array_index == 6) {
+"575
+[e $ ! == -> _array_index `i -> 6 `i 1268  ]
+{
+[; ;arpeggio.c: 576: ARPEGGIO[6] = ARPEGGIO[7];
+"576
+[e = *U + &U _ARPEGGIO * -> -> -> 6 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> -> 7 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+"577
 }
-"571
+[e :U 1268 ]
+[; ;arpeggio.c: 577: }
+[; ;arpeggio.c: 579: }
+"579
+[e :UE 1261 ]
+}
+"582
 [v _rotateArrayLeft `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;arpeggio.c: 571: void rotateArrayLeft (unsigned char array_index){
+[; ;arpeggio.c: 582: void rotateArrayLeft (unsigned char array_index){
 [e :U _rotateArrayLeft ]
 [v _array_index `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;arpeggio.c: 589: for(unsigned char i=array_index; i < (MAX_NUM_NOTES - 1) ;i++)
-"589
+[; ;arpeggio.c: 605: for(unsigned char i=array_index; i < (MAX_NUM_NOTES - 1) ;i++)
+"605
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i _array_index ]
-[e $ < -> _i `i - -> _MAX_NUM_NOTES `i -> 1 `i 1269  ]
-[e $U 1270  ]
-"590
-[e :U 1269 ]
-[; ;arpeggio.c: 590: {
-{
-[; ;arpeggio.c: 591: ARPEGGIO[i]=ARPEGGIO[i+1];
-"591
-[e = *U + &U _ARPEGGIO * -> _i `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
-"592
-}
-"589
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i - -> _MAX_NUM_NOTES `i -> 1 `i 1269  ]
+[e $ < -> _i `i - -> _MAX_NUM_NOTES `i -> 1 `i 1270  ]
+[e $U 1271  ]
+"606
 [e :U 1270 ]
-"592
+[; ;arpeggio.c: 606: {
+{
+[; ;arpeggio.c: 607: ARPEGGIO[i]=ARPEGGIO[i+1];
+"607
+[e = *U + &U _ARPEGGIO * -> _i `ux -> -> # *U &U _ARPEGGIO `ui `ux *U + &U _ARPEGGIO * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _ARPEGGIO `ui `ux ]
+"608
 }
-[; ;arpeggio.c: 592: }
-[; ;arpeggio.c: 594: }
-"594
-[e :UE 1268 ]
+"605
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i - -> _MAX_NUM_NOTES `i -> 1 `i 1270  ]
+[e :U 1271 ]
+"608
+}
+[; ;arpeggio.c: 608: }
+[; ;arpeggio.c: 613: }
+"613
+[e :UE 1269 ]
 }

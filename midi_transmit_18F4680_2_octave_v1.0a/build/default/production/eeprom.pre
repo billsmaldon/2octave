@@ -16977,6 +16977,11 @@ void printThisNumber(signed int n);
 void keyboardTranspose(void);
 
 
+void doTheLatch(void);
+
+void doTheUnLatch(void);
+
+
 
 
 __bit TRANSPOSE_MODE;
@@ -17361,6 +17366,7 @@ __bit AUTO_RANDOMIZE;
 
 unsigned char ARPEGGIO_TYPE = UP;
 
+
 unsigned char startingDirection;
 
 __bit skipFirstLast;
@@ -17368,7 +17374,7 @@ __bit skipFirstLast;
 
 void wait_one_pulse (unsigned char mode);
 
-# 154
+# 155
 __bit lastNoteMode;
 
 __bit LAST_NOTE_MODE_KEY_PRESS;
@@ -17407,7 +17413,7 @@ const unsigned char MAX_NUM_NOTES = 16;
 unsigned char NUM_NOTES_PRESSED = 0;
 unsigned char ARRAY_INDEX = 0;
 
-# 200
+# 201
 unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
 unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
 unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};

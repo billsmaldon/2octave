@@ -39,11 +39,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [s S1121 `uc 1 `uc 1 `uc 1 ]
 [n S1121 menuItem number address selector ]
 "103 arpeggio.h
-[c E14455 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
-[n E14455 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
+[c E14459 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
+[n E14459 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
 "141
-[c E14445 0 1 2 3 4 5 6 .. ]
-[n E14445 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
+[c E14449 0 1 2 3 4 5 6 .. ]
+[n E14449 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
 "29244 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f4680.h
 [v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
 "37723
@@ -14198,9 +14198,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;octave.h: 26: void panic_button(void);
 [; ;octave.h: 29: void printThisNumber(signed int n);
 [; ;octave.h: 32: void keyboardTranspose(void);
-"37 octave.h
+[; ;octave.h: 35: void doTheLatch(void);
+[; ;octave.h: 37: void doTheUnLatch(void);
+"42 octave.h
 [v _TRANSPOSE_MODE `b ~T0 @X0 1 e ]
-[; ;octave.h: 37: __bit TRANSPOSE_MODE;
+[; ;octave.h: 42: __bit TRANSPOSE_MODE;
 [; ;arpeggio.h: 29: unsigned short calculate_pulse_length(void);
 [; ;arpeggio.h: 31: void resetArpeggio(void);
 [; ;arpeggio.h: 33: void setupArpeggio(void);
@@ -14250,22 +14252,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _NOTE_LENGTH_PULSES_ARRAY
 :U ..
 "103
--> . `E14455 0 `uc
--> . `E14455 1 `uc
--> . `E14455 2 `uc
+-> . `E14459 0 `uc
+-> . `E14459 1 `uc
+-> . `E14459 2 `uc
 "104
--> . `E14455 3 `uc
--> . `E14455 4 `uc
--> . `E14455 5 `uc
+-> . `E14459 3 `uc
+-> . `E14459 4 `uc
+-> . `E14459 5 `uc
 "105
--> . `E14455 6 `uc
--> . `E14455 7 `uc
--> . `E14455 8 `uc
+-> . `E14459 6 `uc
+-> . `E14459 7 `uc
+-> . `E14459 8 `uc
 "106
--> . `E14455 9 `uc
--> . `E14455 10 `uc
+-> . `E14459 9 `uc
+-> . `E14459 10 `uc
 "107
--> . `E14455 11 `uc
+-> . `E14459 11 `uc
 ..
 ]
 [; ;arpeggio.h: 101: unsigned char NOTE_LENGTH_PULSES_ARRAY[12] =
@@ -14302,7 +14304,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "113
 [v _NOTE_LENGTH_PULSES `uc ~T0 @X0 1 e ]
 [i _NOTE_LENGTH_PULSES
--> . `E14455 6 `uc
+-> . `E14459 6 `uc
 ]
 [; ;arpeggio.h: 113: unsigned char NOTE_LENGTH_PULSES = SIXTEENTH;
 "116
@@ -14329,145 +14331,145 @@ Version 3.2 HI-TECH Software Intermediate Code
 "141
 [v _ARPEGGIO_TYPE `uc ~T0 @X0 1 e ]
 [i _ARPEGGIO_TYPE
--> . `E14445 0 `uc
+-> . `E14449 0 `uc
 ]
 [; ;arpeggio.h: 141: unsigned char ARPEGGIO_TYPE = UP;
-"143
+"144
 [v _startingDirection `uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 143: unsigned char startingDirection;
-"145
+[; ;arpeggio.h: 144: unsigned char startingDirection;
+"146
 [v _skipFirstLast `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 145: __bit skipFirstLast;
-[; ;arpeggio.h: 148: void wait_one_pulse (unsigned char mode);
-"154
+[; ;arpeggio.h: 146: __bit skipFirstLast;
+[; ;arpeggio.h: 149: void wait_one_pulse (unsigned char mode);
+"155
 [v _lastNoteMode `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 154: __bit lastNoteMode;
-"156
+[; ;arpeggio.h: 155: __bit lastNoteMode;
+"157
 [v _LAST_NOTE_MODE_KEY_PRESS `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 156: __bit LAST_NOTE_MODE_KEY_PRESS;
-"158
+[; ;arpeggio.h: 157: __bit LAST_NOTE_MODE_KEY_PRESS;
+"159
 [v _LAST_NOTE_MODE_KEY_RELEASE `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 158: __bit LAST_NOTE_MODE_KEY_RELEASE;
-"160
+[; ;arpeggio.h: 159: __bit LAST_NOTE_MODE_KEY_RELEASE;
+"161
 [v _LAST_NOTE_MODE_TRANSPOSE `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 160: __bit LAST_NOTE_MODE_TRANSPOSE;
-"162
+[; ;arpeggio.h: 161: __bit LAST_NOTE_MODE_TRANSPOSE;
+"163
 [v _LAST_NOTE_MODE_RESET `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 162: __bit LAST_NOTE_MODE_RESET;
-"165
-[v _finishLastNote `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 165: __bit finishLastNote;
+[; ;arpeggio.h: 163: __bit LAST_NOTE_MODE_RESET;
 "166
-[v _suppress_note_on `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 166: __bit suppress_note_on;
+[v _finishLastNote `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 166: __bit finishLastNote;
 "167
+[v _suppress_note_on `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 167: __bit suppress_note_on;
+"168
 [v _suppress_note_off `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 167: __bit suppress_note_off;
-"170
+[; ;arpeggio.h: 168: __bit suppress_note_off;
+"171
 [v _which_note `uc ~T0 @X0 1 e ]
 [i _which_note
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 170: unsigned char which_note = 0;
-"171
+[; ;arpeggio.h: 171: unsigned char which_note = 0;
+"172
 [v _last_note `uc ~T0 @X0 1 e ]
 [i _last_note
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 171: unsigned char last_note = 0;
-"172
+[; ;arpeggio.h: 172: unsigned char last_note = 0;
+"173
 [v _which_octave `c ~T0 @X0 1 e ]
 [i _which_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 172: signed char which_octave = 0;
-"173
+[; ;arpeggio.h: 173: signed char which_octave = 0;
+"174
 [v _last_octave `c ~T0 @X0 1 e ]
 [i _last_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 173: signed char last_octave = 0;
-"174
-[v _overflow `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 174: __bit overflow;
+[; ;arpeggio.h: 174: signed char last_octave = 0;
 "175
+[v _overflow `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 175: __bit overflow;
+"176
 [v _octave_overflow `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 175: __bit octave_overflow;
-"177
+[; ;arpeggio.h: 176: __bit octave_overflow;
+"178
 [v _stored_octave `c ~T0 @X0 1 e ]
 [i _stored_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 177: signed char stored_octave = 0;
-"178
+[; ;arpeggio.h: 178: signed char stored_octave = 0;
+"179
 [v _parallel `c ~T0 @X0 1 e ]
 [i _parallel
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 178: signed char parallel = 0;
-"180
+[; ;arpeggio.h: 179: signed char parallel = 0;
+"181
 [v _note_off_was_sent `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 180: __bit note_off_was_sent;
-"182
-[v _flag1 `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 182: __bit flag1;
+[; ;arpeggio.h: 181: __bit note_off_was_sent;
 "183
+[v _flag1 `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 183: __bit flag1;
+"184
 [v _flag2 `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 183: __bit flag2;
-"186
+[; ;arpeggio.h: 184: __bit flag2;
+"187
 [v _DISPLAY_STEP_NUMBER `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 186: __bit DISPLAY_STEP_NUMBER;
-"188
+[; ;arpeggio.h: 187: __bit DISPLAY_STEP_NUMBER;
+"189
 [v _MAX_NUM_NOTES `Cuc ~T0 @X0 1 e ]
 [i _MAX_NUM_NOTES
 -> -> 16 `i `uc
 ]
-[; ;arpeggio.h: 188: const unsigned char MAX_NUM_NOTES = 16;
-"189
+[; ;arpeggio.h: 189: const unsigned char MAX_NUM_NOTES = 16;
+"190
 [v _NUM_NOTES_PRESSED `uc ~T0 @X0 1 e ]
 [i _NUM_NOTES_PRESSED
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 189: unsigned char NUM_NOTES_PRESSED = 0;
-"190
+[; ;arpeggio.h: 190: unsigned char NUM_NOTES_PRESSED = 0;
+"191
 [v _ARRAY_INDEX `uc ~T0 @X0 1 e ]
 [i _ARRAY_INDEX
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 190: unsigned char ARRAY_INDEX = 0;
-"200
+[; ;arpeggio.h: 191: unsigned char ARRAY_INDEX = 0;
+"201
 [v _ARPEGGIO `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 200: unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
-"201
+[; ;arpeggio.h: 201: unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
+"202
 [v _ARPEGGIO_SORTED `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO_SORTED
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 201: unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
-"202
+[; ;arpeggio.h: 202: unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
+"203
 [v _ARPEGGIO_RANDOM `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO_RANDOM
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 202: unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
-"204
+[; ;arpeggio.h: 203: unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
+"205
 [v _arpeggioPtr `*uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 204: unsigned char *arpeggioPtr;
-"206
-[v _TIMER_PRELOAD `us ~T0 @X0 1 e ]
-[; ;arpeggio.h: 206: unsigned short TIMER_PRELOAD;
+[; ;arpeggio.h: 205: unsigned char *arpeggioPtr;
 "207
+[v _TIMER_PRELOAD `us ~T0 @X0 1 e ]
+[; ;arpeggio.h: 207: unsigned short TIMER_PRELOAD;
+"208
 [v _TIMER_OVERFLOWS `uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 207: unsigned char TIMER_OVERFLOWS;
+[; ;arpeggio.h: 208: unsigned char TIMER_OVERFLOWS;
 "22 midi.c
 [v _sendOut `(v ~T0 @X0 1 ef1`uc ]
 {

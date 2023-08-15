@@ -17034,6 +17034,11 @@ void printThisNumber(signed int n);
 void keyboardTranspose(void);
 
 
+void doTheLatch(void);
+
+void doTheUnLatch(void);
+
+
 
 
 __bit TRANSPOSE_MODE;
@@ -17149,6 +17154,7 @@ __bit AUTO_RANDOMIZE;
 
 unsigned char ARPEGGIO_TYPE = UP;
 
+
 unsigned char startingDirection;
 
 __bit skipFirstLast;
@@ -17156,7 +17162,7 @@ __bit skipFirstLast;
 
 void wait_one_pulse (unsigned char mode);
 
-# 154
+# 155
 __bit lastNoteMode;
 
 __bit LAST_NOTE_MODE_KEY_PRESS;
@@ -17195,7 +17201,7 @@ const unsigned char MAX_NUM_NOTES = 16;
 unsigned char NUM_NOTES_PRESSED = 0;
 unsigned char ARRAY_INDEX = 0;
 
-# 200
+# 201
 unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
 unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
 unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
@@ -18750,11 +18756,12 @@ lcd_print_once = 1;
 
 ARPEGGIO_TYPE = arpeggiatorTypeMenu.selector;
 
-if((ARPEGGIO_TYPE == AS_PRESSED) | (ARPEGGIO_TYPE == UP) | (ARPEGGIO_TYPE == UP_DOWN) | (ARPEGGIO_TYPE == RANDOM) | (ARPEGGIO_TYPE == RANDOM_NON_REPEATING)) {
+
+if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING)) {
 startingDirection = UP;
 }
 
-if((ARPEGGIO_TYPE == DOWN) | (ARPEGGIO_TYPE == DOWN_UP)) {
+if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP)) {
 startingDirection = DOWN;
 }
 
@@ -18823,31 +18830,17 @@ lcd_print_once = 1;
 LATCH = arpeggiatorLatchOnOffMenu.selector;
 
 if(LATCH == 1){
-latch_was_pressed = 1;
-DISPLAY_MODE = 1;
-strcpy(string_to_display, "HoLd");
+
+# 1204
+doTheLatch();
 }
 
 if(LATCH == 0){
-DISPLAY_MODE = 1;
-strcpy(string_to_display, " oFF");
-ON_OFF = 0;
 
+UN_LATCH_MODE = 0;
+doTheUnLatch();
 
-
-
-if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH) {
-if(NUM_NOTES_PRESSED > 0) {playThisNote(0);}
-}
-
-if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR)) {
-if(NUM_NOTES_PRESSED > 0) {playThisNote8(0,0);}
-}
-
-if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || (KEYBOARD_MODE == PENTATONIC_MINOR)){
-if(NUM_NOTES_PRESSED > 0) {playThisNotePentatonic(0,0);}
-}
-
+# 1255
 }
 }
 void Function_H_6_2(void){

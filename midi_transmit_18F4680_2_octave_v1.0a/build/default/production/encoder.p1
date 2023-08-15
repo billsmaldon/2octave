@@ -33,14 +33,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [s S1120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1120 . SW1 SW2 SW3 SW4 SW5 SW6 SW7 SW8 ]
 "103 arpeggio.h
-[c E14239 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
-[n E14239 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
+[c E14243 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
+[n E14243 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
 "141
-[c E14229 0 1 2 3 4 5 6 .. ]
-[n E14229 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
+[c E14233 0 1 2 3 4 5 6 .. ]
+[n E14233 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
 "146 menu.h
-[c E14409 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 .. ]
-[n E14409 . BLANK SEG MAIN_MENU KEYBOARD_MENU TRANSPOSE_MENU DRUM_MENU POTENTIOMETER_MENU MIDI_CHANNEL_MENU PROGRAM_CHANGE_MENU MODES_MENU TRIADS_MENU SEVENTHS_MENU DRUMS_CC_TYPE_MENU DRUMS_NN_MENU DRUMS_CC_MENU POTS_RES_MENU POTS_ALPHA_MENU POTS_CC_MENU SLIDEPOTS_CC_MENU JOYSTICK_CC_MENU MAIN_CH_MENU DRUM_CH_MENU EEPROM_MENU SAVES_MENU ENCODER_POLARITY_MENU ARPEGGIATOR_MENU ARPEGGIATOR_ON_OFF_MENU ARPEGGIATOR_TEMPO_MENU ARPEGGIATOR_OCTAVES_MENU ARPEGGIATOR_ARPEGGIO_TYPE_MENU ARPEGGIATOR_NOTE_LENGTH_MENU ARPEGGIATOR_LATCH_MENU ARPEGGIATOR_LATCH_ON_OFF_MENU ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU ARPEGGIATOR_UN_LATCH_MODE_MENU ARPEGGIATOR_RANDOMIZE_SKIP_MENU ARPEGGIATOR_RANDOMIZE_TYPE_MENU ARPEGGIATOR_SKIP_FIRST_LAST_MENU ARPEGGIATOR_LAST_NOTE_MODE_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU  ]
+[c E14413 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 .. ]
+[n E14413 . BLANK SEG MAIN_MENU KEYBOARD_MENU TRANSPOSE_MENU DRUM_MENU POTENTIOMETER_MENU MIDI_CHANNEL_MENU PROGRAM_CHANGE_MENU MODES_MENU TRIADS_MENU SEVENTHS_MENU DRUMS_CC_TYPE_MENU DRUMS_NN_MENU DRUMS_CC_MENU POTS_RES_MENU POTS_ALPHA_MENU POTS_CC_MENU SLIDEPOTS_CC_MENU JOYSTICK_CC_MENU MAIN_CH_MENU DRUM_CH_MENU EEPROM_MENU SAVES_MENU ENCODER_POLARITY_MENU ARPEGGIATOR_MENU ARPEGGIATOR_ON_OFF_MENU ARPEGGIATOR_TEMPO_MENU ARPEGGIATOR_OCTAVES_MENU ARPEGGIATOR_ARPEGGIO_TYPE_MENU ARPEGGIATOR_NOTE_LENGTH_MENU ARPEGGIATOR_LATCH_MENU ARPEGGIATOR_LATCH_ON_OFF_MENU ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU ARPEGGIATOR_UN_LATCH_MODE_MENU ARPEGGIATOR_RANDOMIZE_SKIP_MENU ARPEGGIATOR_RANDOMIZE_TYPE_MENU ARPEGGIATOR_SKIP_FIRST_LAST_MENU ARPEGGIATOR_LAST_NOTE_MODE_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU  ]
 "149
 [s S1121 `uc 1 `uc 1 `uc 1 ]
 [n S1121 menuItem number address selector ]
@@ -13734,9 +13734,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;octave.h: 26: void panic_button(void);
 [; ;octave.h: 29: void printThisNumber(signed int n);
 [; ;octave.h: 32: void keyboardTranspose(void);
-"37 octave.h
+[; ;octave.h: 35: void doTheLatch(void);
+[; ;octave.h: 37: void doTheUnLatch(void);
+"42 octave.h
 [v _TRANSPOSE_MODE `b ~T0 @X0 1 e ]
-[; ;octave.h: 37: __bit TRANSPOSE_MODE;
+[; ;octave.h: 42: __bit TRANSPOSE_MODE;
 [; ;arpeggio.h: 29: unsigned short calculate_pulse_length(void);
 [; ;arpeggio.h: 31: void resetArpeggio(void);
 [; ;arpeggio.h: 33: void setupArpeggio(void);
@@ -13786,22 +13788,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _NOTE_LENGTH_PULSES_ARRAY
 :U ..
 "103
--> . `E14239 0 `uc
--> . `E14239 1 `uc
--> . `E14239 2 `uc
+-> . `E14243 0 `uc
+-> . `E14243 1 `uc
+-> . `E14243 2 `uc
 "104
--> . `E14239 3 `uc
--> . `E14239 4 `uc
--> . `E14239 5 `uc
+-> . `E14243 3 `uc
+-> . `E14243 4 `uc
+-> . `E14243 5 `uc
 "105
--> . `E14239 6 `uc
--> . `E14239 7 `uc
--> . `E14239 8 `uc
+-> . `E14243 6 `uc
+-> . `E14243 7 `uc
+-> . `E14243 8 `uc
 "106
--> . `E14239 9 `uc
--> . `E14239 10 `uc
+-> . `E14243 9 `uc
+-> . `E14243 10 `uc
 "107
--> . `E14239 11 `uc
+-> . `E14243 11 `uc
 ..
 ]
 [; ;arpeggio.h: 101: unsigned char NOTE_LENGTH_PULSES_ARRAY[12] =
@@ -13838,7 +13840,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "113
 [v _NOTE_LENGTH_PULSES `uc ~T0 @X0 1 e ]
 [i _NOTE_LENGTH_PULSES
--> . `E14239 6 `uc
+-> . `E14243 6 `uc
 ]
 [; ;arpeggio.h: 113: unsigned char NOTE_LENGTH_PULSES = SIXTEENTH;
 "116
@@ -13865,145 +13867,145 @@ Version 3.2 HI-TECH Software Intermediate Code
 "141
 [v _ARPEGGIO_TYPE `uc ~T0 @X0 1 e ]
 [i _ARPEGGIO_TYPE
--> . `E14229 0 `uc
+-> . `E14233 0 `uc
 ]
 [; ;arpeggio.h: 141: unsigned char ARPEGGIO_TYPE = UP;
-"143
+"144
 [v _startingDirection `uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 143: unsigned char startingDirection;
-"145
+[; ;arpeggio.h: 144: unsigned char startingDirection;
+"146
 [v _skipFirstLast `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 145: __bit skipFirstLast;
-[; ;arpeggio.h: 148: void wait_one_pulse (unsigned char mode);
-"154
+[; ;arpeggio.h: 146: __bit skipFirstLast;
+[; ;arpeggio.h: 149: void wait_one_pulse (unsigned char mode);
+"155
 [v _lastNoteMode `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 154: __bit lastNoteMode;
-"156
+[; ;arpeggio.h: 155: __bit lastNoteMode;
+"157
 [v _LAST_NOTE_MODE_KEY_PRESS `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 156: __bit LAST_NOTE_MODE_KEY_PRESS;
-"158
+[; ;arpeggio.h: 157: __bit LAST_NOTE_MODE_KEY_PRESS;
+"159
 [v _LAST_NOTE_MODE_KEY_RELEASE `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 158: __bit LAST_NOTE_MODE_KEY_RELEASE;
-"160
+[; ;arpeggio.h: 159: __bit LAST_NOTE_MODE_KEY_RELEASE;
+"161
 [v _LAST_NOTE_MODE_TRANSPOSE `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 160: __bit LAST_NOTE_MODE_TRANSPOSE;
-"162
+[; ;arpeggio.h: 161: __bit LAST_NOTE_MODE_TRANSPOSE;
+"163
 [v _LAST_NOTE_MODE_RESET `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 162: __bit LAST_NOTE_MODE_RESET;
-"165
-[v _finishLastNote `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 165: __bit finishLastNote;
+[; ;arpeggio.h: 163: __bit LAST_NOTE_MODE_RESET;
 "166
-[v _suppress_note_on `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 166: __bit suppress_note_on;
+[v _finishLastNote `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 166: __bit finishLastNote;
 "167
+[v _suppress_note_on `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 167: __bit suppress_note_on;
+"168
 [v _suppress_note_off `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 167: __bit suppress_note_off;
-"170
+[; ;arpeggio.h: 168: __bit suppress_note_off;
+"171
 [v _which_note `uc ~T0 @X0 1 e ]
 [i _which_note
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 170: unsigned char which_note = 0;
-"171
+[; ;arpeggio.h: 171: unsigned char which_note = 0;
+"172
 [v _last_note `uc ~T0 @X0 1 e ]
 [i _last_note
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 171: unsigned char last_note = 0;
-"172
+[; ;arpeggio.h: 172: unsigned char last_note = 0;
+"173
 [v _which_octave `c ~T0 @X0 1 e ]
 [i _which_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 172: signed char which_octave = 0;
-"173
+[; ;arpeggio.h: 173: signed char which_octave = 0;
+"174
 [v _last_octave `c ~T0 @X0 1 e ]
 [i _last_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 173: signed char last_octave = 0;
-"174
-[v _overflow `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 174: __bit overflow;
+[; ;arpeggio.h: 174: signed char last_octave = 0;
 "175
+[v _overflow `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 175: __bit overflow;
+"176
 [v _octave_overflow `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 175: __bit octave_overflow;
-"177
+[; ;arpeggio.h: 176: __bit octave_overflow;
+"178
 [v _stored_octave `c ~T0 @X0 1 e ]
 [i _stored_octave
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 177: signed char stored_octave = 0;
-"178
+[; ;arpeggio.h: 178: signed char stored_octave = 0;
+"179
 [v _parallel `c ~T0 @X0 1 e ]
 [i _parallel
 -> -> 0 `i `c
 ]
-[; ;arpeggio.h: 178: signed char parallel = 0;
-"180
+[; ;arpeggio.h: 179: signed char parallel = 0;
+"181
 [v _note_off_was_sent `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 180: __bit note_off_was_sent;
-"182
-[v _flag1 `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 182: __bit flag1;
+[; ;arpeggio.h: 181: __bit note_off_was_sent;
 "183
+[v _flag1 `b ~T0 @X0 1 e ]
+[; ;arpeggio.h: 183: __bit flag1;
+"184
 [v _flag2 `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 183: __bit flag2;
-"186
+[; ;arpeggio.h: 184: __bit flag2;
+"187
 [v _DISPLAY_STEP_NUMBER `b ~T0 @X0 1 e ]
-[; ;arpeggio.h: 186: __bit DISPLAY_STEP_NUMBER;
-"188
+[; ;arpeggio.h: 187: __bit DISPLAY_STEP_NUMBER;
+"189
 [v _MAX_NUM_NOTES `Cuc ~T0 @X0 1 e ]
 [i _MAX_NUM_NOTES
 -> -> 16 `i `uc
 ]
-[; ;arpeggio.h: 188: const unsigned char MAX_NUM_NOTES = 16;
-"189
+[; ;arpeggio.h: 189: const unsigned char MAX_NUM_NOTES = 16;
+"190
 [v _NUM_NOTES_PRESSED `uc ~T0 @X0 1 e ]
 [i _NUM_NOTES_PRESSED
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 189: unsigned char NUM_NOTES_PRESSED = 0;
-"190
+[; ;arpeggio.h: 190: unsigned char NUM_NOTES_PRESSED = 0;
+"191
 [v _ARRAY_INDEX `uc ~T0 @X0 1 e ]
 [i _ARRAY_INDEX
 -> -> 0 `i `uc
 ]
-[; ;arpeggio.h: 190: unsigned char ARRAY_INDEX = 0;
-"200
+[; ;arpeggio.h: 191: unsigned char ARRAY_INDEX = 0;
+"201
 [v _ARPEGGIO `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 200: unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
-"201
+[; ;arpeggio.h: 201: unsigned char ARPEGGIO[MAX_NUM_NOTES] = {0};
+"202
 [v _ARPEGGIO_SORTED `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO_SORTED
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 201: unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
-"202
+[; ;arpeggio.h: 202: unsigned char ARPEGGIO_SORTED[MAX_NUM_NOTES] = {0};
+"203
 [v _ARPEGGIO_RANDOM `uc ~T0 @X0 -> _MAX_NUM_NOTES `ux e ]
 [i _ARPEGGIO_RANDOM
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;arpeggio.h: 202: unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
-"204
+[; ;arpeggio.h: 203: unsigned char ARPEGGIO_RANDOM[MAX_NUM_NOTES] = {0};
+"205
 [v _arpeggioPtr `*uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 204: unsigned char *arpeggioPtr;
-"206
-[v _TIMER_PRELOAD `us ~T0 @X0 1 e ]
-[; ;arpeggio.h: 206: unsigned short TIMER_PRELOAD;
+[; ;arpeggio.h: 205: unsigned char *arpeggioPtr;
 "207
+[v _TIMER_PRELOAD `us ~T0 @X0 1 e ]
+[; ;arpeggio.h: 207: unsigned short TIMER_PRELOAD;
+"208
 [v _TIMER_OVERFLOWS `uc ~T0 @X0 1 e ]
-[; ;arpeggio.h: 207: unsigned char TIMER_OVERFLOWS;
+[; ;arpeggio.h: 208: unsigned char TIMER_OVERFLOWS;
 [; ;menu.h: 30: void initializeMenuArray(void);
 [; ;menu.h: 31: void clear_row1(void);
 [; ;menu.h: 32: void clear_row2(void);
@@ -14112,7 +14114,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "146
 [v _which_screen `uc ~T0 @X0 1 e ]
 [i _which_screen
--> . `E14409 2 `uc
+-> . `E14413 2 `uc
 ]
 [; ;menu.h: 146: unsigned char which_screen = MAIN_MENU;
 [; ;menu.h: 149: typedef struct menuItem {
@@ -14393,9 +14395,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "46
 [v _encoder_click `b ~T0 @X0 1 e ]
 [; ;encoder.h: 46: __bit encoder_click;
-[v F14514 `Cuc ~T0 @X0 -> 4 `i t ]
+[v F14518 `Cuc ~T0 @X0 -> 4 `i t ]
 "62
-[v _ttable `F14514 ~T0 @X0 -> 7 `i e ]
+[v _ttable `F14518 ~T0 @X0 -> 7 `i e ]
 [i _ttable
 :U ..
 :U ..
@@ -14536,7 +14538,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _lcd_print_once -> -> 0 `i `b ]
 [; ;encoder.c: 61: if (which_screen == MAIN_MENU) {
 "61
-[e $ ! == -> _which_screen `i -> . `E14409 2 `i 1128  ]
+[e $ ! == -> _which_screen `i -> . `E14413 2 `i 1128  ]
 {
 [; ;encoder.c: 62: if(mainMenu.selector < mainMenu.number - 1){
 "62
@@ -14555,7 +14557,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 65: }
 [; ;encoder.c: 66: if (which_screen == KEYBOARD_MENU) {
 "66
-[e $ ! == -> _which_screen `i -> . `E14409 3 `i 1130  ]
+[e $ ! == -> _which_screen `i -> . `E14413 3 `i 1130  ]
 {
 [; ;encoder.c: 67: if(keyboardMenu.selector < (keyboardMenu.number - 1)){
 "67
@@ -14574,7 +14576,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 70: }
 [; ;encoder.c: 71: if (which_screen == TRANSPOSE_MENU) {
 "71
-[e $ ! == -> _which_screen `i -> . `E14409 4 `i 1132  ]
+[e $ ! == -> _which_screen `i -> . `E14413 4 `i 1132  ]
 {
 [; ;encoder.c: 72: if(transposeMenu.selector < (transposeMenu.number - 1)){
 "72
@@ -14593,7 +14595,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 75: }
 [; ;encoder.c: 76: if (which_screen == DRUM_MENU) {
 "76
-[e $ ! == -> _which_screen `i -> . `E14409 5 `i 1134  ]
+[e $ ! == -> _which_screen `i -> . `E14413 5 `i 1134  ]
 {
 [; ;encoder.c: 77: if(drumMenu.selector < (drumMenu.number - 1)){
 "77
@@ -14612,7 +14614,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 80: }
 [; ;encoder.c: 81: if (which_screen == POTENTIOMETER_MENU) {
 "81
-[e $ ! == -> _which_screen `i -> . `E14409 6 `i 1136  ]
+[e $ ! == -> _which_screen `i -> . `E14413 6 `i 1136  ]
 {
 [; ;encoder.c: 82: if(potsMenu.selector < (potsMenu.number - 1)){
 "82
@@ -14631,7 +14633,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 85: }
 [; ;encoder.c: 86: if (which_screen == MIDI_CHANNEL_MENU) {
 "86
-[e $ ! == -> _which_screen `i -> . `E14409 7 `i 1138  ]
+[e $ ! == -> _which_screen `i -> . `E14413 7 `i 1138  ]
 {
 [; ;encoder.c: 87: if(midiChannelMenu.selector < (midiChannelMenu.number - 1)){
 "87
@@ -14650,7 +14652,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 90: }
 [; ;encoder.c: 92: if (which_screen == MODES_MENU) {
 "92
-[e $ ! == -> _which_screen `i -> . `E14409 9 `i 1140  ]
+[e $ ! == -> _which_screen `i -> . `E14413 9 `i 1140  ]
 {
 [; ;encoder.c: 93: if(modeMenu.selector < (modeMenu.number - 1)){
 "93
@@ -14669,7 +14671,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 96: }
 [; ;encoder.c: 97: if (which_screen == TRIADS_MENU) {
 "97
-[e $ ! == -> _which_screen `i -> . `E14409 10 `i 1142  ]
+[e $ ! == -> _which_screen `i -> . `E14413 10 `i 1142  ]
 {
 [; ;encoder.c: 98: if(triadMenu.selector < (triadMenu.number - 1)){
 "98
@@ -14688,7 +14690,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 101: }
 [; ;encoder.c: 102: if (which_screen == SEVENTHS_MENU) {
 "102
-[e $ ! == -> _which_screen `i -> . `E14409 11 `i 1144  ]
+[e $ ! == -> _which_screen `i -> . `E14413 11 `i 1144  ]
 {
 [; ;encoder.c: 103: if(seventhMenu.selector < (seventhMenu.number - 1)){
 "103
@@ -14707,7 +14709,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 106: }
 [; ;encoder.c: 107: if (which_screen == DRUMS_CC_TYPE_MENU) {
 "107
-[e $ ! == -> _which_screen `i -> . `E14409 12 `i 1146  ]
+[e $ ! == -> _which_screen `i -> . `E14413 12 `i 1146  ]
 {
 [; ;encoder.c: 108: if(drumCCTypeMenu.selector < (drumCCTypeMenu.number - 1)){
 "108
@@ -14726,7 +14728,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 111: }
 [; ;encoder.c: 113: if (which_screen == DRUMS_NN_MENU) {
 "113
-[e $ ! == -> _which_screen `i -> . `E14409 13 `i 1148  ]
+[e $ ! == -> _which_screen `i -> . `E14413 13 `i 1148  ]
 {
 [; ;encoder.c: 114: if(drumNNMenu.selector < (drumNNMenu.number - 1)){
 "114
@@ -14745,7 +14747,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 117: }
 [; ;encoder.c: 119: if (which_screen == DRUMS_CC_MENU) {
 "119
-[e $ ! == -> _which_screen `i -> . `E14409 14 `i 1150  ]
+[e $ ! == -> _which_screen `i -> . `E14413 14 `i 1150  ]
 {
 [; ;encoder.c: 120: if(drumCCMenu.selector < (drumCCMenu.number - 1)){
 "120
@@ -14764,7 +14766,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 123: }
 [; ;encoder.c: 125: if (which_screen == POTS_RES_MENU) {
 "125
-[e $ ! == -> _which_screen `i -> . `E14409 15 `i 1152  ]
+[e $ ! == -> _which_screen `i -> . `E14413 15 `i 1152  ]
 {
 [; ;encoder.c: 126: if(potsResoMenu.selector < (potsResoMenu.number - 1)){
 "126
@@ -14783,7 +14785,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 129: }
 [; ;encoder.c: 131: if (which_screen == ENCODER_POLARITY_MENU) {
 "131
-[e $ ! == -> _which_screen `i -> . `E14409 24 `i 1154  ]
+[e $ ! == -> _which_screen `i -> . `E14413 24 `i 1154  ]
 {
 [; ;encoder.c: 135: if(encoderPolarityMenu.selector == 0){
 "135
@@ -14802,7 +14804,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 138: }
 [; ;encoder.c: 140: if (which_screen == POTS_ALPHA_MENU) {
 "140
-[e $ ! == -> _which_screen `i -> . `E14409 16 `i 1156  ]
+[e $ ! == -> _which_screen `i -> . `E14413 16 `i 1156  ]
 {
 [; ;encoder.c: 141: if(potsAlphaMenu.selector <= 85){
 "141
@@ -14821,7 +14823,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 144: }
 [; ;encoder.c: 146: if (which_screen == POTS_CC_MENU) {
 "146
-[e $ ! == -> _which_screen `i -> . `E14409 17 `i 1158  ]
+[e $ ! == -> _which_screen `i -> . `E14413 17 `i 1158  ]
 {
 [; ;encoder.c: 147: if(potsCCMenu.selector < (potsCCMenu.number - 1)){
 "147
@@ -14840,7 +14842,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 150: }
 [; ;encoder.c: 152: if (which_screen == SLIDEPOTS_CC_MENU) {
 "152
-[e $ ! == -> _which_screen `i -> . `E14409 18 `i 1160  ]
+[e $ ! == -> _which_screen `i -> . `E14413 18 `i 1160  ]
 {
 [; ;encoder.c: 153: if(slidepotsCCMenu.selector < (slidepotsCCMenu.number - 1)){
 "153
@@ -14859,7 +14861,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 156: }
 [; ;encoder.c: 158: if (which_screen == PROGRAM_CHANGE_MENU) {
 "158
-[e $ ! == -> _which_screen `i -> . `E14409 8 `i 1162  ]
+[e $ ! == -> _which_screen `i -> . `E14413 8 `i 1162  ]
 {
 [; ;encoder.c: 159: if(programChangeMenu.selector < 127){
 "159
@@ -14878,7 +14880,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 162: }
 [; ;encoder.c: 164: if (which_screen == MAIN_CH_MENU) {
 "164
-[e $ ! == -> _which_screen `i -> . `E14409 20 `i 1164  ]
+[e $ ! == -> _which_screen `i -> . `E14413 20 `i 1164  ]
 {
 [; ;encoder.c: 165: if(mainChannelMenu.selector < 15){
 "165
@@ -14897,7 +14899,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 168: }
 [; ;encoder.c: 170: if (which_screen == DRUM_CH_MENU) {
 "170
-[e $ ! == -> _which_screen `i -> . `E14409 21 `i 1166  ]
+[e $ ! == -> _which_screen `i -> . `E14413 21 `i 1166  ]
 {
 [; ;encoder.c: 171: if(drumChannelMenu.selector < 15){
 "171
@@ -14916,7 +14918,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 174: }
 [; ;encoder.c: 175: if (which_screen == JOYSTICK_CC_MENU) {
 "175
-[e $ ! == -> _which_screen `i -> . `E14409 19 `i 1168  ]
+[e $ ! == -> _which_screen `i -> . `E14413 19 `i 1168  ]
 {
 [; ;encoder.c: 176: if(joystickCCMenu.selector < (joystickCCMenu.number - 1)){
 "176
@@ -14935,7 +14937,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 179: }
 [; ;encoder.c: 180: if (which_screen == EEPROM_MENU) {
 "180
-[e $ ! == -> _which_screen `i -> . `E14409 22 `i 1170  ]
+[e $ ! == -> _which_screen `i -> . `E14413 22 `i 1170  ]
 {
 [; ;encoder.c: 181: if(eepromMenu.selector < (eepromMenu.number - 1)){
 "181
@@ -14954,7 +14956,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 184: }
 [; ;encoder.c: 185: if (which_screen == SAVES_MENU) {
 "185
-[e $ ! == -> _which_screen `i -> . `E14409 23 `i 1172  ]
+[e $ ! == -> _which_screen `i -> . `E14413 23 `i 1172  ]
 {
 [; ;encoder.c: 186: if(savesMenu.selector < (savesMenu.number - 1)){
 "186
@@ -14973,7 +14975,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 189: }
 [; ;encoder.c: 191: if (which_screen == ARPEGGIATOR_MENU) {
 "191
-[e $ ! == -> _which_screen `i -> . `E14409 25 `i 1174  ]
+[e $ ! == -> _which_screen `i -> . `E14413 25 `i 1174  ]
 {
 [; ;encoder.c: 192: if(arpeggiatorMenu.selector < (arpeggiatorMenu.number - 1)){
 "192
@@ -14992,7 +14994,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 195: }
 [; ;encoder.c: 197: if (which_screen == ARPEGGIATOR_ON_OFF_MENU) {
 "197
-[e $ ! == -> _which_screen `i -> . `E14409 26 `i 1176  ]
+[e $ ! == -> _which_screen `i -> . `E14413 26 `i 1176  ]
 {
 [; ;encoder.c: 198: arpeggiatorOnOffMenu.selector ^= 1;
 "198
@@ -15003,7 +15005,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 202: }
 [; ;encoder.c: 203: if (which_screen == ARPEGGIATOR_TEMPO_MENU) {
 "203
-[e $ ! == -> _which_screen `i -> . `E14409 27 `i 1177  ]
+[e $ ! == -> _which_screen `i -> . `E14413 27 `i 1177  ]
 {
 [; ;encoder.c: 204: if(arpeggiatorTempoMenu.selector < 250){
 "204
@@ -15022,7 +15024,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 207: }
 [; ;encoder.c: 208: if (which_screen == ARPEGGIATOR_OCTAVES_MENU) {
 "208
-[e $ ! == -> _which_screen `i -> . `E14409 28 `i 1179  ]
+[e $ ! == -> _which_screen `i -> . `E14413 28 `i 1179  ]
 {
 [; ;encoder.c: 209: if(arpeggiatorOctavesMenu.selector < 4){
 "209
@@ -15041,7 +15043,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 212: }
 [; ;encoder.c: 213: if (which_screen == ARPEGGIATOR_ARPEGGIO_TYPE_MENU) {
 "213
-[e $ ! == -> _which_screen `i -> . `E14409 29 `i 1181  ]
+[e $ ! == -> _which_screen `i -> . `E14413 29 `i 1181  ]
 {
 [; ;encoder.c: 214: if(arpeggiatorTypeMenu.selector < (arpeggiatorTypeMenu.number - 1)){
 "214
@@ -15060,7 +15062,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 217: }
 [; ;encoder.c: 218: if (which_screen == ARPEGGIATOR_NOTE_LENGTH_MENU) {
 "218
-[e $ ! == -> _which_screen `i -> . `E14409 30 `i 1183  ]
+[e $ ! == -> _which_screen `i -> . `E14413 30 `i 1183  ]
 {
 [; ;encoder.c: 219: if(arpeggiatorNoteLengthMenu.selector < (arpeggiatorNoteLengthMenu.number - 1)){
 "219
@@ -15079,7 +15081,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 222: }
 [; ;encoder.c: 223: if (which_screen == ARPEGGIATOR_LATCH_MENU) {
 "223
-[e $ ! == -> _which_screen `i -> . `E14409 31 `i 1185  ]
+[e $ ! == -> _which_screen `i -> . `E14413 31 `i 1185  ]
 {
 [; ;encoder.c: 225: if(arpeggiatorLatchMenu.selector < (arpeggiatorLatchMenu.number - 1)){
 "225
@@ -15098,7 +15100,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 228: }
 [; ;encoder.c: 229: if (which_screen == ARPEGGIATOR_LATCH_ON_OFF_MENU) {
 "229
-[e $ ! == -> _which_screen `i -> . `E14409 32 `i 1187  ]
+[e $ ! == -> _which_screen `i -> . `E14413 32 `i 1187  ]
 {
 [; ;encoder.c: 230: arpeggiatorLatchOnOffMenu.selector ^= 1;
 "230
@@ -15109,7 +15111,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 231: }
 [; ;encoder.c: 232: if (which_screen == ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU) {
 "232
-[e $ ! == -> _which_screen `i -> . `E14409 33 `i 1188  ]
+[e $ ! == -> _which_screen `i -> . `E14413 33 `i 1188  ]
 {
 [; ;encoder.c: 233: arpeggiatorAutoLatchOnOffMenu.selector ^= 1;
 "233
@@ -15120,7 +15122,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 234: }
 [; ;encoder.c: 235: if (which_screen == ARPEGGIATOR_UN_LATCH_MODE_MENU) {
 "235
-[e $ ! == -> _which_screen `i -> . `E14409 34 `i 1189  ]
+[e $ ! == -> _which_screen `i -> . `E14413 34 `i 1189  ]
 {
 [; ;encoder.c: 236: arpeggiatorUnLatchModeMenu.selector ^= 1;
 "236
@@ -15131,7 +15133,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 237: }
 [; ;encoder.c: 238: if (which_screen == ARPEGGIATOR_RANDOMIZE_SKIP_MENU) {
 "238
-[e $ ! == -> _which_screen `i -> . `E14409 35 `i 1190  ]
+[e $ ! == -> _which_screen `i -> . `E14413 35 `i 1190  ]
 {
 [; ;encoder.c: 239: if(arpeggiatorRandomizeSkipMenu.selector < (arpeggiatorRandomizeSkipMenu.number - 1)){
 "239
@@ -15150,7 +15152,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 242: }
 [; ;encoder.c: 243: if (which_screen == ARPEGGIATOR_RANDOMIZE_TYPE_MENU) {
 "243
-[e $ ! == -> _which_screen `i -> . `E14409 36 `i 1192  ]
+[e $ ! == -> _which_screen `i -> . `E14413 36 `i 1192  ]
 {
 [; ;encoder.c: 244: arpeggiatorRandomizeTypeMenu.selector ^= 1;
 "244
@@ -15161,7 +15163,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 248: }
 [; ;encoder.c: 249: if (which_screen == ARPEGGIATOR_SKIP_FIRST_LAST_MENU) {
 "249
-[e $ ! == -> _which_screen `i -> . `E14409 37 `i 1193  ]
+[e $ ! == -> _which_screen `i -> . `E14413 37 `i 1193  ]
 {
 [; ;encoder.c: 250: arpeggiatorSkipFirstLastMenu.selector ^= 1;
 "250
@@ -15172,7 +15174,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 251: }
 [; ;encoder.c: 252: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_MENU) {
 "252
-[e $ ! == -> _which_screen `i -> . `E14409 38 `i 1194  ]
+[e $ ! == -> _which_screen `i -> . `E14413 38 `i 1194  ]
 {
 [; ;encoder.c: 253: if(arpeggiatorLastNoteModeMenu.selector < (arpeggiatorLastNoteModeMenu.number - 1)){
 "253
@@ -15191,7 +15193,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 256: }
 [; ;encoder.c: 257: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU) {
 "257
-[e $ ! == -> _which_screen `i -> . `E14409 39 `i 1196  ]
+[e $ ! == -> _which_screen `i -> . `E14413 39 `i 1196  ]
 {
 [; ;encoder.c: 258: arpeggiatorLastNoteModeKeyPressMenu.selector ^= 1;
 "258
@@ -15202,7 +15204,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 259: }
 [; ;encoder.c: 260: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU) {
 "260
-[e $ ! == -> _which_screen `i -> . `E14409 40 `i 1197  ]
+[e $ ! == -> _which_screen `i -> . `E14413 40 `i 1197  ]
 {
 [; ;encoder.c: 261: arpeggiatorLastNoteModeKeyReleaseMenu.selector ^= 1;
 "261
@@ -15213,7 +15215,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 262: }
 [; ;encoder.c: 263: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU) {
 "263
-[e $ ! == -> _which_screen `i -> . `E14409 41 `i 1198  ]
+[e $ ! == -> _which_screen `i -> . `E14413 41 `i 1198  ]
 {
 [; ;encoder.c: 264: arpeggiatorLastNoteModeTransposeMenu.selector ^= 1;
 "264
@@ -15224,7 +15226,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 265: }
 [; ;encoder.c: 266: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU) {
 "266
-[e $ ! == -> _which_screen `i -> . `E14409 42 `i 1199  ]
+[e $ ! == -> _which_screen `i -> . `E14413 42 `i 1199  ]
 {
 [; ;encoder.c: 267: arpeggiatorLastNoteModeResetMenu.selector ^= 1;
 "267
@@ -15246,7 +15248,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _lcd_print_once -> -> 0 `i `b ]
 [; ;encoder.c: 277: if (which_screen == MAIN_MENU) {
 "277
-[e $ ! == -> _which_screen `i -> . `E14409 2 `i 1201  ]
+[e $ ! == -> _which_screen `i -> . `E14413 2 `i 1201  ]
 {
 [; ;encoder.c: 278: if(mainMenu.selector > 0){
 "278
@@ -15265,7 +15267,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 281: }
 [; ;encoder.c: 282: if (which_screen == KEYBOARD_MENU) {
 "282
-[e $ ! == -> _which_screen `i -> . `E14409 3 `i 1203  ]
+[e $ ! == -> _which_screen `i -> . `E14413 3 `i 1203  ]
 {
 [; ;encoder.c: 283: if(keyboardMenu.selector > 0){
 "283
@@ -15284,7 +15286,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 286: }
 [; ;encoder.c: 287: if (which_screen == TRANSPOSE_MENU) {
 "287
-[e $ ! == -> _which_screen `i -> . `E14409 4 `i 1205  ]
+[e $ ! == -> _which_screen `i -> . `E14413 4 `i 1205  ]
 {
 [; ;encoder.c: 288: if(transposeMenu.selector > 0){
 "288
@@ -15303,7 +15305,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 291: }
 [; ;encoder.c: 292: if (which_screen == DRUM_MENU) {
 "292
-[e $ ! == -> _which_screen `i -> . `E14409 5 `i 1207  ]
+[e $ ! == -> _which_screen `i -> . `E14413 5 `i 1207  ]
 {
 [; ;encoder.c: 293: if(drumMenu.selector > 0){
 "293
@@ -15322,7 +15324,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 296: }
 [; ;encoder.c: 297: if (which_screen == POTENTIOMETER_MENU) {
 "297
-[e $ ! == -> _which_screen `i -> . `E14409 6 `i 1209  ]
+[e $ ! == -> _which_screen `i -> . `E14413 6 `i 1209  ]
 {
 [; ;encoder.c: 298: if(potsMenu.selector > 0){
 "298
@@ -15341,7 +15343,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 301: }
 [; ;encoder.c: 302: if (which_screen == MIDI_CHANNEL_MENU) {
 "302
-[e $ ! == -> _which_screen `i -> . `E14409 7 `i 1211  ]
+[e $ ! == -> _which_screen `i -> . `E14413 7 `i 1211  ]
 {
 [; ;encoder.c: 303: if(midiChannelMenu.selector > 0){
 "303
@@ -15360,7 +15362,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 306: }
 [; ;encoder.c: 308: if (which_screen == MODES_MENU) {
 "308
-[e $ ! == -> _which_screen `i -> . `E14409 9 `i 1213  ]
+[e $ ! == -> _which_screen `i -> . `E14413 9 `i 1213  ]
 {
 [; ;encoder.c: 309: if(modeMenu.selector > 0){
 "309
@@ -15379,7 +15381,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 312: }
 [; ;encoder.c: 314: if (which_screen == TRIADS_MENU) {
 "314
-[e $ ! == -> _which_screen `i -> . `E14409 10 `i 1215  ]
+[e $ ! == -> _which_screen `i -> . `E14413 10 `i 1215  ]
 {
 [; ;encoder.c: 315: if(triadMenu.selector > 0){
 "315
@@ -15398,7 +15400,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 318: }
 [; ;encoder.c: 319: if (which_screen == SEVENTHS_MENU) {
 "319
-[e $ ! == -> _which_screen `i -> . `E14409 11 `i 1217  ]
+[e $ ! == -> _which_screen `i -> . `E14413 11 `i 1217  ]
 {
 [; ;encoder.c: 320: if(seventhMenu.selector > 0){
 "320
@@ -15417,7 +15419,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 323: }
 [; ;encoder.c: 324: if (which_screen == DRUMS_CC_TYPE_MENU) {
 "324
-[e $ ! == -> _which_screen `i -> . `E14409 12 `i 1219  ]
+[e $ ! == -> _which_screen `i -> . `E14413 12 `i 1219  ]
 {
 [; ;encoder.c: 325: if(drumCCTypeMenu.selector > 0){
 "325
@@ -15436,7 +15438,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 328: }
 [; ;encoder.c: 330: if (which_screen == DRUMS_NN_MENU) {
 "330
-[e $ ! == -> _which_screen `i -> . `E14409 13 `i 1221  ]
+[e $ ! == -> _which_screen `i -> . `E14413 13 `i 1221  ]
 {
 [; ;encoder.c: 331: if(drumNNMenu.selector > 0){
 "331
@@ -15455,7 +15457,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 334: }
 [; ;encoder.c: 336: if (which_screen == DRUMS_CC_MENU) {
 "336
-[e $ ! == -> _which_screen `i -> . `E14409 14 `i 1223  ]
+[e $ ! == -> _which_screen `i -> . `E14413 14 `i 1223  ]
 {
 [; ;encoder.c: 337: if(drumCCMenu.selector > 0){
 "337
@@ -15474,7 +15476,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 340: }
 [; ;encoder.c: 342: if (which_screen == POTS_RES_MENU) {
 "342
-[e $ ! == -> _which_screen `i -> . `E14409 15 `i 1225  ]
+[e $ ! == -> _which_screen `i -> . `E14413 15 `i 1225  ]
 {
 [; ;encoder.c: 343: if(potsResoMenu.selector > 0){
 "343
@@ -15493,7 +15495,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 346: }
 [; ;encoder.c: 348: if (which_screen == ENCODER_POLARITY_MENU) {
 "348
-[e $ ! == -> _which_screen `i -> . `E14409 24 `i 1227  ]
+[e $ ! == -> _which_screen `i -> . `E14413 24 `i 1227  ]
 {
 [; ;encoder.c: 349: if(encoderPolarityMenu.selector == 1){
 "349
@@ -15512,7 +15514,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 352: }
 [; ;encoder.c: 354: if (which_screen == POTS_ALPHA_MENU) {
 "354
-[e $ ! == -> _which_screen `i -> . `E14409 16 `i 1229  ]
+[e $ ! == -> _which_screen `i -> . `E14413 16 `i 1229  ]
 {
 [; ;encoder.c: 355: if(potsAlphaMenu.selector >= 15){
 "355
@@ -15531,7 +15533,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 358: }
 [; ;encoder.c: 360: if (which_screen == POTS_CC_MENU) {
 "360
-[e $ ! == -> _which_screen `i -> . `E14409 17 `i 1231  ]
+[e $ ! == -> _which_screen `i -> . `E14413 17 `i 1231  ]
 {
 [; ;encoder.c: 361: if(potsCCMenu.selector > -2){
 "361
@@ -15550,7 +15552,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 364: }
 [; ;encoder.c: 366: if (which_screen == SLIDEPOTS_CC_MENU) {
 "366
-[e $ ! == -> _which_screen `i -> . `E14409 18 `i 1233  ]
+[e $ ! == -> _which_screen `i -> . `E14413 18 `i 1233  ]
 {
 [; ;encoder.c: 367: if(slidepotsCCMenu.selector > -2){
 "367
@@ -15569,7 +15571,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 370: }
 [; ;encoder.c: 371: if (which_screen == PROGRAM_CHANGE_MENU) {
 "371
-[e $ ! == -> _which_screen `i -> . `E14409 8 `i 1235  ]
+[e $ ! == -> _which_screen `i -> . `E14413 8 `i 1235  ]
 {
 [; ;encoder.c: 372: if(programChangeMenu.selector > 0){
 "372
@@ -15588,7 +15590,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 375: }
 [; ;encoder.c: 377: if (which_screen == MAIN_CH_MENU) {
 "377
-[e $ ! == -> _which_screen `i -> . `E14409 20 `i 1237  ]
+[e $ ! == -> _which_screen `i -> . `E14413 20 `i 1237  ]
 {
 [; ;encoder.c: 378: if(mainChannelMenu.selector > 0){
 "378
@@ -15607,7 +15609,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 381: }
 [; ;encoder.c: 383: if (which_screen == DRUM_CH_MENU) {
 "383
-[e $ ! == -> _which_screen `i -> . `E14409 21 `i 1239  ]
+[e $ ! == -> _which_screen `i -> . `E14413 21 `i 1239  ]
 {
 [; ;encoder.c: 384: if(drumChannelMenu.selector > 0){
 "384
@@ -15626,7 +15628,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 387: }
 [; ;encoder.c: 389: if (which_screen == JOYSTICK_CC_MENU) {
 "389
-[e $ ! == -> _which_screen `i -> . `E14409 19 `i 1241  ]
+[e $ ! == -> _which_screen `i -> . `E14413 19 `i 1241  ]
 {
 [; ;encoder.c: 390: if(joystickCCMenu.selector > -2){
 "390
@@ -15645,7 +15647,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 393: }
 [; ;encoder.c: 394: if (which_screen == EEPROM_MENU) {
 "394
-[e $ ! == -> _which_screen `i -> . `E14409 22 `i 1243  ]
+[e $ ! == -> _which_screen `i -> . `E14413 22 `i 1243  ]
 {
 [; ;encoder.c: 395: if(eepromMenu.selector > 0){
 "395
@@ -15664,7 +15666,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 398: }
 [; ;encoder.c: 399: if (which_screen == SAVES_MENU) {
 "399
-[e $ ! == -> _which_screen `i -> . `E14409 23 `i 1245  ]
+[e $ ! == -> _which_screen `i -> . `E14413 23 `i 1245  ]
 {
 [; ;encoder.c: 400: if(savesMenu.selector > 0){
 "400
@@ -15683,7 +15685,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 403: }
 [; ;encoder.c: 404: if (which_screen == ARPEGGIATOR_MENU) {
 "404
-[e $ ! == -> _which_screen `i -> . `E14409 25 `i 1247  ]
+[e $ ! == -> _which_screen `i -> . `E14413 25 `i 1247  ]
 {
 [; ;encoder.c: 405: if(arpeggiatorMenu.selector > 0){
 "405
@@ -15702,7 +15704,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 408: }
 [; ;encoder.c: 409: if (which_screen == ARPEGGIATOR_ON_OFF_MENU) {
 "409
-[e $ ! == -> _which_screen `i -> . `E14409 26 `i 1249  ]
+[e $ ! == -> _which_screen `i -> . `E14413 26 `i 1249  ]
 {
 [; ;encoder.c: 410: arpeggiatorOnOffMenu.selector ^= 1;
 "410
@@ -15713,7 +15715,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 414: }
 [; ;encoder.c: 415: if (which_screen == ARPEGGIATOR_TEMPO_MENU) {
 "415
-[e $ ! == -> _which_screen `i -> . `E14409 27 `i 1250  ]
+[e $ ! == -> _which_screen `i -> . `E14413 27 `i 1250  ]
 {
 [; ;encoder.c: 416: if(arpeggiatorTempoMenu.selector > 25){
 "416
@@ -15732,7 +15734,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 419: }
 [; ;encoder.c: 420: if (which_screen == ARPEGGIATOR_OCTAVES_MENU) {
 "420
-[e $ ! == -> _which_screen `i -> . `E14409 28 `i 1252  ]
+[e $ ! == -> _which_screen `i -> . `E14413 28 `i 1252  ]
 {
 [; ;encoder.c: 421: if(arpeggiatorOctavesMenu.selector > 1){
 "421
@@ -15751,7 +15753,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 424: }
 [; ;encoder.c: 425: if (which_screen == ARPEGGIATOR_ARPEGGIO_TYPE_MENU) {
 "425
-[e $ ! == -> _which_screen `i -> . `E14409 29 `i 1254  ]
+[e $ ! == -> _which_screen `i -> . `E14413 29 `i 1254  ]
 {
 [; ;encoder.c: 426: if(arpeggiatorTypeMenu.selector > 0){
 "426
@@ -15770,7 +15772,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 429: }
 [; ;encoder.c: 430: if (which_screen == ARPEGGIATOR_NOTE_LENGTH_MENU) {
 "430
-[e $ ! == -> _which_screen `i -> . `E14409 30 `i 1256  ]
+[e $ ! == -> _which_screen `i -> . `E14413 30 `i 1256  ]
 {
 [; ;encoder.c: 431: if(arpeggiatorNoteLengthMenu.selector > 0){
 "431
@@ -15789,7 +15791,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 434: }
 [; ;encoder.c: 435: if (which_screen == ARPEGGIATOR_LATCH_MENU) {
 "435
-[e $ ! == -> _which_screen `i -> . `E14409 31 `i 1258  ]
+[e $ ! == -> _which_screen `i -> . `E14413 31 `i 1258  ]
 {
 [; ;encoder.c: 437: if(arpeggiatorLatchMenu.selector > 0){
 "437
@@ -15808,7 +15810,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 440: }
 [; ;encoder.c: 441: if (which_screen == ARPEGGIATOR_LATCH_ON_OFF_MENU) {
 "441
-[e $ ! == -> _which_screen `i -> . `E14409 32 `i 1260  ]
+[e $ ! == -> _which_screen `i -> . `E14413 32 `i 1260  ]
 {
 [; ;encoder.c: 442: arpeggiatorLatchOnOffMenu.selector ^= 1;
 "442
@@ -15819,7 +15821,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 443: }
 [; ;encoder.c: 444: if (which_screen == ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU) {
 "444
-[e $ ! == -> _which_screen `i -> . `E14409 33 `i 1261  ]
+[e $ ! == -> _which_screen `i -> . `E14413 33 `i 1261  ]
 {
 [; ;encoder.c: 445: arpeggiatorAutoLatchOnOffMenu.selector ^= 1;
 "445
@@ -15830,7 +15832,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 446: }
 [; ;encoder.c: 447: if (which_screen == ARPEGGIATOR_UN_LATCH_MODE_MENU) {
 "447
-[e $ ! == -> _which_screen `i -> . `E14409 34 `i 1262  ]
+[e $ ! == -> _which_screen `i -> . `E14413 34 `i 1262  ]
 {
 [; ;encoder.c: 448: arpeggiatorUnLatchModeMenu.selector ^= 1;
 "448
@@ -15841,7 +15843,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 449: }
 [; ;encoder.c: 450: if (which_screen == ARPEGGIATOR_RANDOMIZE_SKIP_MENU) {
 "450
-[e $ ! == -> _which_screen `i -> . `E14409 35 `i 1263  ]
+[e $ ! == -> _which_screen `i -> . `E14413 35 `i 1263  ]
 {
 [; ;encoder.c: 451: if(arpeggiatorRandomizeSkipMenu.selector > 0){
 "451
@@ -15860,7 +15862,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 454: }
 [; ;encoder.c: 455: if (which_screen == ARPEGGIATOR_RANDOMIZE_TYPE_MENU) {
 "455
-[e $ ! == -> _which_screen `i -> . `E14409 36 `i 1265  ]
+[e $ ! == -> _which_screen `i -> . `E14413 36 `i 1265  ]
 {
 [; ;encoder.c: 456: arpeggiatorRandomizeTypeMenu.selector ^= 1;
 "456
@@ -15871,7 +15873,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 460: }
 [; ;encoder.c: 461: if (which_screen == ARPEGGIATOR_SKIP_FIRST_LAST_MENU) {
 "461
-[e $ ! == -> _which_screen `i -> . `E14409 37 `i 1266  ]
+[e $ ! == -> _which_screen `i -> . `E14413 37 `i 1266  ]
 {
 [; ;encoder.c: 462: arpeggiatorSkipFirstLastMenu.selector ^= 1;
 "462
@@ -15882,7 +15884,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 463: }
 [; ;encoder.c: 464: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_MENU) {
 "464
-[e $ ! == -> _which_screen `i -> . `E14409 38 `i 1267  ]
+[e $ ! == -> _which_screen `i -> . `E14413 38 `i 1267  ]
 {
 [; ;encoder.c: 465: if(arpeggiatorLastNoteModeMenu.selector > 0){
 "465
@@ -15901,7 +15903,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 468: }
 [; ;encoder.c: 469: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU) {
 "469
-[e $ ! == -> _which_screen `i -> . `E14409 39 `i 1269  ]
+[e $ ! == -> _which_screen `i -> . `E14413 39 `i 1269  ]
 {
 [; ;encoder.c: 470: arpeggiatorLastNoteModeKeyPressMenu.selector ^= 1;
 "470
@@ -15912,7 +15914,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 471: }
 [; ;encoder.c: 472: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU) {
 "472
-[e $ ! == -> _which_screen `i -> . `E14409 40 `i 1270  ]
+[e $ ! == -> _which_screen `i -> . `E14413 40 `i 1270  ]
 {
 [; ;encoder.c: 473: arpeggiatorLastNoteModeKeyReleaseMenu.selector ^= 1;
 "473
@@ -15923,7 +15925,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 474: }
 [; ;encoder.c: 475: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU) {
 "475
-[e $ ! == -> _which_screen `i -> . `E14409 41 `i 1271  ]
+[e $ ! == -> _which_screen `i -> . `E14413 41 `i 1271  ]
 {
 [; ;encoder.c: 476: arpeggiatorLastNoteModeTransposeMenu.selector ^= 1;
 "476
@@ -15934,7 +15936,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 477: }
 [; ;encoder.c: 478: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU) {
 "478
-[e $ ! == -> _which_screen `i -> . `E14409 41 `i 1272  ]
+[e $ ! == -> _which_screen `i -> . `E14413 41 `i 1272  ]
 {
 [; ;encoder.c: 479: arpeggiatorLastNoteModeTransposeMenu.selector ^= 1;
 "479
@@ -15945,7 +15947,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;encoder.c: 480: }
 [; ;encoder.c: 481: if (which_screen == ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU) {
 "481
-[e $ ! == -> _which_screen `i -> . `E14409 42 `i 1273  ]
+[e $ ! == -> _which_screen `i -> . `E14413 42 `i 1273  ]
 {
 [; ;encoder.c: 482: arpeggiatorLastNoteModeResetMenu.selector ^= 1;
 "482
