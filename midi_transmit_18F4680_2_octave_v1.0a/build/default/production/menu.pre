@@ -18837,10 +18837,16 @@ doTheLatch();
 
 if(LATCH == 0){
 
+
+unsigned char temp = UN_LATCH_MODE;
+
 UN_LATCH_MODE = 0;
 doTheUnLatch();
 
-# 1255
+
+UN_LATCH_MODE = temp;
+
+# 1261
 }
 }
 void Function_H_6_2(void){

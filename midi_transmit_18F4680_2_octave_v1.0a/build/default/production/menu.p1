@@ -19910,850 +19910,857 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1207
 [e $ ! == -> _LATCH `i -> 0 `i 1411  ]
 {
-[; ;menu.c: 1209: UN_LATCH_MODE = 0;
-"1209
-[e = _UN_LATCH_MODE -> -> 0 `i `b ]
-[; ;menu.c: 1210: doTheUnLatch();
 "1210
+[v _temp `uc ~T0 @X0 1 a ]
+[; ;menu.c: 1210: unsigned char temp = UN_LATCH_MODE;
+[e = _temp -> -> _UN_LATCH_MODE `i `uc ]
+[; ;menu.c: 1212: UN_LATCH_MODE = 0;
+"1212
+[e = _UN_LATCH_MODE -> -> 0 `i `b ]
+[; ;menu.c: 1213: doTheUnLatch();
+"1213
 [e ( _doTheUnLatch ..  ]
-"1255
+[; ;menu.c: 1216: UN_LATCH_MODE = temp;
+"1216
+[e = _UN_LATCH_MODE -> _temp `b ]
+"1261
 }
 [e :U 1411 ]
-[; ;menu.c: 1255: }
-[; ;menu.c: 1256: }
-"1256
+[; ;menu.c: 1261: }
+[; ;menu.c: 1262: }
+"1262
 [e :UE 1403 ]
 }
-"1257
+"1263
 [v _Function_H_6_2 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1257: void Function_H_6_2(void){
+[; ;menu.c: 1263: void Function_H_6_2(void){
 [e :U _Function_H_6_2 ]
 [f ]
-[; ;menu.c: 1259: which_screen = ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU;
-"1259
-[e = _which_screen -> . `E14427 33 `uc ]
-[; ;menu.c: 1260: lcd_print_once = 0;
-"1260
-[e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1261: encoder_click = 0;
-"1261
-[e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1263: arpeggiatorAutoLatchOnOffMenu.selector = AUTO_LATCH;
-"1263
-[e = . _arpeggiatorAutoLatchOnOffMenu 2 -> -> _AUTO_LATCH `i `uc ]
-[; ;menu.c: 1265: while(encoder_click == 0) {
+[; ;menu.c: 1265: which_screen = ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU;
 "1265
+[e = _which_screen -> . `E14427 33 `uc ]
+[; ;menu.c: 1266: lcd_print_once = 0;
+"1266
+[e = _lcd_print_once -> -> 0 `i `b ]
+[; ;menu.c: 1267: encoder_click = 0;
+"1267
+[e = _encoder_click -> -> 0 `i `b ]
+[; ;menu.c: 1269: arpeggiatorAutoLatchOnOffMenu.selector = AUTO_LATCH;
+"1269
+[e = . _arpeggiatorAutoLatchOnOffMenu 2 -> -> _AUTO_LATCH `i `uc ]
+[; ;menu.c: 1271: while(encoder_click == 0) {
+"1271
 [e $U 1413  ]
 [e :U 1414 ]
 {
-[; ;menu.c: 1266: processEncoderBuxton();
-"1266
+[; ;menu.c: 1272: processEncoderBuxton();
+"1272
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1267: if (lcd_print_once == 0) {
-"1267
+[; ;menu.c: 1273: if (lcd_print_once == 0) {
+"1273
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1416  ]
 {
-[; ;menu.c: 1268: clear_row1();Lcd_Print_String("AutoLatch ON/OFF");
-"1268
+[; ;menu.c: 1274: clear_row1();Lcd_Print_String("AutoLatch ON/OFF");
+"1274
 [e ( _clear_row1 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 42C `*uc ]
-[; ;menu.c: 1269: if(arpeggiatorAutoLatchOnOffMenu.selector == 0) {
-"1269
+[; ;menu.c: 1275: if(arpeggiatorAutoLatchOnOffMenu.selector == 0) {
+"1275
 [e $ ! == -> . _arpeggiatorAutoLatchOnOffMenu 2 `i -> 0 `i 1417  ]
 {
-[; ;menu.c: 1270: clear_row2();Lcd_Print_String("Auto Latch OFF");
-"1270
+[; ;menu.c: 1276: clear_row2();Lcd_Print_String("Auto Latch OFF");
+"1276
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 43C `*uc ]
-[; ;menu.c: 1271: DISPLAY_MODE = 1;
-"1271
-[e = _DISPLAY_MODE -> -> 1 `i `uc ]
-[; ;menu.c: 1272: strcpy(string_to_display, " oFF");
-"1272
-[e ( _strcpy (2 , &U _string_to_display :s 44C ]
-"1273
-}
-[e :U 1417 ]
-[; ;menu.c: 1273: }
-[; ;menu.c: 1274: if(arpeggiatorAutoLatchOnOffMenu.selector == 1) {
-"1274
-[e $ ! == -> . _arpeggiatorAutoLatchOnOffMenu 2 `i -> 1 `i 1418  ]
-{
-[; ;menu.c: 1275: clear_row2();Lcd_Print_String("Auto Latch ON");
-"1275
-[e ( _clear_row2 ..  ]
-[e ( _Lcd_Print_String (1 -> :s 45C `*uc ]
-[; ;menu.c: 1276: DISPLAY_MODE = 1;
-"1276
-[e = _DISPLAY_MODE -> -> 1 `i `uc ]
-[; ;menu.c: 1277: strcpy(string_to_display, "Auto");
+[; ;menu.c: 1277: DISPLAY_MODE = 1;
 "1277
-[e ( _strcpy (2 , &U _string_to_display :s 46C ]
+[e = _DISPLAY_MODE -> -> 1 `i `uc ]
+[; ;menu.c: 1278: strcpy(string_to_display, " oFF");
 "1278
-}
-[e :U 1418 ]
+[e ( _strcpy (2 , &U _string_to_display :s 44C ]
 "1279
 }
-[e :U 1416 ]
-[; ;menu.c: 1278: }
+[e :U 1417 ]
 [; ;menu.c: 1279: }
-[; ;menu.c: 1280: lcd_print_once = 1;
+[; ;menu.c: 1280: if(arpeggiatorAutoLatchOnOffMenu.selector == 1) {
 "1280
-[e = _lcd_print_once -> -> 1 `i `b ]
+[e $ ! == -> . _arpeggiatorAutoLatchOnOffMenu 2 `i -> 1 `i 1418  ]
+{
+[; ;menu.c: 1281: clear_row2();Lcd_Print_String("Auto Latch ON");
 "1281
+[e ( _clear_row2 ..  ]
+[e ( _Lcd_Print_String (1 -> :s 45C `*uc ]
+[; ;menu.c: 1282: DISPLAY_MODE = 1;
+"1282
+[e = _DISPLAY_MODE -> -> 1 `i `uc ]
+[; ;menu.c: 1283: strcpy(string_to_display, "Auto");
+"1283
+[e ( _strcpy (2 , &U _string_to_display :s 46C ]
+"1284
+}
+[e :U 1418 ]
+"1285
+}
+[e :U 1416 ]
+[; ;menu.c: 1284: }
+[; ;menu.c: 1285: }
+[; ;menu.c: 1286: lcd_print_once = 1;
+"1286
+[e = _lcd_print_once -> -> 1 `i `b ]
+"1287
 }
 [e :U 1413 ]
-"1265
+"1271
 [e $ == -> _encoder_click `i -> 0 `i 1414  ]
 [e :U 1415 ]
-[; ;menu.c: 1281: }
-[; ;menu.c: 1283: AUTO_LATCH = arpeggiatorAutoLatchOnOffMenu.selector;
-"1283
+[; ;menu.c: 1287: }
+[; ;menu.c: 1289: AUTO_LATCH = arpeggiatorAutoLatchOnOffMenu.selector;
+"1289
 [e = _AUTO_LATCH -> . _arpeggiatorAutoLatchOnOffMenu 2 `b ]
-[; ;menu.c: 1285: }
-"1285
+[; ;menu.c: 1291: }
+"1291
 [e :UE 1412 ]
 }
-"1288
+"1294
 [v _Function_H_6 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1288: void Function_H_6 (void) {
+[; ;menu.c: 1294: void Function_H_6 (void) {
 [e :U _Function_H_6 ]
 [f ]
-[; ;menu.c: 1290: which_screen = ARPEGGIATOR_LATCH_MENU;
-"1290
+[; ;menu.c: 1296: which_screen = ARPEGGIATOR_LATCH_MENU;
+"1296
 [e = _which_screen -> . `E14427 31 `uc ]
-[; ;menu.c: 1291: lcd_print_once = 0;
-"1291
+[; ;menu.c: 1297: lcd_print_once = 0;
+"1297
 [e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1292: encoder_click = 0;
-"1292
+[; ;menu.c: 1298: encoder_click = 0;
+"1298
 [e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1294: while(encoder_click == 0) {
-"1294
+[; ;menu.c: 1300: while(encoder_click == 0) {
+"1300
 [e $U 1420  ]
 [e :U 1421 ]
 {
-[; ;menu.c: 1295: processEncoderBuxton();
-"1295
+[; ;menu.c: 1301: processEncoderBuxton();
+"1301
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1296: if (lcd_print_once == 0) {
-"1296
+[; ;menu.c: 1302: if (lcd_print_once == 0) {
+"1302
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1423  ]
 {
-[; ;menu.c: 1297: clear_row2();
-"1297
+[; ;menu.c: 1303: clear_row2();
+"1303
 [e ( _clear_row2 ..  ]
-[; ;menu.c: 1298: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLatchMenu.selector % arpeggiatorLatchMenu.number) + arpeggiatorLatchMenu.address]);
-"1298
+[; ;menu.c: 1304: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLatchMenu.selector % arpeggiatorLatchMenu.number) + arpeggiatorLatchMenu.address]);
+"1304
 [e ( _Lcd_Print_String (1 -> &U *U + &U _LCD_STRINGS * -> -> + % -> . _arpeggiatorLatchMenu 2 `i -> . _arpeggiatorLatchMenu 0 `i -> . _arpeggiatorLatchMenu 1 `i `ui `ux -> * -> # *U &U *U &U _LCD_STRINGS `ui -> -> 17 `i `ui `ux `*uc ]
-"1299
+"1305
 }
 [e :U 1423 ]
-[; ;menu.c: 1299: }
-[; ;menu.c: 1300: lcd_print_once = 1;
-"1300
+[; ;menu.c: 1305: }
+[; ;menu.c: 1306: lcd_print_once = 1;
+"1306
 [e = _lcd_print_once -> -> 1 `i `b ]
-"1301
+"1307
 }
 [e :U 1420 ]
-"1294
+"1300
 [e $ == -> _encoder_click `i -> 0 `i 1421  ]
 [e :U 1422 ]
-[; ;menu.c: 1301: }
-[; ;menu.c: 1304: if(arpeggiatorLatchMenu.selector == 0) {Function_H_6_1();}
-"1304
+[; ;menu.c: 1307: }
+[; ;menu.c: 1310: if(arpeggiatorLatchMenu.selector == 0) {Function_H_6_1();}
+"1310
 [e $ ! == -> . _arpeggiatorLatchMenu 2 `i -> 0 `i 1424  ]
 {
 [e ( _Function_H_6_1 ..  ]
 }
 [e :U 1424 ]
-[; ;menu.c: 1305: if(arpeggiatorLatchMenu.selector == 1) {Function_H_6_2();}
-"1305
+[; ;menu.c: 1311: if(arpeggiatorLatchMenu.selector == 1) {Function_H_6_2();}
+"1311
 [e $ ! == -> . _arpeggiatorLatchMenu 2 `i -> 1 `i 1425  ]
 {
 [e ( _Function_H_6_2 ..  ]
 }
 [e :U 1425 ]
-[; ;menu.c: 1306: }
-"1306
+[; ;menu.c: 1312: }
+"1312
 [e :UE 1419 ]
 }
-"1309
+"1315
 [v _Function_H_7 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1309: void Function_H_7 (void) {
+[; ;menu.c: 1315: void Function_H_7 (void) {
 [e :U _Function_H_7 ]
 [f ]
-[; ;menu.c: 1311: which_screen = ARPEGGIATOR_UN_LATCH_MODE_MENU;
-"1311
-[e = _which_screen -> . `E14427 34 `uc ]
-[; ;menu.c: 1312: lcd_print_once = 0;
-"1312
-[e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1313: encoder_click = 0;
-"1313
-[e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1315: arpeggiatorUnLatchModeMenu.selector = UN_LATCH_MODE;
-"1315
-[e = . _arpeggiatorUnLatchModeMenu 2 -> -> _UN_LATCH_MODE `i `uc ]
-[; ;menu.c: 1317: while(encoder_click == 0) {
+[; ;menu.c: 1317: which_screen = ARPEGGIATOR_UN_LATCH_MODE_MENU;
 "1317
+[e = _which_screen -> . `E14427 34 `uc ]
+[; ;menu.c: 1318: lcd_print_once = 0;
+"1318
+[e = _lcd_print_once -> -> 0 `i `b ]
+[; ;menu.c: 1319: encoder_click = 0;
+"1319
+[e = _encoder_click -> -> 0 `i `b ]
+[; ;menu.c: 1321: arpeggiatorUnLatchModeMenu.selector = UN_LATCH_MODE;
+"1321
+[e = . _arpeggiatorUnLatchModeMenu 2 -> -> _UN_LATCH_MODE `i `uc ]
+[; ;menu.c: 1323: while(encoder_click == 0) {
+"1323
 [e $U 1427  ]
 [e :U 1428 ]
 {
-[; ;menu.c: 1318: processEncoderBuxton();
-"1318
+[; ;menu.c: 1324: processEncoderBuxton();
+"1324
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1319: if (lcd_print_once == 0) {
-"1319
+[; ;menu.c: 1325: if (lcd_print_once == 0) {
+"1325
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1430  ]
 {
-[; ;menu.c: 1320: clear_row1();
-"1320
+[; ;menu.c: 1326: clear_row1();
+"1326
 [e ( _clear_row1 ..  ]
-[; ;menu.c: 1321: Lcd_Print_String("Un-latch Mode:");
-"1321
+[; ;menu.c: 1327: Lcd_Print_String("Un-latch Mode:");
+"1327
 [e ( _Lcd_Print_String (1 -> :s 47C `*uc ]
-[; ;menu.c: 1322: clear_row2();
-"1322
+[; ;menu.c: 1328: clear_row2();
+"1328
 [e ( _clear_row2 ..  ]
-[; ;menu.c: 1324: if(arpeggiatorUnLatchModeMenu.selector == 0) {
-"1324
+[; ;menu.c: 1330: if(arpeggiatorUnLatchModeMenu.selector == 0) {
+"1330
 [e $ ! == -> . _arpeggiatorUnLatchModeMenu 2 `i -> 0 `i 1431  ]
 {
-[; ;menu.c: 1325: clear_row2();Lcd_Print_String("UNLATCH ALL");
-"1325
+[; ;menu.c: 1331: clear_row2();Lcd_Print_String("UNLATCH ALL");
+"1331
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 48C `*uc ]
-[; ;menu.c: 1326: DISPLAY_MODE = 1;
-"1326
-[e = _DISPLAY_MODE -> -> 1 `i `uc ]
-[; ;menu.c: 1327: strcpy(string_to_display, " ALL");
-"1327
-[e ( _strcpy (2 , &U _string_to_display :s 49C ]
-"1328
-}
-[e :U 1431 ]
-[; ;menu.c: 1328: }
-[; ;menu.c: 1329: if(arpeggiatorUnLatchModeMenu.selector == 1) {
-"1329
-[e $ ! == -> . _arpeggiatorUnLatchModeMenu 2 `i -> 1 `i 1432  ]
-{
-[; ;menu.c: 1330: clear_row2();Lcd_Print_String("ONE AT A TIME");
-"1330
-[e ( _clear_row2 ..  ]
-[e ( _Lcd_Print_String (1 -> :s 50C `*uc ]
-[; ;menu.c: 1331: DISPLAY_MODE = 1;
-"1331
-[e = _DISPLAY_MODE -> -> 1 `i `uc ]
-[; ;menu.c: 1332: strcpy(string_to_display, " OnE");
+[; ;menu.c: 1332: DISPLAY_MODE = 1;
 "1332
-[e ( _strcpy (2 , &U _string_to_display :s 51C ]
+[e = _DISPLAY_MODE -> -> 1 `i `uc ]
+[; ;menu.c: 1333: strcpy(string_to_display, " ALL");
 "1333
-}
-[e :U 1432 ]
+[e ( _strcpy (2 , &U _string_to_display :s 49C ]
 "1334
 }
-[e :U 1430 ]
-[; ;menu.c: 1333: }
+[e :U 1431 ]
 [; ;menu.c: 1334: }
-[; ;menu.c: 1335: lcd_print_once = 1;
+[; ;menu.c: 1335: if(arpeggiatorUnLatchModeMenu.selector == 1) {
 "1335
-[e = _lcd_print_once -> -> 1 `i `b ]
+[e $ ! == -> . _arpeggiatorUnLatchModeMenu 2 `i -> 1 `i 1432  ]
+{
+[; ;menu.c: 1336: clear_row2();Lcd_Print_String("ONE AT A TIME");
 "1336
+[e ( _clear_row2 ..  ]
+[e ( _Lcd_Print_String (1 -> :s 50C `*uc ]
+[; ;menu.c: 1337: DISPLAY_MODE = 1;
+"1337
+[e = _DISPLAY_MODE -> -> 1 `i `uc ]
+[; ;menu.c: 1338: strcpy(string_to_display, " OnE");
+"1338
+[e ( _strcpy (2 , &U _string_to_display :s 51C ]
+"1339
+}
+[e :U 1432 ]
+"1340
+}
+[e :U 1430 ]
+[; ;menu.c: 1339: }
+[; ;menu.c: 1340: }
+[; ;menu.c: 1341: lcd_print_once = 1;
+"1341
+[e = _lcd_print_once -> -> 1 `i `b ]
+"1342
 }
 [e :U 1427 ]
-"1317
+"1323
 [e $ == -> _encoder_click `i -> 0 `i 1428  ]
 [e :U 1429 ]
-[; ;menu.c: 1336: }
-[; ;menu.c: 1338: UN_LATCH_MODE = arpeggiatorUnLatchModeMenu.selector;
-"1338
+[; ;menu.c: 1342: }
+[; ;menu.c: 1344: UN_LATCH_MODE = arpeggiatorUnLatchModeMenu.selector;
+"1344
 [e = _UN_LATCH_MODE -> . _arpeggiatorUnLatchModeMenu 2 `b ]
-[; ;menu.c: 1339: }
-"1339
+[; ;menu.c: 1345: }
+"1345
 [e :UE 1426 ]
 }
-"1342
+"1348
 [v _Function_H_8_1 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1342: void Function_H_8_1 (void){
+[; ;menu.c: 1348: void Function_H_8_1 (void){
 [e :U _Function_H_8_1 ]
 [f ]
-[; ;menu.c: 1344: which_screen = ARPEGGIATOR_RANDOMIZE_TYPE_MENU;
-"1344
-[e = _which_screen -> . `E14427 36 `uc ]
-[; ;menu.c: 1345: lcd_print_once = 0;
-"1345
-[e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1346: encoder_click = 0;
-"1346
-[e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1348: arpeggiatorRandomizeTypeMenu.selector = AUTO_RANDOMIZE;
-"1348
-[e = . _arpeggiatorRandomizeTypeMenu 2 -> -> _AUTO_RANDOMIZE `i `uc ]
-[; ;menu.c: 1350: while(encoder_click == 0) {
+[; ;menu.c: 1350: which_screen = ARPEGGIATOR_RANDOMIZE_TYPE_MENU;
 "1350
+[e = _which_screen -> . `E14427 36 `uc ]
+[; ;menu.c: 1351: lcd_print_once = 0;
+"1351
+[e = _lcd_print_once -> -> 0 `i `b ]
+[; ;menu.c: 1352: encoder_click = 0;
+"1352
+[e = _encoder_click -> -> 0 `i `b ]
+[; ;menu.c: 1354: arpeggiatorRandomizeTypeMenu.selector = AUTO_RANDOMIZE;
+"1354
+[e = . _arpeggiatorRandomizeTypeMenu 2 -> -> _AUTO_RANDOMIZE `i `uc ]
+[; ;menu.c: 1356: while(encoder_click == 0) {
+"1356
 [e $U 1434  ]
 [e :U 1435 ]
 {
-[; ;menu.c: 1351: processEncoderBuxton();
-"1351
+[; ;menu.c: 1357: processEncoderBuxton();
+"1357
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1352: if (lcd_print_once == 0) {
-"1352
+[; ;menu.c: 1358: if (lcd_print_once == 0) {
+"1358
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1437  ]
 {
-[; ;menu.c: 1353: clear_row1();
-"1353
+[; ;menu.c: 1359: clear_row1();
+"1359
 [e ( _clear_row1 ..  ]
-[; ;menu.c: 1354: Lcd_Print_String("Randomize Type:");
-"1354
+[; ;menu.c: 1360: Lcd_Print_String("Randomize Type:");
+"1360
 [e ( _Lcd_Print_String (1 -> :s 52C `*uc ]
-[; ;menu.c: 1357: if(arpeggiatorRandomizeTypeMenu.selector == 0) {clear_row2();Lcd_Print_String("RANDOMIZE AUTO");}
-"1357
+[; ;menu.c: 1363: if(arpeggiatorRandomizeTypeMenu.selector == 0) {clear_row2();Lcd_Print_String("RANDOMIZE AUTO");}
+"1363
 [e $ ! == -> . _arpeggiatorRandomizeTypeMenu 2 `i -> 0 `i 1438  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 53C `*uc ]
 }
 [e :U 1438 ]
-[; ;menu.c: 1358: if(arpeggiatorRandomizeTypeMenu.selector == 1) {clear_row2();Lcd_Print_String("RANDOMIZE ONCE");}
-"1358
+[; ;menu.c: 1364: if(arpeggiatorRandomizeTypeMenu.selector == 1) {clear_row2();Lcd_Print_String("RANDOMIZE ONCE");}
+"1364
 [e $ ! == -> . _arpeggiatorRandomizeTypeMenu 2 `i -> 1 `i 1439  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 54C `*uc ]
 }
 [e :U 1439 ]
-"1359
+"1365
 }
 [e :U 1437 ]
-[; ;menu.c: 1359: }
-[; ;menu.c: 1360: lcd_print_once = 1;
-"1360
+[; ;menu.c: 1365: }
+[; ;menu.c: 1366: lcd_print_once = 1;
+"1366
 [e = _lcd_print_once -> -> 1 `i `b ]
-"1361
+"1367
 }
 [e :U 1434 ]
-"1350
+"1356
 [e $ == -> _encoder_click `i -> 0 `i 1435  ]
 [e :U 1436 ]
-[; ;menu.c: 1361: }
-[; ;menu.c: 1363: AUTO_RANDOMIZE = arpeggiatorRandomizeTypeMenu.selector;
-"1363
+[; ;menu.c: 1367: }
+[; ;menu.c: 1369: AUTO_RANDOMIZE = arpeggiatorRandomizeTypeMenu.selector;
+"1369
 [e = _AUTO_RANDOMIZE -> . _arpeggiatorRandomizeTypeMenu 2 `b ]
-[; ;menu.c: 1365: }
-"1365
+[; ;menu.c: 1371: }
+"1371
 [e :UE 1433 ]
 }
-"1368
+"1374
 [v _Function_H_8_2 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1368: void Function_H_8_2 (void){
+[; ;menu.c: 1374: void Function_H_8_2 (void){
 [e :U _Function_H_8_2 ]
 [f ]
-[; ;menu.c: 1370: which_screen = ARPEGGIATOR_SKIP_FIRST_LAST_MENU;
-"1370
-[e = _which_screen -> . `E14427 37 `uc ]
-[; ;menu.c: 1371: lcd_print_once = 0;
-"1371
-[e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1372: encoder_click = 0;
-"1372
-[e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1374: arpeggiatorSkipFirstLastMenu.selector = skipFirstLast;
-"1374
-[e = . _arpeggiatorSkipFirstLastMenu 2 -> -> _skipFirstLast `i `uc ]
-[; ;menu.c: 1376: while(encoder_click == 0) {
+[; ;menu.c: 1376: which_screen = ARPEGGIATOR_SKIP_FIRST_LAST_MENU;
 "1376
+[e = _which_screen -> . `E14427 37 `uc ]
+[; ;menu.c: 1377: lcd_print_once = 0;
+"1377
+[e = _lcd_print_once -> -> 0 `i `b ]
+[; ;menu.c: 1378: encoder_click = 0;
+"1378
+[e = _encoder_click -> -> 0 `i `b ]
+[; ;menu.c: 1380: arpeggiatorSkipFirstLastMenu.selector = skipFirstLast;
+"1380
+[e = . _arpeggiatorSkipFirstLastMenu 2 -> -> _skipFirstLast `i `uc ]
+[; ;menu.c: 1382: while(encoder_click == 0) {
+"1382
 [e $U 1441  ]
 [e :U 1442 ]
 {
-[; ;menu.c: 1377: processEncoderBuxton();
-"1377
+[; ;menu.c: 1383: processEncoderBuxton();
+"1383
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1378: if (lcd_print_once == 0) {
-"1378
+[; ;menu.c: 1384: if (lcd_print_once == 0) {
+"1384
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1444  ]
 {
-[; ;menu.c: 1379: if(arpeggiatorSkipFirstLastMenu.selector == 0) {clear_row2();Lcd_Print_String("Skip F/L OFF");}
-"1379
+[; ;menu.c: 1385: if(arpeggiatorSkipFirstLastMenu.selector == 0) {clear_row2();Lcd_Print_String("Skip F/L OFF");}
+"1385
 [e $ ! == -> . _arpeggiatorSkipFirstLastMenu 2 `i -> 0 `i 1445  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 55C `*uc ]
 }
 [e :U 1445 ]
-[; ;menu.c: 1380: if(arpeggiatorSkipFirstLastMenu.selector == 1) {clear_row2();Lcd_Print_String("Skip F/L ON");}
-"1380
+[; ;menu.c: 1386: if(arpeggiatorSkipFirstLastMenu.selector == 1) {clear_row2();Lcd_Print_String("Skip F/L ON");}
+"1386
 [e $ ! == -> . _arpeggiatorSkipFirstLastMenu 2 `i -> 1 `i 1446  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 56C `*uc ]
 }
 [e :U 1446 ]
-"1381
+"1387
 }
 [e :U 1444 ]
-[; ;menu.c: 1381: }
-[; ;menu.c: 1382: lcd_print_once = 1;
-"1382
+[; ;menu.c: 1387: }
+[; ;menu.c: 1388: lcd_print_once = 1;
+"1388
 [e = _lcd_print_once -> -> 1 `i `b ]
-"1383
+"1389
 }
 [e :U 1441 ]
-"1376
+"1382
 [e $ == -> _encoder_click `i -> 0 `i 1442  ]
 [e :U 1443 ]
-[; ;menu.c: 1383: }
-[; ;menu.c: 1385: skipFirstLast = arpeggiatorSkipFirstLastMenu.selector;
-"1385
+[; ;menu.c: 1389: }
+[; ;menu.c: 1391: skipFirstLast = arpeggiatorSkipFirstLastMenu.selector;
+"1391
 [e = _skipFirstLast -> . _arpeggiatorSkipFirstLastMenu 2 `b ]
-[; ;menu.c: 1387: }
-"1387
+[; ;menu.c: 1393: }
+"1393
 [e :UE 1440 ]
 }
-"1390
+"1396
 [v _Function_H_8 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1390: void Function_H_8 (void) {
+[; ;menu.c: 1396: void Function_H_8 (void) {
 [e :U _Function_H_8 ]
 [f ]
-[; ;menu.c: 1392: which_screen = ARPEGGIATOR_RANDOMIZE_SKIP_MENU;
-"1392
+[; ;menu.c: 1398: which_screen = ARPEGGIATOR_RANDOMIZE_SKIP_MENU;
+"1398
 [e = _which_screen -> . `E14427 35 `uc ]
-[; ;menu.c: 1393: lcd_print_once = 0;
-"1393
+[; ;menu.c: 1399: lcd_print_once = 0;
+"1399
 [e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1394: encoder_click = 0;
-"1394
+[; ;menu.c: 1400: encoder_click = 0;
+"1400
 [e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1396: while(encoder_click == 0) {
-"1396
+[; ;menu.c: 1402: while(encoder_click == 0) {
+"1402
 [e $U 1448  ]
 [e :U 1449 ]
 {
-[; ;menu.c: 1397: processEncoderBuxton();
-"1397
+[; ;menu.c: 1403: processEncoderBuxton();
+"1403
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1398: if (lcd_print_once == 0) {
-"1398
+[; ;menu.c: 1404: if (lcd_print_once == 0) {
+"1404
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1451  ]
 {
-[; ;menu.c: 1399: clear_row2();
-"1399
+[; ;menu.c: 1405: clear_row2();
+"1405
 [e ( _clear_row2 ..  ]
-[; ;menu.c: 1400: Lcd_Print_String(LCD_STRINGS[(arpeggiatorRandomizeSkipMenu.selector % arpeggiatorRandomizeSkipMenu.number) + arpeggiatorRandomizeSkipMenu.address]);
-"1400
+[; ;menu.c: 1406: Lcd_Print_String(LCD_STRINGS[(arpeggiatorRandomizeSkipMenu.selector % arpeggiatorRandomizeSkipMenu.number) + arpeggiatorRandomizeSkipMenu.address]);
+"1406
 [e ( _Lcd_Print_String (1 -> &U *U + &U _LCD_STRINGS * -> -> + % -> . _arpeggiatorRandomizeSkipMenu 2 `i -> . _arpeggiatorRandomizeSkipMenu 0 `i -> . _arpeggiatorRandomizeSkipMenu 1 `i `ui `ux -> * -> # *U &U *U &U _LCD_STRINGS `ui -> -> 17 `i `ui `ux `*uc ]
-"1401
+"1407
 }
 [e :U 1451 ]
-[; ;menu.c: 1401: }
-[; ;menu.c: 1402: lcd_print_once = 1;
-"1402
+[; ;menu.c: 1407: }
+[; ;menu.c: 1408: lcd_print_once = 1;
+"1408
 [e = _lcd_print_once -> -> 1 `i `b ]
-"1403
+"1409
 }
 [e :U 1448 ]
-"1396
+"1402
 [e $ == -> _encoder_click `i -> 0 `i 1449  ]
 [e :U 1450 ]
-[; ;menu.c: 1403: }
-[; ;menu.c: 1406: if(arpeggiatorRandomizeSkipMenu.selector == 0) {Function_H_8_1();}
-"1406
+[; ;menu.c: 1409: }
+[; ;menu.c: 1412: if(arpeggiatorRandomizeSkipMenu.selector == 0) {Function_H_8_1();}
+"1412
 [e $ ! == -> . _arpeggiatorRandomizeSkipMenu 2 `i -> 0 `i 1452  ]
 {
 [e ( _Function_H_8_1 ..  ]
 }
 [e :U 1452 ]
-[; ;menu.c: 1407: if(arpeggiatorRandomizeSkipMenu.selector == 1) {Function_H_8_2();}
-"1407
+[; ;menu.c: 1413: if(arpeggiatorRandomizeSkipMenu.selector == 1) {Function_H_8_2();}
+"1413
 [e $ ! == -> . _arpeggiatorRandomizeSkipMenu 2 `i -> 1 `i 1453  ]
 {
 [e ( _Function_H_8_2 ..  ]
 }
 [e :U 1453 ]
-[; ;menu.c: 1409: }
-"1409
+[; ;menu.c: 1415: }
+"1415
 [e :UE 1447 ]
 }
-"1412
+"1418
 [v _Function_H_9_1 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1412: void Function_H_9_1(void){
+[; ;menu.c: 1418: void Function_H_9_1(void){
 [e :U _Function_H_9_1 ]
 [f ]
-[; ;menu.c: 1414: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU;
-"1414
-[e = _which_screen -> . `E14427 39 `uc ]
-[; ;menu.c: 1415: lcd_print_once = 0;
-"1415
-[e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1416: encoder_click = 0;
-"1416
-[e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1418: arpeggiatorLastNoteModeKeyPressMenu.selector = LAST_NOTE_MODE_KEY_PRESS;
-"1418
-[e = . _arpeggiatorLastNoteModeKeyPressMenu 2 -> -> _LAST_NOTE_MODE_KEY_PRESS `i `uc ]
-[; ;menu.c: 1420: while(encoder_click == 0) {
+[; ;menu.c: 1420: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU;
 "1420
+[e = _which_screen -> . `E14427 39 `uc ]
+[; ;menu.c: 1421: lcd_print_once = 0;
+"1421
+[e = _lcd_print_once -> -> 0 `i `b ]
+[; ;menu.c: 1422: encoder_click = 0;
+"1422
+[e = _encoder_click -> -> 0 `i `b ]
+[; ;menu.c: 1424: arpeggiatorLastNoteModeKeyPressMenu.selector = LAST_NOTE_MODE_KEY_PRESS;
+"1424
+[e = . _arpeggiatorLastNoteModeKeyPressMenu 2 -> -> _LAST_NOTE_MODE_KEY_PRESS `i `uc ]
+[; ;menu.c: 1426: while(encoder_click == 0) {
+"1426
 [e $U 1455  ]
 [e :U 1456 ]
 {
-[; ;menu.c: 1421: processEncoderBuxton();
-"1421
+[; ;menu.c: 1427: processEncoderBuxton();
+"1427
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1422: if (lcd_print_once == 0) {
-"1422
+[; ;menu.c: 1428: if (lcd_print_once == 0) {
+"1428
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1458  ]
 {
-[; ;menu.c: 1423: clear_row1();
-"1423
+[; ;menu.c: 1429: clear_row1();
+"1429
 [e ( _clear_row1 ..  ]
-[; ;menu.c: 1424: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
-"1424
+[; ;menu.c: 1430: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
+"1430
 [e ( _Lcd_Print_String (1 -> &U *U + &U _LCD_STRINGS * -> -> + % -> . _arpeggiatorLastNoteModeMenu 2 `i -> . _arpeggiatorLastNoteModeMenu 0 `i -> . _arpeggiatorLastNoteModeMenu 1 `i `ui `ux -> * -> # *U &U *U &U _LCD_STRINGS `ui -> -> 17 `i `ui `ux `*uc ]
-[; ;menu.c: 1425: if(arpeggiatorLastNoteModeKeyPressMenu.selector == 0) {clear_row2();Lcd_Print_String("IMMEDIATE");}
-"1425
+[; ;menu.c: 1431: if(arpeggiatorLastNoteModeKeyPressMenu.selector == 0) {clear_row2();Lcd_Print_String("IMMEDIATE");}
+"1431
 [e $ ! == -> . _arpeggiatorLastNoteModeKeyPressMenu 2 `i -> 0 `i 1459  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 57C `*uc ]
 }
 [e :U 1459 ]
-[; ;menu.c: 1426: if(arpeggiatorLastNoteModeKeyPressMenu.selector == 1) {clear_row2();Lcd_Print_String("FINISH LAST");}
-"1426
+[; ;menu.c: 1432: if(arpeggiatorLastNoteModeKeyPressMenu.selector == 1) {clear_row2();Lcd_Print_String("FINISH LAST");}
+"1432
 [e $ ! == -> . _arpeggiatorLastNoteModeKeyPressMenu 2 `i -> 1 `i 1460  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 58C `*uc ]
 }
 [e :U 1460 ]
-"1427
+"1433
 }
 [e :U 1458 ]
-[; ;menu.c: 1427: }
-[; ;menu.c: 1428: lcd_print_once = 1;
-"1428
+[; ;menu.c: 1433: }
+[; ;menu.c: 1434: lcd_print_once = 1;
+"1434
 [e = _lcd_print_once -> -> 1 `i `b ]
-"1429
+"1435
 }
 [e :U 1455 ]
-"1420
+"1426
 [e $ == -> _encoder_click `i -> 0 `i 1456  ]
 [e :U 1457 ]
-[; ;menu.c: 1429: }
-[; ;menu.c: 1431: LAST_NOTE_MODE_KEY_PRESS = arpeggiatorLastNoteModeKeyPressMenu.selector;
-"1431
+[; ;menu.c: 1435: }
+[; ;menu.c: 1437: LAST_NOTE_MODE_KEY_PRESS = arpeggiatorLastNoteModeKeyPressMenu.selector;
+"1437
 [e = _LAST_NOTE_MODE_KEY_PRESS -> . _arpeggiatorLastNoteModeKeyPressMenu 2 `b ]
-[; ;menu.c: 1432: }
-"1432
+[; ;menu.c: 1438: }
+"1438
 [e :UE 1454 ]
 }
-"1435
+"1441
 [v _Function_H_9_2 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1435: void Function_H_9_2(void){
+[; ;menu.c: 1441: void Function_H_9_2(void){
 [e :U _Function_H_9_2 ]
 [f ]
-[; ;menu.c: 1437: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU;
-"1437
-[e = _which_screen -> . `E14427 40 `uc ]
-[; ;menu.c: 1438: lcd_print_once = 0;
-"1438
-[e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1439: encoder_click = 0;
-"1439
-[e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1441: arpeggiatorLastNoteModeKeyReleaseMenu.selector = LAST_NOTE_MODE_KEY_RELEASE;
-"1441
-[e = . _arpeggiatorLastNoteModeKeyReleaseMenu 2 -> -> _LAST_NOTE_MODE_KEY_RELEASE `i `uc ]
-[; ;menu.c: 1443: while(encoder_click == 0) {
+[; ;menu.c: 1443: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU;
 "1443
+[e = _which_screen -> . `E14427 40 `uc ]
+[; ;menu.c: 1444: lcd_print_once = 0;
+"1444
+[e = _lcd_print_once -> -> 0 `i `b ]
+[; ;menu.c: 1445: encoder_click = 0;
+"1445
+[e = _encoder_click -> -> 0 `i `b ]
+[; ;menu.c: 1447: arpeggiatorLastNoteModeKeyReleaseMenu.selector = LAST_NOTE_MODE_KEY_RELEASE;
+"1447
+[e = . _arpeggiatorLastNoteModeKeyReleaseMenu 2 -> -> _LAST_NOTE_MODE_KEY_RELEASE `i `uc ]
+[; ;menu.c: 1449: while(encoder_click == 0) {
+"1449
 [e $U 1462  ]
 [e :U 1463 ]
 {
-[; ;menu.c: 1444: processEncoderBuxton();
-"1444
+[; ;menu.c: 1450: processEncoderBuxton();
+"1450
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1445: if (lcd_print_once == 0) {
-"1445
+[; ;menu.c: 1451: if (lcd_print_once == 0) {
+"1451
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1465  ]
 {
-[; ;menu.c: 1446: clear_row1();
-"1446
+[; ;menu.c: 1452: clear_row1();
+"1452
 [e ( _clear_row1 ..  ]
-[; ;menu.c: 1447: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
-"1447
+[; ;menu.c: 1453: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
+"1453
 [e ( _Lcd_Print_String (1 -> &U *U + &U _LCD_STRINGS * -> -> + % -> . _arpeggiatorLastNoteModeMenu 2 `i -> . _arpeggiatorLastNoteModeMenu 0 `i -> . _arpeggiatorLastNoteModeMenu 1 `i `ui `ux -> * -> # *U &U *U &U _LCD_STRINGS `ui -> -> 17 `i `ui `ux `*uc ]
-[; ;menu.c: 1448: if(arpeggiatorLastNoteModeKeyReleaseMenu.selector == 0) {clear_row2();Lcd_Print_String("IMMEDIATE");}
-"1448
+[; ;menu.c: 1454: if(arpeggiatorLastNoteModeKeyReleaseMenu.selector == 0) {clear_row2();Lcd_Print_String("IMMEDIATE");}
+"1454
 [e $ ! == -> . _arpeggiatorLastNoteModeKeyReleaseMenu 2 `i -> 0 `i 1466  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 59C `*uc ]
 }
 [e :U 1466 ]
-[; ;menu.c: 1449: if(arpeggiatorLastNoteModeKeyReleaseMenu.selector == 1) {clear_row2();Lcd_Print_String("FINISH LAST");}
-"1449
+[; ;menu.c: 1455: if(arpeggiatorLastNoteModeKeyReleaseMenu.selector == 1) {clear_row2();Lcd_Print_String("FINISH LAST");}
+"1455
 [e $ ! == -> . _arpeggiatorLastNoteModeKeyReleaseMenu 2 `i -> 1 `i 1467  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 60C `*uc ]
 }
 [e :U 1467 ]
-"1450
+"1456
 }
 [e :U 1465 ]
-[; ;menu.c: 1450: }
-[; ;menu.c: 1451: lcd_print_once = 1;
-"1451
+[; ;menu.c: 1456: }
+[; ;menu.c: 1457: lcd_print_once = 1;
+"1457
 [e = _lcd_print_once -> -> 1 `i `b ]
-"1452
+"1458
 }
 [e :U 1462 ]
-"1443
+"1449
 [e $ == -> _encoder_click `i -> 0 `i 1463  ]
 [e :U 1464 ]
-[; ;menu.c: 1452: }
-[; ;menu.c: 1454: LAST_NOTE_MODE_KEY_RELEASE = arpeggiatorLastNoteModeKeyReleaseMenu.selector;
-"1454
+[; ;menu.c: 1458: }
+[; ;menu.c: 1460: LAST_NOTE_MODE_KEY_RELEASE = arpeggiatorLastNoteModeKeyReleaseMenu.selector;
+"1460
 [e = _LAST_NOTE_MODE_KEY_RELEASE -> . _arpeggiatorLastNoteModeKeyReleaseMenu 2 `b ]
-[; ;menu.c: 1456: }
-"1456
+[; ;menu.c: 1462: }
+"1462
 [e :UE 1461 ]
 }
-"1458
+"1464
 [v _Function_H_9_3 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1458: void Function_H_9_3(void){
+[; ;menu.c: 1464: void Function_H_9_3(void){
 [e :U _Function_H_9_3 ]
 [f ]
-[; ;menu.c: 1460: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU;
-"1460
-[e = _which_screen -> . `E14427 41 `uc ]
-[; ;menu.c: 1461: lcd_print_once = 0;
-"1461
-[e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1462: encoder_click = 0;
-"1462
-[e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1464: arpeggiatorLastNoteModeTransposeMenu.selector = LAST_NOTE_MODE_TRANSPOSE;
-"1464
-[e = . _arpeggiatorLastNoteModeTransposeMenu 2 -> -> _LAST_NOTE_MODE_TRANSPOSE `i `uc ]
-[; ;menu.c: 1466: while(encoder_click == 0) {
+[; ;menu.c: 1466: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU;
 "1466
+[e = _which_screen -> . `E14427 41 `uc ]
+[; ;menu.c: 1467: lcd_print_once = 0;
+"1467
+[e = _lcd_print_once -> -> 0 `i `b ]
+[; ;menu.c: 1468: encoder_click = 0;
+"1468
+[e = _encoder_click -> -> 0 `i `b ]
+[; ;menu.c: 1470: arpeggiatorLastNoteModeTransposeMenu.selector = LAST_NOTE_MODE_TRANSPOSE;
+"1470
+[e = . _arpeggiatorLastNoteModeTransposeMenu 2 -> -> _LAST_NOTE_MODE_TRANSPOSE `i `uc ]
+[; ;menu.c: 1472: while(encoder_click == 0) {
+"1472
 [e $U 1469  ]
 [e :U 1470 ]
 {
-[; ;menu.c: 1467: processEncoderBuxton();
-"1467
+[; ;menu.c: 1473: processEncoderBuxton();
+"1473
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1468: if (lcd_print_once == 0) {
-"1468
+[; ;menu.c: 1474: if (lcd_print_once == 0) {
+"1474
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1472  ]
 {
-[; ;menu.c: 1469: clear_row1();
-"1469
+[; ;menu.c: 1475: clear_row1();
+"1475
 [e ( _clear_row1 ..  ]
-[; ;menu.c: 1470: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
-"1470
+[; ;menu.c: 1476: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
+"1476
 [e ( _Lcd_Print_String (1 -> &U *U + &U _LCD_STRINGS * -> -> + % -> . _arpeggiatorLastNoteModeMenu 2 `i -> . _arpeggiatorLastNoteModeMenu 0 `i -> . _arpeggiatorLastNoteModeMenu 1 `i `ui `ux -> * -> # *U &U *U &U _LCD_STRINGS `ui -> -> 17 `i `ui `ux `*uc ]
-[; ;menu.c: 1471: if(arpeggiatorLastNoteModeTransposeMenu.selector == 0) {clear_row2();Lcd_Print_String("IMMEDIATE");}
-"1471
+[; ;menu.c: 1477: if(arpeggiatorLastNoteModeTransposeMenu.selector == 0) {clear_row2();Lcd_Print_String("IMMEDIATE");}
+"1477
 [e $ ! == -> . _arpeggiatorLastNoteModeTransposeMenu 2 `i -> 0 `i 1473  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 61C `*uc ]
 }
 [e :U 1473 ]
-[; ;menu.c: 1472: if(arpeggiatorLastNoteModeTransposeMenu.selector == 1) {clear_row2();Lcd_Print_String("FINISH LAST");}
-"1472
+[; ;menu.c: 1478: if(arpeggiatorLastNoteModeTransposeMenu.selector == 1) {clear_row2();Lcd_Print_String("FINISH LAST");}
+"1478
 [e $ ! == -> . _arpeggiatorLastNoteModeTransposeMenu 2 `i -> 1 `i 1474  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 62C `*uc ]
 }
 [e :U 1474 ]
-"1473
+"1479
 }
 [e :U 1472 ]
-[; ;menu.c: 1473: }
-[; ;menu.c: 1474: lcd_print_once = 1;
-"1474
+[; ;menu.c: 1479: }
+[; ;menu.c: 1480: lcd_print_once = 1;
+"1480
 [e = _lcd_print_once -> -> 1 `i `b ]
-"1475
+"1481
 }
 [e :U 1469 ]
-"1466
+"1472
 [e $ == -> _encoder_click `i -> 0 `i 1470  ]
 [e :U 1471 ]
-[; ;menu.c: 1475: }
-[; ;menu.c: 1477: LAST_NOTE_MODE_TRANSPOSE = arpeggiatorLastNoteModeTransposeMenu.selector;
-"1477
+[; ;menu.c: 1481: }
+[; ;menu.c: 1483: LAST_NOTE_MODE_TRANSPOSE = arpeggiatorLastNoteModeTransposeMenu.selector;
+"1483
 [e = _LAST_NOTE_MODE_TRANSPOSE -> . _arpeggiatorLastNoteModeTransposeMenu 2 `b ]
-[; ;menu.c: 1478: }
-"1478
+[; ;menu.c: 1484: }
+"1484
 [e :UE 1468 ]
 }
-"1482
+"1488
 [v _Function_H_9_4 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1482: void Function_H_9_4(void){
+[; ;menu.c: 1488: void Function_H_9_4(void){
 [e :U _Function_H_9_4 ]
 [f ]
-[; ;menu.c: 1484: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU;
-"1484
-[e = _which_screen -> . `E14427 42 `uc ]
-[; ;menu.c: 1485: lcd_print_once = 0;
-"1485
-[e = _lcd_print_once -> -> 0 `i `b ]
-[; ;menu.c: 1486: encoder_click = 0;
-"1486
-[e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1488: arpeggiatorLastNoteModeResetMenu.selector = LAST_NOTE_MODE_RESET;
-"1488
-[e = . _arpeggiatorLastNoteModeResetMenu 2 -> -> _LAST_NOTE_MODE_RESET `i `uc ]
-[; ;menu.c: 1490: while(encoder_click == 0) {
+[; ;menu.c: 1490: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU;
 "1490
+[e = _which_screen -> . `E14427 42 `uc ]
+[; ;menu.c: 1491: lcd_print_once = 0;
+"1491
+[e = _lcd_print_once -> -> 0 `i `b ]
+[; ;menu.c: 1492: encoder_click = 0;
+"1492
+[e = _encoder_click -> -> 0 `i `b ]
+[; ;menu.c: 1494: arpeggiatorLastNoteModeResetMenu.selector = LAST_NOTE_MODE_RESET;
+"1494
+[e = . _arpeggiatorLastNoteModeResetMenu 2 -> -> _LAST_NOTE_MODE_RESET `i `uc ]
+[; ;menu.c: 1496: while(encoder_click == 0) {
+"1496
 [e $U 1476  ]
 [e :U 1477 ]
 {
-[; ;menu.c: 1491: processEncoderBuxton();
-"1491
+[; ;menu.c: 1497: processEncoderBuxton();
+"1497
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1492: if (lcd_print_once == 0) {
-"1492
+[; ;menu.c: 1498: if (lcd_print_once == 0) {
+"1498
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1479  ]
 {
-[; ;menu.c: 1493: clear_row1();
-"1493
+[; ;menu.c: 1499: clear_row1();
+"1499
 [e ( _clear_row1 ..  ]
-[; ;menu.c: 1494: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
-"1494
+[; ;menu.c: 1500: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
+"1500
 [e ( _Lcd_Print_String (1 -> &U *U + &U _LCD_STRINGS * -> -> + % -> . _arpeggiatorLastNoteModeMenu 2 `i -> . _arpeggiatorLastNoteModeMenu 0 `i -> . _arpeggiatorLastNoteModeMenu 1 `i `ui `ux -> * -> # *U &U *U &U _LCD_STRINGS `ui -> -> 17 `i `ui `ux `*uc ]
-[; ;menu.c: 1495: if(arpeggiatorLastNoteModeResetMenu.selector == 0) {clear_row2();Lcd_Print_String("IMMEDIATE");}
-"1495
+[; ;menu.c: 1501: if(arpeggiatorLastNoteModeResetMenu.selector == 0) {clear_row2();Lcd_Print_String("IMMEDIATE");}
+"1501
 [e $ ! == -> . _arpeggiatorLastNoteModeResetMenu 2 `i -> 0 `i 1480  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 63C `*uc ]
 }
 [e :U 1480 ]
-[; ;menu.c: 1496: if(arpeggiatorLastNoteModeResetMenu.selector == 1) {clear_row2();Lcd_Print_String("FINISH LAST");}
-"1496
+[; ;menu.c: 1502: if(arpeggiatorLastNoteModeResetMenu.selector == 1) {clear_row2();Lcd_Print_String("FINISH LAST");}
+"1502
 [e $ ! == -> . _arpeggiatorLastNoteModeResetMenu 2 `i -> 1 `i 1481  ]
 {
 [e ( _clear_row2 ..  ]
 [e ( _Lcd_Print_String (1 -> :s 64C `*uc ]
 }
 [e :U 1481 ]
-"1497
+"1503
 }
 [e :U 1479 ]
-[; ;menu.c: 1497: }
-[; ;menu.c: 1498: lcd_print_once = 1;
-"1498
+[; ;menu.c: 1503: }
+[; ;menu.c: 1504: lcd_print_once = 1;
+"1504
 [e = _lcd_print_once -> -> 1 `i `b ]
-"1499
+"1505
 }
 [e :U 1476 ]
-"1490
+"1496
 [e $ == -> _encoder_click `i -> 0 `i 1477  ]
 [e :U 1478 ]
-[; ;menu.c: 1499: }
-[; ;menu.c: 1501: LAST_NOTE_MODE_RESET = arpeggiatorLastNoteModeResetMenu.selector;
-"1501
+[; ;menu.c: 1505: }
+[; ;menu.c: 1507: LAST_NOTE_MODE_RESET = arpeggiatorLastNoteModeResetMenu.selector;
+"1507
 [e = _LAST_NOTE_MODE_RESET -> . _arpeggiatorLastNoteModeResetMenu 2 `b ]
-[; ;menu.c: 1503: }
-"1503
+[; ;menu.c: 1509: }
+"1509
 [e :UE 1475 ]
 }
-"1507
+"1513
 [v _Function_H_9 `(v ~T0 @X0 1 ef ]
 {
-[; ;menu.c: 1507: void Function_H_9 (void) {
+[; ;menu.c: 1513: void Function_H_9 (void) {
 [e :U _Function_H_9 ]
 [f ]
-[; ;menu.c: 1509: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_MENU,
-[; ;menu.c: 1510: lcd_print_once = 0;
-"1510
+[; ;menu.c: 1515: which_screen = ARPEGGIATOR_LAST_NOTE_MODE_MENU,
+[; ;menu.c: 1516: lcd_print_once = 0;
+"1516
 [e ; = _which_screen -> . `E14427 38 `uc -> = _lcd_print_once -> -> 0 `i `b `i ]
-[; ;menu.c: 1511: encoder_click = 0;
-"1511
+[; ;menu.c: 1517: encoder_click = 0;
+"1517
 [e = _encoder_click -> -> 0 `i `b ]
-[; ;menu.c: 1513: while(encoder_click == 0) {
-"1513
+[; ;menu.c: 1519: while(encoder_click == 0) {
+"1519
 [e $U 1483  ]
 [e :U 1484 ]
 {
-[; ;menu.c: 1514: processEncoderBuxton();
-"1514
+[; ;menu.c: 1520: processEncoderBuxton();
+"1520
 [e ( _processEncoderBuxton ..  ]
-[; ;menu.c: 1515: if (lcd_print_once == 0) {
-"1515
+[; ;menu.c: 1521: if (lcd_print_once == 0) {
+"1521
 [e $ ! == -> _lcd_print_once `i -> 0 `i 1486  ]
 {
-[; ;menu.c: 1516: clear_row1();
-"1516
+[; ;menu.c: 1522: clear_row1();
+"1522
 [e ( _clear_row1 ..  ]
-[; ;menu.c: 1517: Lcd_Print_String("Last Note Mode:");
-"1517
+[; ;menu.c: 1523: Lcd_Print_String("Last Note Mode:");
+"1523
 [e ( _Lcd_Print_String (1 -> :s 65C `*uc ]
-[; ;menu.c: 1518: clear_row2();
-"1518
+[; ;menu.c: 1524: clear_row2();
+"1524
 [e ( _clear_row2 ..  ]
-[; ;menu.c: 1519: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
-"1519
+[; ;menu.c: 1525: Lcd_Print_String(LCD_STRINGS[(arpeggiatorLastNoteModeMenu.selector % arpeggiatorLastNoteModeMenu.number) + arpeggiatorLastNoteModeMenu.address]);
+"1525
 [e ( _Lcd_Print_String (1 -> &U *U + &U _LCD_STRINGS * -> -> + % -> . _arpeggiatorLastNoteModeMenu 2 `i -> . _arpeggiatorLastNoteModeMenu 0 `i -> . _arpeggiatorLastNoteModeMenu 1 `i `ui `ux -> * -> # *U &U *U &U _LCD_STRINGS `ui -> -> 17 `i `ui `ux `*uc ]
-"1520
+"1526
 }
 [e :U 1486 ]
-[; ;menu.c: 1520: }
-[; ;menu.c: 1521: lcd_print_once = 1;
-"1521
+[; ;menu.c: 1526: }
+[; ;menu.c: 1527: lcd_print_once = 1;
+"1527
 [e = _lcd_print_once -> -> 1 `i `b ]
-"1522
+"1528
 }
 [e :U 1483 ]
-"1513
+"1519
 [e $ == -> _encoder_click `i -> 0 `i 1484  ]
 [e :U 1485 ]
-[; ;menu.c: 1522: }
-[; ;menu.c: 1525: if(arpeggiatorLastNoteModeMenu.selector == 0) {Function_H_9_1();}
-"1525
+[; ;menu.c: 1528: }
+[; ;menu.c: 1531: if(arpeggiatorLastNoteModeMenu.selector == 0) {Function_H_9_1();}
+"1531
 [e $ ! == -> . _arpeggiatorLastNoteModeMenu 2 `i -> 0 `i 1487  ]
 {
 [e ( _Function_H_9_1 ..  ]
 }
 [e :U 1487 ]
-[; ;menu.c: 1526: if(arpeggiatorLastNoteModeMenu.selector == 1) {Function_H_9_2();}
-"1526
+[; ;menu.c: 1532: if(arpeggiatorLastNoteModeMenu.selector == 1) {Function_H_9_2();}
+"1532
 [e $ ! == -> . _arpeggiatorLastNoteModeMenu 2 `i -> 1 `i 1488  ]
 {
 [e ( _Function_H_9_2 ..  ]
 }
 [e :U 1488 ]
-[; ;menu.c: 1527: if(arpeggiatorLastNoteModeMenu.selector == 2) {Function_H_9_3();}
-"1527
+[; ;menu.c: 1533: if(arpeggiatorLastNoteModeMenu.selector == 2) {Function_H_9_3();}
+"1533
 [e $ ! == -> . _arpeggiatorLastNoteModeMenu 2 `i -> 2 `i 1489  ]
 {
 [e ( _Function_H_9_3 ..  ]
 }
 [e :U 1489 ]
-[; ;menu.c: 1528: if(arpeggiatorLastNoteModeMenu.selector == 3) {Function_H_9_4();}
-"1528
+[; ;menu.c: 1534: if(arpeggiatorLastNoteModeMenu.selector == 3) {Function_H_9_4();}
+"1534
 [e $ ! == -> . _arpeggiatorLastNoteModeMenu 2 `i -> 3 `i 1490  ]
 {
 [e ( _Function_H_9_4 ..  ]
 }
 [e :U 1490 ]
-[; ;menu.c: 1529: }
-"1529
+[; ;menu.c: 1535: }
+"1535
 [e :UE 1482 ]
 }
 [a 30C 69 110 99 111 100 101 114 32 80 111 108 97 114 105 116 121 0 ]
