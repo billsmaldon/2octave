@@ -1206,8 +1206,14 @@ void Function_H_6_1(void){
 
     if(LATCH == 0){
     
+        //temporarily store UN_LATCH_MODE
+        unsigned char temp = UN_LATCH_MODE;
+        
         UN_LATCH_MODE = ALL;    // UN_LATCH_MODE always 'ALL'!
         doTheUnLatch();
+        
+        //restore UN_LATCH_MODE
+        UN_LATCH_MODE = temp;
         
         /*
         //DISPLAY_MODE = STRING;

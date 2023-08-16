@@ -106,7 +106,7 @@ unsigned char NOTE_LENGTH_PULSES_ARRAY[12] =
     THIRTY2ND,THIRTY2ND_DOTTED,THIRTY2ND_TRIPLET
 };
 
-unsigned char BPM = 120;         //the tempo
+unsigned char BPM = 120;        //the tempo
 unsigned char PPQN = 48;        //pulses per quarter note
 unsigned char PRESCALER = 4;    //timer prescaler
 unsigned char OCTAVES = 3;      //octave range of arpeggio (maximum of 4)
