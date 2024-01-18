@@ -10,9 +10,45 @@ PIC18F4680 FIRMWARE v1.0a FOR PCB v1.0
 
 PIC18F4680 FIRMWARE v2.0a FOR PCB v2.0 & v2.1
 
+*** NEW 2024 FIRMWARE VERSION ***
+
+PIC18F4680 FIRMWARE v1.1a FOR PCB v1.0
+
+PIC18F4680 FIRMWARE v2.1a FOR PCB v2.0 & v2.1
+
+*** TEENSY FIRMWARE ***
+
 TEENSY LC FIRMWARE FOR PCB v2.0 & v2.1
 
-What's new?
+What's new v1.1a/v2.1a (2024)?
+
+1) Turn cc while arpeggio ON
+
+While an arpeggio is playing, turning a coninuous controller 
+caused stuck Note On messages. This has been fixed.
+
+2) Un-block the code
+
+When in the menu, pressing a key or turning a continuous 
+controller was "blocked", meaning that the keyboard or 
+potentiometers do nothing until the menu item currently being 
+selected was set by clicking the encoder. Now, anywhere in the 
+menu selection key presses and potentiometer turns will work.
+
+3) Change keyboard mode while a key is held
+
+If a key is held and the KEYBOARD MODE is changed, it waits for 
+the key release and then changes the KEYBOARD MODE.
+
+4) Digit brightness
+
+Now the 7 segment digital display has a consistent brightness 
+and is updated at 100 Hz. The only exception is when ARPEGGIO 
+is ON.  There is some display flicker while an arpeggio is 
+playing due to the increased CPU load on the microcontroller. 
+Releasing the arpeggio eliminates any flicker in the display.
+
+What's new v1.0a/v2.0a (2023)?
 
 1. Firmware can be compiled for any PCB version
 2. 7 segment display flicker fixed
