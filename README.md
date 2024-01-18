@@ -24,7 +24,7 @@ What's new v1.1a/v2.1a (2024)?
 
 1) Turn cc while arpeggio ON
 
-While an arpeggio is playing, turning a coninuous controller 
+While an arpeggio is playing, turning a continuous controller 
 caused stuck Note On messages. This has been fixed.
 
 2) Un-block the code
