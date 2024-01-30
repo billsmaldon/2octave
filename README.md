@@ -48,6 +48,11 @@ is ON.  There is some display flicker while an arpeggio is
 playing due to the increased CPU load on the microcontroller. 
 Releasing the arpeggio eliminates any flicker in the display.
 
+5) Noisy potentiometers
+
+Potentiometers sometimes sent random control changes when no
+continuous controller was being turned. This has been fixed.
+
 What's new v1.0a/v2.0a (2023)?
 
 1. Firmware can be compiled for any PCB version
