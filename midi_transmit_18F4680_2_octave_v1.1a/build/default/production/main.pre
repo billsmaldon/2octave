@@ -2,7 +2,7 @@
 # 1 "main.c"
 
 
-# 107
+# 131
 #pragma config OSC = HS
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
@@ -17021,12 +17021,14 @@ unsigned char ema_integer = 50;
 
 float ema_alpha = 0.00;
 
+# 50
+int HYST_VAL = 32;
 
-
-int HYST_VAL = 16;
-
-# 54
+# 56
 unsigned char iterator_focus = 255;
+
+__bit FIRST_READING;
+
 
 
 int potentiometer_raw[16] = {0};
@@ -17048,7 +17050,7 @@ signed char controller_number_two_byte;
 
 __bit POT_MODE;
 
-# 108
+# 113
 potentiometer_type inputPotsArray[16] = {{0, knob_1, knob_1_MSB},{0, knob_2, knob_2_MSB},{0, knob_3, knob_3_MSB},{0, knob_4, knob_4_MSB},{0, knob_5, knob_5_MSB},{0, knob_6, knob_6_MSB},{0, knob_7, knob_7_MSB},{0, slider_1, slider_1_MSB},{0, slider_2, slider_2_MSB},{0, slider_3, slider_3_MSB},{0, slider_4, slider_4_MSB},{0, slider_5, slider_5_MSB},{0, slider_6, slider_6_MSB},{0, slider_7, slider_7_MSB},{0, modulation_wheel_controller_number, modulation_wheel_controller_number},{0, pitch_bend_controller_number, pitch_bend_controller_number}};
 
 # 25 "keyboard.h"
@@ -17815,7 +17817,7 @@ SLOT3,
 SLOT4
 };
 
-# 185 "main.c"
+# 209 "main.c"
 void setup (void) {
 
 
@@ -17825,10 +17827,10 @@ TRISA = 0b000001;
 
 TRISB = 0b00110001;
 
-# 200
+# 224
 TRISC = 0b10010000;
 
-# 206
+# 230
 TRISD = 0b00000000;
 
 
@@ -17928,7 +17930,7 @@ clock();
 
 void analogInputs(void) {
 
-# 319
+# 343
 if(ARPEGGIO_ON == 0) {
 readPotentiometers();
 }
@@ -18011,7 +18013,7 @@ if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == D
 stored_octave = which_octave;
 }
 
-# 420
+# 444
 ARPEGGIO_IS_PLAYING = 1;
 playArpeggio();
 ARPEGGIO_IS_PLAYING = 0;
@@ -18028,11 +18030,11 @@ stored_octave = which_octave;
 }
 }
 
-# 455
+# 479
 if(lastNoteMode == 1){
 if((finishLastNote == 1) && ((TIMER_OVERFLOWS % NOTE_LENGTH_PULSES) == 0)){
 
-# 465
+# 489
 finishLastNote = 0;
 
 
@@ -18090,7 +18092,7 @@ ema_integer = Read_b_eep(0x03);
 
 calculate_alpha();
 
-# 527
+# 551
 ARPEGGIO_ON = 0;
 
 
@@ -18147,7 +18149,7 @@ startingDirection = DOWN;
 
 displayTest();
 
-# 588
+# 612
 which_functions_are_unblocked = 1;
 
 
@@ -18158,7 +18160,7 @@ digitalInputs();
 analogInputs();
 processEncoderBuxton();
 
-# 607
+# 631
 menu_lcd();
 
 }

@@ -33,9 +33,9 @@ long map(long x, long in_min, long in_max, long out_min, long out_max) {
 //gets potentiometer inputs and smooths them with filter algorithm
 void readPotentiometers(void){
     
-    static __bit FIRST_READING;     //on first potentiometer reading, sets ema_sum[i] to potentiometer_raw[i]
-                                    //suppresses transmit of entire bank of continuous controllers on reset
-    
+    //make this a global!
+    //static __bit FIRST_READING;     //on first potentiometer reading, sets ema_sum[i] to potentiometer_raw[i]
+
     //raw potentiometer input
     for(unsigned char i=0;i<NUM_ANALOG;i++){
         
@@ -74,13 +74,35 @@ void readPotentiometers(void){
         static unsigned long count;
         count++;
         //static unsigned char iterator_focus;
-          
+        
+        //added this!
+        //added 'CLEAR' FIRST_READING to fix glitching potentiometers!!!
+ 
         if (FIRST_READING == 0) {potentiometer_filtered_last[i] = ema_sum[i];}
         
         if (((int)(ema_sum[i] - potentiometer_filtered_last[i]) >= HYST_VAL) || ((int)(potentiometer_filtered_last[i] - ema_sum[i]) >= HYST_VAL)) { //hysteresis
 
             //comment this out!
             if((i==iterator_focus) || (iterator_focus==FREE)) {count = 0; count_ISR = 0;} //count is resetting when any "i" is turned, not just "iterator_focus"
+            
+            
+            // this block of code prevents continuous controller 'jumping' from one controller value
+            // to another when HYST_VAL == HYST_VAL_COARSE_RESOLUTION (fills in intermediate values)
+            // especially when HYST_VAL_COARSE_RESOLUTION is *large*
+            
+            if(HYST_VAL == HYST_VAL_COARSE_RESOLUTION) {
+                
+                //add ONE LSB
+                if((int)(ema_sum[i] - potentiometer_filtered_last[i]) >= HYST_VAL_COARSE_RESOLUTION){
+                    //...
+                    ema_sum[i] = (potentiometer_filtered_last[i] + HYST_VAL_FINE_RESOLUTION);
+                } 
+                //subtract ONE LSB
+                if((int)(potentiometer_filtered_last[i] - ema_sum[i]) >= HYST_VAL_COARSE_RESOLUTION){
+                    //...
+                    ema_sum[i] = (potentiometer_filtered_last[i] - HYST_VAL_FINE_RESOLUTION);
+                }
+            }
             
             HYST_VAL = HYST_VAL_FINE_RESOLUTION;
             
@@ -90,12 +112,15 @@ void readPotentiometers(void){
             #endif
             
             if(iterator_focus == FREE) {iterator_focus = i;}
-            potentiometer_filtered_now[i] = ema_sum[i]; //update the variable
+            potentiometer_filtered_now[i] =ema_sum[i]; //update the variable
             
             //bit shifting (7 bit)
             if(inputPotsArray[i].controller_resolution == LO_RES) {
                 potentiometer_filtered_now[i] = map(potentiometer_filtered_now[i], 0, 0x3F50, 0, 0x3FFF);
                 potentiometer_filtered_now[i] = potentiometer_filtered_now[i] >> 3;
+                
+                // ++/-- here!
+                
                 if(potentiometer_filtered_now[i] < 0){potentiometer_filtered_now[i] = 0;}
                 if(potentiometer_filtered_now[i] > 127){potentiometer_filtered_now[i] = 127;}
             }
@@ -114,6 +139,9 @@ void readPotentiometers(void){
             // ignore other controller numbers if mainly iterator "i" is the only potentiometer that is varying
             
             //this sends any "i" to "iterator_focus" ---> fix
+            
+            //added 'FIRST_READING' and 'count_ISR' (new)
+            //count_ISR = 0; FIRST_READING = 0;
             if(i==iterator_focus) {processPotentiometers(iterator_focus);} //if there is a mismatch, pass the iterator
             potentiometer_filtered_last[i] = ema_sum[i]; //update the variable
             

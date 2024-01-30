@@ -2,10 +2,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "77 midi.h
 [c E13865 144 128 160 176 192 208 224 240 .. ]
 [n E13865 statusByteCommand note_on note_off key_pressure control_change program_change channel_pressure pitch_bend system_msg  ]
-"65 potentiometers.h
+"70 potentiometers.h
 [s S1118 :1 `uc 1 `c 1 `c 1 ]
 [n S1118 Potentiometers controller_resolution controller_number controller_number_two_byte ]
-"108
+"113
 [c E13881 -1 -2 -3 0 1 7 32 33 39 12 13 16 48 17 18 19 20 21 22 23 24 25 26 27 28 29 48 49 50 51 70 71 72 73 74 75 76 80 81 82 83 84 85 86 87 88 91 92 93 94 95 102 103 104 106 107 108 109 120 121 122 123 124 125 126 127 .. ]
 [n E13881 controllerNumber velocity_controller_number pitch_bend_controller_number modulation_wheel_controller_number program_change_MSB modulation_wheel_MSB volume_MSB program_change_LSB modulation_wheel_LSB volume_LSB effect_control_1 effect_control_2 knob_1_MSB knob_1_LSB knob_2_MSB knob_3_MSB knob_4_MSB knob_5_MSB knob_6_MSB knob_7_MSB slider_1_MSB slider_2_MSB slider_3_MSB slider_4_MSB slider_5_MSB slider_6_MSB slider_7_MSB general_purpose_controller_1_LSB general_purpose_controller_2_LSB general_purpose_controller_3_LSB general_purpose_controller_4_LSB knob_1 knob_2 knob_3 knob_4 knob_5 knob_6 knob_7 button_1 button_2 button_3 button_4 portamento_amount button_5 button_6 button_7 button_8 effect_1_depth effect_2_depth effect_3_depth effect_4_depth effect_5_depth slider_1 slider_2 slider_3 slider_4 slider_5 slider_6 slider_7 all_sound_off all_controllers_off local_keyboard_on_off all_notes_off omni_mode_off omni_mode_on mono_operaton poly_operation  ]
 "28 adc.h
@@ -12553,59 +12553,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> .0.00 `f
 ]
 [; ;potentiometers.h: 44: float ema_alpha = 0.00;
-"48
+"50
 [v _HYST_VAL `i ~T0 @X0 1 e ]
 [i _HYST_VAL
--> 16 `i
+-> 32 `i
 ]
-[; ;potentiometers.h: 48: int HYST_VAL = 16;
-"54
+[; ;potentiometers.h: 50: int HYST_VAL = 32;
+"56
 [v _iterator_focus `uc ~T0 @X0 1 e ]
 [i _iterator_focus
 -> -> 255 `i `uc
 ]
-[; ;potentiometers.h: 54: unsigned char iterator_focus = 255;
-"57
+[; ;potentiometers.h: 56: unsigned char iterator_focus = 255;
+"58
+[v _FIRST_READING `b ~T0 @X0 1 e ]
+[; ;potentiometers.h: 58: __bit FIRST_READING;
+"62
 [v _potentiometer_raw `i ~T0 @X0 -> 16 `i e ]
 [i _potentiometer_raw
 :U ..
 -> 0 `i
 ..
 ]
-[; ;potentiometers.h: 57: int potentiometer_raw[16] = {0};
-"58
+[; ;potentiometers.h: 62: int potentiometer_raw[16] = {0};
+"63
 [v _ema_sum `i ~T0 @X0 -> 16 `i e ]
 [i _ema_sum
 :U ..
 -> 0 `i
 ..
 ]
-[; ;potentiometers.h: 58: signed int ema_sum[16] = {0};
-"61
+[; ;potentiometers.h: 63: signed int ema_sum[16] = {0};
+"66
 [v _potentiometer_filtered_now `i ~T0 @X0 -> 16 `i e ]
 [i _potentiometer_filtered_now
 :U ..
 -> 0 `i
 ..
 ]
-[; ;potentiometers.h: 61: int potentiometer_filtered_now[16] = {0};
-"62
+[; ;potentiometers.h: 66: int potentiometer_filtered_now[16] = {0};
+"67
 [v _potentiometer_filtered_last `i ~T0 @X0 -> 16 `i e ]
 [i _potentiometer_filtered_last
 :U ..
 -> 0 `i
 ..
 ]
-[; ;potentiometers.h: 62: int potentiometer_filtered_last[16] = {0};
-[; ;potentiometers.h: 65: typedef struct Potentiometers {
-[; ;potentiometers.h: 66: unsigned controller_resolution : 1;
-[; ;potentiometers.h: 67: signed char controller_number;
-[; ;potentiometers.h: 68: signed char controller_number_two_byte;
-[; ;potentiometers.h: 69: } potentiometer_type;
-"74
+[; ;potentiometers.h: 67: int potentiometer_filtered_last[16] = {0};
+[; ;potentiometers.h: 70: typedef struct Potentiometers {
+[; ;potentiometers.h: 71: unsigned controller_resolution : 1;
+[; ;potentiometers.h: 72: signed char controller_number;
+[; ;potentiometers.h: 73: signed char controller_number_two_byte;
+[; ;potentiometers.h: 74: } potentiometer_type;
+"79
 [v _POT_MODE `b ~T0 @X0 1 e ]
-[; ;potentiometers.h: 74: __bit POT_MODE;
-"108
+[; ;potentiometers.h: 79: __bit POT_MODE;
+"113
 [v _inputPotsArray `S1118 ~T0 @X0 -> 16 `i e ]
 [i _inputPotsArray
 :U ..
@@ -12691,7 +12694,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;potentiometers.h: 108: potentiometer_type inputPotsArray[16] = {{0, knob_1, knob_1_MSB},{0, knob_2, knob_2_MSB},{0, knob_3, knob_3_MSB},{0, knob_4, knob_4_MSB},{0, knob_5, knob_5_MSB},{0, knob_6, knob_6_MSB},{0, knob_7, knob_7_MSB},{0, slider_1, slider_1_MSB},{0, slider_2,
+[; ;potentiometers.h: 113: potentiometer_type inputPotsArray[16] = {{0, knob_1, knob_1_MSB},{0, knob_2, knob_2_MSB},{0, knob_3, knob_3_MSB},{0, knob_4, knob_4_MSB},{0, knob_5, knob_5_MSB},{0, knob_6, knob_6_MSB},{0, knob_7, knob_7_MSB},{0, slider_1, slider_1_MSB},{0, slider_2,
 "24 potentiometers.c
 [v _calculate_alpha `(v ~T0 @X0 1 ef ]
 {
@@ -12730,9 +12733,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;potentiometers.c: 34: void readPotentiometers(void){
 [e :U _readPotentiometers ]
 [f ]
-"36
-[v F14013 `b ~T0 @X0 1 s FIRST_READING ]
-[; ;potentiometers.c: 36: static __bit FIRST_READING;
 [; ;potentiometers.c: 40: for(unsigned char i=0;i<16;i++){
 "40
 {
@@ -12747,7 +12747,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _potentiometer_raw * -> _i `ux -> -> # *U &U _potentiometer_raw `ui `ux -> ( _ADC_Read (1 _i `i ]
 [; ;potentiometers.c: 51: if (FIRST_READING == 0) {
 "51
-[e $ ! == -> F14013 `i -> 0 `i 1125  ]
+[e $ ! == -> _FIRST_READING `i -> 0 `i 1125  ]
 {
 [; ;potentiometers.c: 52: ema_sum[i] = potentiometer_raw[i];
 "52
@@ -12801,279 +12801,309 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;potentiometers.c: 75: count++;
 "75
 [e ++ F14017 -> -> -> 1 `i `l `ul ]
-[; ;potentiometers.c: 78: if (FIRST_READING == 0) {potentiometer_filtered_last[i] = ema_sum[i];}
-"78
-[e $ ! == -> F14013 `i -> 0 `i 1132  ]
+[; ;potentiometers.c: 81: if (FIRST_READING == 0) {potentiometer_filtered_last[i] = ema_sum[i];}
+"81
+[e $ ! == -> _FIRST_READING `i -> 0 `i 1132  ]
 {
 [e = *U + &U _potentiometer_filtered_last * -> _i `ux -> -> # *U &U _potentiometer_filtered_last `ui `ux *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux ]
 }
 [e :U 1132 ]
-[; ;potentiometers.c: 80: if (((int)(ema_sum[i] - potentiometer_filtered_last[i]) >= HYST_VAL) || ((int)(potentiometer_filtered_last[i] - ema_sum[i]) >= HYST_VAL)) {
-"80
+[; ;potentiometers.c: 83: if (((int)(ema_sum[i] - potentiometer_filtered_last[i]) >= HYST_VAL) || ((int)(potentiometer_filtered_last[i] - ema_sum[i]) >= HYST_VAL)) {
+"83
 [e $ ! || >= - *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux *U + &U _potentiometer_filtered_last * -> _i `ux -> -> # *U &U _potentiometer_filtered_last `ui `ux _HYST_VAL >= - *U + &U _potentiometer_filtered_last * -> _i `ux -> -> # *U &U _potentiometer_filtered_last `ui `ux *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux _HYST_VAL 1133  ]
 {
-[; ;potentiometers.c: 83: if((i==iterator_focus) || (iterator_focus==255)) {count = 0; count_ISR = 0;}
-"83
+[; ;potentiometers.c: 86: if((i==iterator_focus) || (iterator_focus==255)) {count = 0; count_ISR = 0;}
+"86
 [e $ ! || == -> _i `i -> _iterator_focus `i == -> _iterator_focus `i -> 255 `i 1134  ]
 {
 [e = F14017 -> -> -> 0 `i `l `ul ]
 [e = _count_ISR -> -> -> 0 `i `l `ul ]
 }
 [e :U 1134 ]
-[; ;potentiometers.c: 85: HYST_VAL = 8;
-"85
+[; ;potentiometers.c: 93: if(HYST_VAL == 32) {
+"93
+[e $ ! == _HYST_VAL -> 32 `i 1135  ]
+{
+[; ;potentiometers.c: 96: if((int)(ema_sum[i] - potentiometer_filtered_last[i]) >= 32){
+"96
+[e $ ! >= - *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux *U + &U _potentiometer_filtered_last * -> _i `ux -> -> # *U &U _potentiometer_filtered_last `ui `ux -> 32 `i 1136  ]
+{
+[; ;potentiometers.c: 98: ema_sum[i] = (potentiometer_filtered_last[i] + 8);
+"98
+[e = *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux + *U + &U _potentiometer_filtered_last * -> _i `ux -> -> # *U &U _potentiometer_filtered_last `ui `ux -> 8 `i ]
+"99
+}
+[e :U 1136 ]
+[; ;potentiometers.c: 99: }
+[; ;potentiometers.c: 101: if((int)(potentiometer_filtered_last[i] - ema_sum[i]) >= 32){
+"101
+[e $ ! >= - *U + &U _potentiometer_filtered_last * -> _i `ux -> -> # *U &U _potentiometer_filtered_last `ui `ux *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux -> 32 `i 1137  ]
+{
+[; ;potentiometers.c: 103: ema_sum[i] = (potentiometer_filtered_last[i] - 8);
+"103
+[e = *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux - *U + &U _potentiometer_filtered_last * -> _i `ux -> -> # *U &U _potentiometer_filtered_last `ui `ux -> 8 `i ]
+"104
+}
+[e :U 1137 ]
+"105
+}
+[e :U 1135 ]
+[; ;potentiometers.c: 104: }
+[; ;potentiometers.c: 105: }
+[; ;potentiometers.c: 107: HYST_VAL = 8;
+"107
 [e = _HYST_VAL -> 8 `i ]
-[; ;potentiometers.c: 92: if(iterator_focus == 255) {iterator_focus = i;}
-"92
-[e $ ! == -> _iterator_focus `i -> 255 `i 1135  ]
+[; ;potentiometers.c: 114: if(iterator_focus == 255) {iterator_focus = i;}
+"114
+[e $ ! == -> _iterator_focus `i -> 255 `i 1138  ]
 {
 [e = _iterator_focus _i ]
 }
-[e :U 1135 ]
-[; ;potentiometers.c: 93: potentiometer_filtered_now[i] = ema_sum[i];
-"93
-[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux ]
-[; ;potentiometers.c: 96: if(inputPotsArray[i].controller_resolution == 0) {
-"96
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 0 `i -> 0 `i 1136  ]
-{
-[; ;potentiometers.c: 97: potentiometer_filtered_now[i] = map(potentiometer_filtered_now[i], 0, 0x3F50, 0, 0x3FFF);
-"97
-[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> ( _map (4 , , , , -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `l -> -> 0 `i `l -> -> 16208 `i `l -> -> 0 `i `l -> -> 16383 `i `l `i ]
-[; ;potentiometers.c: 98: potentiometer_filtered_now[i] = potentiometer_filtered_now[i] >> 3;
-"98
-[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux >> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 3 `i ]
-[; ;potentiometers.c: 99: if(potentiometer_filtered_now[i] < 0){potentiometer_filtered_now[i] = 0;}
-"99
-[e $ ! < *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 0 `i 1137  ]
-{
-[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 0 `i ]
-}
-[e :U 1137 ]
-[; ;potentiometers.c: 100: if(potentiometer_filtered_now[i] > 127){potentiometer_filtered_now[i] = 127;}
-"100
-[e $ ! > *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 127 `i 1138  ]
-{
-[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 127 `i ]
-}
 [e :U 1138 ]
-"101
-}
-[e :U 1136 ]
-[; ;potentiometers.c: 101: }
-[; ;potentiometers.c: 104: if(inputPotsArray[i].controller_resolution == 1) {
-"104
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 0 `i -> 1 `i 1139  ]
+[; ;potentiometers.c: 115: potentiometer_filtered_now[i] =ema_sum[i];
+"115
+[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux ]
+[; ;potentiometers.c: 118: if(inputPotsArray[i].controller_resolution == 0) {
+"118
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 0 `i -> 0 `i 1139  ]
 {
-[; ;potentiometers.c: 105: potentiometer_filtered_now[i] = potentiometer_filtered_now[i] << 4;
-"105
-[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux << *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 4 `i ]
-[; ;potentiometers.c: 106: potentiometer_filtered_now[i] = map(potentiometer_filtered_now[i], 0x50, 0x3F00, 0, 0x3FFF);
-"106
-[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> ( _map (4 , , , , -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `l -> -> 80 `i `l -> -> 16128 `i `l -> -> 0 `i `l -> -> 16383 `i `l `i ]
-[; ;potentiometers.c: 108: if(potentiometer_filtered_now[i] < 0){potentiometer_filtered_now[i] = 0;}
-"108
+[; ;potentiometers.c: 119: potentiometer_filtered_now[i] = map(potentiometer_filtered_now[i], 0, 0x3F50, 0, 0x3FFF);
+"119
+[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> ( _map (4 , , , , -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `l -> -> 0 `i `l -> -> 16208 `i `l -> -> 0 `i `l -> -> 16383 `i `l `i ]
+[; ;potentiometers.c: 120: potentiometer_filtered_now[i] = potentiometer_filtered_now[i] >> 3;
+"120
+[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux >> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 3 `i ]
+[; ;potentiometers.c: 124: if(potentiometer_filtered_now[i] < 0){potentiometer_filtered_now[i] = 0;}
+"124
 [e $ ! < *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 0 `i 1140  ]
 {
 [e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 0 `i ]
 }
 [e :U 1140 ]
-[; ;potentiometers.c: 109: if(potentiometer_filtered_now[i] > 0x3FFF){potentiometer_filtered_now[i] = 0x3FFF;}
-"109
-[e $ ! > *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 16383 `i 1141  ]
+[; ;potentiometers.c: 125: if(potentiometer_filtered_now[i] > 127){potentiometer_filtered_now[i] = 127;}
+"125
+[e $ ! > *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 127 `i 1141  ]
+{
+[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 127 `i ]
+}
+[e :U 1141 ]
+"126
+}
+[e :U 1139 ]
+[; ;potentiometers.c: 126: }
+[; ;potentiometers.c: 129: if(inputPotsArray[i].controller_resolution == 1) {
+"129
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 0 `i -> 1 `i 1142  ]
+{
+[; ;potentiometers.c: 130: potentiometer_filtered_now[i] = potentiometer_filtered_now[i] << 4;
+"130
+[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux << *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 4 `i ]
+[; ;potentiometers.c: 131: potentiometer_filtered_now[i] = map(potentiometer_filtered_now[i], 0x50, 0x3F00, 0, 0x3FFF);
+"131
+[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> ( _map (4 , , , , -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `l -> -> 80 `i `l -> -> 16128 `i `l -> -> 0 `i `l -> -> 16383 `i `l `i ]
+[; ;potentiometers.c: 133: if(potentiometer_filtered_now[i] < 0){potentiometer_filtered_now[i] = 0;}
+"133
+[e $ ! < *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 0 `i 1143  ]
+{
+[e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 0 `i ]
+}
+[e :U 1143 ]
+[; ;potentiometers.c: 134: if(potentiometer_filtered_now[i] > 0x3FFF){potentiometer_filtered_now[i] = 0x3FFF;}
+"134
+[e $ ! > *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 16383 `i 1144  ]
 {
 [e = *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 16383 `i ]
 }
-[e :U 1141 ]
-"110
+[e :U 1144 ]
+"135
 }
-[e :U 1139 ]
-[; ;potentiometers.c: 110: }
-[; ;potentiometers.c: 117: if(i==iterator_focus) {processPotentiometers(iterator_focus);}
-"117
-[e $ ! == -> _i `i -> _iterator_focus `i 1142  ]
+[e :U 1142 ]
+[; ;potentiometers.c: 135: }
+[; ;potentiometers.c: 145: if(i==iterator_focus) {processPotentiometers(iterator_focus);}
+"145
+[e $ ! == -> _i `i -> _iterator_focus `i 1145  ]
 {
 [e ( _processPotentiometers (1 _iterator_focus ]
 }
-[e :U 1142 ]
-[; ;potentiometers.c: 118: potentiometer_filtered_last[i] = ema_sum[i];
-"118
+[e :U 1145 ]
+[; ;potentiometers.c: 146: potentiometer_filtered_last[i] = ema_sum[i];
+"146
 [e = *U + &U _potentiometer_filtered_last * -> _i `ux -> -> # *U &U _potentiometer_filtered_last `ui `ux *U + &U _ema_sum * -> _i `ux -> -> # *U &U _ema_sum `ui `ux ]
-"120
+"148
 }
 [e :U 1133 ]
-[; ;potentiometers.c: 120: }
-[; ;potentiometers.c: 124: if (count_ISR >= number_of_interrupts) {
-"124
-[e $ ! >= _count_ISR _number_of_interrupts 1143  ]
+[; ;potentiometers.c: 148: }
+[; ;potentiometers.c: 152: if (count_ISR >= number_of_interrupts) {
+"152
+[e $ ! >= _count_ISR _number_of_interrupts 1146  ]
 {
-[; ;potentiometers.c: 126: HYST_VAL = 16;
-"126
-[e = _HYST_VAL -> 16 `i ]
-[; ;potentiometers.c: 133: iterator_focus = 255;
-"133
+[; ;potentiometers.c: 154: HYST_VAL = 32;
+"154
+[e = _HYST_VAL -> 32 `i ]
+[; ;potentiometers.c: 161: iterator_focus = 255;
+"161
 [e = _iterator_focus -> -> 255 `i `uc ]
-"134
+"162
 }
-[e :U 1143 ]
-"135
+[e :U 1146 ]
+"163
 }
 "64
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 16 `i 1129  ]
 [e :U 1130 ]
-"135
+"163
 }
-[; ;potentiometers.c: 134: }
-[; ;potentiometers.c: 135: }
-[; ;potentiometers.c: 137: FIRST_READING = 1;
-"137
-[e = F14013 -> -> 1 `i `b ]
-[; ;potentiometers.c: 138: }
-"138
+[; ;potentiometers.c: 162: }
+[; ;potentiometers.c: 163: }
+[; ;potentiometers.c: 165: FIRST_READING = 1;
+"165
+[e = _FIRST_READING -> -> 1 `i `b ]
+[; ;potentiometers.c: 166: }
+"166
 [e :UE 1121 ]
 }
-"141
+"169
 [v _processPotentiometers `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;potentiometers.c: 141: void processPotentiometers(unsigned char i){
+[; ;potentiometers.c: 169: void processPotentiometers(unsigned char i){
 [e :U _processPotentiometers ]
 [v _i `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;potentiometers.c: 146: number_to_display = potentiometer_filtered_now[i];
-"146
-[e = _number_to_display *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux ]
-[; ;potentiometers.c: 150: if (inputPotsArray[i].controller_resolution == 0){
-"150
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 0 `i -> 0 `i 1145  ]
-{
-[; ;potentiometers.c: 153: DISPLAY_MODE = 0;
-"153
-[e = _DISPLAY_MODE -> -> 0 `i `uc ]
-[; ;potentiometers.c: 154: DIGIT_MODE = 0;
-"154
-[e = _DIGIT_MODE -> -> 0 `i `uc ]
-[; ;potentiometers.c: 158: if(inputPotsArray[i].controller_number >= 0) {
-"158
-[e $ ! >= -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `i -> 0 `i 1146  ]
-{
-[; ;potentiometers.c: 159: controlChange(channel, inputPotsArray[i].controller_number, potentiometer_filtered_now[i]);
-"159
-[e ( _controlChange (3 , , _channel -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `uc ]
-"160
-}
-[e :U 1146 ]
-[; ;potentiometers.c: 160: }
-[; ;potentiometers.c: 163: if(inputPotsArray[i].controller_number == -1) {
-"163
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `i -U -> 1 `i 1147  ]
-{
-[; ;potentiometers.c: 164: velocity = potentiometer_filtered_now[i];
-"164
-[e = _velocity -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `uc ]
-"165
-}
-[e :U 1147 ]
-[; ;potentiometers.c: 165: }
-[; ;potentiometers.c: 167: if(inputPotsArray[i].controller_number == -2) {
-"167
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `i -U -> 2 `i 1148  ]
-{
-[; ;potentiometers.c: 168: pitchBend(channel, 0x00, potentiometer_filtered_now[i]);
-"168
-[e ( _pitchBend (3 , , _channel -> -> 0 `i `uc -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `uc ]
-"169
-}
-[e :U 1148 ]
-[; ;potentiometers.c: 169: }
-[; ;potentiometers.c: 172: if(inputPotsArray[i].controller_number == -3) {
-"172
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `i -U -> 3 `i 1149  ]
-{
-[; ;potentiometers.c: 173: controlChange(channel, modulation_wheel_MSB, potentiometer_filtered_now[i]);
-"173
-[e ( _controlChange (3 , , _channel -> . `E13881 4 `uc -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `uc ]
+[; ;potentiometers.c: 174: number_to_display = potentiometer_filtered_now[i];
 "174
-}
-[e :U 1149 ]
-"175
-}
-[e :U 1145 ]
-[; ;potentiometers.c: 174: }
-[; ;potentiometers.c: 175: }
-[; ;potentiometers.c: 178: if (inputPotsArray[i].controller_resolution == 1){
+[e = _number_to_display *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux ]
+[; ;potentiometers.c: 178: if (inputPotsArray[i].controller_resolution == 0){
 "178
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 0 `i -> 1 `i 1150  ]
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 0 `i -> 0 `i 1148  ]
 {
 [; ;potentiometers.c: 181: DISPLAY_MODE = 0;
 "181
 [e = _DISPLAY_MODE -> -> 0 `i `uc ]
-[; ;potentiometers.c: 182: DIGIT_MODE = 2;
+[; ;potentiometers.c: 182: DIGIT_MODE = 0;
 "182
-[e = _DIGIT_MODE -> -> 2 `i `uc ]
+[e = _DIGIT_MODE -> -> 0 `i `uc ]
+[; ;potentiometers.c: 186: if(inputPotsArray[i].controller_number >= 0) {
 "186
-[v _lowByte `uc ~T0 @X0 1 a ]
-[; ;potentiometers.c: 186: unsigned char lowByte = (potentiometer_filtered_now[i]) & 0x7F;
-[e = _lowByte -> & *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 127 `i `uc ]
-"187
-[v _highByte `uc ~T0 @X0 1 a ]
-[; ;potentiometers.c: 187: unsigned char highByte = (potentiometer_filtered_now[i] >> 7) & 0x7F;
-[e = _highByte -> & >> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 7 `i -> 127 `i `uc ]
-[; ;potentiometers.c: 190: if(inputPotsArray[i].controller_number_two_byte >= 0) {
-"190
-[e $ ! >= -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -> 0 `i 1151  ]
+[e $ ! >= -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `i -> 0 `i 1149  ]
 {
-[; ;potentiometers.c: 191: controlChange(channel, inputPotsArray[i].controller_number_two_byte, highByte);
+[; ;potentiometers.c: 187: controlChange(channel, inputPotsArray[i].controller_number, potentiometer_filtered_now[i]);
+"187
+[e ( _controlChange (3 , , _channel -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `uc ]
+"188
+}
+[e :U 1149 ]
+[; ;potentiometers.c: 188: }
+[; ;potentiometers.c: 191: if(inputPotsArray[i].controller_number == -1) {
 "191
-[e ( _controlChange (3 , , _channel -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc _highByte ]
-[; ;potentiometers.c: 192: controlChange(channel, inputPotsArray[i].controller_number_two_byte + 32, lowByte);
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `i -U -> 1 `i 1150  ]
+{
+[; ;potentiometers.c: 192: velocity = potentiometer_filtered_now[i];
 "192
-[e ( _controlChange (3 , , _channel -> + -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -> 32 `i `uc _lowByte ]
+[e = _velocity -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `uc ]
 "193
 }
-[e :U 1151 ]
+[e :U 1150 ]
 [; ;potentiometers.c: 193: }
-[; ;potentiometers.c: 195: if(inputPotsArray[i].controller_number_two_byte == -1) {
+[; ;potentiometers.c: 195: if(inputPotsArray[i].controller_number == -2) {
 "195
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -U -> 1 `i 1152  ]
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `i -U -> 2 `i 1151  ]
 {
-[; ;potentiometers.c: 196: velocity = highByte;
+[; ;potentiometers.c: 196: pitchBend(channel, 0x00, potentiometer_filtered_now[i]);
 "196
-[e = _velocity _highByte ]
+[e ( _pitchBend (3 , , _channel -> -> 0 `i `uc -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `uc ]
 "197
 }
-[e :U 1152 ]
+[e :U 1151 ]
 [; ;potentiometers.c: 197: }
-[; ;potentiometers.c: 199: if(inputPotsArray[i].controller_number_two_byte == -2) {
-"199
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -U -> 2 `i 1153  ]
-{
-[; ;potentiometers.c: 200: pitchBend(channel, lowByte, highByte);
+[; ;potentiometers.c: 200: if(inputPotsArray[i].controller_number == -3) {
 "200
-[e ( _pitchBend (3 , , _channel _lowByte _highByte ]
-"201
-}
-[e :U 1153 ]
-[; ;potentiometers.c: 201: }
-[; ;potentiometers.c: 203: if(inputPotsArray[i].controller_number_two_byte == -3) {
-"203
-[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -U -> 3 `i 1154  ]
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `i -U -> 3 `i 1152  ]
 {
-[; ;potentiometers.c: 204: controlChange(channel, modulation_wheel_MSB, highByte);
-"204
-[e ( _controlChange (3 , , _channel -> . `E13881 4 `uc _highByte ]
-[; ;potentiometers.c: 205: controlChange(channel, modulation_wheel_MSB + 32, lowByte);
-"205
-[e ( _controlChange (3 , , _channel -> + -> . `E13881 4 `i -> 32 `i `uc _lowByte ]
+[; ;potentiometers.c: 201: controlChange(channel, modulation_wheel_MSB, potentiometer_filtered_now[i]);
+"201
+[e ( _controlChange (3 , , _channel -> . `E13881 4 `uc -> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux `uc ]
+"202
+}
+[e :U 1152 ]
+"203
+}
+[e :U 1148 ]
+[; ;potentiometers.c: 202: }
+[; ;potentiometers.c: 203: }
+[; ;potentiometers.c: 206: if (inputPotsArray[i].controller_resolution == 1){
 "206
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 0 `i -> 1 `i 1153  ]
+{
+[; ;potentiometers.c: 209: DISPLAY_MODE = 0;
+"209
+[e = _DISPLAY_MODE -> -> 0 `i `uc ]
+[; ;potentiometers.c: 210: DIGIT_MODE = 2;
+"210
+[e = _DIGIT_MODE -> -> 2 `i `uc ]
+"214
+[v _lowByte `uc ~T0 @X0 1 a ]
+[; ;potentiometers.c: 214: unsigned char lowByte = (potentiometer_filtered_now[i]) & 0x7F;
+[e = _lowByte -> & *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 127 `i `uc ]
+"215
+[v _highByte `uc ~T0 @X0 1 a ]
+[; ;potentiometers.c: 215: unsigned char highByte = (potentiometer_filtered_now[i] >> 7) & 0x7F;
+[e = _highByte -> & >> *U + &U _potentiometer_filtered_now * -> _i `ux -> -> # *U &U _potentiometer_filtered_now `ui `ux -> 7 `i -> 127 `i `uc ]
+[; ;potentiometers.c: 218: if(inputPotsArray[i].controller_number_two_byte >= 0) {
+"218
+[e $ ! >= -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -> 0 `i 1154  ]
+{
+[; ;potentiometers.c: 219: controlChange(channel, inputPotsArray[i].controller_number_two_byte, highByte);
+"219
+[e ( _controlChange (3 , , _channel -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc _highByte ]
+[; ;potentiometers.c: 220: controlChange(channel, inputPotsArray[i].controller_number_two_byte + 32, lowByte);
+"220
+[e ( _controlChange (3 , , _channel -> + -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -> 32 `i `uc _lowByte ]
+"221
 }
 [e :U 1154 ]
-"207
+[; ;potentiometers.c: 221: }
+[; ;potentiometers.c: 223: if(inputPotsArray[i].controller_number_two_byte == -1) {
+"223
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -U -> 1 `i 1155  ]
+{
+[; ;potentiometers.c: 224: velocity = highByte;
+"224
+[e = _velocity _highByte ]
+"225
 }
-[e :U 1150 ]
-[; ;potentiometers.c: 206: }
-[; ;potentiometers.c: 207: }
-[; ;potentiometers.c: 208: }
-"208
-[e :UE 1144 ]
+[e :U 1155 ]
+[; ;potentiometers.c: 225: }
+[; ;potentiometers.c: 227: if(inputPotsArray[i].controller_number_two_byte == -2) {
+"227
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -U -> 2 `i 1156  ]
+{
+[; ;potentiometers.c: 228: pitchBend(channel, lowByte, highByte);
+"228
+[e ( _pitchBend (3 , , _channel _lowByte _highByte ]
+"229
+}
+[e :U 1156 ]
+[; ;potentiometers.c: 229: }
+[; ;potentiometers.c: 231: if(inputPotsArray[i].controller_number_two_byte == -3) {
+"231
+[e $ ! == -> . *U + &U _inputPotsArray * -> _i `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `i -U -> 3 `i 1157  ]
+{
+[; ;potentiometers.c: 232: controlChange(channel, modulation_wheel_MSB, highByte);
+"232
+[e ( _controlChange (3 , , _channel -> . `E13881 4 `uc _highByte ]
+[; ;potentiometers.c: 233: controlChange(channel, modulation_wheel_MSB + 32, lowByte);
+"233
+[e ( _controlChange (3 , , _channel -> + -> . `E13881 4 `i -> 32 `i `uc _lowByte ]
+"234
+}
+[e :U 1157 ]
+"235
+}
+[e :U 1153 ]
+[; ;potentiometers.c: 234: }
+[; ;potentiometers.c: 235: }
+[; ;potentiometers.c: 236: }
+"236
+[e :UE 1147 ]
 }

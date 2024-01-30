@@ -101,7 +101,7 @@ minor7 2
 half_diminished7 3
 diminished7 4
 ]
-"108 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
+"113 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
 [e E13797 controllerNumber `c
 velocity_controller_number -1
 pitch_bend_controller_number -2
@@ -171,7 +171,7 @@ mono_operaton 126
 poly_operation 127
 ]
 "158 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.h
-[e E14334 . `uc
+[e E14335 . `uc
 BLANK 0
 SEG 1
 MAIN_MENU 2
@@ -217,7 +217,7 @@ ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU 41
 ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU 42
 ]
 "103 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.h
-[e E14479 NOTE_LENGTH `uc
+[e E14480 NOTE_LENGTH `uc
 QUARTER 48
 QUARTER_DOTTED 72
 QUARTER_TRIPLET 32
@@ -232,7 +232,7 @@ THIRTY2ND_DOTTED 9
 THIRTY2ND_TRIPLET 4
 ]
 "141
-[e E14469 arpeggioType `uc
+[e E14470 arpeggioType `uc
 UP 0
 DOWN 1
 UP_DOWN 2
@@ -252,7 +252,7 @@ channel_pressure 208
 pitch_bend 224
 system_msg 240
 ]
-"108 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
+"113 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
 [e E13812 controllerNumber `c
 velocity_controller_number -1
 pitch_bend_controller_number -2
@@ -322,7 +322,7 @@ mono_operaton 126
 poly_operation 127
 ]
 "89 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\theory.h
-[e E14063 keyboard_mode `uc
+[e E14064 keyboard_mode `uc
 CHROMATIC 0
 MAJOR 1
 MINOR 2
@@ -337,7 +337,7 @@ DIATONIC_7TH_MAJOR 10
 DIATONIC_7TH_MINOR 11
 ]
 "122
-[e E14020 musicNotes `uc
+[e E14021 musicNotes `uc
 C 0
 Cs 1
 D 2
@@ -365,7 +365,7 @@ B2 23
 C3 24
 ]
 "142
-[e E14088 modes `uc
+[e E14089 modes `uc
 ionian 0
 dorian 1
 phrygian 2
@@ -375,14 +375,14 @@ aeolian 5
 locrian 6
 ]
 "153
-[e E14097 triads `uc
+[e E14098 triads `uc
 major 0
 minor 1
 augmented 2
 diminished 3
 ]
 "156
-[e E14046 intervals `uc
+[e E14047 intervals `uc
 tonic 0
 minor_second 1
 major_second 2
@@ -401,7 +401,7 @@ major_seventh 11
 perfect_octave 12
 ]
 "171
-[e E14107 sevenths `uc
+[e E14108 sevenths `uc
 dominant7 0
 major7 1
 minor7 2
@@ -409,7 +409,7 @@ half_diminished7 3
 diminished7 4
 ]
 "103 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.h
-[e E14260 NOTE_LENGTH `uc
+[e E14261 NOTE_LENGTH `uc
 QUARTER 48
 QUARTER_DOTTED 72
 QUARTER_TRIPLET 32
@@ -424,7 +424,7 @@ THIRTY2ND_DOTTED 9
 THIRTY2ND_TRIPLET 4
 ]
 "141
-[e E14250 arpeggioType `uc
+[e E14251 arpeggioType `uc
 UP 0
 DOWN 1
 UP_DOWN 2
@@ -434,7 +434,7 @@ RANDOM 5
 AS_PRESSED 6
 ]
 "158 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.h
-[e E14434 . `uc
+[e E14435 . `uc
 BLANK 0
 SEG 1
 MAIN_MENU 2
@@ -577,7 +577,7 @@ minor7 2
 half_diminished7 3
 diminished7 4
 ]
-"108 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
+"113 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
 [e E13797 controllerNumber `c
 velocity_controller_number -1
 pitch_bend_controller_number -2
@@ -647,7 +647,7 @@ mono_operaton 126
 poly_operation 127
 ]
 "158 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.h
-[e E14334 . `uc
+[e E14335 . `uc
 BLANK 0
 SEG 1
 MAIN_MENU 2
@@ -693,7 +693,7 @@ ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU 41
 ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU 42
 ]
 "103 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.h
-[e E14479 NOTE_LENGTH `uc
+[e E14480 NOTE_LENGTH `uc
 QUARTER 48
 QUARTER_DOTTED 72
 QUARTER_TRIPLET 32
@@ -708,7 +708,7 @@ THIRTY2ND_DOTTED 9
 THIRTY2ND_TRIPLET 4
 ]
 "141
-[e E14469 arpeggioType `uc
+[e E14470 arpeggioType `uc
 UP 0
 DOWN 1
 UP_DOWN 2
@@ -993,7 +993,7 @@ minor7 2
 half_diminished7 3
 diminished7 4
 ]
-"108 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
+"113 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
 [e E13797 controllerNumber `c
 velocity_controller_number -1
 pitch_bend_controller_number -2
@@ -1063,7 +1063,7 @@ mono_operaton 126
 poly_operation 127
 ]
 "158 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.h
-[e E14347 . `uc
+[e E14348 . `uc
 BLANK 0
 SEG 1
 MAIN_MENU 2
@@ -1109,7 +1109,7 @@ ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU 41
 ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU 42
 ]
 "103 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.h
-[e E14479 NOTE_LENGTH `uc
+[e E14480 NOTE_LENGTH `uc
 QUARTER 48
 QUARTER_DOTTED 72
 QUARTER_TRIPLET 32
@@ -1124,7 +1124,7 @@ THIRTY2ND_DOTTED 9
 THIRTY2ND_TRIPLET 4
 ]
 "141
-[e E14469 arpeggioType `uc
+[e E14470 arpeggioType `uc
 UP 0
 DOWN 1
 UP_DOWN 2
@@ -1144,7 +1144,7 @@ channel_pressure 208
 pitch_bend 224
 system_msg 240
 ]
-"108 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
+"113 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
 [e E13812 controllerNumber `c
 velocity_controller_number -1
 pitch_bend_controller_number -2
@@ -1214,7 +1214,7 @@ mono_operaton 126
 poly_operation 127
 ]
 "89 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\theory.h
-[e E14076 keyboard_mode `uc
+[e E14077 keyboard_mode `uc
 CHROMATIC 0
 MAJOR 1
 MINOR 2
@@ -1229,7 +1229,7 @@ DIATONIC_7TH_MAJOR 10
 DIATONIC_7TH_MINOR 11
 ]
 "122
-[e E14033 musicNotes `uc
+[e E14034 musicNotes `uc
 C 0
 Cs 1
 D 2
@@ -1257,7 +1257,7 @@ B2 23
 C3 24
 ]
 "142
-[e E14101 modes `uc
+[e E14102 modes `uc
 ionian 0
 dorian 1
 phrygian 2
@@ -1267,14 +1267,14 @@ aeolian 5
 locrian 6
 ]
 "153
-[e E14110 triads `uc
+[e E14111 triads `uc
 major 0
 minor 1
 augmented 2
 diminished 3
 ]
 "156
-[e E14059 intervals `uc
+[e E14060 intervals `uc
 tonic 0
 minor_second 1
 major_second 2
@@ -1293,7 +1293,7 @@ major_seventh 11
 perfect_octave 12
 ]
 "171
-[e E14120 sevenths `uc
+[e E14121 sevenths `uc
 dominant7 0
 major7 1
 minor7 2
@@ -1301,7 +1301,7 @@ half_diminished7 3
 diminished7 4
 ]
 "103 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.h
-[e E14273 NOTE_LENGTH `uc
+[e E14274 NOTE_LENGTH `uc
 QUARTER 48
 QUARTER_DOTTED 72
 QUARTER_TRIPLET 32
@@ -1316,7 +1316,7 @@ THIRTY2ND_DOTTED 9
 THIRTY2ND_TRIPLET 4
 ]
 "141
-[e E14263 arpeggioType `uc
+[e E14264 arpeggioType `uc
 UP 0
 DOWN 1
 UP_DOWN 2
@@ -1326,7 +1326,7 @@ RANDOM 5
 AS_PRESSED 6
 ]
 "158 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.h
-[e E14447 . `uc
+[e E14448 . `uc
 BLANK 0
 SEG 1
 MAIN_MENU 2
@@ -1393,7 +1393,7 @@ channel_pressure 208
 pitch_bend 224
 system_msg 240
 ]
-"108 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
+"113 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
 [e E13881 controllerNumber `c
 velocity_controller_number -1
 pitch_bend_controller_number -2
@@ -1641,7 +1641,7 @@ mono_operaton 126
 poly_operation 127
 ]
 "158 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.h
-[e E14364 . `uc
+[e E14365 . `uc
 BLANK 0
 SEG 1
 MAIN_MENU 2
@@ -1687,7 +1687,7 @@ ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU 41
 ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU 42
 ]
 "103 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.h
-[e E14496 NOTE_LENGTH `uc
+[e E14497 NOTE_LENGTH `uc
 QUARTER 48
 QUARTER_DOTTED 72
 QUARTER_TRIPLET 32
@@ -1702,7 +1702,7 @@ THIRTY2ND_DOTTED 9
 THIRTY2ND_TRIPLET 4
 ]
 "141
-[e E14486 arpeggioType `uc
+[e E14487 arpeggioType `uc
 UP 0
 DOWN 1
 UP_DOWN 2
@@ -1712,7 +1712,7 @@ RANDOM 5
 AS_PRESSED 6
 ]
 "33 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\eeprom.c
-[e E14564 EEPROM_SLOT `uc
+[e E14565 EEPROM_SLOT `uc
 DEFAULT 0
 SLOT1 1
 SLOT2 2
@@ -1817,7 +1817,7 @@ channel_pressure 208
 pitch_bend 224
 system_msg 240
 ]
-"108 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
+"113 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
 [e E14126 controllerNumber `c
 velocity_controller_number -1
 pitch_bend_controller_number -2
@@ -1887,7 +1887,7 @@ mono_operaton 126
 poly_operation 127
 ]
 "103 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.h
-[e E14379 NOTE_LENGTH `uc
+[e E14380 NOTE_LENGTH `uc
 QUARTER 48
 QUARTER_DOTTED 72
 QUARTER_TRIPLET 32
@@ -1902,7 +1902,7 @@ THIRTY2ND_DOTTED 9
 THIRTY2ND_TRIPLET 4
 ]
 "141
-[e E14369 arpeggioType `uc
+[e E14370 arpeggioType `uc
 UP 0
 DOWN 1
 UP_DOWN 2
@@ -1912,7 +1912,7 @@ RANDOM 5
 AS_PRESSED 6
 ]
 "158 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.h
-[e E14553 . `uc
+[e E14554 . `uc
 BLANK 0
 SEG 1
 MAIN_MENU 2
@@ -2066,7 +2066,7 @@ channel_pressure 208
 pitch_bend 224
 system_msg 240
 ]
-"108 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
+"113 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.h
 [e E13904 controllerNumber `c
 velocity_controller_number -1
 pitch_bend_controller_number -2
@@ -2136,7 +2136,7 @@ mono_operaton 126
 poly_operation 127
 ]
 "158 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.h
-[e E14334 . `uc
+[e E14335 . `uc
 BLANK 0
 SEG 1
 MAIN_MENU 2
@@ -2182,7 +2182,7 @@ ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU 41
 ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU 42
 ]
 "103 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.h
-[e E14479 NOTE_LENGTH `uc
+[e E14480 NOTE_LENGTH `uc
 QUARTER 48
 QUARTER_DOTTED 72
 QUARTER_TRIPLET 32
@@ -2197,7 +2197,7 @@ THIRTY2ND_DOTTED 9
 THIRTY2ND_TRIPLET 4
 ]
 "141
-[e E14469 arpeggioType `uc
+[e E14470 arpeggioType `uc
 UP 0
 DOWN 1
 UP_DOWN 2
@@ -2342,23 +2342,23 @@ AS_PRESSED 6
 [v _Lcd_Print_Char Lcd_Print_Char `(v  1 e 1 0 ]
 "128
 [v _Lcd_Print_String Lcd_Print_String `(v  1 e 1 0 ]
-"185 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"209 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _setup setup `(v  1 e 1 0 ]
-"270
+"294
 [v _load load `(v  1 e 1 0 ]
-"277
+"301
 [v _clock clock `(v  1 e 1 0 ]
-"283
+"307
 [v _buttonInputsSerial buttonInputsSerial `(v  1 e 1 0 ]
-"303
+"327
 [v _analogInputs analogInputs `(v  1 e 1 0 ]
-"335
+"359
 [v _digitalInputs digitalInputs `(v  1 e 1 0 ]
-"356
+"380
 [v _ISR ISR `II(v  1 e 1 0 ]
-"483
+"507
 [v _panic_button panic_button `(v  1 e 1 0 ]
-"498
+"522
 [v _main main `(i  1 e 2 0 ]
 "27 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _initializeMenuArray initializeMenuArray `(v  1 e 1 0 ]
@@ -2502,7 +2502,7 @@ AS_PRESSED 6
 [v _map map `(l  1 e 4 0 ]
 "34
 [v _readPotentiometers readPotentiometers `(v  1 e 1 0 ]
-"141
+"169
 [v _processPotentiometers processPotentiometers `(v  1 e 1 0 ]
 "22 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\segment.c
 [v _display display `(v  1 e 1 0 ]
@@ -2649,7 +2649,7 @@ AS_PRESSED 6
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
 "31114
 [v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
-[s S5004 . 1 `uc 1 RD 1 0 :1:0 
+[s S5012 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -2659,11 +2659,11 @@ AS_PRESSED 6
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "31461
-[s S5013 . 1 `uc 1 . 1 0 :6:0 
+[s S5021 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S5016 . 1 `S5004 1 . 1 0 `S5013 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES5016  1 e 1 @4006 ]
+[u S5024 . 1 `S5012 1 . 1 0 `S5021 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES5024  1 e 1 @4006 ]
 "31505
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
 "31511
@@ -2714,7 +2714,7 @@ AS_PRESSED 6
 [v _RBIE RBIE `VEb  1 e 0 @32659 ]
 "34975
 [v _RBIF RBIF `VEb  1 e 0 @32656 ]
-[s S5082 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S5090 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -2724,7 +2724,7 @@ AS_PRESSED 6
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "34976
-[s S5091 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S5099 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -2734,7 +2734,7 @@ AS_PRESSED 6
 `uc 1 GIE 1 0 :1:7 
 ]
 "34976
-[s S5100 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S5108 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -2744,7 +2744,7 @@ AS_PRESSED 6
 `uc 1 GIEH 1 0 :1:7 
 ]
 "34976
-[s S5109 . 1 `uc 1 . 1 0 :1:0 
+[s S5117 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -2754,15 +2754,15 @@ AS_PRESSED 6
 `uc 1 GIE 1 0 :1:7 
 ]
 "34976
-[s S5118 . 1 `uc 1 . 1 0 :6:0 
+[s S5126 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "34976
-[u S5122 . 1 `S5082 1 . 1 0 `S5091 1 . 1 0 `S5100 1 . 1 0 `S5109 1 . 1 0 `S5118 1 . 1 0 ]
+[u S5130 . 1 `S5090 1 . 1 0 `S5099 1 . 1 0 `S5108 1 . 1 0 `S5117 1 . 1 0 `S5126 1 . 1 0 ]
 "34976
 "34976
-[v _INTCONbits INTCONbits `VES5122  1 e 1 @4082 ]
+[v _INTCONbits INTCONbits `VES5130  1 e 1 @4082 ]
 "34981
 [v _RC0 RC0 `VEb  1 e 0 @31760 ]
 "34983
@@ -2827,7 +2827,7 @@ AS_PRESSED 6
 [v _DRUM_NOTE DRUM_NOTE `[8]uc  1 e 8 0 ]
 "32
 [v _DRUM_CC DRUM_CC `[8]uc  1 e 8 0 ]
-[s S1932 . 1 `uc 1 T1 1 0 :1:0 
+[s S1935 . 1 `uc 1 T1 1 0 :1:0 
 `uc 1 T2 1 0 :1:1 
 `uc 1 T3 1 0 :1:2 
 `uc 1 T4 1 0 :1:3 
@@ -2837,7 +2837,7 @@ AS_PRESSED 6
 `uc 1 T8 1 0 :1:7 
 ]
 "54
-[v _toggle_state toggle_state `S1932  1 e 1 0 ]
+[v _toggle_state toggle_state `S1935  1 e 1 0 ]
 "63
 [v _DRUM_MODE DRUM_MODE `b  1 e 0 0 ]
 "68
@@ -3036,23 +3036,25 @@ AS_PRESSED 6
 [v _ema_integer ema_integer `uc  1 e 1 0 ]
 "44
 [v _ema_alpha ema_alpha `f  1 e 4 0 ]
-"48
+"50
 [v _HYST_VAL HYST_VAL `i  1 e 2 0 ]
-"54
+"56
 [v _iterator_focus iterator_focus `uc  1 e 1 0 ]
-"57
-[v _potentiometer_raw potentiometer_raw `[16]i  1 e 32 0 ]
 "58
-[v _ema_sum ema_sum `[16]i  1 e 32 0 ]
-"61
-[v _potentiometer_filtered_now potentiometer_filtered_now `[16]i  1 e 32 0 ]
+[v _FIRST_READING FIRST_READING `b  1 e 0 0 ]
 "62
+[v _potentiometer_raw potentiometer_raw `[16]i  1 e 32 0 ]
+"63
+[v _ema_sum ema_sum `[16]i  1 e 32 0 ]
+"66
+[v _potentiometer_filtered_now potentiometer_filtered_now `[16]i  1 e 32 0 ]
+"67
 [v _potentiometer_filtered_last potentiometer_filtered_last `[16]i  1 e 32 0 ]
-"74
+"79
 [v _POT_MODE POT_MODE `b  1 e 0 0 ]
 [s S200 Potentiometers 3 `uc 1 controller_resolution 1 0 :1:0 
 `c 1 controller_number 1 1 `c 1 controller_number_two_byte 1 2 ]
-"108
+"113
 [v _inputPotsArray inputPotsArray `[16]S200  1 e 48 0 ]
 "39 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\segment.h
 [v _DISPLAY_MODE DISPLAY_MODE `uc  1 e 1 0 ]
@@ -3124,10 +3126,10 @@ AS_PRESSED 6
 [v _diatonic_seventh_major diatonic_seventh_major `C[15][4]uc  1 e 60 0 ]
 "304
 [v _diatonic_seventh_minor diatonic_seventh_minor `C[15][4]uc  1 e 60 0 ]
-"498 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"522 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"612
+"636
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\rand.c
 [v _srand srand `(v  1 e 1 0 ]
@@ -3135,10 +3137,10 @@ AS_PRESSED 6
 [v srand@x x `ui  1 p 2 0 ]
 "9
 } 0
-"185 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"209 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"267
+"291
 } 0
 "41 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\eeprom.c
 [v _selectSlotOnBoot selectSlotOnBoot `(v  1 e 1 0 ]
@@ -3147,10 +3149,10 @@ AS_PRESSED 6
 [v selectSlotOnBoot@slot slot `uc  1 a 1 0 ]
 "52
 } 0
-"483 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"507 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _panic_button panic_button `(v  1 e 1 0 ]
 {
-"488
+"512
 } 0
 "325 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _menu_lcd menu_lcd `(v  1 e 1 0 ]
@@ -3517,10 +3519,10 @@ AS_PRESSED 6
 {
 "490
 } 0
-"335 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"359 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _digitalInputs digitalInputs `(v  1 e 1 0 ]
 {
-"353
+"377
 } 0
 "275 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\octave.c
 [v _processOctave processOctave `(v  1 e 1 0 ]
@@ -3590,7 +3592,7 @@ AS_PRESSED 6
 {
 [v playDiatonicTriadMinor@pitch pitch `uc  1 a 1 wreg ]
 "1238
-[v playDiatonicTriadMinor@i_1720 i `uc  1 a 1 8 ]
+[v playDiatonicTriadMinor@i_1723 i `uc  1 a 1 8 ]
 "1211
 [v playDiatonicTriadMinor@i i `uc  1 a 1 7 ]
 "1207
@@ -3605,7 +3607,7 @@ AS_PRESSED 6
 {
 [v playDiatonicTriadMajor@pitch pitch `uc  1 a 1 wreg ]
 "1092
-[v playDiatonicTriadMajor@i_1710 i `uc  1 a 1 7 ]
+[v playDiatonicTriadMajor@i_1713 i `uc  1 a 1 7 ]
 "1071
 [v playDiatonicTriadMajor@i i `uc  1 a 1 6 ]
 "1067
@@ -3620,7 +3622,7 @@ AS_PRESSED 6
 {
 [v playDiatonicSeventhMinor@pitch pitch `uc  1 a 1 wreg ]
 "1317
-[v playDiatonicSeventhMinor@i_1725 i `uc  1 a 1 8 ]
+[v playDiatonicSeventhMinor@i_1728 i `uc  1 a 1 8 ]
 "1289
 [v playDiatonicSeventhMinor@i i `uc  1 a 1 7 ]
 "1285
@@ -3635,7 +3637,7 @@ AS_PRESSED 6
 {
 [v playDiatonicSeventhMajor@pitch pitch `uc  1 a 1 wreg ]
 "1161
-[v playDiatonicSeventhMajor@i_1715 i `uc  1 a 1 7 ]
+[v playDiatonicSeventhMajor@i_1718 i `uc  1 a 1 7 ]
 "1139
 [v playDiatonicSeventhMajor@i i `uc  1 a 1 6 ]
 "1135
@@ -3666,7 +3668,7 @@ AS_PRESSED 6
 {
 [v playTriad@pitch pitch `uc  1 a 1 wreg ]
 "349
-[v playTriad@i_1688 i `uc  1 a 1 8 ]
+[v playTriad@i_1691 i `uc  1 a 1 8 ]
 "327
 [v playTriad@i i `uc  1 a 1 7 ]
 "295
@@ -3681,7 +3683,7 @@ AS_PRESSED 6
 {
 [v playSeventh@pitch pitch `uc  1 a 1 wreg ]
 "446
-[v playSeventh@i_1693 i `uc  1 a 1 8 ]
+[v playSeventh@i_1696 i `uc  1 a 1 8 ]
 "423
 [v playSeventh@i i `uc  1 a 1 7 ]
 "398
@@ -3853,58 +3855,56 @@ AS_PRESSED 6
 [v printThisNumber@n n `i  1 p 2 0 ]
 "25
 } 0
-"283 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"307 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _buttonInputsSerial buttonInputsSerial `(v  1 e 1 0 ]
 {
-"296
-[v buttonInputsSerial@i_4472 i `uc  1 a 1 5 ]
-"290
+"320
+[v buttonInputsSerial@i_4479 i `uc  1 a 1 5 ]
+"314
 [v buttonInputsSerial@i i `uc  1 a 1 4 ]
-"300
+"324
 } 0
-"270
+"294
 [v _load load `(v  1 e 1 0 ]
 {
-"274
+"298
 } 0
-"277
+"301
 [v _clock clock `(v  1 e 1 0 ]
 {
-"280
+"304
 } 0
-"303
+"327
 [v _analogInputs analogInputs `(v  1 e 1 0 ]
 {
-"332
+"356
 } 0
 "34 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.c
 [v _readPotentiometers readPotentiometers `(v  1 e 1 0 ]
 {
 "64
-[v readPotentiometers@i_3430 i `uc  1 a 1 6 ]
+[v readPotentiometers@i_3435 i `uc  1 a 1 6 ]
 "57
-[v readPotentiometers@i_3429 i `uc  1 a 1 4 ]
+[v readPotentiometers@i_3434 i `uc  1 a 1 4 ]
 "40
 [v readPotentiometers@i i `uc  1 a 1 5 ]
-"36
-[v readPotentiometers@FIRST_READING FIRST_READING `b  1 s 0 FIRST_READING ]
 "74
 [v readPotentiometers@count count `ul  1 s 4 count ]
-"138
+"166
 } 0
-"141
+"169
 [v _processPotentiometers processPotentiometers `(v  1 e 1 0 ]
 {
 [v processPotentiometers@i i `uc  1 a 1 wreg ]
-"187
+"215
 [v processPotentiometers@highByte highByte `uc  1 a 1 7 ]
-"186
+"214
 [v processPotentiometers@lowByte lowByte `uc  1 a 1 6 ]
-"141
+"169
 [v processPotentiometers@i i `uc  1 a 1 wreg ]
-"146
+"174
 [v processPotentiometers@i i `uc  1 a 1 8 ]
-"208
+"236
 } 0
 "206 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\midi.c
 [v _pitchBend pitchBend `(v  1 e 1 0 ]
@@ -4052,17 +4052,17 @@ AS_PRESSED 6
 "8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S5447 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S5455 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S5452 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S5455 . 4 `l 1 i 4 0 `d 1 f 4 0 `S5447 1 fAsBytes 4 0 `S5452 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S5455  1 a 4 33 ]
+[s S5460 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S5463 . 4 `l 1 i 4 0 `d 1 f 4 0 `S5455 1 fAsBytes 4 0 `S5460 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S5463  1 a 4 33 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 28 ]
-[s S5523 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S5531 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S5526 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S5523 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S5526  1 a 2 37 ]
+[u S5534 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S5531 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S5534  1 a 2 37 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11
@@ -4258,10 +4258,10 @@ AS_PRESSED 6
 {
 "32
 } 0
-"356 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"380 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"480
+"504
 } 0
 "277 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.c
 [v _playArpeggio playArpeggio `(v  1 e 1 0 ]

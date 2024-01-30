@@ -16598,12 +16598,14 @@ unsigned char ema_integer = 50;
 
 float ema_alpha = 0.00;
 
+# 50
+int HYST_VAL = 32;
 
-
-int HYST_VAL = 16;
-
-# 54
+# 56
 unsigned char iterator_focus = 255;
+
+__bit FIRST_READING;
+
 
 
 int potentiometer_raw[16] = {0};
@@ -16625,7 +16627,7 @@ signed char controller_number_two_byte;
 
 __bit POT_MODE;
 
-# 108
+# 113
 potentiometer_type inputPotsArray[16] = {{0, knob_1, knob_1_MSB},{0, knob_2, knob_2_MSB},{0, knob_3, knob_3_MSB},{0, knob_4, knob_4_MSB},{0, knob_5, knob_5_MSB},{0, knob_6, knob_6_MSB},{0, knob_7, knob_7_MSB},{0, slider_1, slider_1_MSB},{0, slider_2, slider_2_MSB},{0, slider_3, slider_3_MSB},{0, slider_4, slider_4_MSB},{0, slider_5, slider_5_MSB},{0, slider_6, slider_6_MSB},{0, slider_7, slider_7_MSB},{0, modulation_wheel_controller_number, modulation_wheel_controller_number},{0, pitch_bend_controller_number, pitch_bend_controller_number}};
 
 # 22 "theory.h"

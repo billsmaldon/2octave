@@ -35,28 +35,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42
 [s S1120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1120 . T1 T2 T3 T4 T5 T6 T7 T8 ]
-"65 potentiometers.h
+"70 potentiometers.h
 [s S1121 :1 `uc 1 `c 1 `c 1 ]
 [n S1121 Potentiometers controller_resolution controller_number controller_number_two_byte ]
 "158 menu.h
-[c E14364 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 .. ]
-[n E14364 . BLANK SEG MAIN_MENU KEYBOARD_MENU TRANSPOSE_MENU DRUM_MENU POTENTIOMETER_MENU MIDI_CHANNEL_MENU PROGRAM_CHANGE_MENU MODES_MENU TRIADS_MENU SEVENTHS_MENU DRUMS_CC_TYPE_MENU DRUMS_NN_MENU DRUMS_CC_MENU POTS_RES_MENU POTS_ALPHA_MENU POTS_CC_MENU SLIDEPOTS_CC_MENU JOYSTICK_CC_MENU MAIN_CH_MENU DRUM_CH_MENU EEPROM_MENU SAVES_MENU ENCODER_POLARITY_MENU ARPEGGIATOR_MENU ARPEGGIATOR_ON_OFF_MENU ARPEGGIATOR_TEMPO_MENU ARPEGGIATOR_OCTAVES_MENU ARPEGGIATOR_ARPEGGIO_TYPE_MENU ARPEGGIATOR_NOTE_LENGTH_MENU ARPEGGIATOR_LATCH_MENU ARPEGGIATOR_LATCH_ON_OFF_MENU ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU ARPEGGIATOR_UN_LATCH_MODE_MENU ARPEGGIATOR_RANDOMIZE_SKIP_MENU ARPEGGIATOR_RANDOMIZE_TYPE_MENU ARPEGGIATOR_SKIP_FIRST_LAST_MENU ARPEGGIATOR_LAST_NOTE_MODE_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU  ]
+[c E14365 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 .. ]
+[n E14365 . BLANK SEG MAIN_MENU KEYBOARD_MENU TRANSPOSE_MENU DRUM_MENU POTENTIOMETER_MENU MIDI_CHANNEL_MENU PROGRAM_CHANGE_MENU MODES_MENU TRIADS_MENU SEVENTHS_MENU DRUMS_CC_TYPE_MENU DRUMS_NN_MENU DRUMS_CC_MENU POTS_RES_MENU POTS_ALPHA_MENU POTS_CC_MENU SLIDEPOTS_CC_MENU JOYSTICK_CC_MENU MAIN_CH_MENU DRUM_CH_MENU EEPROM_MENU SAVES_MENU ENCODER_POLARITY_MENU ARPEGGIATOR_MENU ARPEGGIATOR_ON_OFF_MENU ARPEGGIATOR_TEMPO_MENU ARPEGGIATOR_OCTAVES_MENU ARPEGGIATOR_ARPEGGIO_TYPE_MENU ARPEGGIATOR_NOTE_LENGTH_MENU ARPEGGIATOR_LATCH_MENU ARPEGGIATOR_LATCH_ON_OFF_MENU ARPEGGIATOR_AUTO_LATCH_ON_OFF_MENU ARPEGGIATOR_UN_LATCH_MODE_MENU ARPEGGIATOR_RANDOMIZE_SKIP_MENU ARPEGGIATOR_RANDOMIZE_TYPE_MENU ARPEGGIATOR_SKIP_FIRST_LAST_MENU ARPEGGIATOR_LAST_NOTE_MODE_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_PRESS_MENU ARPEGGIATOR_LAST_NOTE_MODE_KEY_RELEASE_MENU ARPEGGIATOR_LAST_NOTE_MODE_TRANSPOSE_MENU ARPEGGIATOR_LAST_NOTE_MODE_RESET_MENU  ]
 "161
 [s S1122 `uc 1 `uc 1 `uc 1 ]
 [n S1122 menuItem number address selector ]
 "103 arpeggio.h
-[c E14496 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
-[n E14496 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
+[c E14497 48 72 32 24 36 16 12 18 8 6 9 4 .. ]
+[n E14497 NOTE_LENGTH QUARTER QUARTER_DOTTED QUARTER_TRIPLET EIGTH EIGTH_DOTTED EIGTH_TRIPLET SIXTEENTH SIXTEENTH_DOTTED SIXTEENTH_TRIPLET THIRTY2ND THIRTY2ND_DOTTED THIRTY2ND_TRIPLET  ]
 "141
-[c E14486 0 1 2 3 4 5 6 .. ]
-[n E14486 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
+[c E14487 0 1 2 3 4 5 6 .. ]
+[n E14487 arpeggioType UP DOWN UP_DOWN DOWN_UP RANDOM_NON_REPEATING RANDOM AS_PRESSED  ]
 "37 C:\Program Files (x86)\Microchip\xc8\v1.45\include\plib\EEP.h
 [v _Read_b_eep `(uc ~T0 @X0 0 ef1`ui ]
 "33 eeprom.h
 [v _saveToEEPROM `(v ~T0 @X0 0 ef1`uc ]
 "33 eeprom.c
-[c E14564 0 1 2 3 4 .. ]
-[n E14564 EEPROM_SLOT DEFAULT SLOT1 SLOT2 SLOT3 SLOT4  ]
+[c E14565 0 1 2 3 4 .. ]
+[n E14565 EEPROM_SLOT DEFAULT SLOT1 SLOT2 SLOT3 SLOT4  ]
 "36 C:\Program Files (x86)\Microchip\xc8\v1.45\include\plib\EEP.h
 [v _Busy_eep `(v ~T0 @X0 0 ef ]
 "38
@@ -13696,59 +13696,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> .0.00 `f
 ]
 [; ;potentiometers.h: 44: float ema_alpha = 0.00;
-"48
+"50
 [v _HYST_VAL `i ~T0 @X0 1 e ]
 [i _HYST_VAL
--> 16 `i
+-> 32 `i
 ]
-[; ;potentiometers.h: 48: int HYST_VAL = 16;
-"54
+[; ;potentiometers.h: 50: int HYST_VAL = 32;
+"56
 [v _iterator_focus `uc ~T0 @X0 1 e ]
 [i _iterator_focus
 -> -> 255 `i `uc
 ]
-[; ;potentiometers.h: 54: unsigned char iterator_focus = 255;
-"57
+[; ;potentiometers.h: 56: unsigned char iterator_focus = 255;
+"58
+[v _FIRST_READING `b ~T0 @X0 1 e ]
+[; ;potentiometers.h: 58: __bit FIRST_READING;
+"62
 [v _potentiometer_raw `i ~T0 @X0 -> 16 `i e ]
 [i _potentiometer_raw
 :U ..
 -> 0 `i
 ..
 ]
-[; ;potentiometers.h: 57: int potentiometer_raw[16] = {0};
-"58
+[; ;potentiometers.h: 62: int potentiometer_raw[16] = {0};
+"63
 [v _ema_sum `i ~T0 @X0 -> 16 `i e ]
 [i _ema_sum
 :U ..
 -> 0 `i
 ..
 ]
-[; ;potentiometers.h: 58: signed int ema_sum[16] = {0};
-"61
+[; ;potentiometers.h: 63: signed int ema_sum[16] = {0};
+"66
 [v _potentiometer_filtered_now `i ~T0 @X0 -> 16 `i e ]
 [i _potentiometer_filtered_now
 :U ..
 -> 0 `i
 ..
 ]
-[; ;potentiometers.h: 61: int potentiometer_filtered_now[16] = {0};
-"62
+[; ;potentiometers.h: 66: int potentiometer_filtered_now[16] = {0};
+"67
 [v _potentiometer_filtered_last `i ~T0 @X0 -> 16 `i e ]
 [i _potentiometer_filtered_last
 :U ..
 -> 0 `i
 ..
 ]
-[; ;potentiometers.h: 62: int potentiometer_filtered_last[16] = {0};
-[; ;potentiometers.h: 65: typedef struct Potentiometers {
-[; ;potentiometers.h: 66: unsigned controller_resolution : 1;
-[; ;potentiometers.h: 67: signed char controller_number;
-[; ;potentiometers.h: 68: signed char controller_number_two_byte;
-[; ;potentiometers.h: 69: } potentiometer_type;
-"74
+[; ;potentiometers.h: 67: int potentiometer_filtered_last[16] = {0};
+[; ;potentiometers.h: 70: typedef struct Potentiometers {
+[; ;potentiometers.h: 71: unsigned controller_resolution : 1;
+[; ;potentiometers.h: 72: signed char controller_number;
+[; ;potentiometers.h: 73: signed char controller_number_two_byte;
+[; ;potentiometers.h: 74: } potentiometer_type;
+"79
 [v _POT_MODE `b ~T0 @X0 1 e ]
-[; ;potentiometers.h: 74: __bit POT_MODE;
-"108
+[; ;potentiometers.h: 79: __bit POT_MODE;
+"113
 [v _inputPotsArray `S1121 ~T0 @X0 -> 16 `i e ]
 [i _inputPotsArray
 :U ..
@@ -13834,7 +13837,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;potentiometers.h: 108: potentiometer_type inputPotsArray[16] = {{0, knob_1, knob_1_MSB},{0, knob_2, knob_2_MSB},{0, knob_3, knob_3_MSB},{0, knob_4, knob_4_MSB},{0, knob_5, knob_5_MSB},{0, knob_6, knob_6_MSB},{0, knob_7, knob_7_MSB},{0, slider_1, slider_1_MSB},{0, slider_2,
+[; ;potentiometers.h: 113: potentiometer_type inputPotsArray[16] = {{0, knob_1, knob_1_MSB},{0, knob_2, knob_2_MSB},{0, knob_3, knob_3_MSB},{0, knob_4, knob_4_MSB},{0, knob_5, knob_5_MSB},{0, knob_6, knob_6_MSB},{0, knob_7, knob_7_MSB},{0, slider_1, slider_1_MSB},{0, slider_2,
 [; ;lcd.h: 33: void Lcd_SetBit(char data_bit);
 [; ;lcd.h: 34: void Lcd_Cmd(char a);
 [; ;lcd.h: 35: void Lcd_Clear(void);
@@ -13880,9 +13883,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "46
 [v _encoder_click `b ~T0 @X0 1 e ]
 [; ;encoder.h: 46: __bit encoder_click;
-[v F14249 `Cuc ~T0 @X0 -> 4 `i t ]
+[v F14250 `Cuc ~T0 @X0 -> 4 `i t ]
 "62
-[v _ttable `F14249 ~T0 @X0 -> 7 `i e ]
+[v _ttable `F14250 ~T0 @X0 -> 7 `i e ]
 [i _ttable
 :U ..
 :U ..
@@ -14060,7 +14063,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "158
 [v _which_screen `uc ~T0 @X0 1 e ]
 [i _which_screen
--> . `E14364 2 `uc
+-> . `E14365 2 `uc
 ]
 [; ;menu.h: 158: unsigned char which_screen = MAIN_MENU;
 [; ;menu.h: 161: typedef struct menuItem {
@@ -14352,22 +14355,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _NOTE_LENGTH_PULSES_ARRAY
 :U ..
 "103
--> . `E14496 0 `uc
--> . `E14496 1 `uc
--> . `E14496 2 `uc
+-> . `E14497 0 `uc
+-> . `E14497 1 `uc
+-> . `E14497 2 `uc
 "104
--> . `E14496 3 `uc
--> . `E14496 4 `uc
--> . `E14496 5 `uc
+-> . `E14497 3 `uc
+-> . `E14497 4 `uc
+-> . `E14497 5 `uc
 "105
--> . `E14496 6 `uc
--> . `E14496 7 `uc
--> . `E14496 8 `uc
+-> . `E14497 6 `uc
+-> . `E14497 7 `uc
+-> . `E14497 8 `uc
 "106
--> . `E14496 9 `uc
--> . `E14496 10 `uc
+-> . `E14497 9 `uc
+-> . `E14497 10 `uc
 "107
--> . `E14496 11 `uc
+-> . `E14497 11 `uc
 ..
 ]
 [; ;arpeggio.h: 101: unsigned char NOTE_LENGTH_PULSES_ARRAY[12] =
@@ -14404,7 +14407,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "113
 [v _NOTE_LENGTH_PULSES `uc ~T0 @X0 1 e ]
 [i _NOTE_LENGTH_PULSES
--> . `E14496 6 `uc
+-> . `E14497 6 `uc
 ]
 [; ;arpeggio.h: 113: unsigned char NOTE_LENGTH_PULSES = SIXTEENTH;
 "116
@@ -14431,7 +14434,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "141
 [v _ARPEGGIO_TYPE `uc ~T0 @X0 1 e ]
 [i _ARPEGGIO_TYPE
--> . `E14486 0 `uc
+-> . `E14487 0 `uc
 ]
 [; ;arpeggio.h: 141: unsigned char ARPEGGIO_TYPE = UP;
 "144
@@ -14601,16 +14604,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;eeprom.c: 33: saveToEEPROM(SLOT1);
 "33
-[e ( _saveToEEPROM (1 -> . `E14564 1 `uc ]
+[e ( _saveToEEPROM (1 -> . `E14565 1 `uc ]
 [; ;eeprom.c: 34: saveToEEPROM(SLOT2);
 "34
-[e ( _saveToEEPROM (1 -> . `E14564 2 `uc ]
+[e ( _saveToEEPROM (1 -> . `E14565 2 `uc ]
 [; ;eeprom.c: 35: saveToEEPROM(SLOT3);
 "35
-[e ( _saveToEEPROM (1 -> . `E14564 3 `uc ]
+[e ( _saveToEEPROM (1 -> . `E14565 3 `uc ]
 [; ;eeprom.c: 36: saveToEEPROM(SLOT4);
 "36
-[e ( _saveToEEPROM (1 -> . `E14564 4 `uc ]
+[e ( _saveToEEPROM (1 -> . `E14565 4 `uc ]
 [; ;eeprom.c: 37: (Busy_eep(), Write_b_eep(0x01,0x48));
 "37
 [e ; ( _Busy_eep ..  ( _Write_b_eep (2 , -> -> 1 `i `ui -> -> 72 `i `uc ]
@@ -14634,7 +14637,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _slot ( _Read_b_eep (1 -> -> 0 `i `ui ]
 [; ;eeprom.c: 45: if (slot == DEFAULT){
 "45
-[e $ ! == -> _slot `i -> . `E14564 0 `i 1126  ]
+[e $ ! == -> _slot `i -> . `E14565 0 `i 1126  ]
 {
 [; ;eeprom.c: 46: return;
 "46
@@ -14671,28 +14674,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _baseAddress -> -> 0 `i `ui ]
 [; ;eeprom.c: 59: if (slotNumber == SLOT1) {baseAddress = 128;}
 "59
-[e $ ! == -> _slotNumber `i -> . `E14564 1 `i 1129  ]
+[e $ ! == -> _slotNumber `i -> . `E14565 1 `i 1129  ]
 {
 [e = _baseAddress -> -> 128 `i `ui ]
 }
 [e :U 1129 ]
 [; ;eeprom.c: 60: if (slotNumber == SLOT2) {baseAddress = 256;}
 "60
-[e $ ! == -> _slotNumber `i -> . `E14564 2 `i 1130  ]
+[e $ ! == -> _slotNumber `i -> . `E14565 2 `i 1130  ]
 {
 [e = _baseAddress -> -> 256 `i `ui ]
 }
 [e :U 1130 ]
 [; ;eeprom.c: 61: if (slotNumber == SLOT3) {baseAddress = 384;}
 "61
-[e $ ! == -> _slotNumber `i -> . `E14564 3 `i 1131  ]
+[e $ ! == -> _slotNumber `i -> . `E14565 3 `i 1131  ]
 {
 [e = _baseAddress -> -> 384 `i `ui ]
 }
 [e :U 1131 ]
 [; ;eeprom.c: 62: if (slotNumber == SLOT4) {baseAddress = 512;}
 "62
-[e $ ! == -> _slotNumber `i -> . `E14564 4 `i 1132  ]
+[e $ ! == -> _slotNumber `i -> . `E14565 4 `i 1132  ]
 {
 [e = _baseAddress -> -> 512 `i `ui ]
 }
@@ -14966,28 +14969,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _baseAddress -> -> 0 `i `ui ]
 [; ;eeprom.c: 199: if (slotNumber == SLOT1) {baseAddress = 128;}
 "199
-[e $ ! == -> _slotNumber `i -> . `E14564 1 `i 1137  ]
+[e $ ! == -> _slotNumber `i -> . `E14565 1 `i 1137  ]
 {
 [e = _baseAddress -> -> 128 `i `ui ]
 }
 [e :U 1137 ]
 [; ;eeprom.c: 200: if (slotNumber == SLOT2) {baseAddress = 256;}
 "200
-[e $ ! == -> _slotNumber `i -> . `E14564 2 `i 1138  ]
+[e $ ! == -> _slotNumber `i -> . `E14565 2 `i 1138  ]
 {
 [e = _baseAddress -> -> 256 `i `ui ]
 }
 [e :U 1138 ]
 [; ;eeprom.c: 201: if (slotNumber == SLOT3) {baseAddress = 384;}
 "201
-[e $ ! == -> _slotNumber `i -> . `E14564 3 `i 1139  ]
+[e $ ! == -> _slotNumber `i -> . `E14565 3 `i 1139  ]
 {
 [e = _baseAddress -> -> 384 `i `ui ]
 }
 [e :U 1139 ]
 [; ;eeprom.c: 202: if (slotNumber == SLOT4) {baseAddress = 512;}
 "202
-[e $ ! == -> _slotNumber `i -> . `E14564 4 `i 1140  ]
+[e $ ! == -> _slotNumber `i -> . `E14565 4 `i 1140  ]
 {
 [e = _baseAddress -> -> 512 `i `ui ]
 }
