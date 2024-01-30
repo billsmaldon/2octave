@@ -43,8 +43,10 @@ unsigned char ema_integer = 50; //alpha (integer)
 //MAXIMUM 90 ---> coarse (more responsive)
 float ema_alpha = 0.00; //alpha (for potentiometer smoothing)
 
-#define HYST_VAL_COARSE_RESOLUTION 16
+#define HYST_VAL_COARSE_RESOLUTION 32 //32 or more is stable!
 #define HYST_VAL_FINE_RESOLUTION 8
+
+//changed to 'unsigned int'
 int HYST_VAL = HYST_VAL_COARSE_RESOLUTION;       //hysteresis on potentiometer input (for less fluctuations)
 
 //#define number_of_repeats 128 //put this in 'main.h'
@@ -52,6 +54,9 @@ int HYST_VAL = HYST_VAL_COARSE_RESOLUTION;       //hysteresis on potentiometer i
 //lock on to potentiometer currently being turned
 #define FREE 255
 unsigned char iterator_focus = FREE;
+
+__bit FIRST_READING;    //on first potentiometer reading, sets ema_sum[i] to potentiometer_raw[i]
+                        //suppresses transmit of entire bank of continuous controllers on reset
 
  //potentiometer sample arrays below --- important to initialize all arrays to "{0}" !!!
 int potentiometer_raw[NUM_ANALOG] = {0};    //array of raw potentiometer inputs (10 bits)

@@ -1,26 +1,49 @@
 /* 2 OCTAVE MIDI CONTROLLER FIRMWARE 
 * 
-*  PIC18F4680 FIRMWARE v1.1a (MIDI Arpeggiator update)
+*  PIC18F4680 FIRMWARE v1.1a/v2.1a (MIDI Arpeggiator update)
 * 
-* FIXES: (from version 1.0a)
-* 
-* - turning a continuous controller while arpeggiator is on garbles MIDI output
-* 
-*   FIXED!!!
-* 
-* REMAINING FIXES:
-* 
-* - code is blocked in *while* loop (in the LCD menu)
-* - inconsistent brightness of the 7 segment display digits
-*
-*
 *  FOR PCB v1.0
 *  FOR PCB v2.0, v2.1 (with change to a #define in 'main.h')
 * 
-* Copyright 2023 Bill Smaldon
+* Copyright 2024 Bill Smaldon
 * Licensed under the GNU GPL Version 3.
 * email: billsmaldon@gmail.com
 * 
+* FIXES: (from version 1.0a/2.0a)
+* 
+* 1) Turn cc while arpeggio ON
+*
+* While an arpeggio is playing, turning a continuous controller 
+* caused stuck Note On messages. This has been fixed.
+*
+* 2) Un-block the code
+*
+* When in the menu, pressing a key or turning a continuous 
+* controller was "blocked", meaning that the keyboard or 
+* potentiometers do nothing until the menu item currently being 
+* selected was set by clicking the encoder. Now, anywhere in the 
+* menu selection key presses and potentiometer turns will work.
+*
+* 3) Change keyboard mode while a key is held
+*
+* If a key is held and the KEYBOARD MODE is changed, it waits for 
+* the key release and then changes the KEYBOARD MODE.
+*
+* 4) Digit brightness
+*
+* Now the 7 segment digital display has a consistent brightness 
+* and is updated at 100 Hz. The only exception is when ARPEGGIO 
+* is ON.  There is some display flicker while an arpeggio is 
+* playing due to the increased CPU load on the microcontroller. 
+* Releasing the arpeggio eliminates any flicker in the display.  
+*
+* 5) Noisy potentiometers
+*
+* Potentiometers sometimes sent random control changes when no 
+* continuous controller was being turned. This has been fixed.
+*
+********************************************************************************
+*
 * Note: new versions of MPLAB X and the XC8 compiler do not work!
 * 
 * Please use the following ide, compiler and the necessary  peripheral library
@@ -37,8 +60,9 @@
 * 4) scroll down and check "Link in Peripheral Library"
 * 5) the program should compile now
 * 
-*   !!! 32 bit floats !!!
-*   add instructions here!
+* Note: MPLAB must be set to use 32 bit floats!
+* (add instructions here)
+*
 /****************************************************************
 *   MIDI_TRANSMIT
 *	based on MIDI_RECEIVE
