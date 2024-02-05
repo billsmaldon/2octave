@@ -180,6 +180,10 @@ void loadFromEEPROM(unsigned char slotNumber) {
     ARPEGGIO_TYPE                   = to_load[64];
     NOTE_LENGTH_PULSES              = to_load[65];
     LATCH                           = to_load[66];
+    
+    //added this! (fixes UN_LATCH_MODE == ALL)
+    if(LATCH == 1){latch_was_pressed = 1;}
+    
     AUTO_LATCH                      = to_load[67];
     UN_LATCH_MODE                   = to_load[68];
     AUTO_RANDOMIZE                  = to_load[69];

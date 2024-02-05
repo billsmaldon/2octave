@@ -17748,7 +17748,8 @@ LATCH = 1;
 }
 
 
-if(((UN_LATCH_MODE == 0) | (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1)){
+
+if(((UN_LATCH_MODE == 0) || (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1)){
 NUM_NOTES_PRESSED = 0;
 ARRAY_INDEX = 0;
 }
@@ -17844,7 +17845,8 @@ LATCH = 1;
 }
 
 
-if(((UN_LATCH_MODE == 0) | (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1)){
+
+if(((UN_LATCH_MODE == 0) || (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1)){
 NUM_NOTES_PRESSED = 0;
 ARRAY_INDEX = 0;
 }
@@ -18486,7 +18488,8 @@ LATCH = 1;
 }
 
 
-if(((UN_LATCH_MODE == 0) | (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1)){
+
+if(((UN_LATCH_MODE == 0) || (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1)){
 NUM_NOTES_PRESSED = 0;
 ARRAY_INDEX = 0;
 }
@@ -18557,7 +18560,8 @@ LATCH = 1;
 }
 
 
-if(((UN_LATCH_MODE == 0 | (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1))){
+
+if(((UN_LATCH_MODE == 0 || (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1))){
 NUM_NOTES_PRESSED = 0;
 ARRAY_INDEX = 0;
 }
@@ -18635,7 +18639,8 @@ LATCH = 1;
 }
 
 
-if(((UN_LATCH_MODE == 0) | (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1)){
+
+if(((UN_LATCH_MODE == 0) || (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1)){
 NUM_NOTES_PRESSED = 0;
 ARRAY_INDEX = 0;
 }
@@ -18710,6 +18715,7 @@ if(pitch == parallel){NUM_NOTES_PRESSED = 0;}
 if((AUTO_LATCH == 1) && (latch_was_pressed == 1)){
 LATCH = 1;
 }
+
 
 
 if(((UN_LATCH_MODE == 0) | (UN_LATCH_MODE == 1)) && (latch_was_pressed == 1)){
@@ -18995,7 +19001,7 @@ default:
 break;
 }
 
-# 1635
+# 1641
 if((button_state_now & 0x00000001) && !keyboard.SW1){
 pitch = C;
 if(KEYBOARD_MODE == CHROMATIC) {noteOn(channel,pitch,velocity);}

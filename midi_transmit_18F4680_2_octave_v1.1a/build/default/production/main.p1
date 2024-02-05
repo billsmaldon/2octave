@@ -17261,133 +17261,133 @@ Version 3.2 HI-TECH Software Intermediate Code
 "413
 [e $ ! == -> _TMR0IF `i -> 1 `i 1150  ]
 {
-[; ;main.c: 415: TMR0IE = 0;
-"415
+[; ;main.c: 422: TMR0IE = 0;
+"422
 [e = _TMR0IE -> -> 0 `i `b ]
-[; ;main.c: 418: if((finishLastNote == 0) && ((TIMER_OVERFLOWS % NOTE_LENGTH_PULSES) == 0)){
-"418
+[; ;main.c: 425: if((finishLastNote == 0) && ((TIMER_OVERFLOWS % NOTE_LENGTH_PULSES) == 0)){
+"425
 [e $ ! && == -> _finishLastNote `i -> 0 `i == % -> _TIMER_OVERFLOWS `i -> _NOTE_LENGTH_PULSES `i -> 0 `i 1151  ]
 {
-[; ;main.c: 421: if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == UP_DOWN) || (ARPEGGIO_TYPE == DOWN_UP)){
-"421
+[; ;main.c: 428: if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == UP_DOWN) || (ARPEGGIO_TYPE == DOWN_UP)){
+"428
 [e $ ! || || || || == -> _ARPEGGIO_TYPE `i -> . `E14370 6 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 3 `i 1152  ]
 {
-[; ;main.c: 422: stored_octave = which_octave;
-"422
+[; ;main.c: 429: stored_octave = which_octave;
+"429
 [e = _stored_octave _which_octave ]
-"423
+"430
 }
 [e :U 1152 ]
-[; ;main.c: 423: }
-[; ;main.c: 444: ARPEGGIO_IS_PLAYING = 1;
-"444
-[e = _ARPEGGIO_IS_PLAYING -> -> 1 `i `b ]
-[; ;main.c: 445: playArpeggio();
-"445
-[e ( _playArpeggio ..  ]
-[; ;main.c: 446: ARPEGGIO_IS_PLAYING = 0;
-"446
-[e = _ARPEGGIO_IS_PLAYING -> -> 0 `i `b ]
-[; ;main.c: 449: suppress_note_on = 0;
-"449
-[e = _suppress_note_on -> -> 0 `i `b ]
-[; ;main.c: 450: suppress_note_off = 0;
-"450
-[e = _suppress_note_off -> -> 0 `i `b ]
-[; ;main.c: 451: flag1 = 0;
+[; ;main.c: 430: }
+[; ;main.c: 451: ARPEGGIO_IS_PLAYING = 1;
 "451
-[e = _flag1 -> -> 0 `i `b ]
-[; ;main.c: 452: flag2 = 0;
+[e = _ARPEGGIO_IS_PLAYING -> -> 1 `i `b ]
+[; ;main.c: 452: playArpeggio();
 "452
+[e ( _playArpeggio ..  ]
+[; ;main.c: 453: ARPEGGIO_IS_PLAYING = 0;
+"453
+[e = _ARPEGGIO_IS_PLAYING -> -> 0 `i `b ]
+[; ;main.c: 456: suppress_note_on = 0;
+"456
+[e = _suppress_note_on -> -> 0 `i `b ]
+[; ;main.c: 457: suppress_note_off = 0;
+"457
+[e = _suppress_note_off -> -> 0 `i `b ]
+[; ;main.c: 458: flag1 = 0;
+"458
+[e = _flag1 -> -> 0 `i `b ]
+[; ;main.c: 459: flag2 = 0;
+"459
 [e = _flag2 -> -> 0 `i `b ]
-[; ;main.c: 455: if((ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING)) {
-"455
+[; ;main.c: 462: if((ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING)) {
+"462
 [e $ ! || == -> _ARPEGGIO_TYPE `i -> . `E14370 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 4 `i 1153  ]
 {
-[; ;main.c: 456: stored_octave = which_octave;
-"456
+[; ;main.c: 463: stored_octave = which_octave;
+"463
 [e = _stored_octave _which_octave ]
-"457
+"464
 }
 [e :U 1153 ]
-"458
+"465
 }
 [e :U 1151 ]
-[; ;main.c: 457: }
-[; ;main.c: 458: }
-[; ;main.c: 479: if(lastNoteMode == 1){
-"479
+[; ;main.c: 464: }
+[; ;main.c: 465: }
+[; ;main.c: 486: if(lastNoteMode == 1){
+"486
 [e $ ! == -> _lastNoteMode `i -> 1 `i 1154  ]
 {
-[; ;main.c: 480: if((finishLastNote == 1) && ((TIMER_OVERFLOWS % NOTE_LENGTH_PULSES) == 0)){
-"480
+[; ;main.c: 487: if((finishLastNote == 1) && ((TIMER_OVERFLOWS % NOTE_LENGTH_PULSES) == 0)){
+"487
 [e $ ! && == -> _finishLastNote `i -> 1 `i == % -> _TIMER_OVERFLOWS `i -> _NOTE_LENGTH_PULSES `i -> 0 `i 1155  ]
 {
-[; ;main.c: 489: finishLastNote = 0;
-"489
+[; ;main.c: 496: finishLastNote = 0;
+"496
 [e = _finishLastNote -> -> 0 `i `b ]
-[; ;main.c: 492: TIMER_OVERFLOWS = NOTE_LENGTH_PULSES;
-"492
+[; ;main.c: 499: TIMER_OVERFLOWS = NOTE_LENGTH_PULSES;
+"499
 [e = _TIMER_OVERFLOWS _NOTE_LENGTH_PULSES ]
-"493
+"500
 }
 [e :U 1155 ]
-"494
+"501
 }
 [e :U 1154 ]
-[; ;main.c: 493: }
-[; ;main.c: 494: }
-[; ;main.c: 496: TIMER_OVERFLOWS++;
-"496
+[; ;main.c: 500: }
+[; ;main.c: 501: }
+[; ;main.c: 503: TIMER_OVERFLOWS++;
+"503
 [e ++ _TIMER_OVERFLOWS -> -> 1 `i `uc ]
-[; ;main.c: 498: if(TIMER_OVERFLOWS >= (NOTE_LENGTH_PULSES)){TIMER_OVERFLOWS = 0;}
-"498
+[; ;main.c: 505: if(TIMER_OVERFLOWS >= (NOTE_LENGTH_PULSES)){TIMER_OVERFLOWS = 0;}
+"505
 [e $ ! >= -> _TIMER_OVERFLOWS `i -> _NOTE_LENGTH_PULSES `i 1156  ]
 {
 [e = _TIMER_OVERFLOWS -> -> 0 `i `uc ]
 }
 [e :U 1156 ]
-[; ;main.c: 500: TMR0 = TIMER_PRELOAD;
-"500
+[; ;main.c: 507: TMR0 = TIMER_PRELOAD;
+"507
 [e = _TMR0 _TIMER_PRELOAD ]
-[; ;main.c: 501: TMR0IF = 0;
-"501
+[; ;main.c: 508: TMR0IF = 0;
+"508
 [e = _TMR0IF -> -> 0 `i `b ]
-[; ;main.c: 502: TMR0IE = 1;
-"502
+[; ;main.c: 509: TMR0IE = 1;
+"509
 [e = _TMR0IE -> -> 1 `i `b ]
-"503
+"510
 }
 [e :U 1150 ]
-[; ;main.c: 503: }
-[; ;main.c: 504: }
-"504
+[; ;main.c: 510: }
+[; ;main.c: 511: }
+"511
 [e :UE 1144 ]
 }
-"507
+"514
 [v _panic_button `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 507: void panic_button(void){
+[; ;main.c: 514: void panic_button(void){
 [e :U _panic_button ]
 [f ]
-[; ;main.c: 508: controlChange (channel, all_notes_off, 0x00);
-"508
+[; ;main.c: 515: controlChange (channel, all_notes_off, 0x00);
+"515
 [e ( _controlChange (3 , , _channel -> . `E14126 61 `uc -> -> 0 `i `uc ]
-[; ;main.c: 509: controlChange (drumchannel, all_notes_off, 0x00);
-"509
+[; ;main.c: 516: controlChange (drumchannel, all_notes_off, 0x00);
+"516
 [e ( _controlChange (3 , , _drumchannel -> . `E14126 61 `uc -> -> 0 `i `uc ]
-[; ;main.c: 512: }
-"512
+[; ;main.c: 519: }
+"519
 [e :UE 1157 ]
 }
-"515
+"522
 [v _initializeControllerNumbers `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 515: void initializeControllerNumbers(void){
+[; ;main.c: 522: void initializeControllerNumbers(void){
 [e :U _initializeControllerNumbers ]
 [f ]
-[; ;main.c: 516: for (unsigned char i=0;i<16;i++){
-"516
+[; ;main.c: 523: for (unsigned char i=0;i<16;i++){
+"523
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -17395,190 +17395,190 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1160  ]
 [e :U 1159 ]
 {
-[; ;main.c: 517: setControllerNumbers(i);
-"517
+[; ;main.c: 524: setControllerNumbers(i);
+"524
 [e ( _setControllerNumbers (1 _i ]
-"518
+"525
 }
-"516
+"523
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 16 `i 1159  ]
 [e :U 1160 ]
-"518
+"525
 }
-[; ;main.c: 518: }
-[; ;main.c: 519: }
-"519
+[; ;main.c: 525: }
+[; ;main.c: 526: }
+"526
 [e :UE 1158 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"522
+"529
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 522: int main(void) {
+[; ;main.c: 529: int main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 525: setup();
-"525
-[e ( _setup ..  ]
-[; ;main.c: 526: ADC_Initialize();
-"526
-[e ( _ADC_Initialize ..  ]
-[; ;main.c: 527: initializeMenuArray();
-"527
-[e ( _initializeMenuArray ..  ]
-[; ;main.c: 528: Lcd_Start();
-"528
-[e ( _Lcd_Start ..  ]
-[; ;main.c: 531: state = 0x0;
-"531
-[e = _state -> -> 0 `i `uc ]
-[; ;main.c: 532: POT_MODE = 0;
+[; ;main.c: 532: setup();
 "532
-[e = _POT_MODE -> -> 0 `i `b ]
-[; ;main.c: 533: which_screen = MAIN_MENU;
+[e ( _setup ..  ]
+[; ;main.c: 533: ADC_Initialize();
 "533
-[e = _which_screen -> . `E14554 2 `uc ]
-[; ;main.c: 534: menu_lcd();
+[e ( _ADC_Initialize ..  ]
+[; ;main.c: 534: initializeMenuArray();
 "534
-[e ( _menu_lcd ..  ]
-[; ;main.c: 535: panic_button();
+[e ( _initializeMenuArray ..  ]
+[; ;main.c: 535: Lcd_Start();
 "535
-[e ( _panic_button ..  ]
-[; ;main.c: 537: srand(2048);
-"537
-[e ( _srand (1 -> -> 2048 `i `ui ]
-[; ;main.c: 540: encoderPolarity = Read_b_eep(0x02);
+[e ( _Lcd_Start ..  ]
+[; ;main.c: 538: state = 0x0;
+"538
+[e = _state -> -> 0 `i `uc ]
+[; ;main.c: 539: POT_MODE = 0;
+"539
+[e = _POT_MODE -> -> 0 `i `b ]
+[; ;main.c: 540: which_screen = MAIN_MENU;
 "540
-[e = _encoderPolarity -> ( _Read_b_eep (1 -> -> 2 `i `ui `b ]
-[; ;main.c: 542: ema_integer = Read_b_eep(0x03);
+[e = _which_screen -> . `E14554 2 `uc ]
+[; ;main.c: 541: menu_lcd();
+"541
+[e ( _menu_lcd ..  ]
+[; ;main.c: 542: panic_button();
 "542
-[e = _ema_integer ( _Read_b_eep (1 -> -> 3 `i `ui ]
-[; ;main.c: 544: calculate_alpha();
+[e ( _panic_button ..  ]
+[; ;main.c: 544: srand(2048);
 "544
-[e ( _calculate_alpha ..  ]
-[; ;main.c: 551: ARPEGGIO_ON = 0;
+[e ( _srand (1 -> -> 2048 `i `ui ]
+[; ;main.c: 547: encoderPolarity = Read_b_eep(0x02);
+"547
+[e = _encoderPolarity -> ( _Read_b_eep (1 -> -> 2 `i `ui `b ]
+[; ;main.c: 549: ema_integer = Read_b_eep(0x03);
+"549
+[e = _ema_integer ( _Read_b_eep (1 -> -> 3 `i `ui ]
+[; ;main.c: 551: calculate_alpha();
 "551
-[e = _ARPEGGIO_ON -> -> 0 `i `b ]
-[; ;main.c: 554: TIMER_PRELOAD = calculate_pulse_length();
-"554
-[e = _TIMER_PRELOAD ( _calculate_pulse_length ..  ]
-[; ;main.c: 557: LATCH = 0;
-"557
-[e = _LATCH -> -> 0 `i `b ]
-[; ;main.c: 558: UN_LATCH_MODE = 0;
+[e ( _calculate_alpha ..  ]
+[; ;main.c: 558: ARPEGGIO_ON = 0;
 "558
+[e = _ARPEGGIO_ON -> -> 0 `i `b ]
+[; ;main.c: 561: TIMER_PRELOAD = calculate_pulse_length();
+"561
+[e = _TIMER_PRELOAD ( _calculate_pulse_length ..  ]
+[; ;main.c: 564: LATCH = 0;
+"564
+[e = _LATCH -> -> 0 `i `b ]
+[; ;main.c: 565: UN_LATCH_MODE = 0;
+"565
 [e = _UN_LATCH_MODE -> -> 0 `i `b ]
-[; ;main.c: 560: AUTO_LATCH = 0;
-"560
-[e = _AUTO_LATCH -> -> 0 `i `b ]
-[; ;main.c: 563: AUTO_RANDOMIZE = 0;
-"563
-[e = _AUTO_RANDOMIZE -> -> 0 `i `b ]
-[; ;main.c: 567: RESET_ON_KEY_PRESS = 1;
+[; ;main.c: 567: AUTO_LATCH = 0;
 "567
-[e = _RESET_ON_KEY_PRESS -> -> 1 `i `b ]
-[; ;main.c: 568: RESET_ON_KEY_RELEASE = 1;
-"568
-[e = _RESET_ON_KEY_RELEASE -> -> 1 `i `b ]
-[; ;main.c: 571: LAST_NOTE_MODE_KEY_PRESS = 0;
-"571
-[e = _LAST_NOTE_MODE_KEY_PRESS -> -> 0 `i `b ]
-[; ;main.c: 572: LAST_NOTE_MODE_KEY_RELEASE = 0;
-"572
-[e = _LAST_NOTE_MODE_KEY_RELEASE -> -> 0 `i `b ]
-[; ;main.c: 573: LAST_NOTE_MODE_TRANSPOSE = 1;
-"573
-[e = _LAST_NOTE_MODE_TRANSPOSE -> -> 1 `i `b ]
-[; ;main.c: 574: LAST_NOTE_MODE_RESET = 1;
+[e = _AUTO_LATCH -> -> 0 `i `b ]
+[; ;main.c: 570: AUTO_RANDOMIZE = 0;
+"570
+[e = _AUTO_RANDOMIZE -> -> 0 `i `b ]
+[; ;main.c: 574: RESET_ON_KEY_PRESS = 1;
 "574
-[e = _LAST_NOTE_MODE_RESET -> -> 1 `i `b ]
-[; ;main.c: 577: skipFirstLast = 0;
-"577
-[e = _skipFirstLast -> -> 0 `i `b ]
-[; ;main.c: 580: DISPLAY_STEP_NUMBER = 0;
+[e = _RESET_ON_KEY_PRESS -> -> 1 `i `b ]
+[; ;main.c: 575: RESET_ON_KEY_RELEASE = 1;
+"575
+[e = _RESET_ON_KEY_RELEASE -> -> 1 `i `b ]
+[; ;main.c: 578: LAST_NOTE_MODE_KEY_PRESS = 0;
+"578
+[e = _LAST_NOTE_MODE_KEY_PRESS -> -> 0 `i `b ]
+[; ;main.c: 579: LAST_NOTE_MODE_KEY_RELEASE = 0;
+"579
+[e = _LAST_NOTE_MODE_KEY_RELEASE -> -> 0 `i `b ]
+[; ;main.c: 580: LAST_NOTE_MODE_TRANSPOSE = 1;
 "580
-[e = _DISPLAY_STEP_NUMBER -> -> 0 `i `b ]
-[; ;main.c: 583: TMR0IE = 1;
-"583
-[e = _TMR0IE -> -> 1 `i `b ]
-[; ;main.c: 584: TMR0ON = 1;
+[e = _LAST_NOTE_MODE_TRANSPOSE -> -> 1 `i `b ]
+[; ;main.c: 581: LAST_NOTE_MODE_RESET = 1;
+"581
+[e = _LAST_NOTE_MODE_RESET -> -> 1 `i `b ]
+[; ;main.c: 584: skipFirstLast = 0;
 "584
-[e = _TMR0ON -> -> 1 `i `b ]
-[; ;main.c: 586: TMR2IE = 1;
-"586
-[e = _TMR2IE -> -> 1 `i `b ]
-[; ;main.c: 587: TMR2ON = 1;
+[e = _skipFirstLast -> -> 0 `i `b ]
+[; ;main.c: 587: DISPLAY_STEP_NUMBER = 0;
 "587
-[e = _TMR2ON -> -> 1 `i `b ]
-[; ;main.c: 589: TMR1IE = 1;
-"589
-[e = _TMR1IE -> -> 1 `i `b ]
-[; ;main.c: 590: TMR1ON = 1;
+[e = _DISPLAY_STEP_NUMBER -> -> 0 `i `b ]
+[; ;main.c: 590: TMR0IE = 1;
 "590
-[e = _TMR1ON -> -> 1 `i `b ]
-[; ;main.c: 593: initializeSaveSlotsOnce();
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;main.c: 591: TMR0ON = 1;
+"591
+[e = _TMR0ON -> -> 1 `i `b ]
+[; ;main.c: 593: TMR2IE = 1;
 "593
-[e ( _initializeSaveSlotsOnce ..  ]
-[; ;main.c: 594: selectSlotOnBoot();
+[e = _TMR2IE -> -> 1 `i `b ]
+[; ;main.c: 594: TMR2ON = 1;
 "594
-[e ( _selectSlotOnBoot ..  ]
-[; ;main.c: 597: if((ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) || (ARPEGGIO_TYPE == AS_PRESSED)){
+[e = _TMR2ON -> -> 1 `i `b ]
+[; ;main.c: 596: TMR1IE = 1;
+"596
+[e = _TMR1IE -> -> 1 `i `b ]
+[; ;main.c: 597: TMR1ON = 1;
 "597
+[e = _TMR1ON -> -> 1 `i `b ]
+[; ;main.c: 600: initializeSaveSlotsOnce();
+"600
+[e ( _initializeSaveSlotsOnce ..  ]
+[; ;main.c: 601: selectSlotOnBoot();
+"601
+[e ( _selectSlotOnBoot ..  ]
+[; ;main.c: 604: if((ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == UP_DOWN) || (ARPEGGIO_TYPE == RANDOM) || (ARPEGGIO_TYPE == RANDOM_NON_REPEATING) || (ARPEGGIO_TYPE == AS_PRESSED)){
+"604
 [e $ ! || || || || == -> _ARPEGGIO_TYPE `i -> . `E14370 0 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 2 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 5 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 4 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 6 `i 1163  ]
 {
-[; ;main.c: 598: startingDirection = UP;
-"598
+[; ;main.c: 605: startingDirection = UP;
+"605
 [e = _startingDirection -> . `E14370 0 `uc ]
-"599
+"606
 }
 [e :U 1163 ]
-[; ;main.c: 599: }
-[; ;main.c: 601: if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP)){
-"601
+[; ;main.c: 606: }
+[; ;main.c: 608: if((ARPEGGIO_TYPE == DOWN) || (ARPEGGIO_TYPE == DOWN_UP)){
+"608
 [e $ ! || == -> _ARPEGGIO_TYPE `i -> . `E14370 1 `i == -> _ARPEGGIO_TYPE `i -> . `E14370 3 `i 1164  ]
 {
-[; ;main.c: 602: startingDirection = DOWN;
-"602
+[; ;main.c: 609: startingDirection = DOWN;
+"609
 [e = _startingDirection -> . `E14370 1 `uc ]
-"603
+"610
 }
 [e :U 1164 ]
-[; ;main.c: 603: }
-[; ;main.c: 605: displayTest();
-"605
-[e ( _displayTest ..  ]
-[; ;main.c: 612: which_functions_are_unblocked = 1;
+[; ;main.c: 610: }
+[; ;main.c: 612: displayTest();
 "612
+[e ( _displayTest ..  ]
+[; ;main.c: 619: which_functions_are_unblocked = 1;
+"619
 [e = _which_functions_are_unblocked -> -> 1 `i `b ]
-[; ;main.c: 615: while(1) {
-"615
+[; ;main.c: 622: while(1) {
+"622
 [e :U 1166 ]
 {
-[; ;main.c: 618: digitalInputs();
-"618
+[; ;main.c: 625: digitalInputs();
+"625
 [e ( _digitalInputs ..  ]
-[; ;main.c: 619: analogInputs();
-"619
+[; ;main.c: 626: analogInputs();
+"626
 [e ( _analogInputs ..  ]
-[; ;main.c: 620: processEncoderBuxton();
-"620
+[; ;main.c: 627: processEncoderBuxton();
+"627
 [e ( _processEncoderBuxton ..  ]
-[; ;main.c: 631: menu_lcd();
-"631
+[; ;main.c: 638: menu_lcd();
+"638
 [e ( _menu_lcd ..  ]
-"633
+"640
 }
 [e :U 1165 ]
-"615
+"622
 [e $U 1166  ]
 [e :U 1167 ]
-[; ;main.c: 633: }
-[; ;main.c: 635: return 0;
-"635
+[; ;main.c: 640: }
+[; ;main.c: 642: return 0;
+"642
 [e ) -> 0 `i ]
 [e $UE 1162  ]
-[; ;main.c: 636: }
-"636
+[; ;main.c: 643: }
+"643
 [e :UE 1162 ]
 }

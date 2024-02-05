@@ -412,6 +412,13 @@ void interrupt ISR (void) {
     //TIMER INTERRUPT - FOR ARPEGGIATOR
     if(TMR0IF==1) {
 
+        //added this! (immediately exits function)
+        //if(NUM_NOTES_PRESSED == 0){
+        //    TMR0IF = 0;
+        //    TMR0IE = 1;
+        //    return;
+        //}
+        
         TMR0IE = 0; //TIMER0 interrupt enable
 
         //if TIMER_OVERFLOWS = NOTE_LENTH_PULSES and not finishLastNote

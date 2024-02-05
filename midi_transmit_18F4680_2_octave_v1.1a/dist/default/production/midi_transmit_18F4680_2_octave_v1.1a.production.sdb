@@ -2296,7 +2296,7 @@ AS_PRESSED 6
 [v _selectSlotOnBoot selectSlotOnBoot `(v  1 e 1 0 ]
 "54
 [v _loadFromEEPROM loadFromEEPROM `(v  1 e 1 0 ]
-"194
+"198
 [v _saveToEEPROM saveToEEPROM `(v  1 e 1 0 ]
 "27 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\encoder.c
 [v _encoderInputsBuxton encoderInputsBuxton `(v  1 e 1 0 ]
@@ -2310,23 +2310,23 @@ AS_PRESSED 6
 [v _keyboard_sharps_only_efficient keyboard_sharps_only_efficient `(v  1 e 1 0 ]
 "293
 [v _playTriad playTriad `(v  1 e 1 0 ]
-"396
+"397
 [v _playSeventh playSeventh `(v  1 e 1 0 ]
-"493
+"495
 [v _playThisNote playThisNote `(v  1 e 1 0 ]
-"590
+"592
 [v _keyboard_all_note_efficient keyboard_all_note_efficient `(v  1 e 1 0 ]
-"902
+"904
 [v _playThisNote8 playThisNote8 `(v  1 e 1 0 ]
-"1067
+"1069
 [v _playDiatonicTriadMajor playDiatonicTriadMajor `(v  1 e 1 0 ]
-"1135
+"1138
 [v _playDiatonicSeventhMajor playDiatonicSeventhMajor `(v  1 e 1 0 ]
-"1207
+"1211
 [v _playDiatonicTriadMinor playDiatonicTriadMinor `(v  1 e 1 0 ]
-"1285
+"1290
 [v _playDiatonicSeventhMinor playDiatonicSeventhMinor `(v  1 e 1 0 ]
-"1363
+"1369
 [v _keyboard_eight_note_efficient keyboard_eight_note_efficient `(v  1 e 1 0 ]
 "21 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\lcd.c
 [v _Lcd_SetBit Lcd_SetBit `(v  1 e 1 0 ]
@@ -2356,9 +2356,9 @@ AS_PRESSED 6
 [v _digitalInputs digitalInputs `(v  1 e 1 0 ]
 "380
 [v _ISR ISR `II(v  1 e 1 0 ]
-"507
+"514
 [v _panic_button panic_button `(v  1 e 1 0 ]
-"522
+"529
 [v _main main `(i  1 e 2 0 ]
 "27 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _initializeMenuArray initializeMenuArray `(v  1 e 1 0 ]
@@ -3126,10 +3126,10 @@ AS_PRESSED 6
 [v _diatonic_seventh_major diatonic_seventh_major `C[15][4]uc  1 e 60 0 ]
 "304
 [v _diatonic_seventh_minor diatonic_seventh_minor `C[15][4]uc  1 e 60 0 ]
-"522 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"529 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"636
+"643
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\rand.c
 [v _srand srand `(v  1 e 1 0 ]
@@ -3149,10 +3149,10 @@ AS_PRESSED 6
 [v selectSlotOnBoot@slot slot `uc  1 a 1 0 ]
 "52
 } 0
-"507 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"514 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _panic_button panic_button `(v  1 e 1 0 ]
 {
-"512
+"519
 } 0
 "325 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _menu_lcd menu_lcd `(v  1 e 1 0 ]
@@ -3299,7 +3299,7 @@ AS_PRESSED 6
 [v loadFromEEPROM@slotNumber slotNumber `uc  1 a 1 wreg ]
 "56
 [v loadFromEEPROM@slotNumber slotNumber `uc  1 a 1 77 ]
-"191
+"195
 } 0
 "150 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.c
 [v _calculate_pulse_length calculate_pulse_length `(us  1 e 2 0 ]
@@ -3564,104 +3564,104 @@ AS_PRESSED 6
 [v playThisNotePentatonic@index index `uc  1 p 1 17 ]
 "138
 } 0
-"1363
+"1369
 [v _keyboard_eight_note_efficient keyboard_eight_note_efficient `(v  1 e 1 0 ]
 {
-"1366
+"1372
 [v keyboard_eight_note_efficient@index index `uc  1 a 1 27 ]
-"1365
+"1371
 [v keyboard_eight_note_efficient@pitch pitch `uc  1 a 1 26 ]
-"1581
+"1587
 } 0
-"902
+"904
 [v _playThisNote8 playThisNote8 `(v  1 e 1 0 ]
 {
 [v playThisNote8@pitch pitch `uc  1 a 1 wreg ]
-"961
+"963
 [v playThisNote8@temp_pitch temp_pitch `uc  1 a 1 23 ]
-"904
+"906
 [v playThisNote8@mode_p mode_p `*.25uc  1 a 2 24 ]
-"902
+"904
 [v playThisNote8@pitch pitch `uc  1 a 1 wreg ]
 [v playThisNote8@index index `uc  1 p 1 17 ]
 [v playThisNote8@pitch pitch `uc  1 a 1 22 ]
-"1065
+"1067
 } 0
-"1207
+"1211
 [v _playDiatonicTriadMinor playDiatonicTriadMinor `(v  1 e 1 0 ]
 {
 [v playDiatonicTriadMinor@pitch pitch `uc  1 a 1 wreg ]
-"1238
+"1242
 [v playDiatonicTriadMinor@i_1723 i `uc  1 a 1 8 ]
-"1211
+"1215
 [v playDiatonicTriadMinor@i i `uc  1 a 1 7 ]
-"1207
+"1211
 [v playDiatonicTriadMinor@pitch pitch `uc  1 a 1 wreg ]
 [v playDiatonicTriadMinor@index index `uc  1 p 1 1 ]
-"1210
+"1214
 [v playDiatonicTriadMinor@pitch pitch `uc  1 a 1 6 ]
-"1283
+"1288
 } 0
-"1067
+"1069
 [v _playDiatonicTriadMajor playDiatonicTriadMajor `(v  1 e 1 0 ]
 {
 [v playDiatonicTriadMajor@pitch pitch `uc  1 a 1 wreg ]
-"1092
+"1094
 [v playDiatonicTriadMajor@i_1713 i `uc  1 a 1 7 ]
-"1071
+"1073
 [v playDiatonicTriadMajor@i i `uc  1 a 1 6 ]
-"1067
+"1069
 [v playDiatonicTriadMajor@pitch pitch `uc  1 a 1 wreg ]
 [v playDiatonicTriadMajor@index index `uc  1 p 1 1 ]
-"1070
+"1072
 [v playDiatonicTriadMajor@pitch pitch `uc  1 a 1 8 ]
-"1133
+"1136
 } 0
-"1285
+"1290
 [v _playDiatonicSeventhMinor playDiatonicSeventhMinor `(v  1 e 1 0 ]
 {
 [v playDiatonicSeventhMinor@pitch pitch `uc  1 a 1 wreg ]
-"1317
+"1322
 [v playDiatonicSeventhMinor@i_1728 i `uc  1 a 1 8 ]
-"1289
+"1294
 [v playDiatonicSeventhMinor@i i `uc  1 a 1 7 ]
-"1285
+"1290
 [v playDiatonicSeventhMinor@pitch pitch `uc  1 a 1 wreg ]
 [v playDiatonicSeventhMinor@index index `uc  1 p 1 1 ]
-"1288
+"1293
 [v playDiatonicSeventhMinor@pitch pitch `uc  1 a 1 6 ]
-"1360
+"1366
 } 0
-"1135
+"1138
 [v _playDiatonicSeventhMajor playDiatonicSeventhMajor `(v  1 e 1 0 ]
 {
 [v playDiatonicSeventhMajor@pitch pitch `uc  1 a 1 wreg ]
-"1161
+"1164
 [v playDiatonicSeventhMajor@i_1718 i `uc  1 a 1 7 ]
-"1139
+"1142
 [v playDiatonicSeventhMajor@i i `uc  1 a 1 6 ]
-"1135
+"1138
 [v playDiatonicSeventhMajor@pitch pitch `uc  1 a 1 wreg ]
 [v playDiatonicSeventhMajor@index index `uc  1 p 1 1 ]
-"1138
+"1141
 [v playDiatonicSeventhMajor@pitch pitch `uc  1 a 1 8 ]
-"1205
+"1209
 } 0
-"590
+"592
 [v _keyboard_all_note_efficient keyboard_all_note_efficient `(v  1 e 1 0 ]
 {
-"592
+"594
 [v keyboard_all_note_efficient@pitch pitch `uc  1 a 1 22 ]
-"900
+"902
 } 0
-"493
+"495
 [v _playThisNote playThisNote `(v  1 e 1 0 ]
 {
 [v playThisNote@pitch pitch `uc  1 a 1 wreg ]
 [v playThisNote@pitch pitch `uc  1 a 1 wreg ]
-"495
+"497
 [v playThisNote@pitch pitch `uc  1 a 1 21 ]
-"587
+"589
 } 0
 "293
 [v _playTriad playTriad `(v  1 e 1 0 ]
@@ -3676,22 +3676,22 @@ AS_PRESSED 6
 "293
 [v playTriad@pitch pitch `uc  1 a 1 wreg ]
 [v playTriad@pitch pitch `uc  1 a 1 9 ]
-"394
+"395
 } 0
-"396
+"397
 [v _playSeventh playSeventh `(v  1 e 1 0 ]
 {
 [v playSeventh@pitch pitch `uc  1 a 1 wreg ]
-"446
+"447
 [v playSeventh@i_1696 i `uc  1 a 1 8 ]
-"423
+"424
 [v playSeventh@i i `uc  1 a 1 7 ]
-"398
+"399
 [v playSeventh@seventh_p seventh_p `*.39uc  1 a 2 5 ]
-"396
+"397
 [v playSeventh@pitch pitch `uc  1 a 1 wreg ]
 [v playSeventh@pitch pitch `uc  1 a 1 9 ]
-"491
+"493
 } 0
 "123 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\midi.c
 [v _noteOn noteOn `R(v  1 e 1 0 ]
@@ -4157,21 +4157,21 @@ AS_PRESSED 6
 [v initializeSaveSlotsOnce@initializeSlotsOnce initializeSlotsOnce `uc  1 a 1 84 ]
 "39
 } 0
-"194
+"198
 [v _saveToEEPROM saveToEEPROM `(v  1 e 1 0 ]
 {
 [v saveToEEPROM@slotNumber slotNumber `uc  1 a 1 wreg ]
-"325
+"329
 [v saveToEEPROM@byte_count byte_count `ui  1 a 2 82 ]
-"205
+"209
 [v saveToEEPROM@to_save to_save `[75]uc  1 a 75 4 ]
-"196
+"200
 [v saveToEEPROM@baseAddress baseAddress `ui  1 a 2 79 ]
-"194
+"198
 [v saveToEEPROM@slotNumber slotNumber `uc  1 a 1 wreg ]
-"196
+"200
 [v saveToEEPROM@slotNumber slotNumber `uc  1 a 1 81 ]
-"328
+"332
 } 0
 "49 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\pic18\plib\EEP\write_B.c
 [v _Write_b_eep Write_b_eep `(v  1 e 1 0 ]
@@ -4261,7 +4261,7 @@ AS_PRESSED 6
 "380 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"504
+"511
 } 0
 "277 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.c
 [v _playArpeggio playArpeggio `(v  1 e 1 0 ]

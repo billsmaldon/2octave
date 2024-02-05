@@ -18003,6 +18003,7 @@ RBIF = 0;
 
 if(TMR0IF==1) {
 
+# 422
 TMR0IE = 0;
 
 
@@ -18013,7 +18014,7 @@ if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == D
 stored_octave = which_octave;
 }
 
-# 444
+# 451
 ARPEGGIO_IS_PLAYING = 1;
 playArpeggio();
 ARPEGGIO_IS_PLAYING = 0;
@@ -18030,11 +18031,11 @@ stored_octave = which_octave;
 }
 }
 
-# 479
+# 486
 if(lastNoteMode == 1){
 if((finishLastNote == 1) && ((TIMER_OVERFLOWS % NOTE_LENGTH_PULSES) == 0)){
 
-# 489
+# 496
 finishLastNote = 0;
 
 
@@ -18092,7 +18093,7 @@ ema_integer = Read_b_eep(0x03);
 
 calculate_alpha();
 
-# 551
+# 558
 ARPEGGIO_ON = 0;
 
 
@@ -18149,7 +18150,7 @@ startingDirection = DOWN;
 
 displayTest();
 
-# 612
+# 619
 which_functions_are_unblocked = 1;
 
 
@@ -18160,7 +18161,7 @@ digitalInputs();
 analogInputs();
 processEncoderBuxton();
 
-# 631
+# 638
 menu_lcd();
 
 }

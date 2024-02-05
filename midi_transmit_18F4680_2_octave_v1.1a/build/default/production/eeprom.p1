@@ -14928,323 +14928,330 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 182: LATCH = to_load[66];
 "182
 [e = _LATCH -> *U + &U _to_load * -> -> -> 66 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
-[; ;eeprom.c: 183: AUTO_LATCH = to_load[67];
-"183
-[e = _AUTO_LATCH -> *U + &U _to_load * -> -> -> 67 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
-[; ;eeprom.c: 184: UN_LATCH_MODE = to_load[68];
-"184
-[e = _UN_LATCH_MODE -> *U + &U _to_load * -> -> -> 68 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
-[; ;eeprom.c: 185: AUTO_RANDOMIZE = to_load[69];
+[; ;eeprom.c: 185: if(LATCH == 1){latch_was_pressed = 1;}
 "185
-[e = _AUTO_RANDOMIZE -> *U + &U _to_load * -> -> -> 69 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
-[; ;eeprom.c: 186: skipFirstLast = to_load[70];
-"186
-[e = _skipFirstLast -> *U + &U _to_load * -> -> -> 70 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
-[; ;eeprom.c: 187: LAST_NOTE_MODE_KEY_PRESS = to_load[71];
+[e $ ! == -> _LATCH `i -> 1 `i 1136  ]
+{
+[e = _latch_was_pressed -> -> 1 `i `b ]
+}
+[e :U 1136 ]
+[; ;eeprom.c: 187: AUTO_LATCH = to_load[67];
 "187
-[e = _LAST_NOTE_MODE_KEY_PRESS -> *U + &U _to_load * -> -> -> 71 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
-[; ;eeprom.c: 188: LAST_NOTE_MODE_KEY_RELEASE = to_load[72];
+[e = _AUTO_LATCH -> *U + &U _to_load * -> -> -> 67 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
+[; ;eeprom.c: 188: UN_LATCH_MODE = to_load[68];
 "188
-[e = _LAST_NOTE_MODE_KEY_RELEASE -> *U + &U _to_load * -> -> -> 72 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
-[; ;eeprom.c: 189: LAST_NOTE_MODE_TRANSPOSE = to_load[73];
+[e = _UN_LATCH_MODE -> *U + &U _to_load * -> -> -> 68 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
+[; ;eeprom.c: 189: AUTO_RANDOMIZE = to_load[69];
 "189
-[e = _LAST_NOTE_MODE_TRANSPOSE -> *U + &U _to_load * -> -> -> 73 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
-[; ;eeprom.c: 190: LAST_NOTE_MODE_RESET = to_load[74];
+[e = _AUTO_RANDOMIZE -> *U + &U _to_load * -> -> -> 69 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
+[; ;eeprom.c: 190: skipFirstLast = to_load[70];
 "190
-[e = _LAST_NOTE_MODE_RESET -> *U + &U _to_load * -> -> -> 74 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
-[; ;eeprom.c: 191: }
+[e = _skipFirstLast -> *U + &U _to_load * -> -> -> 70 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
+[; ;eeprom.c: 191: LAST_NOTE_MODE_KEY_PRESS = to_load[71];
 "191
+[e = _LAST_NOTE_MODE_KEY_PRESS -> *U + &U _to_load * -> -> -> 71 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
+[; ;eeprom.c: 192: LAST_NOTE_MODE_KEY_RELEASE = to_load[72];
+"192
+[e = _LAST_NOTE_MODE_KEY_RELEASE -> *U + &U _to_load * -> -> -> 72 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
+[; ;eeprom.c: 193: LAST_NOTE_MODE_TRANSPOSE = to_load[73];
+"193
+[e = _LAST_NOTE_MODE_TRANSPOSE -> *U + &U _to_load * -> -> -> 73 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
+[; ;eeprom.c: 194: LAST_NOTE_MODE_RESET = to_load[74];
+"194
+[e = _LAST_NOTE_MODE_RESET -> *U + &U _to_load * -> -> -> 74 `i `ui `ux -> -> # *U &U _to_load `ui `ux `b ]
+[; ;eeprom.c: 195: }
+"195
 [e :UE 1128 ]
 }
-"194
+"198
 [v _saveToEEPROM `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;eeprom.c: 194: void saveToEEPROM(unsigned char slotNumber) {
+[; ;eeprom.c: 198: void saveToEEPROM(unsigned char slotNumber) {
 [e :U _saveToEEPROM ]
 [v _slotNumber `uc ~T0 @X0 1 r1 ]
 [f ]
-"196
+"200
 [v _baseAddress `ui ~T0 @X0 1 a ]
-[; ;eeprom.c: 196: unsigned int baseAddress = 0;
+[; ;eeprom.c: 200: unsigned int baseAddress = 0;
 [e = _baseAddress -> -> 0 `i `ui ]
-[; ;eeprom.c: 199: if (slotNumber == SLOT1) {baseAddress = 128;}
-"199
-[e $ ! == -> _slotNumber `i -> . `E14565 1 `i 1137  ]
+[; ;eeprom.c: 203: if (slotNumber == SLOT1) {baseAddress = 128;}
+"203
+[e $ ! == -> _slotNumber `i -> . `E14565 1 `i 1138  ]
 {
 [e = _baseAddress -> -> 128 `i `ui ]
 }
-[e :U 1137 ]
-[; ;eeprom.c: 200: if (slotNumber == SLOT2) {baseAddress = 256;}
-"200
-[e $ ! == -> _slotNumber `i -> . `E14565 2 `i 1138  ]
+[e :U 1138 ]
+[; ;eeprom.c: 204: if (slotNumber == SLOT2) {baseAddress = 256;}
+"204
+[e $ ! == -> _slotNumber `i -> . `E14565 2 `i 1139  ]
 {
 [e = _baseAddress -> -> 256 `i `ui ]
 }
-[e :U 1138 ]
-[; ;eeprom.c: 201: if (slotNumber == SLOT3) {baseAddress = 384;}
-"201
-[e $ ! == -> _slotNumber `i -> . `E14565 3 `i 1139  ]
+[e :U 1139 ]
+[; ;eeprom.c: 205: if (slotNumber == SLOT3) {baseAddress = 384;}
+"205
+[e $ ! == -> _slotNumber `i -> . `E14565 3 `i 1140  ]
 {
 [e = _baseAddress -> -> 384 `i `ui ]
 }
-[e :U 1139 ]
-[; ;eeprom.c: 202: if (slotNumber == SLOT4) {baseAddress = 512;}
-"202
-[e $ ! == -> _slotNumber `i -> . `E14565 4 `i 1140  ]
+[e :U 1140 ]
+[; ;eeprom.c: 206: if (slotNumber == SLOT4) {baseAddress = 512;}
+"206
+[e $ ! == -> _slotNumber `i -> . `E14565 4 `i 1141  ]
 {
 [e = _baseAddress -> -> 512 `i `ui ]
 }
-[e :U 1140 ]
-"205
+[e :U 1141 ]
+"209
 [v _to_save `uc ~T0 @X0 -> 75 `i a ]
-[; ;eeprom.c: 205: unsigned char to_save[75];
-[; ;eeprom.c: 210: to_save[0] = KEYBOARD_MODE;
-"210
+[; ;eeprom.c: 209: unsigned char to_save[75];
+[; ;eeprom.c: 214: to_save[0] = KEYBOARD_MODE;
+"214
 [e = *U + &U _to_save * -> -> -> 0 `i `ui `ux -> -> # *U &U _to_save `ui `ux _KEYBOARD_MODE ]
-[; ;eeprom.c: 211: to_save[1] = which_mode;
-"211
+[; ;eeprom.c: 215: to_save[1] = which_mode;
+"215
 [e = *U + &U _to_save * -> -> -> 1 `i `ui `ux -> -> # *U &U _to_save `ui `ux _which_mode ]
-[; ;eeprom.c: 212: to_save[2] = which_triad;
-"212
-[e = *U + &U _to_save * -> -> -> 2 `i `ui `ux -> -> # *U &U _to_save `ui `ux _which_triad ]
-[; ;eeprom.c: 213: to_save[3] = which_seventh;
-"213
-[e = *U + &U _to_save * -> -> -> 3 `i `ui `ux -> -> # *U &U _to_save `ui `ux _which_seventh ]
-[; ;eeprom.c: 216: to_save[4] = TRANSPOSE_MODE;
+[; ;eeprom.c: 216: to_save[2] = which_triad;
 "216
-[e = *U + &U _to_save * -> -> -> 4 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _TRANSPOSE_MODE `i `uc ]
-[; ;eeprom.c: 219: to_save[5] = DRUM_MODE;
-"219
-[e = *U + &U _to_save * -> -> -> 5 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _DRUM_MODE `i `uc ]
-[; ;eeprom.c: 220: to_save[6] = CONTROL_MODE;
+[e = *U + &U _to_save * -> -> -> 2 `i `ui `ux -> -> # *U &U _to_save `ui `ux _which_triad ]
+[; ;eeprom.c: 217: to_save[3] = which_seventh;
+"217
+[e = *U + &U _to_save * -> -> -> 3 `i `ui `ux -> -> # *U &U _to_save `ui `ux _which_seventh ]
+[; ;eeprom.c: 220: to_save[4] = TRANSPOSE_MODE;
 "220
-[e = *U + &U _to_save * -> -> -> 6 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _CONTROL_MODE `i `uc ]
-[; ;eeprom.c: 223: to_save[7] = DRUM_NOTE[0];
+[e = *U + &U _to_save * -> -> -> 4 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _TRANSPOSE_MODE `i `uc ]
+[; ;eeprom.c: 223: to_save[5] = DRUM_MODE;
 "223
-[e = *U + &U _to_save * -> -> -> 7 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 0 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
-[; ;eeprom.c: 224: to_save[8] = DRUM_NOTE[1];
+[e = *U + &U _to_save * -> -> -> 5 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _DRUM_MODE `i `uc ]
+[; ;eeprom.c: 224: to_save[6] = CONTROL_MODE;
 "224
-[e = *U + &U _to_save * -> -> -> 8 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 1 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
-[; ;eeprom.c: 225: to_save[9] = DRUM_NOTE[2];
-"225
-[e = *U + &U _to_save * -> -> -> 9 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 2 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
-[; ;eeprom.c: 226: to_save[10] = DRUM_NOTE[3];
-"226
-[e = *U + &U _to_save * -> -> -> 10 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 3 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
-[; ;eeprom.c: 227: to_save[11] = DRUM_NOTE[4];
+[e = *U + &U _to_save * -> -> -> 6 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _CONTROL_MODE `i `uc ]
+[; ;eeprom.c: 227: to_save[7] = DRUM_NOTE[0];
 "227
-[e = *U + &U _to_save * -> -> -> 11 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 4 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
-[; ;eeprom.c: 228: to_save[12] = DRUM_NOTE[5];
+[e = *U + &U _to_save * -> -> -> 7 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 0 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
+[; ;eeprom.c: 228: to_save[8] = DRUM_NOTE[1];
 "228
-[e = *U + &U _to_save * -> -> -> 12 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 5 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
-[; ;eeprom.c: 229: to_save[13] = DRUM_NOTE[6];
+[e = *U + &U _to_save * -> -> -> 8 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 1 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
+[; ;eeprom.c: 229: to_save[9] = DRUM_NOTE[2];
 "229
-[e = *U + &U _to_save * -> -> -> 13 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 6 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
-[; ;eeprom.c: 230: to_save[14] = DRUM_NOTE[7];
+[e = *U + &U _to_save * -> -> -> 9 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 2 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
+[; ;eeprom.c: 230: to_save[10] = DRUM_NOTE[3];
 "230
-[e = *U + &U _to_save * -> -> -> 14 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 7 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
-[; ;eeprom.c: 233: to_save[15] = DRUM_CC[0];
+[e = *U + &U _to_save * -> -> -> 10 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 3 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
+[; ;eeprom.c: 231: to_save[11] = DRUM_NOTE[4];
+"231
+[e = *U + &U _to_save * -> -> -> 11 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 4 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
+[; ;eeprom.c: 232: to_save[12] = DRUM_NOTE[5];
+"232
+[e = *U + &U _to_save * -> -> -> 12 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 5 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
+[; ;eeprom.c: 233: to_save[13] = DRUM_NOTE[6];
 "233
-[e = *U + &U _to_save * -> -> -> 15 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 0 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
-[; ;eeprom.c: 234: to_save[16] = DRUM_CC[1];
+[e = *U + &U _to_save * -> -> -> 13 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 6 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
+[; ;eeprom.c: 234: to_save[14] = DRUM_NOTE[7];
 "234
-[e = *U + &U _to_save * -> -> -> 16 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 1 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
-[; ;eeprom.c: 235: to_save[17] = DRUM_CC[2];
-"235
-[e = *U + &U _to_save * -> -> -> 17 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 2 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
-[; ;eeprom.c: 236: to_save[18] = DRUM_CC[3];
-"236
-[e = *U + &U _to_save * -> -> -> 18 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 3 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
-[; ;eeprom.c: 237: to_save[19] = DRUM_CC[4];
+[e = *U + &U _to_save * -> -> -> 14 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_NOTE * -> -> -> 7 `i `ui `ux -> -> # *U &U _DRUM_NOTE `ui `ux ]
+[; ;eeprom.c: 237: to_save[15] = DRUM_CC[0];
 "237
-[e = *U + &U _to_save * -> -> -> 19 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 4 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
-[; ;eeprom.c: 238: to_save[20] = DRUM_CC[5];
+[e = *U + &U _to_save * -> -> -> 15 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 0 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
+[; ;eeprom.c: 238: to_save[16] = DRUM_CC[1];
 "238
-[e = *U + &U _to_save * -> -> -> 20 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 5 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
-[; ;eeprom.c: 239: to_save[21] = DRUM_CC[6];
+[e = *U + &U _to_save * -> -> -> 16 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 1 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
+[; ;eeprom.c: 239: to_save[17] = DRUM_CC[2];
 "239
-[e = *U + &U _to_save * -> -> -> 21 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 6 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
-[; ;eeprom.c: 240: to_save[22] = DRUM_CC[7];
+[e = *U + &U _to_save * -> -> -> 17 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 2 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
+[; ;eeprom.c: 240: to_save[18] = DRUM_CC[3];
 "240
-[e = *U + &U _to_save * -> -> -> 22 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 7 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
-[; ;eeprom.c: 243: to_save[23] = POT_MODE;
+[e = *U + &U _to_save * -> -> -> 18 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 3 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
+[; ;eeprom.c: 241: to_save[19] = DRUM_CC[4];
+"241
+[e = *U + &U _to_save * -> -> -> 19 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 4 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
+[; ;eeprom.c: 242: to_save[20] = DRUM_CC[5];
+"242
+[e = *U + &U _to_save * -> -> -> 20 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 5 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
+[; ;eeprom.c: 243: to_save[21] = DRUM_CC[6];
 "243
-[e = *U + &U _to_save * -> -> -> 23 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _POT_MODE `i `uc ]
-[; ;eeprom.c: 246: to_save[24] = inputPotsArray[0].controller_number;
-"246
-[e = *U + &U _to_save * -> -> -> 24 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 0 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 247: to_save[25] = inputPotsArray[0].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 21 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 6 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
+[; ;eeprom.c: 244: to_save[22] = DRUM_CC[7];
+"244
+[e = *U + &U _to_save * -> -> -> 22 `i `ui `ux -> -> # *U &U _to_save `ui `ux *U + &U _DRUM_CC * -> -> -> 7 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux ]
+[; ;eeprom.c: 247: to_save[23] = POT_MODE;
 "247
-[e = *U + &U _to_save * -> -> -> 25 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 0 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 249: to_save[26] = inputPotsArray[1].controller_number;
-"249
-[e = *U + &U _to_save * -> -> -> 26 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 1 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 250: to_save[27] = inputPotsArray[1].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 23 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _POT_MODE `i `uc ]
+[; ;eeprom.c: 250: to_save[24] = inputPotsArray[0].controller_number;
 "250
-[e = *U + &U _to_save * -> -> -> 27 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 1 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 252: to_save[28] = inputPotsArray[2].controller_number;
-"252
-[e = *U + &U _to_save * -> -> -> 28 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 2 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 253: to_save[29] = inputPotsArray[2].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 24 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 0 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 251: to_save[25] = inputPotsArray[0].controller_number_two_byte;
+"251
+[e = *U + &U _to_save * -> -> -> 25 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 0 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 253: to_save[26] = inputPotsArray[1].controller_number;
 "253
-[e = *U + &U _to_save * -> -> -> 29 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 2 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 255: to_save[30] = inputPotsArray[3].controller_number;
-"255
-[e = *U + &U _to_save * -> -> -> 30 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 3 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 256: to_save[31] = inputPotsArray[3].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 26 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 1 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 254: to_save[27] = inputPotsArray[1].controller_number_two_byte;
+"254
+[e = *U + &U _to_save * -> -> -> 27 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 1 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 256: to_save[28] = inputPotsArray[2].controller_number;
 "256
-[e = *U + &U _to_save * -> -> -> 31 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 3 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 258: to_save[32] = inputPotsArray[4].controller_number;
-"258
-[e = *U + &U _to_save * -> -> -> 32 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 4 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 259: to_save[33] = inputPotsArray[4].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 28 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 2 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 257: to_save[29] = inputPotsArray[2].controller_number_two_byte;
+"257
+[e = *U + &U _to_save * -> -> -> 29 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 2 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 259: to_save[30] = inputPotsArray[3].controller_number;
 "259
-[e = *U + &U _to_save * -> -> -> 33 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 4 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 261: to_save[34] = inputPotsArray[5].controller_number;
-"261
-[e = *U + &U _to_save * -> -> -> 34 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 5 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 262: to_save[35] = inputPotsArray[5].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 30 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 3 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 260: to_save[31] = inputPotsArray[3].controller_number_two_byte;
+"260
+[e = *U + &U _to_save * -> -> -> 31 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 3 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 262: to_save[32] = inputPotsArray[4].controller_number;
 "262
-[e = *U + &U _to_save * -> -> -> 35 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 5 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 264: to_save[36] = inputPotsArray[6].controller_number;
-"264
-[e = *U + &U _to_save * -> -> -> 36 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 6 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 265: to_save[37] = inputPotsArray[6].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 32 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 4 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 263: to_save[33] = inputPotsArray[4].controller_number_two_byte;
+"263
+[e = *U + &U _to_save * -> -> -> 33 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 4 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 265: to_save[34] = inputPotsArray[5].controller_number;
 "265
-[e = *U + &U _to_save * -> -> -> 37 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 6 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 269: to_save[38] = inputPotsArray[7].controller_number;
+[e = *U + &U _to_save * -> -> -> 34 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 5 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 266: to_save[35] = inputPotsArray[5].controller_number_two_byte;
+"266
+[e = *U + &U _to_save * -> -> -> 35 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 5 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 268: to_save[36] = inputPotsArray[6].controller_number;
+"268
+[e = *U + &U _to_save * -> -> -> 36 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 6 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 269: to_save[37] = inputPotsArray[6].controller_number_two_byte;
 "269
-[e = *U + &U _to_save * -> -> -> 38 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 7 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 270: to_save[39] = inputPotsArray[7].controller_number_two_byte;
-"270
-[e = *U + &U _to_save * -> -> -> 39 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 7 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 272: to_save[40] = inputPotsArray[8].controller_number;
-"272
-[e = *U + &U _to_save * -> -> -> 40 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 8 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 273: to_save[41] = inputPotsArray[8].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 37 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 6 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 273: to_save[38] = inputPotsArray[7].controller_number;
 "273
-[e = *U + &U _to_save * -> -> -> 41 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 8 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 275: to_save[42] = inputPotsArray[9].controller_number;
-"275
-[e = *U + &U _to_save * -> -> -> 42 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 9 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 276: to_save[43] = inputPotsArray[9].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 38 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 7 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 274: to_save[39] = inputPotsArray[7].controller_number_two_byte;
+"274
+[e = *U + &U _to_save * -> -> -> 39 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 7 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 276: to_save[40] = inputPotsArray[8].controller_number;
 "276
-[e = *U + &U _to_save * -> -> -> 43 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 9 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 278: to_save[44] = inputPotsArray[10].controller_number;
-"278
-[e = *U + &U _to_save * -> -> -> 44 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 10 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 279: to_save[45] = inputPotsArray[10].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 40 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 8 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 277: to_save[41] = inputPotsArray[8].controller_number_two_byte;
+"277
+[e = *U + &U _to_save * -> -> -> 41 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 8 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 279: to_save[42] = inputPotsArray[9].controller_number;
 "279
-[e = *U + &U _to_save * -> -> -> 45 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 10 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 281: to_save[46] = inputPotsArray[11].controller_number;
-"281
-[e = *U + &U _to_save * -> -> -> 46 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 11 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 282: to_save[47] = inputPotsArray[11].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 42 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 9 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 280: to_save[43] = inputPotsArray[9].controller_number_two_byte;
+"280
+[e = *U + &U _to_save * -> -> -> 43 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 9 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 282: to_save[44] = inputPotsArray[10].controller_number;
 "282
-[e = *U + &U _to_save * -> -> -> 47 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 11 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 284: to_save[48] = inputPotsArray[12].controller_number;
-"284
-[e = *U + &U _to_save * -> -> -> 48 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 12 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 285: to_save[49] = inputPotsArray[12].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 44 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 10 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 283: to_save[45] = inputPotsArray[10].controller_number_two_byte;
+"283
+[e = *U + &U _to_save * -> -> -> 45 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 10 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 285: to_save[46] = inputPotsArray[11].controller_number;
 "285
-[e = *U + &U _to_save * -> -> -> 49 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 12 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 287: to_save[50] = inputPotsArray[13].controller_number;
-"287
-[e = *U + &U _to_save * -> -> -> 50 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 13 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 288: to_save[51] = inputPotsArray[13].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 46 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 11 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 286: to_save[47] = inputPotsArray[11].controller_number_two_byte;
+"286
+[e = *U + &U _to_save * -> -> -> 47 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 11 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 288: to_save[48] = inputPotsArray[12].controller_number;
 "288
-[e = *U + &U _to_save * -> -> -> 51 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 13 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 290: to_save[52] = inputPotsArray[14].controller_number;
-"290
-[e = *U + &U _to_save * -> -> -> 52 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 14 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 291: to_save[53] = inputPotsArray[14].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 48 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 12 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 289: to_save[49] = inputPotsArray[12].controller_number_two_byte;
+"289
+[e = *U + &U _to_save * -> -> -> 49 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 12 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 291: to_save[50] = inputPotsArray[13].controller_number;
 "291
-[e = *U + &U _to_save * -> -> -> 53 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 14 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 293: to_save[54] = inputPotsArray[15].controller_number;
-"293
-[e = *U + &U _to_save * -> -> -> 54 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 15 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
-[; ;eeprom.c: 294: to_save[55] = inputPotsArray[15].controller_number_two_byte;
+[e = *U + &U _to_save * -> -> -> 50 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 13 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 292: to_save[51] = inputPotsArray[13].controller_number_two_byte;
+"292
+[e = *U + &U _to_save * -> -> -> 51 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 13 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 294: to_save[52] = inputPotsArray[14].controller_number;
 "294
-[e = *U + &U _to_save * -> -> -> 55 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 15 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
-[; ;eeprom.c: 298: to_save[56] = channel;
+[e = *U + &U _to_save * -> -> -> 52 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 14 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 295: to_save[53] = inputPotsArray[14].controller_number_two_byte;
+"295
+[e = *U + &U _to_save * -> -> -> 53 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 14 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 297: to_save[54] = inputPotsArray[15].controller_number;
+"297
+[e = *U + &U _to_save * -> -> -> 54 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 15 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 1 `uc ]
+[; ;eeprom.c: 298: to_save[55] = inputPotsArray[15].controller_number_two_byte;
 "298
-[e = *U + &U _to_save * -> -> -> 56 `i `ui `ux -> -> # *U &U _to_save `ui `ux _channel ]
-[; ;eeprom.c: 299: to_save[57] = drumchannel;
-"299
-[e = *U + &U _to_save * -> -> -> 57 `i `ui `ux -> -> # *U &U _to_save `ui `ux _drumchannel ]
-[; ;eeprom.c: 302: to_save[58] = octave;
+[e = *U + &U _to_save * -> -> -> 55 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> . *U + &U _inputPotsArray * -> -> -> 15 `i `ui `ux -> -> # *U &U _inputPotsArray `ui `ux 2 `uc ]
+[; ;eeprom.c: 302: to_save[56] = channel;
 "302
-[e = *U + &U _to_save * -> -> -> 58 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> _octave `uc ]
-[; ;eeprom.c: 303: to_save[59] = semitone;
+[e = *U + &U _to_save * -> -> -> 56 `i `ui `ux -> -> # *U &U _to_save `ui `ux _channel ]
+[; ;eeprom.c: 303: to_save[57] = drumchannel;
 "303
-[e = *U + &U _to_save * -> -> -> 59 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> _semitone `uc ]
-[; ;eeprom.c: 306: to_save[60] = patch_number;
+[e = *U + &U _to_save * -> -> -> 57 `i `ui `ux -> -> # *U &U _to_save `ui `ux _drumchannel ]
+[; ;eeprom.c: 306: to_save[58] = octave;
 "306
-[e = *U + &U _to_save * -> -> -> 60 `i `ui `ux -> -> # *U &U _to_save `ui `ux _patch_number ]
-[; ;eeprom.c: 309: to_save[61] = ARPEGGIO_ON;
-"309
-[e = *U + &U _to_save * -> -> -> 61 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _ARPEGGIO_ON `i `uc ]
-[; ;eeprom.c: 310: to_save[62] = BPM;
+[e = *U + &U _to_save * -> -> -> 58 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> _octave `uc ]
+[; ;eeprom.c: 307: to_save[59] = semitone;
+"307
+[e = *U + &U _to_save * -> -> -> 59 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> _semitone `uc ]
+[; ;eeprom.c: 310: to_save[60] = patch_number;
 "310
-[e = *U + &U _to_save * -> -> -> 62 `i `ui `ux -> -> # *U &U _to_save `ui `ux _BPM ]
-[; ;eeprom.c: 311: to_save[63] = OCTAVES;
-"311
-[e = *U + &U _to_save * -> -> -> 63 `i `ui `ux -> -> # *U &U _to_save `ui `ux _OCTAVES ]
-[; ;eeprom.c: 312: to_save[64] = ARPEGGIO_TYPE;
-"312
-[e = *U + &U _to_save * -> -> -> 64 `i `ui `ux -> -> # *U &U _to_save `ui `ux _ARPEGGIO_TYPE ]
-[; ;eeprom.c: 313: to_save[65] = NOTE_LENGTH_PULSES;
+[e = *U + &U _to_save * -> -> -> 60 `i `ui `ux -> -> # *U &U _to_save `ui `ux _patch_number ]
+[; ;eeprom.c: 313: to_save[61] = ARPEGGIO_ON;
 "313
-[e = *U + &U _to_save * -> -> -> 65 `i `ui `ux -> -> # *U &U _to_save `ui `ux _NOTE_LENGTH_PULSES ]
-[; ;eeprom.c: 314: to_save[66] = LATCH;
+[e = *U + &U _to_save * -> -> -> 61 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _ARPEGGIO_ON `i `uc ]
+[; ;eeprom.c: 314: to_save[62] = BPM;
 "314
-[e = *U + &U _to_save * -> -> -> 66 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LATCH `i `uc ]
-[; ;eeprom.c: 315: to_save[67] = AUTO_LATCH;
+[e = *U + &U _to_save * -> -> -> 62 `i `ui `ux -> -> # *U &U _to_save `ui `ux _BPM ]
+[; ;eeprom.c: 315: to_save[63] = OCTAVES;
 "315
-[e = *U + &U _to_save * -> -> -> 67 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _AUTO_LATCH `i `uc ]
-[; ;eeprom.c: 316: to_save[68] = UN_LATCH_MODE;
+[e = *U + &U _to_save * -> -> -> 63 `i `ui `ux -> -> # *U &U _to_save `ui `ux _OCTAVES ]
+[; ;eeprom.c: 316: to_save[64] = ARPEGGIO_TYPE;
 "316
-[e = *U + &U _to_save * -> -> -> 68 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _UN_LATCH_MODE `i `uc ]
-[; ;eeprom.c: 317: to_save[69] = AUTO_RANDOMIZE;
+[e = *U + &U _to_save * -> -> -> 64 `i `ui `ux -> -> # *U &U _to_save `ui `ux _ARPEGGIO_TYPE ]
+[; ;eeprom.c: 317: to_save[65] = NOTE_LENGTH_PULSES;
 "317
-[e = *U + &U _to_save * -> -> -> 69 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _AUTO_RANDOMIZE `i `uc ]
-[; ;eeprom.c: 318: to_save[70] = skipFirstLast;
+[e = *U + &U _to_save * -> -> -> 65 `i `ui `ux -> -> # *U &U _to_save `ui `ux _NOTE_LENGTH_PULSES ]
+[; ;eeprom.c: 318: to_save[66] = LATCH;
 "318
-[e = *U + &U _to_save * -> -> -> 70 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _skipFirstLast `i `uc ]
-[; ;eeprom.c: 319: to_save[71] = LAST_NOTE_MODE_KEY_PRESS;
+[e = *U + &U _to_save * -> -> -> 66 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LATCH `i `uc ]
+[; ;eeprom.c: 319: to_save[67] = AUTO_LATCH;
 "319
-[e = *U + &U _to_save * -> -> -> 71 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LAST_NOTE_MODE_KEY_PRESS `i `uc ]
-[; ;eeprom.c: 320: to_save[72] = LAST_NOTE_MODE_KEY_RELEASE;
+[e = *U + &U _to_save * -> -> -> 67 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _AUTO_LATCH `i `uc ]
+[; ;eeprom.c: 320: to_save[68] = UN_LATCH_MODE;
 "320
-[e = *U + &U _to_save * -> -> -> 72 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LAST_NOTE_MODE_KEY_RELEASE `i `uc ]
-[; ;eeprom.c: 321: to_save[73] = LAST_NOTE_MODE_TRANSPOSE;
+[e = *U + &U _to_save * -> -> -> 68 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _UN_LATCH_MODE `i `uc ]
+[; ;eeprom.c: 321: to_save[69] = AUTO_RANDOMIZE;
 "321
-[e = *U + &U _to_save * -> -> -> 73 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LAST_NOTE_MODE_TRANSPOSE `i `uc ]
-[; ;eeprom.c: 322: to_save[74] = LAST_NOTE_MODE_RESET;
+[e = *U + &U _to_save * -> -> -> 69 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _AUTO_RANDOMIZE `i `uc ]
+[; ;eeprom.c: 322: to_save[70] = skipFirstLast;
 "322
-[e = *U + &U _to_save * -> -> -> 74 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LAST_NOTE_MODE_RESET `i `uc ]
-[; ;eeprom.c: 325: for (unsigned int byte_count = 0; byte_count < 75; byte_count++){
+[e = *U + &U _to_save * -> -> -> 70 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _skipFirstLast `i `uc ]
+[; ;eeprom.c: 323: to_save[71] = LAST_NOTE_MODE_KEY_PRESS;
+"323
+[e = *U + &U _to_save * -> -> -> 71 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LAST_NOTE_MODE_KEY_PRESS `i `uc ]
+[; ;eeprom.c: 324: to_save[72] = LAST_NOTE_MODE_KEY_RELEASE;
+"324
+[e = *U + &U _to_save * -> -> -> 72 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LAST_NOTE_MODE_KEY_RELEASE `i `uc ]
+[; ;eeprom.c: 325: to_save[73] = LAST_NOTE_MODE_TRANSPOSE;
 "325
+[e = *U + &U _to_save * -> -> -> 73 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LAST_NOTE_MODE_TRANSPOSE `i `uc ]
+[; ;eeprom.c: 326: to_save[74] = LAST_NOTE_MODE_RESET;
+"326
+[e = *U + &U _to_save * -> -> -> 74 `i `ui `ux -> -> # *U &U _to_save `ui `ux -> -> _LAST_NOTE_MODE_RESET `i `uc ]
+[; ;eeprom.c: 329: for (unsigned int byte_count = 0; byte_count < 75; byte_count++){
+"329
 {
 [v _byte_count `ui ~T0 @X0 1 a ]
 [e = _byte_count -> -> 0 `i `ui ]
-[e $ < _byte_count -> -> 75 `i `ui 1141  ]
-[e $U 1142  ]
-[e :U 1141 ]
-{
-[; ;eeprom.c: 326: (Busy_eep(), Write_b_eep((byte_count + baseAddress),to_save[byte_count]));
-"326
-[e ; ( _Busy_eep ..  ( _Write_b_eep (2 , + _byte_count _baseAddress *U + &U _to_save * -> _byte_count `ux -> -> # *U &U _to_save `ui `ux ]
-"327
-}
-"325
-[e ++ _byte_count -> -> 1 `i `ui ]
-[e $ < _byte_count -> -> 75 `i `ui 1141  ]
+[e $ < _byte_count -> -> 75 `i `ui 1142  ]
+[e $U 1143  ]
 [e :U 1142 ]
-"327
+{
+[; ;eeprom.c: 330: (Busy_eep(), Write_b_eep((byte_count + baseAddress),to_save[byte_count]));
+"330
+[e ; ( _Busy_eep ..  ( _Write_b_eep (2 , + _byte_count _baseAddress *U + &U _to_save * -> _byte_count `ux -> -> # *U &U _to_save `ui `ux ]
+"331
 }
-[; ;eeprom.c: 327: }
-[; ;eeprom.c: 328: }
-"328
-[e :UE 1136 ]
+"329
+[e ++ _byte_count -> -> 1 `i `ui ]
+[e $ < _byte_count -> -> 75 `i `ui 1142  ]
+[e :U 1143 ]
+"331
+}
+[; ;eeprom.c: 331: }
+[; ;eeprom.c: 332: }
+"332
+[e :UE 1137 ]
 }
