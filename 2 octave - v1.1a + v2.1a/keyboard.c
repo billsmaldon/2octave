@@ -380,8 +380,9 @@ void playTriad(unsigned char pitch){
                 LATCH = 1;
             }
             
+            //changed this to !!!LOGICAL!!!
             //for un-latch
-            if(((UN_LATCH_MODE == ALL) | (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1)){
+            if(((UN_LATCH_MODE == ALL) || (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1)){
                 NUM_NOTES_PRESSED = 0;
                 ARRAY_INDEX = 0;
             }            
@@ -476,8 +477,9 @@ void playSeventh(unsigned char pitch){
                 LATCH = 1;
             }
             
+            //changed this to !!!LOGICAL!!!
             //for un-latch
-            if(((UN_LATCH_MODE == ALL) | (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1)){
+            if(((UN_LATCH_MODE == ALL) || (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1)){
                 NUM_NOTES_PRESSED = 0;
                 ARRAY_INDEX = 0;
             }          
@@ -1118,8 +1120,9 @@ void playDiatonicTriadMajor(unsigned char pitch, unsigned char index) {
                 LATCH = 1;
             }
             
+            //changed this to !!!LOGICAL!!!
             //for un-latch
-            if(((UN_LATCH_MODE == ALL) | (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1)){
+            if(((UN_LATCH_MODE == ALL) || (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1)){
                 NUM_NOTES_PRESSED = 0;
                 ARRAY_INDEX = 0;
             } 
@@ -1189,8 +1192,9 @@ void playDiatonicSeventhMajor(unsigned char pitch, unsigned char index) {
                 LATCH = 1;
             }
             
+            //changed this to !!!LOGICAL!!!
             //for un-latch
-            if(((UN_LATCH_MODE == ALL | (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1))){
+            if(((UN_LATCH_MODE == ALL || (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1))){
                 NUM_NOTES_PRESSED = 0;
                 ARRAY_INDEX = 0;
             }            
@@ -1267,8 +1271,9 @@ void playDiatonicTriadMinor(unsigned char pitch, unsigned char index) {
                 LATCH = 1;
             }
             
+            //changed this to !!!LOGICAL!!!
             //for un-latch
-            if(((UN_LATCH_MODE == ALL) | (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1)){
+            if(((UN_LATCH_MODE == ALL) || (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1)){
                 NUM_NOTES_PRESSED = 0;
                 ARRAY_INDEX = 0;
             }          
@@ -1344,6 +1349,7 @@ void playDiatonicSeventhMinor(unsigned char pitch, unsigned char index) {
                 LATCH = 1;
             }
             
+            //changed this to !!!LOGICAL!!!
             //for un-latch
             if(((UN_LATCH_MODE == ALL) | (UN_LATCH_MODE == ONE_AT_A_TIME)) && (latch_was_pressed == 1)){
                 NUM_NOTES_PRESSED = 0;
