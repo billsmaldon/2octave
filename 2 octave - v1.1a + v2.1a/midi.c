@@ -113,10 +113,10 @@ void noteOff (unsigned char channel, unsigned char pitch, unsigned char velocity
 
     #ifdef MIDI_V_2_0_BOARD
         //transmit to USB here
-        sendUSB(statusByte, noteNumber, velocity);
+        sendUSB(statusByte, noteNumber, 0);
     #endif
 
-    sendOut(statusByte, noteNumber, velocity);
+    sendOut(statusByte, noteNumber, 0);
 }
 
 //note on - main channel
@@ -126,7 +126,7 @@ void noteOn (unsigned char channel, unsigned char pitch, unsigned char velocity)
     statusByte = channel | note_on;
 
     //velocity 0 = noteOff ---> put this before sendUSB()
-    if (velocity == 0) {noteOff(channel, pitch, velocity);return;}
+    if (velocity == 0) {noteOff(channel, pitch, 0);return;}
 
     #ifdef MIDI_V_2_0_BOARD
         sendUSB(statusByte, noteNumber, velocity);

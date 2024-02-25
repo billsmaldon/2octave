@@ -176,6 +176,11 @@ void keyboardTranspose(void) {
             flag2 = 1;
         }
     
+        
+        // !!! HERE !!!
+        
+        // do some range checking on the quick transpose!
+        
         //fixed this!
         if (semitone_temp > 12) {semitone_temp = 12;}
         if (semitone_temp < -12) {semitone_temp = -12;}

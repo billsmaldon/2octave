@@ -37,7 +37,7 @@
 
 //delay switching from 'fine' back to 'coarse' (potentiometer inputs)
 #define number_of_repeats 1024          //in clock cycles
-#define coarse_fine_delay_ms 125        //in milliseconds
+#define coarse_fine_delay_ms 250        //in milliseconds
 //unsigned long number_of_interrupts = (int) coarse_fine_delay_ms / 2.5 ;     //in TIMER2 interrupts (2.5 mS)
 unsigned long number_of_interrupts = coarse_fine_delay_ms;                    //in TIMER1 interrupts (1.0 mS)
 unsigned long count_ISR;                //count TIMER2 or TIMER1 interrupts

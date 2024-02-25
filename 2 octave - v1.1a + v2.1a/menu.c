@@ -125,15 +125,22 @@ void setControllerResolution(void){
 void setControllerNumbers(unsigned char array_index){
     
     which_screen = BLANK;
-    lcd_print_once = 0; 
     encoder_click = 0;
     
+    //this bit eliminates display flicker on the 7 segment by writing to the LCD once only!
+    static __bit printOnce;
+    printOnce = 0;
+    
     while(encoder_click == 0) {
-
-    //two ranges for LO_RES/HI_RES controller numbers
-    // 64-119 LO_RES, 0-31 HI_RES
         
-    if(lcd_print_once == 0) {
+        //un_block_code(); //do not call un_block_code()!!!
+        
+        //call digitalInputs(), analogInputs()!
+        digitalInputs();
+        analogInputs();
+
+        // two ranges for LO_RES/HI_RES controller numbers
+        // 64-119 LO_RES, 0-31 HI_RES
             
         if (encoder_direction == DIR_CW) {
                 
@@ -151,6 +158,7 @@ void setControllerNumbers(unsigned char array_index){
             }
                 
             encoder_direction = DIR_NONE;
+            printOnce = 0;
         }
             
             
@@ -177,64 +185,86 @@ void setControllerNumbers(unsigned char array_index){
             }
                 
             encoder_direction = DIR_NONE;
+            printOnce = 0;
         }
 
         if(inputPotsArray[array_index].controller_resolution == LO_RES){
             
             if(inputPotsArray[array_index].controller_number >= 0) {
-                    
-                int2string(inputPotsArray[array_index].controller_number);
                 
-                Lcd_Set_Cursor(2,7);
-                Lcd_Print_String("         ");
-                Lcd_Set_Cursor(2,13);
-                Lcd_Print_String(string2display);
+                if(printOnce == 0){
+                    int2string(inputPotsArray[array_index].controller_number);
+                    Lcd_Set_Cursor(2,7);
+                    Lcd_Print_String("         ");
+                    Lcd_Set_Cursor(2,13);
+                    Lcd_Print_String(string2display);
+                    printOnce = 1;
+                }
             }
             else {
                 if(inputPotsArray[array_index].controller_number == -1) {
-                    Lcd_Set_Cursor(2,7);
-                    Lcd_Print_String("  VELOCITY");
+                    if(printOnce == 0){
+                        Lcd_Set_Cursor(2,7);
+                        Lcd_Print_String("  VELOCITY");
+                        printOnce = 1;
+                    }
                 }
             
                 if(inputPotsArray[array_index].controller_number == -2) {
-                    Lcd_Set_Cursor(2,7);
-                    Lcd_Print_String(" PITCHBEND");
+                    if(printOnce == 0){
+                        Lcd_Set_Cursor(2,7);
+                        Lcd_Print_String(" PITCHBEND");
+                        printOnce = 1;
+                    }
                 }
                 if(inputPotsArray[array_index].controller_number == -3) {
-                    Lcd_Set_Cursor(2,7);
-                    Lcd_Print_String(" MOD.WHEEL");
-                }                    
-            }
-        }                
-    }
-            
-        if(inputPotsArray[array_index].controller_resolution == HI_RES){
-            
-            if(inputPotsArray[array_index].controller_number_two_byte >= 0) {
-                    
-                int2string(inputPotsArray[array_index].controller_number_two_byte);
-                
-                Lcd_Set_Cursor(2,7);
-                Lcd_Print_String("         ");
-                Lcd_Set_Cursor(2,13);
-                Lcd_Print_String(string2display);
-            }
-            else {
-                if(inputPotsArray[array_index].controller_number_two_byte == -1) {
-                    Lcd_Set_Cursor(2,7);
-                    Lcd_Print_String("  VELOCITY");
-                }
-         
-                if(inputPotsArray[array_index].controller_number_two_byte == -2) {
-                    Lcd_Set_Cursor(2,7);
-                    Lcd_Print_String(" PITCHBEND");
-                }
-                if(inputPotsArray[array_index].controller_number_two_byte == -3) {
-                    Lcd_Set_Cursor(2,7);
-                    Lcd_Print_String(" MOD.WHEEL");
+                    if(printOnce == 0){
+                        Lcd_Set_Cursor(2,7);
+                        Lcd_Print_String(" MOD.WHEEL");
+                        printOnce = 1;
+                    }
                 }                    
             }
         }
+
+        if(inputPotsArray[array_index].controller_resolution == HI_RES){
+            
+            if(inputPotsArray[array_index].controller_number_two_byte >= 0) {
+                
+                if(printOnce == 0){
+                    int2string(inputPotsArray[array_index].controller_number_two_byte);
+                    Lcd_Set_Cursor(2,7);
+                    Lcd_Print_String("         ");
+                    Lcd_Set_Cursor(2,13);
+                    Lcd_Print_String(string2display);
+                    printOnce = 1;
+                }
+            }
+            else {
+                if(inputPotsArray[array_index].controller_number_two_byte == -1) {
+                    if(printOnce == 0){
+                        Lcd_Set_Cursor(2,7);
+                        Lcd_Print_String("  VELOCITY");
+                        printOnce = 1;
+                    }
+                }
+         
+                if(inputPotsArray[array_index].controller_number_two_byte == -2) {
+                    if(printOnce == 0){
+                        Lcd_Set_Cursor(2,7);
+                        Lcd_Print_String(" PITCHBEND");
+                        printOnce = 1;
+                    }
+                }
+                if(inputPotsArray[array_index].controller_number_two_byte == -3) {
+                    if(printOnce == 0){
+                        Lcd_Set_Cursor(2,7);
+                        Lcd_Print_String(" MOD.WHEEL");
+                        printOnce = 1;
+                    }
+                }                    
+            }
+        }        
     }
 }
 
@@ -423,7 +453,9 @@ void Function_A_1(void){
     
     KEYBOARD_MODE = MODES;
     which_screen = MODES_MENU;
+    
     lcd_print_once = 0;
+    print_row_2_once = 0; //added this!
     encoder_click = 0;
     
     modeMenu.selector = which_mode;
@@ -640,6 +672,18 @@ void Function_C_1(void){
     }    
     
     CONTROL_MODE = drumCCTypeMenu.selector % drumCCTypeMenu.number;
+
+    //clears TOGGLE STATE
+    if(CONTROL_MODE == TOGGLE){
+        toggle_state.T1 = 0;
+        toggle_state.T2 = 0;
+        toggle_state.T3 = 0;
+        toggle_state.T4 = 0;
+        toggle_state.T5 = 0;
+        toggle_state.T6 = 0;
+        toggle_state.T7 = 0;
+        toggle_state.T8 = 0;
+    }
 }
 
 //set DRUMS NOTE NUMBER
@@ -648,6 +692,10 @@ void Function_C_2(void){
     which_screen = DRUMS_NN_MENU;
     lcd_print_once = 0; 
     encoder_click = 0;
+    
+    // put printOnce here and clear it!!!
+    static __bit printOnce;
+    printOnce = 0;
         
     while(encoder_click == 0) {
         
@@ -669,14 +717,23 @@ void Function_C_2(void){
     encoder_click = 0;
     unsigned char array_index = drumNNMenu.selector;
 
+    
+    
     while(encoder_click == 0) {
 
+        //un_block_code(); ---> calling un_block_code() doesn't work!
+        
+        //call digitalInputs() and analogInputs() only!!!
+        digitalInputs();
+        analogInputs();
+        
         if(lcd_print_once == 0) {
             if (encoder_direction == DIR_CW) {
                 if(DRUM_NOTE[array_index] < 81) {
                     DRUM_NOTE[array_index]++;
                 }
                 encoder_direction = DIR_NONE;
+                printOnce = 0;
             }
             //drum note--
             if (encoder_direction == DIR_CCW) {
@@ -684,11 +741,15 @@ void Function_C_2(void){
                     DRUM_NOTE[array_index]--;
                 }
                 encoder_direction = DIR_NONE;
+                printOnce = 0;
             }
             
-            int2string(DRUM_NOTE[array_index]);
-            Lcd_Set_Cursor(2,13);
-            Lcd_Print_String(string2display);
+            if(printOnce == 0){
+                int2string(DRUM_NOTE[array_index]);
+                Lcd_Set_Cursor(2,13);
+                Lcd_Print_String(string2display);
+                printOnce = 1;
+            }
         }    
     }
 
@@ -698,7 +759,11 @@ void Function_C_2(void){
 void Function_C_3(void){
 
     which_screen = DRUMS_CC_MENU;
-    lcd_print_once = 0; 
+    lcd_print_once = 0;
+    
+    static __bit printOnce;
+    printOnce = 0;
+    
     encoder_click = 0;
         
     while(encoder_click == 0) {
@@ -721,14 +786,22 @@ void Function_C_3(void){
     encoder_click = 0;
     unsigned char array_index = drumCCMenu.selector;
 
+    // commented this out, is at top of Function_C_3
+    //static __bit printOnce;
+    
     while(encoder_click == 0) {
 
+        //must call these 2 only, not unblock_code() !
+        digitalInputs();
+        analogInputs();
+        
         if(lcd_print_once == 0) {
             if (encoder_direction == DIR_CW) {
                 if(DRUM_CC[array_index] < 127) {
                     DRUM_CC[array_index]++;
                 }
                 encoder_direction = DIR_NONE;
+                printOnce = 0;
             }
             //drum note--
             if (encoder_direction == DIR_CCW) {
@@ -736,11 +809,15 @@ void Function_C_3(void){
                     DRUM_CC[array_index]--;
                 }
                 encoder_direction = DIR_NONE;
+                printOnce = 0;
             }
             
-            int2string(DRUM_CC[array_index]);
-            Lcd_Set_Cursor(2,13);
-            Lcd_Print_String(string2display);
+            if(printOnce == 0){
+                int2string(DRUM_CC[array_index]);
+                Lcd_Set_Cursor(2,13);
+                Lcd_Print_String(string2display);
+                printOnce = 1;
+            }
         }    
     }    
 }
@@ -822,11 +899,13 @@ void Function_D_2(void){
         //this function keeps the code running while waiting for an encoder click!
         un_block_code();
         
-        lcd_print_once = 1;
         //lcd print potentiometer alpha
-        int2string(potsAlphaMenu.selector);
-        Lcd_Set_Cursor(2,13);
-        Lcd_Print_String(string2display);
+        if (lcd_print_once == 0) {
+            int2string(potsAlphaMenu.selector);
+            Lcd_Set_Cursor(2,13);
+            Lcd_Print_String(string2display);
+        }
+        lcd_print_once = 1;
     }
     
     ema_integer = potsAlphaMenu.selector;
@@ -965,12 +1044,15 @@ void Function_E_1(void){
         //this function keeps the code running while waiting for an encoder click!
         un_block_code();
         
+        //lcd_print_once = 1;
+        if (lcd_print_once == 0) {
+            //lcd print midi channel
+            int2string((mainChannelMenu.selector) + 1);
+            //int2string(channel + 1);
+            Lcd_Set_Cursor(2,13);
+            Lcd_Print_String(string2display);
+        }
         lcd_print_once = 1;
-        //lcd print midi channel
-        int2string((mainChannelMenu.selector) + 1);
-        //int2string(channel + 1);
-        Lcd_Set_Cursor(2,13);
-        Lcd_Print_String(string2display);
     }
     
     channel = mainChannelMenu.selector;
@@ -990,10 +1072,13 @@ void Function_E_2(void){
         //this function keeps the code running while waiting for an encoder click!
         un_block_code();        
         
+        //lcd_print_once = 1;
+        if (lcd_print_once == 0) {
+            int2string((drumChannelMenu.selector) + 1);
+            Lcd_Set_Cursor(2,13);
+            Lcd_Print_String(string2display);
+        }
         lcd_print_once = 1;
-        int2string((drumChannelMenu.selector) + 1);
-        Lcd_Set_Cursor(2,13);
-        Lcd_Print_String(string2display);
     }
     
     drumchannel = drumChannelMenu.selector;   
@@ -1028,6 +1113,8 @@ void Function_F(void) {
     which_screen = PROGRAM_CHANGE_MENU;
     lcd_print_once = 0;
     
+    print_row_2_once = 0; //added this!!!
+    
     programChangeMenu.selector = patch_number;
     
     while(encoder_click == 0) {
@@ -1043,9 +1130,12 @@ void Function_F(void) {
         lcd_print_once = 1;
         
         //lcd print program #
-        int2string(programChangeMenu.selector);
-        Lcd_Set_Cursor(2,13);
-        Lcd_Print_String(string2display);
+        if(print_row_2_once == 0){
+            int2string(programChangeMenu.selector);
+            Lcd_Set_Cursor(2,13);
+            Lcd_Print_String(string2display);
+            print_row_2_once = 1;
+        }
     }
  
     patch_number = programChangeMenu.selector;
@@ -1306,6 +1396,7 @@ void Function_H_2 (void) {
     
     which_screen = ARPEGGIATOR_TEMPO_MENU;
     lcd_print_once = 0;
+    print_row_2_once = 0;
     encoder_click = 0;
     
     arpeggiatorTempoMenu.selector = BPM;
@@ -1322,10 +1413,13 @@ void Function_H_2 (void) {
         }
         lcd_print_once = 1;
         
-        //lcd print tempo
-        int2string(arpeggiatorTempoMenu.selector);
-        Lcd_Set_Cursor(2,13);
-        Lcd_Print_String(string2display);
+        if(print_row_2_once == 0){
+            //lcd print tempo
+            int2string(arpeggiatorTempoMenu.selector);
+            Lcd_Set_Cursor(2,13);
+            Lcd_Print_String(string2display);
+            print_row_2_once = 1;
+        }
     }
  
     BPM = arpeggiatorTempoMenu.selector;
@@ -1337,6 +1431,7 @@ void Function_H_3 (void) {
     
     which_screen = ARPEGGIATOR_OCTAVES_MENU;
     lcd_print_once = 0;
+    print_row_2_once = 0;
     encoder_click = 0;
     
     arpeggiatorOctavesMenu.selector = OCTAVES;
@@ -1353,10 +1448,13 @@ void Function_H_3 (void) {
         }
         lcd_print_once = 1;
         
-        //lcd print octave
-        int2string(arpeggiatorOctavesMenu.selector);
-        Lcd_Set_Cursor(2,13);
-        Lcd_Print_String(string2display);
+        if(print_row_2_once == 0){
+            //lcd print octave
+            int2string(arpeggiatorOctavesMenu.selector);
+            Lcd_Set_Cursor(2,13);
+            Lcd_Print_String(string2display);
+            print_row_2_once = 1;
+        }
     }
  
     OCTAVES = arpeggiatorOctavesMenu.selector;
