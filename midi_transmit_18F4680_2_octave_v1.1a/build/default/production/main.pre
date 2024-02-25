@@ -16453,7 +16453,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 extern char * ftoa(float f, int * status);
 
 # 42 "main.h"
-unsigned long number_of_interrupts = 125;
+unsigned long number_of_interrupts = 250;
 unsigned long count_ISR;
 
 __bit ARPEGGIO_IS_PLAYING;
@@ -17932,6 +17932,7 @@ void analogInputs(void) {
 
 # 343
 if(ARPEGGIO_ON == 0) {
+note_off_was_sent = 1;
 readPotentiometers();
 }
 
@@ -18003,7 +18004,7 @@ RBIF = 0;
 
 if(TMR0IF==1) {
 
-# 422
+# 423
 TMR0IE = 0;
 
 
@@ -18014,7 +18015,7 @@ if((ARPEGGIO_TYPE == AS_PRESSED) || (ARPEGGIO_TYPE == UP) || (ARPEGGIO_TYPE == D
 stored_octave = which_octave;
 }
 
-# 451
+# 452
 ARPEGGIO_IS_PLAYING = 1;
 playArpeggio();
 ARPEGGIO_IS_PLAYING = 0;
@@ -18031,11 +18032,11 @@ stored_octave = which_octave;
 }
 }
 
-# 486
+# 487
 if(lastNoteMode == 1){
 if((finishLastNote == 1) && ((TIMER_OVERFLOWS % NOTE_LENGTH_PULSES) == 0)){
 
-# 496
+# 497
 finishLastNote = 0;
 
 
@@ -18072,6 +18073,10 @@ setControllerNumbers(i);
 int main(void) {
 
 
+
+note_off_was_sent = 1;
+
+
 setup();
 ADC_Initialize();
 initializeMenuArray();
@@ -18093,7 +18098,7 @@ ema_integer = Read_b_eep(0x03);
 
 calculate_alpha();
 
-# 558
+# 563
 ARPEGGIO_ON = 0;
 
 
@@ -18150,7 +18155,7 @@ startingDirection = DOWN;
 
 displayTest();
 
-# 619
+# 624
 which_functions_are_unblocked = 1;
 
 
@@ -18161,7 +18166,7 @@ digitalInputs();
 analogInputs();
 processEncoderBuxton();
 
-# 638
+# 643
 menu_lcd();
 
 }

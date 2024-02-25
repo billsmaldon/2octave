@@ -5,7 +5,7 @@
             <url>menu.c</url>
             <bookmark id="1">
                 <name/>
-                <line>493</line>
+                <line>525</line>
                 <key/>
             </bookmark>
         </file>
@@ -13,14 +13,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/menu.c</file>
-            <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/eeprom.c</file>
+            <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/potentiometers.c</file>
+            <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/midi.c</file>
+            <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/drum.c</file>
             <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/main.h</file>
             <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/keyboard.c</file>
-            <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/octave.c</file>
             <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/main.c</file>
             <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/arpeggio.h</file>
             <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/menu.h</file>
-            <file>file:/C:/Users/Bill/MPLABXProjects/midi_transmit_18F4680_2_octave_v1.1a/potentiometers.h</file>
         </group>
     </open-files>
 </project-private>

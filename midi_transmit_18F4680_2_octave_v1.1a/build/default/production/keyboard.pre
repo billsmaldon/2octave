@@ -16296,7 +16296,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 42 "main.h"
-unsigned long number_of_interrupts = 125;
+unsigned long number_of_interrupts = 250;
 unsigned long count_ISR;
 
 __bit ARPEGGIO_IS_PLAYING;
@@ -17414,10 +17414,10 @@ unsigned char TIMER_OVERFLOWS;
 # 23 "keyboard.c"
 void processKeyboard(void) {
 
+# 35
 if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH) {keyboard_all_note_efficient();}
 
 if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR)) {keyboard_eight_note_efficient();}
-
 
 if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || (KEYBOARD_MODE == PENTATONIC_MINOR)) {keyboard_sharps_only_efficient();}
 }
@@ -17466,7 +17466,7 @@ TIMER_OVERFLOWS = 0;
 
 add_notes_to_arpeggio(temp_pitch);
 
-# 87
+# 96
 if(LATCH == 0) {latch_was_pressed = 0;}
 
 
@@ -17490,7 +17490,7 @@ TIMER_OVERFLOWS = 0;
 
 delete_notes_from_arpeggio(temp_pitch);
 
-# 118
+# 127
 if(temp_pitch == parallel){NUM_NOTES_PRESSED = 0;}
 
 
@@ -17689,7 +17689,7 @@ default:
 break;
 }
 
-# 326
+# 335
 if(ARPEGGIO_ON == 0){
 for(unsigned char i = 0; i<3; i++){
 if(ON_OFF == 1) {noteOn(channel,triad_p[i] + pitch,velocity);}
@@ -19001,7 +19001,7 @@ default:
 break;
 }
 
-# 1641
+# 1650
 if((button_state_now & 0x00000001) && !keyboard.SW1){
 pitch = C;
 if(KEYBOARD_MODE == CHROMATIC) {noteOn(channel,pitch,velocity);}

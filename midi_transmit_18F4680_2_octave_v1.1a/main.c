@@ -341,6 +341,7 @@ void analogInputs(void) {
     
     // read potentiometers asynchronously (if arpeggiator OFF)
     if(ARPEGGIO_ON == 0) {
+        note_off_was_sent = 1; //added this! (fixes extra noteOff() at lowest note when CC is turned!!!)
         readPotentiometers();
     }
     
@@ -528,6 +529,10 @@ void initializeControllerNumbers(void){
 
 int main(void) {
 
+    
+    //added this! --> fixes one noteOff() whenever reset is pressed!
+    note_off_was_sent = 1;
+    
     //setup functions
     setup();                //PIC setup
     ADC_Initialize();       //initialize ADC

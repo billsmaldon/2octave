@@ -16594,7 +16594,7 @@ const unsigned char diatonic_seventh_minor[15][4] = {
 };
 
 # 42 "main.h"
-unsigned long number_of_interrupts = 125;
+unsigned long number_of_interrupts = 250;
 unsigned long count_ISR;
 
 __bit ARPEGGIO_IS_PLAYING;

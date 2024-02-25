@@ -12176,9 +12176,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42 main.h
 [v _number_of_interrupts `ul ~T0 @X0 1 e ]
 [i _number_of_interrupts
--> -> -> 125 `i `l `ul
+-> -> -> 250 `i `l `ul
 ]
-[; ;main.h: 42: unsigned long number_of_interrupts = 125;
+[; ;main.h: 42: unsigned long number_of_interrupts = 250;
 "43
 [v _count_ISR `ul ~T0 @X0 1 e ]
 [; ;main.h: 43: unsigned long count_ISR;

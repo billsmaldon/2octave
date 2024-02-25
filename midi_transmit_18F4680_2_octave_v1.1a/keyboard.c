@@ -21,11 +21,20 @@
 
 //select keyboard mode
 void processKeyboard(void) {
+    
+    /*
+    //end mismatch on boot-up
+    static __bit buttonStart;
+    if(buttonStart == 0){
+        button_state_last = button_state_now;
+        buttonStart = 1;
+    }    
+    */
+    
     //CHROMATIC SCALE, TRIADS, SEVENTH CHORDS    
     if ((KEYBOARD_MODE == CHROMATIC) || KEYBOARD_MODE == TRIAD || KEYBOARD_MODE == SEVENTH) {keyboard_all_note_efficient();} //play the keyboard
     //MAJOR SCALE, MINOR SCALE, MODES, DIATONIC TRIADS, DIATONIC 7TH CHORDS
     if ((KEYBOARD_MODE == MAJOR) || (KEYBOARD_MODE == MINOR) || (KEYBOARD_MODE == MODES) || (KEYBOARD_MODE == DIATONIC_TRIAD_MAJOR) || (KEYBOARD_MODE == DIATONIC_TRIAD_MINOR)|| (KEYBOARD_MODE == DIATONIC_7TH_MAJOR) || (KEYBOARD_MODE == DIATONIC_7TH_MINOR)) {keyboard_eight_note_efficient();}
-    
     //add function for pentatonic scales
     if ((KEYBOARD_MODE == PENTATONIC_MAJOR) || (KEYBOARD_MODE == PENTATONIC_MINOR)) {keyboard_sharps_only_efficient();}
 }

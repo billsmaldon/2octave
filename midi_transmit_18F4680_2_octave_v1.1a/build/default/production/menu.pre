@@ -16296,7 +16296,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 42 "main.h"
-unsigned long number_of_interrupts = 125;
+unsigned long number_of_interrupts = 250;
 unsigned long count_ISR;
 
 __bit ARPEGGIO_IS_PLAYING;
@@ -17794,15 +17794,22 @@ inputPotsArray[i].controller_resolution = POT_MODE;
 void setControllerNumbers(unsigned char array_index){
 
 which_screen = BLANK;
-lcd_print_once = 0;
 encoder_click = 0;
+
+
+static __bit printOnce;
+printOnce = 0;
 
 while(encoder_click == 0) {
 
 
 
 
-if(lcd_print_once == 0) {
+digitalInputs();
+analogInputs();
+
+
+
 
 if (encoder_direction == 0x10) {
 
@@ -17820,6 +17827,7 @@ inputPotsArray[array_index].controller_number_two_byte++;
 }
 
 encoder_direction = 0x00;
+printOnce = 0;
 }
 
 
@@ -17846,32 +17854,43 @@ inputPotsArray[array_index].controller_number_two_byte--;
 }
 
 encoder_direction = 0x00;
+printOnce = 0;
 }
 
 if(inputPotsArray[array_index].controller_resolution == 0){
 
 if(inputPotsArray[array_index].controller_number >= 0) {
 
+if(printOnce == 0){
 int2string(inputPotsArray[array_index].controller_number);
-
 Lcd_Set_Cursor(2,7);
 Lcd_Print_String("         ");
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+printOnce = 1;
+}
 }
 else {
 if(inputPotsArray[array_index].controller_number == -1) {
+if(printOnce == 0){
 Lcd_Set_Cursor(2,7);
 Lcd_Print_String("  VELOCITY");
+printOnce = 1;
+}
 }
 
 if(inputPotsArray[array_index].controller_number == -2) {
+if(printOnce == 0){
 Lcd_Set_Cursor(2,7);
 Lcd_Print_String(" PITCHBEND");
+printOnce = 1;
+}
 }
 if(inputPotsArray[array_index].controller_number == -3) {
+if(printOnce == 0){
 Lcd_Set_Cursor(2,7);
 Lcd_Print_String(" MOD.WHEEL");
+printOnce = 1;
 }
 }
 }
@@ -17881,26 +17900,37 @@ if(inputPotsArray[array_index].controller_resolution == 1){
 
 if(inputPotsArray[array_index].controller_number_two_byte >= 0) {
 
+if(printOnce == 0){
 int2string(inputPotsArray[array_index].controller_number_two_byte);
-
 Lcd_Set_Cursor(2,7);
 Lcd_Print_String("         ");
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+printOnce = 1;
+}
 }
 else {
 if(inputPotsArray[array_index].controller_number_two_byte == -1) {
+if(printOnce == 0){
 Lcd_Set_Cursor(2,7);
 Lcd_Print_String("  VELOCITY");
+printOnce = 1;
+}
 }
 
 if(inputPotsArray[array_index].controller_number_two_byte == -2) {
+if(printOnce == 0){
 Lcd_Set_Cursor(2,7);
 Lcd_Print_String(" PITCHBEND");
+printOnce = 1;
+}
 }
 if(inputPotsArray[array_index].controller_number_two_byte == -3) {
+if(printOnce == 0){
 Lcd_Set_Cursor(2,7);
 Lcd_Print_String(" MOD.WHEEL");
+printOnce = 1;
+}
 }
 }
 }
@@ -17913,7 +17943,7 @@ void exitFunction(void) {
 
 while(encoder_click == 0);
 
-# 251
+# 281
 clear_row1();
 Lcd_Print_String("Set!");
 
@@ -17932,7 +17962,7 @@ void exitSave(void) {
 
 while(encoder_click == 0);
 
-# 273
+# 303
 clear_row1();
 Lcd_Print_String("Settings Saved!");
 _delay((unsigned long)((500)*(20000000/4000.0)));
@@ -17949,7 +17979,7 @@ void exitLoad(void) {
 
 while(encoder_click == 0);
 
-# 293
+# 323
 clear_row1();
 Lcd_Print_String("Settings Loaded!");
 _delay((unsigned long)((500)*(20000000/4000.0)));
@@ -17966,7 +17996,7 @@ void eepromExit(void) {
 
 while(encoder_click == 0);
 
-# 313
+# 343
 clear_row1();
 Lcd_Print_String("Exit EEPROM!");
 _delay((unsigned long)((500)*(20000000/4000.0)));
@@ -17989,7 +18019,7 @@ if (lcd_print_once == 0) {
 Lcd_Clear();
 Lcd_Set_Cursor(1,1);
 
-# 339
+# 369
 Lcd_Print_String(LCD_STRINGS[(mainMenu.selector % mainMenu.number) + mainMenu.address]);
 
 lcd_print_once = 1;
@@ -18042,7 +18072,7 @@ break;
 
 void un_block_code(void){
 
-# 397
+# 427
 if(which_functions_are_unblocked == 0){
 processEncoderBuxton();
 }
@@ -18054,7 +18084,7 @@ analogInputs();
 processEncoderBuxton();
 }
 
-# 419
+# 449
 }
 
 
@@ -18062,7 +18092,9 @@ void Function_A_1(void){
 
 KEYBOARD_MODE = MODES;
 which_screen = MODES_MENU;
+
 lcd_print_once = 0;
+print_row_2_once = 0;
 encoder_click = 0;
 
 modeMenu.selector = which_mode;
@@ -18279,6 +18311,18 @@ lcd_print_once = 1;
 }
 
 CONTROL_MODE = drumCCTypeMenu.selector % drumCCTypeMenu.number;
+
+
+if(CONTROL_MODE == 1){
+toggle_state.T1 = 0;
+toggle_state.T2 = 0;
+toggle_state.T3 = 0;
+toggle_state.T4 = 0;
+toggle_state.T5 = 0;
+toggle_state.T6 = 0;
+toggle_state.T7 = 0;
+toggle_state.T8 = 0;
+}
 }
 
 
@@ -18287,6 +18331,10 @@ void Function_C_2(void){
 which_screen = DRUMS_NN_MENU;
 lcd_print_once = 0;
 encoder_click = 0;
+
+
+static __bit printOnce;
+printOnce = 0;
 
 while(encoder_click == 0) {
 
@@ -18308,7 +18356,15 @@ lcd_print_once = 0;
 encoder_click = 0;
 unsigned char array_index = drumNNMenu.selector;
 
+
+
 while(encoder_click == 0) {
+
+
+
+
+digitalInputs();
+analogInputs();
 
 if(lcd_print_once == 0) {
 if (encoder_direction == 0x10) {
@@ -18316,6 +18372,7 @@ if(DRUM_NOTE[array_index] < 81) {
 DRUM_NOTE[array_index]++;
 }
 encoder_direction = 0x00;
+printOnce = 0;
 }
 
 if (encoder_direction == 0x20) {
@@ -18323,11 +18380,15 @@ if(DRUM_NOTE[array_index] > 35) {
 DRUM_NOTE[array_index]--;
 }
 encoder_direction = 0x00;
+printOnce = 0;
 }
 
+if(printOnce == 0){
 int2string(DRUM_NOTE[array_index]);
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+printOnce = 1;
+}
 }
 }
 
@@ -18338,6 +18399,10 @@ void Function_C_3(void){
 
 which_screen = DRUMS_CC_MENU;
 lcd_print_once = 0;
+
+static __bit printOnce;
+printOnce = 0;
+
 encoder_click = 0;
 
 while(encoder_click == 0) {
@@ -18360,7 +18425,14 @@ lcd_print_once = 0;
 encoder_click = 0;
 unsigned char array_index = drumCCMenu.selector;
 
+
+
+
 while(encoder_click == 0) {
+
+
+digitalInputs();
+analogInputs();
 
 if(lcd_print_once == 0) {
 if (encoder_direction == 0x10) {
@@ -18368,6 +18440,7 @@ if(DRUM_CC[array_index] < 127) {
 DRUM_CC[array_index]++;
 }
 encoder_direction = 0x00;
+printOnce = 0;
 }
 
 if (encoder_direction == 0x20) {
@@ -18375,11 +18448,15 @@ if(DRUM_CC[array_index] > 0) {
 DRUM_CC[array_index]--;
 }
 encoder_direction = 0x00;
+printOnce = 0;
 }
 
+if(printOnce == 0){
 int2string(DRUM_CC[array_index]);
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+printOnce = 1;
+}
 }
 }
 }
@@ -18437,7 +18514,7 @@ Lcd_Print_String(LCD_STRINGS[(potsResoMenu.selector % potsResoMenu.number) + pot
 lcd_print_once = 1;
 }
 
-# 805
+# 882
 POT_MODE = potsResoMenu.selector;
 setControllerResolution();
 
@@ -18458,11 +18535,13 @@ while(encoder_click == 0) {
 
 un_block_code();
 
-lcd_print_once = 1;
 
+if (lcd_print_once == 0) {
 int2string(potsAlphaMenu.selector);
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+}
+lcd_print_once = 1;
 }
 
 ema_integer = potsAlphaMenu.selector;
@@ -18601,12 +18680,15 @@ while(encoder_click == 0) {
 
 un_block_code();
 
-lcd_print_once = 1;
+
+if (lcd_print_once == 0) {
 
 int2string((mainChannelMenu.selector) + 1);
 
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+}
+lcd_print_once = 1;
 }
 
 channel = mainChannelMenu.selector;
@@ -18626,10 +18708,13 @@ while(encoder_click == 0) {
 
 un_block_code();
 
-lcd_print_once = 1;
+
+if (lcd_print_once == 0) {
 int2string((drumChannelMenu.selector) + 1);
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+}
+lcd_print_once = 1;
 }
 
 drumchannel = drumChannelMenu.selector;
@@ -18664,6 +18749,8 @@ void Function_F(void) {
 which_screen = PROGRAM_CHANGE_MENU;
 lcd_print_once = 0;
 
+print_row_2_once = 0;
+
 programChangeMenu.selector = patch_number;
 
 while(encoder_click == 0) {
@@ -18679,9 +18766,12 @@ Lcd_Print_String("Program #: ");
 lcd_print_once = 1;
 
 
+if(print_row_2_once == 0){
 int2string(programChangeMenu.selector);
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+print_row_2_once = 1;
+}
 }
 
 patch_number = programChangeMenu.selector;
@@ -18864,7 +18954,7 @@ if(arpeggiatorMenu.selector == 8) {Function_H_9();}
 
 }
 
-# 1248
+# 1338
 void Function_H_1 (void) {
 
 which_screen = ARPEGGIATOR_ON_OFF_MENU;
@@ -18926,6 +19016,7 @@ void Function_H_2 (void) {
 
 which_screen = ARPEGGIATOR_TEMPO_MENU;
 lcd_print_once = 0;
+print_row_2_once = 0;
 encoder_click = 0;
 
 arpeggiatorTempoMenu.selector = BPM;
@@ -18942,10 +19033,13 @@ Lcd_Print_String("Tempo (BPM): ");
 }
 lcd_print_once = 1;
 
+if(print_row_2_once == 0){
 
 int2string(arpeggiatorTempoMenu.selector);
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+print_row_2_once = 1;
+}
 }
 
 BPM = arpeggiatorTempoMenu.selector;
@@ -18957,6 +19051,7 @@ void Function_H_3 (void) {
 
 which_screen = ARPEGGIATOR_OCTAVES_MENU;
 lcd_print_once = 0;
+print_row_2_once = 0;
 encoder_click = 0;
 
 arpeggiatorOctavesMenu.selector = OCTAVES;
@@ -18973,10 +19068,13 @@ Lcd_Print_String("Octave Range:");
 }
 lcd_print_once = 1;
 
+if(print_row_2_once == 0){
 
 int2string(arpeggiatorOctavesMenu.selector);
 Lcd_Set_Cursor(2,13);
 Lcd_Print_String(string2display);
+print_row_2_once = 1;
+}
 }
 
 OCTAVES = arpeggiatorOctavesMenu.selector;
@@ -19092,7 +19190,7 @@ LATCH = arpeggiatorLatchOnOffMenu.selector;
 
 if(LATCH == 1){
 
-# 1480
+# 1578
 doTheLatch();
 }
 
@@ -19107,7 +19205,7 @@ doTheUnLatch();
 
 UN_LATCH_MODE = temp;
 
-# 1537
+# 1635
 }
 }
 void Function_H_6_2(void){

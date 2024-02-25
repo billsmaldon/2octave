@@ -16296,7 +16296,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 42 "main.h"
-unsigned long number_of_interrupts = 125;
+unsigned long number_of_interrupts = 250;
 unsigned long count_ISR;
 
 __bit ARPEGGIO_IS_PLAYING;
@@ -17025,32 +17025,32 @@ if(((drum_button_state_now) & 0x10) && !(button_state_now & 0x08000000) && !drum
 drum.SW5 = 1;
 if (DRUM_MODE == 0) {noteOnDrum(drumchannel,DRUM_NOTE[4],velocity);}
 if (DRUM_MODE == 1 & CONTROL_MODE == 0) {controlChange(channel,DRUM_CC[4], 127);}
-if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T1 == 0) {controlChange(channel,DRUM_CC[4], 127);}
-if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T1 == 1) {controlChange(channel,DRUM_CC[4], 0);}
+if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T5 == 0) {controlChange(channel,DRUM_CC[4], 127);}
+if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T5 == 1) {controlChange(channel,DRUM_CC[4], 0);}
 toggle_state.T5 ^= 1;
 }
 if(((drum_button_state_now) & 0x20) && !(button_state_now & 0x08000000) && !drum.SW6) {
 drum.SW6 = 1;
 if (DRUM_MODE == 0) {noteOnDrum(drumchannel,DRUM_NOTE[5],velocity);}
 if (DRUM_MODE == 1 & CONTROL_MODE == 0) {controlChange(channel,DRUM_CC[5], 127);}
-if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T2 == 0) {controlChange(channel,DRUM_CC[5], 127);}
-if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T2 == 1) {controlChange(channel,DRUM_CC[5], 0);}
+if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T6 == 0) {controlChange(channel,DRUM_CC[5], 127);}
+if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T6 == 1) {controlChange(channel,DRUM_CC[5], 0);}
 toggle_state.T6 ^= 1;
 }
 if(((drum_button_state_now) & 0x40) && !(button_state_now & 0x08000000) && !drum.SW7) {
 drum.SW7 = 1;
 if (DRUM_MODE == 0) {noteOnDrum(drumchannel,DRUM_NOTE[6],velocity);}
 if (DRUM_MODE == 1 & CONTROL_MODE == 0) {controlChange(channel,DRUM_CC[6], 127);}
-if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T3 == 0) {controlChange(channel,DRUM_CC[6], 127);}
-if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T3 == 1) {controlChange(channel,DRUM_CC[6], 0);}
+if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T7 == 0) {controlChange(channel,DRUM_CC[6], 127);}
+if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T7 == 1) {controlChange(channel,DRUM_CC[6], 0);}
 toggle_state.T7 ^= 1;
 }
 if(((drum_button_state_now) & 0x80) && !(button_state_now & 0x08000000) && !drum.SW8) {
 drum.SW8 = 1;
 if (DRUM_MODE == 0) {noteOnDrum(drumchannel,DRUM_NOTE[7],velocity);}
 if (DRUM_MODE == 1 & CONTROL_MODE == 0) {controlChange(channel,DRUM_CC[7], 127);}
-if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T4 == 0) {controlChange(channel,DRUM_CC[7], 127);}
-if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T4 == 1) {controlChange(channel,DRUM_CC[7], 0);}
+if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T8 == 0) {controlChange(channel,DRUM_CC[7], 127);}
+if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T8 == 1) {controlChange(channel,DRUM_CC[7], 0);}
 toggle_state.T8 ^= 1;
 }
 

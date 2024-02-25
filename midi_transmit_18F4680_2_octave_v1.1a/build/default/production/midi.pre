@@ -16296,7 +16296,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 42 "main.h"
-unsigned long number_of_interrupts = 125;
+unsigned long number_of_interrupts = 250;
 unsigned long count_ISR;
 
 __bit ARPEGGIO_IS_PLAYING;
@@ -17486,10 +17486,10 @@ statusByte = channel | note_off;
 
 
 
-sendUSB(statusByte, noteNumber, velocity);
+sendUSB(statusByte, noteNumber, 0);
 
 
-sendOut(statusByte, noteNumber, velocity);
+sendOut(statusByte, noteNumber, 0);
 }
 
 
@@ -17499,7 +17499,7 @@ noteNumber = pitch + semitone + ((octave + 1) * 12);
 statusByte = channel | note_on;
 
 
-if (velocity == 0) {noteOff(channel, pitch, velocity);return;}
+if (velocity == 0) {noteOff(channel, pitch, 0);return;}
 
 
 sendUSB(statusByte, noteNumber, velocity);

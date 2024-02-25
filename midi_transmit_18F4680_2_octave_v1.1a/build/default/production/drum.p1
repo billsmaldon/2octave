@@ -12175,9 +12175,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42 main.h
 [v _number_of_interrupts `ul ~T0 @X0 1 e ]
 [i _number_of_interrupts
--> -> -> 125 `i `l `ul
+-> -> -> 250 `i `l `ul
 ]
-[; ;main.h: 42: unsigned long number_of_interrupts = 125;
+[; ;main.h: 42: unsigned long number_of_interrupts = 250;
 "43
 [v _count_ISR `ul ~T0 @X0 1 e ]
 [; ;main.h: 43: unsigned long count_ISR;
@@ -13840,16 +13840,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 4 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 127 `i `uc ]
 }
 [e :U 1144 ]
-[; ;drum.c: 61: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T1 == 0) {controlChange(channel,DRUM_CC[4], 127);}
+[; ;drum.c: 61: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T5 == 0) {controlChange(channel,DRUM_CC[4], 127);}
 "61
-[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 0 `i -> 0 `i 1145  ]
+[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 4 `i -> 0 `i 1145  ]
 {
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 4 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 127 `i `uc ]
 }
 [e :U 1145 ]
-[; ;drum.c: 62: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T1 == 1) {controlChange(channel,DRUM_CC[4], 0);}
+[; ;drum.c: 62: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T5 == 1) {controlChange(channel,DRUM_CC[4], 0);}
 "62
-[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 0 `i -> 1 `i 1146  ]
+[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 4 `i -> 1 `i 1146  ]
 {
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 4 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 0 `i `uc ]
 }
@@ -13882,16 +13882,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 5 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 127 `i `uc ]
 }
 [e :U 1149 ]
-[; ;drum.c: 69: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T2 == 0) {controlChange(channel,DRUM_CC[5], 127);}
+[; ;drum.c: 69: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T6 == 0) {controlChange(channel,DRUM_CC[5], 127);}
 "69
-[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 1 `i -> 0 `i 1150  ]
+[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 5 `i -> 0 `i 1150  ]
 {
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 5 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 127 `i `uc ]
 }
 [e :U 1150 ]
-[; ;drum.c: 70: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T2 == 1) {controlChange(channel,DRUM_CC[5], 0);}
+[; ;drum.c: 70: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T6 == 1) {controlChange(channel,DRUM_CC[5], 0);}
 "70
-[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 1 `i -> 1 `i 1151  ]
+[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 5 `i -> 1 `i 1151  ]
 {
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 5 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 0 `i `uc ]
 }
@@ -13924,16 +13924,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 6 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 127 `i `uc ]
 }
 [e :U 1154 ]
-[; ;drum.c: 77: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T3 == 0) {controlChange(channel,DRUM_CC[6], 127);}
+[; ;drum.c: 77: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T7 == 0) {controlChange(channel,DRUM_CC[6], 127);}
 "77
-[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 2 `i -> 0 `i 1155  ]
+[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 6 `i -> 0 `i 1155  ]
 {
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 6 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 127 `i `uc ]
 }
 [e :U 1155 ]
-[; ;drum.c: 78: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T3 == 1) {controlChange(channel,DRUM_CC[6], 0);}
+[; ;drum.c: 78: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T7 == 1) {controlChange(channel,DRUM_CC[6], 0);}
 "78
-[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 2 `i -> 1 `i 1156  ]
+[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 6 `i -> 1 `i 1156  ]
 {
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 6 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 0 `i `uc ]
 }
@@ -13966,16 +13966,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 7 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 127 `i `uc ]
 }
 [e :U 1159 ]
-[; ;drum.c: 85: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T4 == 0) {controlChange(channel,DRUM_CC[7], 127);}
+[; ;drum.c: 85: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T8 == 0) {controlChange(channel,DRUM_CC[7], 127);}
 "85
-[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 3 `i -> 0 `i 1160  ]
+[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 7 `i -> 0 `i 1160  ]
 {
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 7 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 127 `i `uc ]
 }
 [e :U 1160 ]
-[; ;drum.c: 86: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T4 == 1) {controlChange(channel,DRUM_CC[7], 0);}
+[; ;drum.c: 86: if (DRUM_MODE == 1 & CONTROL_MODE == 1 & toggle_state.T8 == 1) {controlChange(channel,DRUM_CC[7], 0);}
 "86
-[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 3 `i -> 1 `i 1161  ]
+[e $ ! & & == -> _DRUM_MODE `i -> 1 `i == -> _CONTROL_MODE `i -> 1 `i == -> . _toggle_state 7 `i -> 1 `i 1161  ]
 {
 [e ( _controlChange (3 , , _channel *U + &U _DRUM_CC * -> -> -> 7 `i `ui `ux -> -> # *U &U _DRUM_CC `ui `ux -> -> 0 `i `uc ]
 }

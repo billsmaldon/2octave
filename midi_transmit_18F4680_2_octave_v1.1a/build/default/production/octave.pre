@@ -16296,7 +16296,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 42 "main.h"
-unsigned long number_of_interrupts = 125;
+unsigned long number_of_interrupts = 250;
 unsigned long count_ISR;
 
 __bit ARPEGGIO_IS_PLAYING;
@@ -17570,7 +17570,7 @@ flag1 = 1;
 flag2 = 1;
 }
 
-
+# 185
 if (semitone_temp > 12) {semitone_temp = 12;}
 if (semitone_temp < -12) {semitone_temp = -12;}
 semitone = semitone_temp;
@@ -17652,7 +17652,7 @@ DISPLAY_MODE = 1;
 strcpy(string_to_display, "Auto");
 }
 
-# 266
+# 271
 if((LATCH == 0) && ((UN_LATCH_MODE == 0) || (UN_LATCH_MODE == 1)) && (NUM_NOTES_PRESSED == 0)){
 NUM_NOTES_PRESSED = 0;
 ARRAY_INDEX = 0;
@@ -17674,7 +17674,7 @@ if(ARPEGGIO_ON == 1) {
 if((button_state_now & 0x08000000) && (drum_button_state_now & 0x01))
 {
 
-# 292
+# 297
 doTheLatch();
 }
 
@@ -17684,7 +17684,7 @@ if((button_state_now & 0x08000000) && (drum_button_state_now & 0x02)) {
 
 doTheUnLatch();
 
-# 378
+# 383
 }
 
 
@@ -17778,7 +17778,7 @@ printThisNumber(octave);
 }
 }
 
-# 475
+# 480
 if(button_state_now == (0x04000000 | 0x08000000)){
 
 if ((octave * 12 + semitone) < 72) {

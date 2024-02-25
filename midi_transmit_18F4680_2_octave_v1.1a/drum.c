@@ -58,32 +58,32 @@ void processDrumpad(void) {
         drum.SW5 = 1;
         if (DRUM_MODE == NOTE) {noteOnDrum(drumchannel,DRUM_NOTE[4],velocity);}
         if (DRUM_MODE == CONTROL & CONTROL_MODE == TRIGGER) {controlChange(channel,DRUM_CC[4], DRUM_CC_ON);}
-        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T1 == 0) {controlChange(channel,DRUM_CC[4], DRUM_CC_ON);}
-        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T1 == 1) {controlChange(channel,DRUM_CC[4], DRUM_CC_OFF);}
+        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T5 == 0) {controlChange(channel,DRUM_CC[4], DRUM_CC_ON);}
+        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T5 == 1) {controlChange(channel,DRUM_CC[4], DRUM_CC_OFF);}
         toggle_state.T5 ^= 1;
     }
     if(((drum_button_state_now) & DRUM_BUTTON_5) && !(button_state_now & BUTTON_27) && !drum.SW6) {
         drum.SW6 = 1;
         if (DRUM_MODE == NOTE) {noteOnDrum(drumchannel,DRUM_NOTE[5],velocity);}
         if (DRUM_MODE == CONTROL & CONTROL_MODE == TRIGGER) {controlChange(channel,DRUM_CC[5], DRUM_CC_ON);}
-        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T2 == 0) {controlChange(channel,DRUM_CC[5], DRUM_CC_ON);}
-        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T2 == 1) {controlChange(channel,DRUM_CC[5], DRUM_CC_OFF);}
+        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T6 == 0) {controlChange(channel,DRUM_CC[5], DRUM_CC_ON);}
+        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T6 == 1) {controlChange(channel,DRUM_CC[5], DRUM_CC_OFF);}
         toggle_state.T6 ^= 1;
     }
     if(((drum_button_state_now) & DRUM_BUTTON_6) && !(button_state_now & BUTTON_27) && !drum.SW7) {
         drum.SW7 = 1;
         if (DRUM_MODE == NOTE) {noteOnDrum(drumchannel,DRUM_NOTE[6],velocity);}
         if (DRUM_MODE == CONTROL & CONTROL_MODE == TRIGGER) {controlChange(channel,DRUM_CC[6], DRUM_CC_ON);}
-        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T3 == 0) {controlChange(channel,DRUM_CC[6], DRUM_CC_ON);}
-        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T3 == 1) {controlChange(channel,DRUM_CC[6], DRUM_CC_OFF);}
+        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T7 == 0) {controlChange(channel,DRUM_CC[6], DRUM_CC_ON);}
+        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T7 == 1) {controlChange(channel,DRUM_CC[6], DRUM_CC_OFF);}
         toggle_state.T7 ^= 1;    
     }
     if(((drum_button_state_now) & DRUM_BUTTON_7) && !(button_state_now & BUTTON_27) && !drum.SW8) {
         drum.SW8 = 1;
         if (DRUM_MODE == NOTE) {noteOnDrum(drumchannel,DRUM_NOTE[7],velocity);}
         if (DRUM_MODE == CONTROL & CONTROL_MODE == TRIGGER) {controlChange(channel,DRUM_CC[7], DRUM_CC_ON);}
-        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T4 == 0) {controlChange(channel,DRUM_CC[7], DRUM_CC_ON);}
-        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T4 == 1) {controlChange(channel,DRUM_CC[7], DRUM_CC_OFF);}
+        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T8 == 0) {controlChange(channel,DRUM_CC[7], DRUM_CC_ON);}
+        if (DRUM_MODE == CONTROL & CONTROL_MODE == TOGGLE & toggle_state.T8 == 1) {controlChange(channel,DRUM_CC[7], DRUM_CC_OFF);}
         toggle_state.T8 ^= 1;
     }    
     

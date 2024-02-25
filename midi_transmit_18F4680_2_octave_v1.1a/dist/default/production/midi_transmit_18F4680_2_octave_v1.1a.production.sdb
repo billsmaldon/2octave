@@ -2304,29 +2304,29 @@ AS_PRESSED 6
 [v _processEncoderBuxton processEncoderBuxton `(v  1 e 1 0 ]
 "23 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\keyboard.c
 [v _processKeyboard processKeyboard `(v  1 e 1 0 ]
-"33
+"42
 [v _playThisNotePentatonic playThisNotePentatonic `(v  1 e 1 0 ]
-"140
+"149
 [v _keyboard_sharps_only_efficient keyboard_sharps_only_efficient `(v  1 e 1 0 ]
-"293
+"302
 [v _playTriad playTriad `(v  1 e 1 0 ]
-"397
+"406
 [v _playSeventh playSeventh `(v  1 e 1 0 ]
-"495
+"504
 [v _playThisNote playThisNote `(v  1 e 1 0 ]
-"592
+"601
 [v _keyboard_all_note_efficient keyboard_all_note_efficient `(v  1 e 1 0 ]
-"904
+"913
 [v _playThisNote8 playThisNote8 `(v  1 e 1 0 ]
-"1069
+"1078
 [v _playDiatonicTriadMajor playDiatonicTriadMajor `(v  1 e 1 0 ]
-"1138
+"1147
 [v _playDiatonicSeventhMajor playDiatonicSeventhMajor `(v  1 e 1 0 ]
-"1211
+"1220
 [v _playDiatonicTriadMinor playDiatonicTriadMinor `(v  1 e 1 0 ]
-"1290
+"1299
 [v _playDiatonicSeventhMinor playDiatonicSeventhMinor `(v  1 e 1 0 ]
-"1369
+"1378
 [v _keyboard_eight_note_efficient keyboard_eight_note_efficient `(v  1 e 1 0 ]
 "21 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\lcd.c
 [v _Lcd_SetBit Lcd_SetBit `(v  1 e 1 0 ]
@@ -2352,13 +2352,13 @@ AS_PRESSED 6
 [v _buttonInputsSerial buttonInputsSerial `(v  1 e 1 0 ]
 "327
 [v _analogInputs analogInputs `(v  1 e 1 0 ]
-"359
+"360
 [v _digitalInputs digitalInputs `(v  1 e 1 0 ]
-"380
+"381
 [v _ISR ISR `II(v  1 e 1 0 ]
-"514
+"515
 [v _panic_button panic_button `(v  1 e 1 0 ]
-"529
+"530
 [v _main main `(i  1 e 2 0 ]
 "27 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _initializeMenuArray initializeMenuArray `(v  1 e 1 0 ]
@@ -2372,101 +2372,101 @@ AS_PRESSED 6
 [v _setControllerResolution setControllerResolution `(v  1 e 1 0 ]
 "125
 [v _setControllerNumbers setControllerNumbers `(v  1 e 1 0 ]
-"242
+"272
 [v _exitFunction exitFunction `(v  1 e 1 0 ]
-"265
+"295
 [v _exitSave exitSave `(v  1 e 1 0 ]
-"285
+"315
 [v _exitLoad exitLoad `(v  1 e 1 0 ]
-"305
+"335
 [v _eepromExit eepromExit `(v  1 e 1 0 ]
-"325
+"355
 [v _menu_lcd menu_lcd `(v  1 e 1 0 ]
-"389
+"419
 [v _un_block_code un_block_code `(v  1 e 1 0 ]
-"422
+"452
 [v _Function_A_1 Function_A_1 `(v  1 e 1 0 ]
-"462
+"494
 [v _Function_A_2 Function_A_2 `(v  1 e 1 0 ]
-"501
+"533
 [v _Function_A_3 Function_A_3 `(v  1 e 1 0 ]
-"539
+"571
 [v _Function_A Function_A `(v  1 e 1 0 ]
-"596
+"628
 [v _Function_B Function_B `(v  1 e 1 0 ]
-"619
+"651
 [v _Function_C_1 Function_C_1 `(v  1 e 1 0 ]
-"646
+"690
 [v _Function_C_2 Function_C_2 `(v  1 e 1 0 ]
-"698
+"759
 [v _Function_C_3 Function_C_3 `(v  1 e 1 0 ]
-"749
+"826
 [v _Function_C Function_C `(v  1 e 1 0 ]
-"778
+"855
 [v _Function_D_1 Function_D_1 `(v  1 e 1 0 ]
-"811
+"888
 [v _Function_D_2 Function_D_2 `(v  1 e 1 0 ]
-"839
+"918
 [v _Function_D_3 Function_D_3 `(v  1 e 1 0 ]
-"867
+"946
 [v _Function_D_4 Function_D_4 `(v  1 e 1 0 ]
-"898
+"977
 [v _Function_D_5 Function_D_5 `(v  1 e 1 0 ]
-"928
+"1007
 [v _Function_D Function_D `(v  1 e 1 0 ]
-"955
+"1034
 [v _Function_E_1 Function_E_1 `(v  1 e 1 0 ]
-"980
+"1062
 [v _Function_E_2 Function_E_2 `(v  1 e 1 0 ]
-"1003
+"1088
 [v _Function_E Function_E `(v  1 e 1 0 ]
-"1026
+"1111
 [v _Function_F Function_F `(v  1 e 1 0 ]
-"1057
+"1147
 [v _Function_G_1 Function_G_1 `(v  1 e 1 0 ]
-"1090
+"1180
 [v _Function_G_2 Function_G_2 `(v  1 e 1 0 ]
-"1123
+"1213
 [v _Function_G_3 Function_G_3 `(v  1 e 1 0 ]
-"1139
+"1229
 [v _Function_G_4 Function_G_4 `(v  1 e 1 0 ]
-"1172
+"1262
 [v _Function_G Function_G `(v  1 e 1 0 ]
-"1200
+"1290
 [v _Function_H Function_H `(v  1 e 1 0 ]
-"1248
+"1338
 [v _Function_H_1 Function_H_1 `(v  1 e 1 0 ]
-"1305
+"1395
 [v _Function_H_2 Function_H_2 `(v  1 e 1 0 ]
-"1336
+"1430
 [v _Function_H_3 Function_H_3 `(v  1 e 1 0 ]
-"1367
+"1465
 [v _Function_H_4 Function_H_4 `(v  1 e 1 0 ]
-"1406
+"1504
 [v _Function_H_5 Function_H_5 `(v  1 e 1 0 ]
-"1443
+"1541
 [v _Function_H_6_1 Function_H_6_1 `(v  1 e 1 0 ]
-"1539
+"1637
 [v _Function_H_6_2 Function_H_6_2 `(v  1 e 1 0 ]
-"1574
+"1672
 [v _Function_H_6 Function_H_6 `(v  1 e 1 0 ]
-"1599
+"1697
 [v _Function_H_7 Function_H_7 `(v  1 e 1 0 ]
-"1636
+"1734
 [v _Function_H_8_1 Function_H_8_1 `(v  1 e 1 0 ]
-"1666
+"1764
 [v _Function_H_8_2 Function_H_8_2 `(v  1 e 1 0 ]
-"1692
+"1790
 [v _Function_H_8 Function_H_8 `(v  1 e 1 0 ]
-"1718
+"1816
 [v _Function_H_9_1 Function_H_9_1 `(v  1 e 1 0 ]
-"1745
+"1843
 [v _Function_H_9_2 Function_H_9_2 `(v  1 e 1 0 ]
-"1772
+"1870
 [v _Function_H_9_3 Function_H_9_3 `(v  1 e 1 0 ]
-"1800
+"1898
 [v _Function_H_9_4 Function_H_9_4 `(v  1 e 1 0 ]
-"1829
+"1927
 [v _Function_H_9 Function_H_9 `(v  1 e 1 0 ]
 "35 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\midi.c
 [v _sendOut sendOut `R(v  1 e 1 0 ]
@@ -2490,11 +2490,11 @@ AS_PRESSED 6
 [v _printThisNumber printThisNumber `(v  1 e 1 0 ]
 "28
 [v _keyboardTranspose keyboardTranspose `(v  1 e 1 0 ]
-"188
+"193
 [v _doTheLatch doTheLatch `(v  1 e 1 0 ]
-"195
+"200
 [v _doTheUnLatch doTheUnLatch `(v  1 e 1 0 ]
-"275
+"280
 [v _processOctave processOctave `(v  1 e 1 0 ]
 "24 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.c
 [v _calculate_alpha calculate_alpha `(v  1 e 1 0 ]
@@ -2649,7 +2649,7 @@ AS_PRESSED 6
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
 "31114
 [v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
-[s S5012 . 1 `uc 1 RD 1 0 :1:0 
+[s S5015 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -2659,11 +2659,11 @@ AS_PRESSED 6
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "31461
-[s S5021 . 1 `uc 1 . 1 0 :6:0 
+[s S5024 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S5024 . 1 `S5012 1 . 1 0 `S5021 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES5024  1 e 1 @4006 ]
+[u S5027 . 1 `S5015 1 . 1 0 `S5024 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES5027  1 e 1 @4006 ]
 "31505
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
 "31511
@@ -2714,7 +2714,7 @@ AS_PRESSED 6
 [v _RBIE RBIE `VEb  1 e 0 @32659 ]
 "34975
 [v _RBIF RBIF `VEb  1 e 0 @32656 ]
-[s S5090 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S5093 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -2724,7 +2724,7 @@ AS_PRESSED 6
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "34976
-[s S5099 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S5102 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -2734,7 +2734,7 @@ AS_PRESSED 6
 `uc 1 GIE 1 0 :1:7 
 ]
 "34976
-[s S5108 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S5111 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -2744,7 +2744,7 @@ AS_PRESSED 6
 `uc 1 GIEH 1 0 :1:7 
 ]
 "34976
-[s S5117 . 1 `uc 1 . 1 0 :1:0 
+[s S5120 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -2754,15 +2754,15 @@ AS_PRESSED 6
 `uc 1 GIE 1 0 :1:7 
 ]
 "34976
-[s S5126 . 1 `uc 1 . 1 0 :6:0 
+[s S5129 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "34976
-[u S5130 . 1 `S5090 1 . 1 0 `S5099 1 . 1 0 `S5108 1 . 1 0 `S5117 1 . 1 0 `S5126 1 . 1 0 ]
+[u S5133 . 1 `S5093 1 . 1 0 `S5102 1 . 1 0 `S5111 1 . 1 0 `S5120 1 . 1 0 `S5129 1 . 1 0 ]
 "34976
 "34976
-[v _INTCONbits INTCONbits `VES5130  1 e 1 @4082 ]
+[v _INTCONbits INTCONbits `VES5133  1 e 1 @4082 ]
 "34981
 [v _RC0 RC0 `VEb  1 e 0 @31760 ]
 "34983
@@ -3126,10 +3126,10 @@ AS_PRESSED 6
 [v _diatonic_seventh_major diatonic_seventh_major `C[15][4]uc  1 e 60 0 ]
 "304
 [v _diatonic_seventh_minor diatonic_seventh_minor `C[15][4]uc  1 e 60 0 ]
-"529 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"530 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"643
+"648
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\rand.c
 [v _srand srand `(v  1 e 1 0 ]
@@ -3146,144 +3146,144 @@ AS_PRESSED 6
 [v _selectSlotOnBoot selectSlotOnBoot `(v  1 e 1 0 ]
 {
 "43
-[v selectSlotOnBoot@slot slot `uc  1 a 1 0 ]
+[v selectSlotOnBoot@slot slot `uc  1 a 1 108 ]
 "52
 } 0
-"514 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"515 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _panic_button panic_button `(v  1 e 1 0 ]
 {
-"519
+"520
 } 0
-"325 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
+"355 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _menu_lcd menu_lcd `(v  1 e 1 0 ]
 {
-"386
+"416
 } 0
 "53 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\lcd.c
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
 {
 "64
 } 0
-"1200 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
+"1290 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _Function_H Function_H `(v  1 e 1 0 ]
 {
-"1229
+"1319
 } 0
-"1829
+"1927
 [v _Function_H_9 Function_H_9 `(v  1 e 1 0 ]
 {
-"1855
+"1953
 } 0
-"1800
+"1898
 [v _Function_H_9_4 Function_H_9_4 `(v  1 e 1 0 ]
 {
-"1825
+"1923
 } 0
-"1772
+"1870
 [v _Function_H_9_3 Function_H_9_3 `(v  1 e 1 0 ]
 {
-"1796
+"1894
 } 0
-"1745
+"1843
 [v _Function_H_9_2 Function_H_9_2 `(v  1 e 1 0 ]
 {
-"1770
+"1868
 } 0
-"1718
+"1816
 [v _Function_H_9_1 Function_H_9_1 `(v  1 e 1 0 ]
 {
-"1742
+"1840
 } 0
-"1692
+"1790
 [v _Function_H_8 Function_H_8 `(v  1 e 1 0 ]
 {
-"1715
+"1813
 } 0
-"1666
+"1764
 [v _Function_H_8_2 Function_H_8_2 `(v  1 e 1 0 ]
 {
-"1689
+"1787
 } 0
-"1636
+"1734
 [v _Function_H_8_1 Function_H_8_1 `(v  1 e 1 0 ]
 {
-"1663
+"1761
 } 0
-"1599
+"1697
 [v _Function_H_7 Function_H_7 `(v  1 e 1 0 ]
 {
-"1633
+"1731
 } 0
-"1574
+"1672
 [v _Function_H_6 Function_H_6 `(v  1 e 1 0 ]
 {
-"1596
+"1694
 } 0
-"1539
+"1637
 [v _Function_H_6_2 Function_H_6_2 `(v  1 e 1 0 ]
 {
-"1571
+"1669
 } 0
-"1443
+"1541
 [v _Function_H_6_1 Function_H_6_1 `(v  1 e 1 0 ]
 {
-"1486
+"1584
 [v Function_H_6_1@temp temp `uc  1 a 1 103 ]
-"1538
+"1636
 } 0
-"1406
+"1504
 [v _Function_H_5 Function_H_5 `(v  1 e 1 0 ]
 {
-"1413
+"1511
 [v Function_H_5@i i `uc  1 a 1 104 ]
-"1439
+"1537
 } 0
-"1367
+"1465
 [v _Function_H_4 Function_H_4 `(v  1 e 1 0 ]
 {
-"1403
+"1501
 } 0
-"1336
+"1430
 [v _Function_H_3 Function_H_3 `(v  1 e 1 0 ]
 {
-"1364
+"1462
 } 0
-"1305
+"1395
 [v _Function_H_2 Function_H_2 `(v  1 e 1 0 ]
 {
-"1333
+"1427
 } 0
-"1248
+"1338
 [v _Function_H_1 Function_H_1 `(v  1 e 1 0 ]
 {
-"1288
+"1378
 [v Function_H_1@temp temp `uc  1 a 1 103 ]
-"1302
+"1392
 } 0
-"1172
+"1262
 [v _Function_G Function_G `(v  1 e 1 0 ]
 {
-"1196
+"1286
 } 0
-"1139
+"1229
 [v _Function_G_4 Function_G_4 `(v  1 e 1 0 ]
 {
-"1169
+"1259
 } 0
-"242
+"272
 [v _exitFunction exitFunction `(v  1 e 1 0 ]
 {
-"262
+"292
 } 0
-"1123
+"1213
 [v _Function_G_3 Function_G_3 `(v  1 e 1 0 ]
 {
-"1137
+"1227
 } 0
-"1090
+"1180
 [v _Function_G_2 Function_G_2 `(v  1 e 1 0 ]
 {
-"1120
+"1210
 } 0
 "54 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\eeprom.c
 [v _loadFromEEPROM loadFromEEPROM `(v  1 e 1 0 ]
@@ -3308,30 +3308,30 @@ AS_PRESSED 6
 [v calculate_pulse_length@s_tick s_tick `d  1 a 4 100 ]
 "159
 } 0
-"285 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
+"315 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _exitLoad exitLoad `(v  1 e 1 0 ]
 {
-"302
+"332
 } 0
-"1057
+"1147
 [v _Function_G_1 Function_G_1 `(v  1 e 1 0 ]
 {
-"1087
+"1177
 } 0
-"265
+"295
 [v _exitSave exitSave `(v  1 e 1 0 ]
 {
-"282
+"312
 } 0
-"305
+"335
 [v _eepromExit eepromExit `(v  1 e 1 0 ]
 {
-"322
+"352
 } 0
-"1026
+"1111
 [v _Function_F Function_F `(v  1 e 1 0 ]
 {
-"1054
+"1144
 } 0
 "225 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\midi.c
 [v _programChange programChange `(v  1 e 1 0 ]
@@ -3344,60 +3344,62 @@ AS_PRESSED 6
 [v programChange@channel channel `uc  1 a 1 2 ]
 "243
 } 0
-"1003 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
+"1088 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _Function_E Function_E `(v  1 e 1 0 ]
 {
-"1023
+"1108
 } 0
-"980
+"1062
 [v _Function_E_2 Function_E_2 `(v  1 e 1 0 ]
 {
-"1000
+"1085
 } 0
-"955
+"1034
 [v _Function_E_1 Function_E_1 `(v  1 e 1 0 ]
 {
-"977
+"1059
 } 0
-"928
+"1007
 [v _Function_D Function_D `(v  1 e 1 0 ]
 {
-"952
+"1031
 } 0
-"898
+"977
 [v _Function_D_5 Function_D_5 `(v  1 e 1 0 ]
 {
-"922
-[v Function_D_5@array_index array_index `uc  1 a 1 103 ]
-"925
+"1001
+[v Function_D_5@array_index array_index `uc  1 a 1 105 ]
+"1004
 } 0
-"867
+"946
 [v _Function_D_4 Function_D_4 `(v  1 e 1 0 ]
 {
-"892
-[v Function_D_4@array_index array_index `uc  1 a 1 103 ]
-"895
+"971
+[v Function_D_4@array_index array_index `uc  1 a 1 105 ]
+"974
 } 0
-"839
+"918
 [v _Function_D_3 Function_D_3 `(v  1 e 1 0 ]
 {
-"861
-[v Function_D_3@array_index array_index `uc  1 a 1 103 ]
-"864
+"940
+[v Function_D_3@array_index array_index `uc  1 a 1 105 ]
+"943
 } 0
 "125
 [v _setControllerNumbers setControllerNumbers `(v  1 e 1 0 ]
 {
 [v setControllerNumbers@array_index array_index `uc  1 a 1 wreg ]
 [v setControllerNumbers@array_index array_index `uc  1 a 1 wreg ]
+"131
+[v setControllerNumbers@printOnce printOnce `b  1 s 0 printOnce ]
 "127
-[v setControllerNumbers@array_index array_index `uc  1 a 1 15 ]
-"239
+[v setControllerNumbers@array_index array_index `uc  1 a 1 104 ]
+"269
 } 0
-"811
+"888
 [v _Function_D_2 Function_D_2 `(v  1 e 1 0 ]
 {
-"836
+"915
 } 0
 "24 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.c
 [v _calculate_alpha calculate_alpha `(v  1 e 1 0 ]
@@ -3424,10 +3426,10 @@ AS_PRESSED 6
 [v ___fldiv@a a `d  1 p 4 43 ]
 "184
 } 0
-"778 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
+"855 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _Function_D_1 Function_D_1 `(v  1 e 1 0 ]
 {
-"808
+"885
 } 0
 "115
 [v _setControllerResolution setControllerResolution `(v  1 e 1 0 ]
@@ -3436,24 +3438,28 @@ AS_PRESSED 6
 [v setControllerResolution@i i `uc  1 a 1 0 ]
 "122
 } 0
-"749
+"826
 [v _Function_C Function_C `(v  1 e 1 0 ]
 {
-"775
+"852
 } 0
-"698
+"759
 [v _Function_C_3 Function_C_3 `(v  1 e 1 0 ]
 {
-"722
+"787
 [v Function_C_3@array_index array_index `uc  1 a 1 104 ]
-"746
+"764
+[v Function_C_3@printOnce printOnce `b  1 s 0 printOnce ]
+"823
 } 0
-"646
+"690
 [v _Function_C_2 Function_C_2 `(v  1 e 1 0 ]
 {
-"670
+"718
 [v Function_C_2@array_index array_index `uc  1 a 1 104 ]
-"695
+"697
+[v Function_C_2@printOnce printOnce `b  1 s 0 printOnce ]
+"756
 } 0
 "86
 [v _int2string int2string `(v  1 e 1 0 ]
@@ -3479,219 +3485,219 @@ AS_PRESSED 6
 [v ___awdiv@divisor divisor `i  1 p 2 -4 ]
 "42
 } 4
-"619 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
+"651 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\menu.c
 [v _Function_C_1 Function_C_1 `(v  1 e 1 0 ]
 {
-"643
+"687
 } 0
-"596
+"628
 [v _Function_B Function_B `(v  1 e 1 0 ]
 {
-"616
+"648
 } 0
-"539
+"571
 [v _Function_A Function_A `(v  1 e 1 0 ]
 {
-"593
+"625
 } 0
-"501
+"533
 [v _Function_A_3 Function_A_3 `(v  1 e 1 0 ]
 {
-"536
+"568
 } 0
-"462
+"494
 [v _Function_A_2 Function_A_2 `(v  1 e 1 0 ]
 {
-"498
+"530
 } 0
-"422
+"452
 [v _Function_A_1 Function_A_1 `(v  1 e 1 0 ]
 {
-"459
+"491
 } 0
-"389
+"419
 [v _un_block_code un_block_code `(v  1 e 1 0 ]
 {
-"419
+"449
 } 0
 "51 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\encoder.c
 [v _processEncoderBuxton processEncoderBuxton `(v  1 e 1 0 ]
 {
 "490
 } 0
-"359 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"360 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _digitalInputs digitalInputs `(v  1 e 1 0 ]
 {
-"377
+"378
 } 0
-"275 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\octave.c
+"280 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\octave.c
 [v _processOctave processOctave `(v  1 e 1 0 ]
 {
-"544
+"549
 } 0
-"195
+"200
 [v _doTheUnLatch doTheUnLatch `(v  1 e 1 0 ]
 {
-"204
+"209
 [v doTheUnLatch@once once `b  1 s 0 once ]
-"272
+"277
 } 0
-"188
+"193
 [v _doTheLatch doTheLatch `(v  1 e 1 0 ]
 {
-"193
+"198
 } 0
 "23 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\keyboard.c
 [v _processKeyboard processKeyboard `(v  1 e 1 0 ]
 {
-"31
+"40
 } 0
-"140
+"149
 [v _keyboard_sharps_only_efficient keyboard_sharps_only_efficient `(v  1 e 1 0 ]
 {
-"143
+"152
 [v keyboard_sharps_only_efficient@index index `uc  1 a 1 24 ]
-"142
+"151
 [v keyboard_sharps_only_efficient@pitch pitch `uc  1 a 1 23 ]
-"291
+"300
 } 0
-"33
+"42
 [v _playThisNotePentatonic playThisNotePentatonic `(v  1 e 1 0 ]
 {
-"51
+"60
 [v playThisNotePentatonic@temp_pitch temp_pitch `uc  1 a 1 22 ]
-"33
+"42
 [v playThisNotePentatonic@index index `uc  1 p 1 17 ]
-"138
+"147
 } 0
-"1369
+"1378
 [v _keyboard_eight_note_efficient keyboard_eight_note_efficient `(v  1 e 1 0 ]
 {
-"1372
+"1381
 [v keyboard_eight_note_efficient@index index `uc  1 a 1 27 ]
-"1371
+"1380
 [v keyboard_eight_note_efficient@pitch pitch `uc  1 a 1 26 ]
-"1587
+"1596
 } 0
-"904
+"913
 [v _playThisNote8 playThisNote8 `(v  1 e 1 0 ]
 {
 [v playThisNote8@pitch pitch `uc  1 a 1 wreg ]
-"963
+"972
 [v playThisNote8@temp_pitch temp_pitch `uc  1 a 1 23 ]
-"906
+"915
 [v playThisNote8@mode_p mode_p `*.25uc  1 a 2 24 ]
-"904
+"913
 [v playThisNote8@pitch pitch `uc  1 a 1 wreg ]
 [v playThisNote8@index index `uc  1 p 1 17 ]
 [v playThisNote8@pitch pitch `uc  1 a 1 22 ]
-"1067
+"1076
 } 0
-"1211
+"1220
 [v _playDiatonicTriadMinor playDiatonicTriadMinor `(v  1 e 1 0 ]
 {
 [v playDiatonicTriadMinor@pitch pitch `uc  1 a 1 wreg ]
-"1242
+"1251
 [v playDiatonicTriadMinor@i_1723 i `uc  1 a 1 8 ]
-"1215
+"1224
 [v playDiatonicTriadMinor@i i `uc  1 a 1 7 ]
-"1211
+"1220
 [v playDiatonicTriadMinor@pitch pitch `uc  1 a 1 wreg ]
 [v playDiatonicTriadMinor@index index `uc  1 p 1 1 ]
-"1214
+"1223
 [v playDiatonicTriadMinor@pitch pitch `uc  1 a 1 6 ]
-"1288
+"1297
 } 0
-"1069
+"1078
 [v _playDiatonicTriadMajor playDiatonicTriadMajor `(v  1 e 1 0 ]
 {
 [v playDiatonicTriadMajor@pitch pitch `uc  1 a 1 wreg ]
-"1094
+"1103
 [v playDiatonicTriadMajor@i_1713 i `uc  1 a 1 7 ]
-"1073
+"1082
 [v playDiatonicTriadMajor@i i `uc  1 a 1 6 ]
-"1069
+"1078
 [v playDiatonicTriadMajor@pitch pitch `uc  1 a 1 wreg ]
 [v playDiatonicTriadMajor@index index `uc  1 p 1 1 ]
-"1072
+"1081
 [v playDiatonicTriadMajor@pitch pitch `uc  1 a 1 8 ]
-"1136
+"1145
 } 0
-"1290
+"1299
 [v _playDiatonicSeventhMinor playDiatonicSeventhMinor `(v  1 e 1 0 ]
 {
 [v playDiatonicSeventhMinor@pitch pitch `uc  1 a 1 wreg ]
-"1322
+"1331
 [v playDiatonicSeventhMinor@i_1728 i `uc  1 a 1 8 ]
-"1294
+"1303
 [v playDiatonicSeventhMinor@i i `uc  1 a 1 7 ]
-"1290
+"1299
 [v playDiatonicSeventhMinor@pitch pitch `uc  1 a 1 wreg ]
 [v playDiatonicSeventhMinor@index index `uc  1 p 1 1 ]
-"1293
+"1302
 [v playDiatonicSeventhMinor@pitch pitch `uc  1 a 1 6 ]
-"1366
+"1375
 } 0
-"1138
+"1147
 [v _playDiatonicSeventhMajor playDiatonicSeventhMajor `(v  1 e 1 0 ]
 {
 [v playDiatonicSeventhMajor@pitch pitch `uc  1 a 1 wreg ]
-"1164
+"1173
 [v playDiatonicSeventhMajor@i_1718 i `uc  1 a 1 7 ]
-"1142
+"1151
 [v playDiatonicSeventhMajor@i i `uc  1 a 1 6 ]
-"1138
+"1147
 [v playDiatonicSeventhMajor@pitch pitch `uc  1 a 1 wreg ]
 [v playDiatonicSeventhMajor@index index `uc  1 p 1 1 ]
-"1141
+"1150
 [v playDiatonicSeventhMajor@pitch pitch `uc  1 a 1 8 ]
-"1209
+"1218
 } 0
-"592
+"601
 [v _keyboard_all_note_efficient keyboard_all_note_efficient `(v  1 e 1 0 ]
 {
-"594
+"603
 [v keyboard_all_note_efficient@pitch pitch `uc  1 a 1 22 ]
-"902
+"911
 } 0
-"495
+"504
 [v _playThisNote playThisNote `(v  1 e 1 0 ]
 {
 [v playThisNote@pitch pitch `uc  1 a 1 wreg ]
 [v playThisNote@pitch pitch `uc  1 a 1 wreg ]
-"497
+"506
 [v playThisNote@pitch pitch `uc  1 a 1 21 ]
-"589
+"598
 } 0
-"293
+"302
 [v _playTriad playTriad `(v  1 e 1 0 ]
 {
 [v playTriad@pitch pitch `uc  1 a 1 wreg ]
-"349
+"358
 [v playTriad@i_1691 i `uc  1 a 1 8 ]
-"327
+"336
 [v playTriad@i i `uc  1 a 1 7 ]
-"295
+"304
 [v playTriad@triad_p triad_p `*.39uc  1 a 2 5 ]
-"293
+"302
 [v playTriad@pitch pitch `uc  1 a 1 wreg ]
 [v playTriad@pitch pitch `uc  1 a 1 9 ]
-"395
+"404
 } 0
-"397
+"406
 [v _playSeventh playSeventh `(v  1 e 1 0 ]
 {
 [v playSeventh@pitch pitch `uc  1 a 1 wreg ]
-"447
+"456
 [v playSeventh@i_1696 i `uc  1 a 1 8 ]
-"424
+"433
 [v playSeventh@i i `uc  1 a 1 7 ]
-"399
+"408
 [v playSeventh@seventh_p seventh_p `*.39uc  1 a 2 5 ]
-"397
+"406
 [v playSeventh@pitch pitch `uc  1 a 1 wreg ]
 [v playSeventh@pitch pitch `uc  1 a 1 9 ]
-"493
+"502
 } 0
 "123 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\midi.c
 [v _noteOn noteOn `R(v  1 e 1 0 ]
@@ -3838,7 +3844,7 @@ AS_PRESSED 6
 [v keyboardTranspose@semitone_temp semitone_temp `c  1 s 1 semitone_temp ]
 "31
 [v keyboardTranspose@keyPress keyPress `b  1 s 0 keyPress ]
-"186
+"191
 } 0
 "20 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.c
 [v _wait_one_pulse wait_one_pulse `(v  1 e 1 0 ]
@@ -3859,7 +3865,7 @@ AS_PRESSED 6
 [v _buttonInputsSerial buttonInputsSerial `(v  1 e 1 0 ]
 {
 "320
-[v buttonInputsSerial@i_4479 i `uc  1 a 1 5 ]
+[v buttonInputsSerial@i_4482 i `uc  1 a 1 5 ]
 "314
 [v buttonInputsSerial@i i `uc  1 a 1 4 ]
 "324
@@ -3877,15 +3883,15 @@ AS_PRESSED 6
 "327
 [v _analogInputs analogInputs `(v  1 e 1 0 ]
 {
-"356
+"357
 } 0
 "34 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\potentiometers.c
 [v _readPotentiometers readPotentiometers `(v  1 e 1 0 ]
 {
 "64
-[v readPotentiometers@i_3435 i `uc  1 a 1 6 ]
+[v readPotentiometers@i_3438 i `uc  1 a 1 6 ]
 "57
-[v readPotentiometers@i_3434 i `uc  1 a 1 4 ]
+[v readPotentiometers@i_3437 i `uc  1 a 1 4 ]
 "40
 [v readPotentiometers@i i `uc  1 a 1 5 ]
 "74
@@ -4052,17 +4058,17 @@ AS_PRESSED 6
 "8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S5455 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S5458 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S5460 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S5463 . 4 `l 1 i 4 0 `d 1 f 4 0 `S5455 1 fAsBytes 4 0 `S5460 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S5463  1 a 4 33 ]
+[s S5463 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S5466 . 4 `l 1 i 4 0 `d 1 f 4 0 `S5458 1 fAsBytes 4 0 `S5463 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S5466  1 a 4 33 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 28 ]
-[s S5531 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S5534 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S5534 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S5531 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S5534  1 a 2 37 ]
+[u S5537 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S5534 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S5537  1 a 2 37 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11
@@ -4258,10 +4264,10 @@ AS_PRESSED 6
 {
 "32
 } 0
-"380 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
+"381 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\main.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"511
+"512
 } 0
 "277 C:\Users\Bill\MPLABXProjects\midi_transmit_18F4680_2_octave_v1.1a\arpeggio.c
 [v _playArpeggio playArpeggio `(v  1 e 1 0 ]

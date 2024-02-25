@@ -12198,9 +12198,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42 main.h
 [v _number_of_interrupts `ul ~T0 @X0 1 e ]
 [i _number_of_interrupts
--> -> -> 125 `i `l `ul
+-> -> -> 250 `i `l `ul
 ]
-[; ;main.h: 42: unsigned long number_of_interrupts = 125;
+[; ;main.h: 42: unsigned long number_of_interrupts = 250;
 "43
 [v _count_ISR `ul ~T0 @X0 1 e ]
 [; ;main.h: 43: unsigned long count_ISR;
@@ -14711,12 +14711,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;midi.c: 112: statusByte = channel | note_off;
 "112
 [e = _statusByte -> | -> _channel `i -> . `E13781 1 `i `uc ]
-[; ;midi.c: 116: sendUSB(statusByte, noteNumber, velocity);
+[; ;midi.c: 116: sendUSB(statusByte, noteNumber, 0);
 "116
-[e ( _sendUSB (3 , , _statusByte _noteNumber _velocity ]
-[; ;midi.c: 119: sendOut(statusByte, noteNumber, velocity);
+[e ( _sendUSB (3 , , _statusByte _noteNumber -> -> 0 `i `uc ]
+[; ;midi.c: 119: sendOut(statusByte, noteNumber, 0);
 "119
-[e ( _sendOut (3 , , _statusByte _noteNumber _velocity ]
+[e ( _sendOut (3 , , _statusByte _noteNumber -> -> 0 `i `uc ]
 [; ;midi.c: 120: }
 "120
 [e :UE 1140 ]
@@ -14736,11 +14736,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;midi.c: 126: statusByte = channel | note_on;
 "126
 [e = _statusByte -> | -> _channel `i -> . `E13781 0 `i `uc ]
-[; ;midi.c: 129: if (velocity == 0) {noteOff(channel, pitch, velocity);return;}
+[; ;midi.c: 129: if (velocity == 0) {noteOff(channel, pitch, 0);return;}
 "129
 [e $ ! == -> _velocity `i -> 0 `i 1142  ]
 {
-[e ( _noteOff (3 , , _channel _pitch _velocity ]
+[e ( _noteOff (3 , , _channel _pitch -> -> 0 `i `uc ]
 [e $UE 1141  ]
 }
 [e :U 1142 ]
